@@ -3,13 +3,13 @@ name: maintain-verification-skill
 description: "Periodic pass that keeps a project's verification skill and feature map honest: parallel source readers per feature, one live session driving every feature, at most one PR of proven corrections. Use for /maintain-verification-skill or \"audit the verify skill\"."
 license: MIT
 metadata:
-  author: lauren-tan-pstack
+  author: jstack-maintainers
   source: michael-denyer/pstack-claude
   source-version: "0.9.29"
   source-commit: 458050195fdb347955a63812e6d749f164a8f62d
   owner: software-factory
   risk: medium
-  capabilities: pstack,verification
+  capabilities: jstack,verification
 ---
 
 # Maintain a verification skill

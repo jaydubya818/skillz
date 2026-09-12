@@ -3,13 +3,13 @@ name: principle-build-the-lever
 description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun. Use this skill when the user asks for principle build the lever or the task clearly matches this workflow."
 license: MIT
 metadata:
-  author: lauren-tan-pstack
+  author: jstack-maintainers
   source: michael-denyer/pstack-claude
   source-version: "0.9.29"
   source-commit: 458050195fdb347955a63812e6d749f164a8f62d
   owner: software-factory
   risk: low
-  capabilities: pstack,engineering-principle
+  capabilities: jstack,engineering-principle
 user-invocable: false
 ---
 # Build the Lever

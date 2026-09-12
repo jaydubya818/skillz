@@ -3,13 +3,13 @@ name: principle-type-system-discipline
 description: "Apply when designing types, reviewing a function signature, or writing code in any statically-typed language. Make illegal states unrepresentable, brand semantic primitives, parse external data at boundaries, refuse to lie to the compiler, exhaust variants, derive from authoritative schemas."
 license: MIT
 metadata:
-  author: lauren-tan-pstack
+  author: jstack-maintainers
   source: michael-denyer/pstack-claude
   source-version: "0.9.29"
   source-commit: 458050195fdb347955a63812e6d749f164a8f62d
   owner: software-factory
   risk: low
-  capabilities: pstack,engineering-principle
+  capabilities: jstack,engineering-principle
 user-invocable: false
 ---
 

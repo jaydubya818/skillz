@@ -3,7 +3,7 @@ name: unslop
 description: Use this skill when writing or editing text for a human reader, including commit messages, pull-request copy, documentation, code comments, and replies. Cut AI tells before committing, posting, or sending, while leaving prose you did not touch alone.
 license: LICENSE
 metadata:
-  author: pstack
+  author: jstack-maintainers
   version: "1.0.0"
   owner: software-factory
   risk: low

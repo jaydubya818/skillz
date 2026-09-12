@@ -3,13 +3,13 @@ name: recall
 description: "Reconstruct your recent working context from your own chat history, live state, and the shared record (user reports, prior fixes, incidents), then hand back a tight current-state brief. Use for 'recall my work on X', 'catch me up', 'what have I been working on', 'where did I leave off', before starting or resuming work, and before telling the user that something was never recorded."
 license: MIT
 metadata:
-  author: lauren-tan-pstack
+  author: jstack-maintainers
   source: michael-denyer/pstack-claude
   source-version: "0.9.29"
   source-commit: 458050195fdb347955a63812e6d749f164a8f62d
   owner: software-factory
   risk: low
-  capabilities: pstack,engineering-research
+  capabilities: jstack,engineering-research
 ---
 
 # Recall

@@ -18,7 +18,7 @@ CORE_SKILLS = {
 
 
 def expected_skills() -> set[str]:
-    vendor = json.loads((ROOT / "vendor" / "pstack.json").read_text())
+    vendor = json.loads((ROOT / "vendor" / "jstack.json").read_text())
     assert vendor["schema"] == "vendored-agent-skills/v1"
     assert vendor["excluded"] == {
         "unslop": "the collection keeps its existing enhanced definition"
@@ -77,20 +77,35 @@ def test_plugin_manifests_target_shared_skills_directory():
     claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
     codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text())
     assert claude["name"] == codex["name"] == "software-factory-skills"
-    assert claude["version"] == codex["version"] == "1.0.0"
+    assert claude["version"] == codex["version"] == "2.0.0"
     assert codex["skills"] == "./skills/"
 
 
-def test_pstack_vendor_is_pinned_attributed_and_hardened():
-    vendor = json.loads((ROOT / "vendor" / "pstack.json").read_text())
+def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():
+    vendor = json.loads((ROOT / "vendor" / "jstack.json").read_text())
     assert vendor["version"] == "0.9.29"
     assert vendor["commit"] == "458050195fdb347955a63812e6d749f164a8f62d"
     assert len(vendor["imported"]) == 53
+    assert "setup-jstack" in vendor["imported"]
+    assert "setup-pstack" not in vendor["imported"]
+    assert not (ROOT / "vendor" / "pstack.json").exists()
+    assert not (ROOT / "scripts" / "vendor_pstack.py").exists()
+    assert not (ROOT / "docs" / "PSTACK_REVIEW.md").exists()
+    assert not (SKILLS / "setup-pstack").exists()
     for name in vendor["imported"]:
         block = frontmatter(SKILLS / name / "SKILL.md")
         assert "source: michael-denyer/pstack-claude" in block
         assert f"source-commit: {vendor['commit']}" in block
         assert "license: MIT" in block
+        assert "capabilities: jstack," in block
+
+        openai = (SKILLS / name / "agents" / "openai.yaml").read_text()
+        assert "pstack workflow" not in openai.lower()
+
+    setup = (SKILLS / "setup-jstack" / "SKILL.md").read_text()
+    assert "name: setup-jstack" in setup
+    assert "jstack-models.md" in setup
+    assert "pstack-models.md" not in setup
 
     mode = (SKILLS / "poteto-mode" / "SKILL.md").read_text()
     assert "Poteto mode selects methods; it never broadens the authorized scope" in mode

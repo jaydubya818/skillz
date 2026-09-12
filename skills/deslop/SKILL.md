@@ -3,13 +3,13 @@ name: deslop
 description: "Remove AI-generated code slop and clean up code style Use this skill when the user asks for deslop or the task clearly matches this workflow."
 license: MIT
 metadata:
-  author: lauren-tan-pstack
+  author: jstack-maintainers
   source: michael-denyer/pstack-claude
   source-version: "0.9.29"
   source-commit: 458050195fdb347955a63812e6d749f164a8f62d
   owner: software-factory
   risk: medium
-  capabilities: pstack,engineering-workflow
+  capabilities: jstack,engineering-workflow
 ---
 
 # Remove AI code slop

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Vendor the pstack Agent Skills tree with cross-harness metadata."""
+"""Build the Jstack distribution from the upstream pstack Agent Skills tree."""
 
 from __future__ import annotations
 
@@ -13,8 +13,42 @@ import subprocess
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DESTINATION = REPO_ROOT / "skills"
-MANIFEST = REPO_ROOT / "vendor" / "pstack.json"
+MANIFEST = REPO_ROOT / "vendor" / "jstack.json"
 EXCLUDED = {"unslop": "the collection keeps its existing enhanced definition"}
+LOCAL_NAME_BY_SOURCE = {"setup-pstack": "setup-jstack"}
+
+JSTACK_BRANDING_REPLACEMENTS = (
+    ("setup-pstack", "setup-jstack"),
+    ("pstack-models", "jstack-models"),
+    ("pstack:poteto-agent", "jstack:poteto-agent"),
+    ("pstack:comment-sicko", "jstack:comment-sicko"),
+    ("Configure which models pstack uses", "Configure which models Jstack uses"),
+    ("configure pstack models", "configure Jstack models"),
+    ("with the pstack workflow", "with the Jstack workflow"),
+    ("for pstack workflows", "for Jstack workflows"),
+    ("pstack workflows", "Jstack workflows"),
+    ("pstack skills", "Jstack skills"),
+    ("pstack skill", "Jstack skill"),
+    ("pstack SKILL.md", "Jstack SKILL.md"),
+    ("pstack's model choices", "Jstack's model choices"),
+    ("pstack poteto-mode tooling", "Jstack poteto-mode tooling"),
+    ("Codex tool mapping for pstack", "Codex tool mapping for Jstack"),
+    ("pstack / Claude action", "Jstack / Claude action"),
+    ("skills pstack references", "Jstack references"),
+    ("named in pstack", "named in Jstack"),
+    ("# Setup pstack", "# Setup Jstack"),
+    ("# pstack model configuration", "# Jstack model configuration"),
+    ("fix(pstack):", "fix(jstack):"),
+    ("such as `pstack`", "such as `jstack`"),
+    (
+        "Role defaults, stamped from `plugins/pstack/models.json` (edit there, rerun `tools/generate.mjs`).",
+        "Role defaults originate from the upstream `plugins/pstack/models.json`. Refresh them through `scripts/vendor_jstack.py` after reviewing the upstream change.",
+    ),
+    (
+        "Stamped from `plugins/pstack/models.json` (edit there, rerun `tools/generate.mjs`).",
+        "Defaults originate from the upstream `plugins/pstack/models.json`. Refresh them through `scripts/vendor_jstack.py` after reviewing the upstream change.",
+    ),
+)
 
 SHORT_DESCRIPTIONS = {
     "architect": "Design types and module boundaries before coding",
@@ -37,7 +71,7 @@ SHORT_DESCRIPTIONS = {
     "poteto-mode": "Route nontrivial work through rigorous workflows",
     "recall": "Reconstruct recent project context from scoped records",
     "reflect": "Turn approved session learnings into durable improvements",
-    "setup-pstack": "Configure per-role model choices for pstack workflows",
+    "setup-jstack": "Configure per-role model choices for Jstack workflows",
     "show-me-your-work": "Keep an auditable decision log for long-running work",
     "swarm": "Coordinate parallel workers and return one checked result",
     "tdd": "Reproduce a bug with a focused test before fixing it",
@@ -62,7 +96,7 @@ MEDIUM_RISK = {
     "maintain-verification-skill",
     "no-comments",
     "reflect",
-    "setup-pstack",
+    "setup-jstack",
     "swarm",
     "tdd",
 }
@@ -232,12 +266,28 @@ def decode_description(value: str, path: Path) -> str:
     return value
 
 
+def apply_jstack_branding(path: Path) -> None:
+    """Rename local product identifiers without rewriting upstream provenance."""
+    for target in path.rglob("*"):
+        if not target.is_file() or "licenses" in target.parts:
+            continue
+        try:
+            text = target.read_text()
+        except UnicodeDecodeError:
+            continue
+        branded = text
+        for old, new in JSTACK_BRANDING_REPLACEMENTS:
+            branded = branded.replace(old, new)
+        if branded != text:
+            target.write_text(branded)
+
+
 def normalize_skill(path: Path, *, version: str, commit: str) -> None:
     skill_file = path / "SKILL.md"
     text = skill_file.read_text()
     for old, new in HARDENINGS.get(path.name, []):
         if old not in text:
-            raise ValueError(f"pstack hardening anchor changed in {skill_file}: {old[:80]!r}")
+            raise ValueError(f"Jstack hardening anchor changed in {skill_file}: {old[:80]!r}")
         text = text.replace(old, new, 1)
     for relative_path, replacements in HARDENINGS.items():
         if "/" not in relative_path or not relative_path.startswith(f"{path.name}/"):
@@ -246,7 +296,7 @@ def normalize_skill(path: Path, *, version: str, commit: str) -> None:
         target_text = target.read_text()
         for old, new in replacements:
             if old not in target_text:
-                raise ValueError(f"pstack hardening anchor changed in {target}: {old[:80]!r}")
+                raise ValueError(f"Jstack hardening anchor changed in {target}: {old[:80]!r}")
             target_text = target_text.replace(old, new, 1)
         target.write_text(target_text)
     lines = text.splitlines()
@@ -287,13 +337,13 @@ def normalize_skill(path: Path, *, version: str, commit: str) -> None:
         f"description: {json.dumps(description)}",
         "license: MIT",
         "metadata:",
-        "  author: lauren-tan-pstack",
+        "  author: jstack-maintainers",
         "  source: michael-denyer/pstack-claude",
         f'  source-version: "{version}"',
         f"  source-commit: {commit}",
         "  owner: software-factory",
         f"  risk: {risk_for(name)}",
-        f"  capabilities: pstack,{capability_for(name)}",
+        f"  capabilities: jstack,{capability_for(name)}",
         *preserved,
     ]
     skill_file.write_text("\n".join(["---", *new_frontmatter, "---", *lines[close + 1 :]]) + "\n")
@@ -304,7 +354,7 @@ def normalize_skill(path: Path, *, version: str, commit: str) -> None:
         default = f"Use ${name} to apply this engineering principle to the current decision."
     else:
         short = SHORT_DESCRIPTIONS[name]
-        default = f"Use ${name} to handle this task with the pstack workflow and return a verified result."
+        default = f"Use ${name} to handle this task with the Jstack workflow and return a verified result."
     if not 25 <= len(short) <= 64:
         raise ValueError(f"short description for {name} must be 25-64 characters: {short!r}")
     agents = path / "agents"
@@ -330,16 +380,29 @@ def main() -> int:
         raise SystemExit(f"unexpected source remote: {remote}")
 
     source_names = sorted(path.name for path in source_skills.iterdir() if (path / "SKILL.md").is_file())
-    imported = [name for name in source_names if name not in EXCLUDED]
+    imported_sources = [name for name in source_names if name not in EXCLUDED]
+    imported = [LOCAL_NAME_BY_SOURCE.get(name, name) for name in imported_sources]
     conflicts = [name for name in imported if (DESTINATION / name).exists()]
+    legacy_destinations = [
+        DESTINATION / source_name
+        for source_name, local_name in LOCAL_NAME_BY_SOURCE.items()
+        if source_name != local_name and (DESTINATION / source_name).exists()
+    ]
     if conflicts and not args.replace:
         raise SystemExit(f"destination skills already exist; rerun with --replace: {', '.join(conflicts)}")
+    if legacy_destinations and not args.replace:
+        names = ", ".join(path.name for path in legacy_destinations)
+        raise SystemExit(f"legacy skill names still exist; rerun with --replace: {names}")
 
-    for name in imported:
-        destination = DESTINATION / name
+    for legacy in legacy_destinations:
+        shutil.rmtree(legacy)
+
+    for source_name, local_name in zip(imported_sources, imported, strict=True):
+        destination = DESTINATION / local_name
         if destination.exists():
             shutil.rmtree(destination)
-        shutil.copytree(source_skills / name, destination)
+        shutil.copytree(source_skills / source_name, destination)
+        apply_jstack_branding(destination)
         normalize_skill(destination, version=version, commit=commit)
 
     MANIFEST.parent.mkdir(exist_ok=True)
@@ -357,7 +420,7 @@ def main() -> int:
         )
         + "\n"
     )
-    print(f"Vendored {len(imported)} pstack skills at {version} ({commit[:12]})")
+    print(f"Built {len(imported)} Jstack skills from upstream {version} ({commit[:12]})")
     return 0
 
 

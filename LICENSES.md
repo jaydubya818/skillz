@@ -3,7 +3,7 @@
 This repository is a collection of independently sourced skills. It does not
 apply one blanket license to every directory.
 
-- Pstack-derived skills are imported from
+- Jstack-derived skills are imported from
   [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
   under the MIT license. The complete license and upstream notices are in
   [`skills/poteto-mode/references/licenses/`](skills/poteto-mode/references/licenses/).

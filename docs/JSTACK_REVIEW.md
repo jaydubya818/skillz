@@ -1,4 +1,4 @@
-# Pstack integration review
+# Jstack integration review
 
 ## Decision
 
@@ -10,8 +10,8 @@ the same skill name and Mission Control rejects ambiguous definitions.
 
 The imported tree includes 30 user-facing workflows and 23 internal
 `principle-*` references. Its source files, scripts, and relative references
-stay intact. `scripts/vendor_pstack.py` applies the integration layer and
-`vendor/pstack.json` records the exact input.
+stay intact. `scripts/vendor_jstack.py` applies the integration layer and
+`vendor/jstack.json` records the exact input.
 
 ## What the integration adds
 
@@ -25,7 +25,7 @@ stay intact. `scripts/vendor_pstack.py` applies the integration layer and
 
 ## Safety and compatibility changes
 
-Pstack's core methods are strong: design before implementation, test observable
+Jstack's core methods are strong: design before implementation, test observable
 behavior, inspect blast radius, keep work reviewable, and use evidence. Several
 defaults were too broad for a governed software factory. The vendor tool makes
 these changes every time the source is refreshed:
@@ -72,7 +72,7 @@ Good default routes:
 
 ## What not to make automatic
 
-- Do not port pstack's Claude Code `SessionStart` hook into this collection.
+- Do not port the upstream Claude Code `SessionStart` hook into this collection.
   Codex has no equivalent hook, and unconditional injection would bypass
   project-specific routing and consume context on trivial tasks.
 - Do not auto-enable multi-agent fan-out. Use it only when a selected workflow
@@ -88,12 +88,12 @@ Good default routes:
 Clone or fetch the upstream repository, inspect its release notes, then run:
 
 ```bash
-python3 scripts/vendor_pstack.py /path/to/pstack-claude --replace
+python3 scripts/vendor_jstack.py /path/to/pstack-claude --replace
 python3 -m pytest tests/ -q
 git diff --check
 ```
 
-Review changes to `vendor/pstack.json`, every reported hardening anchor, the
+Review changes to `vendor/jstack.json`, every reported hardening anchor, the
 Codex mapping, and the upstream notices before accepting the refresh. The tool
 stops if upstream changes a hardening anchor or introduces its own `metadata`
 schema, so those changes cannot silently erase the integration policy.

@@ -1,7 +1,7 @@
 {
   "name": "software-factory-skills",
-  "version": "1.0.0",
-  "description": "Reusable delivery, architecture, evidence, review, and writing skills for production software work.",
+  "version": "2.0.0",
+  "description": "Jstack delivery, architecture, evidence, review, and writing skills for production software work.",
   "author": {
     "name": "Software Factory contributors"
   },
@@ -9,22 +9,23 @@
   "repository": "https://github.com/jaydubya818/skillz",
   "keywords": [
     "software-factory",
+    "jstack",
     "delivery",
     "testing",
     "code-review"
   ],
   "skills": "./skills/",
   "interface": {
-    "displayName": "Software Factory Skills",
+    "displayName": "Jstack Software Factory Skills",
     "shortDescription": "Production delivery skills for coding agents.",
-    "longDescription": "A cross-harness skill set for isolated implementation, clear architecture, durable evidence, bounded review, and governed Mission Control delivery.",
+    "longDescription": "Jstack is a cross-harness skill set for isolated implementation, clear architecture, durable evidence, bounded review, and governed Mission Control delivery.",
     "developerName": "Software Factory contributors",
     "category": "Productivity",
     "capabilities": [
-      "Cross-harness skills",
+      "Jstack cross-harness skills",
       "Governed delivery",
       "Evidence and review"
     ],
-    "defaultPrompt": "Use the relevant Software Factory skills to complete this change with evidence."
+    "defaultPrompt": "Use the relevant Jstack Software Factory skills to complete this change with evidence."
   }
 }

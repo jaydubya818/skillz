@@ -3,13 +3,13 @@ name: principle-never-block-on-the-human
 description: "Apply when tempted to ask about a low-risk, reversible implementation detail inside the authorized scope. Proceed and present the result, but preserve product-owner decisions, approval policy, and external-write boundaries."
 license: MIT
 metadata:
-  author: lauren-tan-pstack
+  author: jstack-maintainers
   source: michael-denyer/pstack-claude
   source-version: "0.9.29"
   source-commit: 458050195fdb347955a63812e6d749f164a8f62d
   owner: software-factory
   risk: low
-  capabilities: pstack,engineering-principle
+  capabilities: jstack,engineering-principle
 user-invocable: false
 ---
 

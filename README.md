@@ -2,11 +2,15 @@
 
 Production-minded Agent Skills for Claude Code, Codex, and Mission Control.
 
+Jstack is this repository's governed, cross-harness distribution of the
+planning, implementation, review, and engineering-principle skills imported
+from the credited upstream sources.
+
 This repository packages 61 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
-- 30 pstack workflows for planning, implementation, review, and operations
-- 23 pstack engineering principles
+- 30 Jstack workflows for planning, implementation, review, and operations
+- 23 Jstack engineering principles
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code
@@ -28,7 +32,7 @@ Skillz provides:
 - one source of truth for Claude Code, Codex, and Agent Skills-compatible tools
 - explicit activation descriptions instead of loading every skill into context
 - a Mission Control delivery contract from mission to release evidence
-- a pinned, reproducible pstack import with source attribution
+- a pinned, reproducible Jstack distribution with upstream attribution
 - tightened authority boundaries for external writes and product decisions
 - conflict-safe user and project installers
 - package, link, manifest, installer, and workflow tests
@@ -205,7 +209,7 @@ propose an action that requires approval in the current task.
 | [`new-feature`](skills/new-feature/SKILL.md) | Low | Isolate repository edits in a task-owned worktree without disturbing other work. Use before features, fixes, or documentation changes that edit Git. |
 | [`unslop`](skills/unslop/SKILL.md) | Low | Remove filler, generic AI phrasing, and mechanical prose from human-facing writing. Use on documentation, PR copy, comments, commits, and replies you edit. |
 
-### Pstack planning, architecture, and understanding
+### Jstack planning, architecture, and understanding
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
@@ -216,7 +220,7 @@ propose an action that requires approval in the current task.
 | [`teach`](skills/teach/SKILL.md) | Low | Combine `how` and `why` into one plain-language explanation that builds a usable mental model. |
 | [`why`](skills/why/SKILL.md) | Low | Recover design rationale from source history, issues, documents, chat, observability, and analytics, then return a cited explanation. |
 
-### Pstack implementation and quality
+### Jstack implementation and quality
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
@@ -229,7 +233,7 @@ propose an action that requires approval in the current task.
 | [`technical-writing`](skills/technical-writing/SKILL.md) | Low | Apply Diátaxis structure, direct developer style, controlled instructions, and globally readable English to technical prose. |
 | [`typescript-best-practices`](skills/typescript-best-practices/SKILL.md) | Low | Apply focused TypeScript type-safety, API, error-handling, and maintainability guidance when reading or editing `.ts` and `.tsx`. |
 
-### Pstack parallel work and adversarial review
+### Jstack parallel work and adversarial review
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
@@ -238,7 +242,7 @@ propose an action that requires approval in the current task.
 | [`swarm`](skills/swarm/SKILL.md) | Medium | Fan out bounded, independent work and synthesize one result. Use only when parallelism is authorized and the tasks do not share mutable state. |
 | [`thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review/SKILL.md) | Low | Run an intentionally strict maintainability review for poor abstractions, giant files, branching growth, and reader load. |
 
-### Pstack pull-request and delivery workflows
+### Jstack pull-request and delivery workflows
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
@@ -249,7 +253,7 @@ propose an action that requires approval in the current task.
 | [`make-pr-easy-to-review`](skills/make-pr-easy-to-review/SKILL.md) | Medium | Reduce review friction through clear history, a useful description, and reviewer guidance without changing code behavior. |
 | [`what-did-i-get-done`](skills/what-did-i-get-done/SKILL.md) | Low | Summarize authored commits over a requested time window into a concise status update. |
 
-### Pstack context and operating workflows
+### Jstack context and operating workflows
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
@@ -257,10 +261,10 @@ propose an action that requires approval in the current task.
 | [`poteto-mode`](skills/poteto-mode/SKILL.md) | High | Select a rigorous workflow, keep prose concise, use parallel work deliberately, prefer simple code, and demand verification. It never broadens the active task’s authority. |
 | [`recall`](skills/recall/SKILL.md) | Low | Reconstruct current project context from the active harness’s workspace-scoped history, live state, and shared records. |
 | [`reflect`](skills/reflect/SKILL.md) | Medium | Review the active transcript from multiple angles and turn reusable lessons into authorized improvements to existing skills. |
-| [`setup-pstack`](skills/setup-pstack/SKILL.md) | Medium | Configure confirmed model choices for pstack roles. Claude-specific model overrides remain optional and explicit. |
+| [`setup-jstack`](skills/setup-jstack/SKILL.md) | Medium | Configure confirmed model choices for Jstack roles. Claude-specific model overrides remain optional and explicit. |
 | [`show-me-your-work`](skills/show-me-your-work/SKILL.md) | Low | Keep a TSV decision trail for long-running work, recording what changed, why, evidence, and result. Commit it only when a reviewer needs it. |
 
-### Pstack engineering principles: 23 skills
+### Jstack engineering principles: 23 skills
 
 These are focused reasoning aids. They should be loaded when the situation
 matches, not injected into every task.
@@ -291,7 +295,7 @@ matches, not injected into every task.
 | [`principle-test-behavior-not-implementation`](skills/principle-test-behavior-not-implementation/SKILL.md) | Writing or reviewing tests; call code as users do and assert literal observable outcomes. |
 | [`principle-type-system-discipline`](skills/principle-type-system-discipline/SKILL.md) | Designing typed APIs; make invalid states unrepresentable and parse external data at boundaries. |
 
-## Pstack provenance and hardening
+## Jstack provenance and hardening
 
 The collection imports 53 unique skills from
 [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
@@ -300,14 +304,14 @@ v0.9.29 at commit
 Its duplicate `unslop` is excluded because this collection keeps the existing
 enhanced definition as the canonical skill.
 
-[`vendor/pstack.json`](vendor/pstack.json) records the exact source, revision,
-53 imported names, and exclusion. [`scripts/vendor_pstack.py`](scripts/vendor_pstack.py)
+[`vendor/jstack.json`](vendor/jstack.json) records the exact source, revision,
+53 imported names, and exclusion. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
 rebuilds the import instead of relying on an undocumented manual copy.
 
-The integration preserves pstack’s design-first, evidence-driven methods while
+The integration preserves the upstream design-first, evidence-driven methods while
 tightening assumptions that are too broad for a governed software factory:
 
-- system, user, Mission Control, and repository rules override pstack methods
+- system, user, Mission Control, and repository rules override Jstack methods
 - reversible actions still require authority when they write to external state
 - team messages, ticket updates, eval launches, publishing, merging,
   deployment, spending, and destructive cleanup are not implicitly authorized
@@ -318,15 +322,15 @@ tightening assumptions that are too broad for a governed software factory:
 - multi-agent fan-out remains task-selected and harness-authorized
 
 The complete integration rationale is in
-[`docs/PSTACK_REVIEW.md`](docs/PSTACK_REVIEW.md).
+[`docs/JSTACK_REVIEW.md`](docs/JSTACK_REVIEW.md).
 
-### Updating pstack
+### Updating Jstack
 
 Review upstream release notes and breaking changes first. Then clone or fetch a
 clean upstream checkout and run:
 
 ```bash
-python3 scripts/vendor_pstack.py /path/to/pstack-claude --replace
+python3 scripts/vendor_jstack.py /path/to/pstack-claude --replace
 python3 -m pytest tests -q
 git diff --check
 ```
@@ -338,7 +342,7 @@ changes cannot disappear silently.
 
 After a refresh, review:
 
-1. `vendor/pstack.json`
+1. `vendor/jstack.json`
 2. every changed `SKILL.md`, script, and reference
 3. upstream licenses and notices
 4. Codex tool mappings
@@ -352,10 +356,10 @@ skillz/
 ├── .claude-plugin/plugin.json     # Claude Code plugin metadata
 ├── .codex-plugin/plugin.json      # Codex plugin metadata
 ├── .github/workflows/validate.yml # Portable CI checks
-├── docs/PSTACK_REVIEW.md          # Import and governance review
+├── docs/JSTACK_REVIEW.md          # Import and governance review
 ├── scripts/
 │   ├── install_skills.py          # Safe Claude/Codex installer
-│   └── vendor_pstack.py           # Reproducible pstack import
+│   └── vendor_jstack.py           # Reproducible Jstack build
 ├── skills/
 │   └── <skill>/
 │       ├── SKILL.md               # Canonical Agent Skill
@@ -363,7 +367,7 @@ skillz/
 │       ├── references/             # Optional detailed guidance
 │       └── scripts/                # Optional deterministic helpers
 ├── tests/                          # Package and workflow contracts
-├── vendor/pstack.json              # Pinned pstack inventory
+├── vendor/jstack.json              # Pinned Jstack inventory
 ├── AGENTS.md                       # Repository execution policy
 └── LICENSES.md                     # Per-source licensing map
 ```
@@ -394,7 +398,7 @@ must not assume that Claude-only tools exist in every harness.
 ### Codex
 
 Codex uses the same skill bodies and reads `agents/openai.yaml` for display and
-explicit invocation. Pstack workflows consult
+explicit invocation. Jstack workflows consult
 [`skills/poteto-mode/references/codex-tools.md`](skills/poteto-mode/references/codex-tools.md)
 when Claude tool names need a Codex equivalent.
 
@@ -468,7 +472,7 @@ The tests verify:
 - Codex metadata for every skill
 - Claude and Codex manifests pointing at the shared tree
 - local Markdown links
-- pinned pstack provenance and hardening
+- pinned Jstack provenance and hardening
 - conflict refusal, backups, dry runs, copy mode, symlink mode, and idempotency
 - Greptile review freshness and bounded polling
 - isolated Playwright dependency handling
@@ -496,7 +500,7 @@ because desktop capture and FFmpeg filter availability vary.
 
 ## What is intentionally not automatic
 
-- No unconditional startup hook injects the entire pstack workflow.
+- No unconditional startup hook injects the entire Jstack workflow.
 - No skill is preloaded solely because it is installed.
 - No same-name user skill is silently overwritten.
 - No imported skill is automatically published to a registry.
@@ -509,9 +513,9 @@ because desktop capture and FFmpeg filter availability vary.
 - [`michaelshimeles/skills`](https://github.com/michaelshimeles/skills) provides
   the repository history and original core collection.
 - [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-  provides the pinned Claude/Codex pstack port.
-- [Cursor pstack](https://github.com/cursor/plugins/tree/main/pstack) is the
-  upstream origin of the pstack methods.
+  provides the pinned upstream source used to build Jstack.
+- [Cursor's upstream plugin](https://github.com/cursor/plugins/tree/main/pstack)
+  is the original source of the methods distributed as Jstack.
 - [`vercel-labs/before-and-after`](https://github.com/vercel-labs/before-and-after)
   provides the visual-comparison workflow.
 - [`greptileai/skills`](https://github.com/greptileai/skills) provides the
