@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 
-RUNNER = Path(__file__).resolve().parents[1] / "evidence-driven-testing/scripts/run-playwright.sh"
+RUNNER = Path(__file__).resolve().parents[1] / "skills/evidence-driven-testing/scripts/run-playwright.sh"
 pytestmark = pytest.mark.skipif(not shutil.which("node") or not shutil.which("bash"), reason="requires Node and Bash")
 
 

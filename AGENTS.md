@@ -32,6 +32,11 @@ this repo and can be copied into other repos with their checks and conventions.
    an unavailable integration and report the actual score and remaining work.
    Do not claim success or raise the cap automatically. Present the PR URL.
 
+For work governed by Mission Control, read `/mission-control-delivery` before
+the workflow above. Use `/poteto-mode` to select additional methods, but keep
+system, user, repository, and Mission Control authority rules in control. Load
+only the skills that match the current task; never preload the full collection.
+
 Ship-beat notes:
 
 - `/before-and-after` drives the `@vercel/before-and-after` CLI. `--markdown`
@@ -114,3 +119,4 @@ Keep generated evidence under the ignored `.artifacts/` directory.
 | `greploop` | this repo, vendored from [greptileai/skills](https://github.com/greptileai/skills) |
 | `greploop-apps` | this repo, compatibility entrypoint requiring `greploop` |
 | `unslop` | this repo, vendored from [cursor/plugins (pstack)](https://github.com/cursor/plugins/tree/main/pstack/skills/unslop); frontmatter edited so agents apply it unprompted (`disable-model-invocation` dropped, description scoped to text the agent writes or edits for people), body untouched |
+| pstack workflows and `principle-*` skills | vendored from [michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude), pinned in `vendor/pstack.json`; `unslop` excluded to keep one canonical definition |

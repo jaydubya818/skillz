@@ -1,0 +1,30 @@
+{
+  "name": "software-factory-skills",
+  "version": "1.0.0",
+  "description": "Reusable delivery, architecture, evidence, review, and writing skills for production software work.",
+  "author": {
+    "name": "Software Factory contributors"
+  },
+  "homepage": "https://github.com/michaelshimeles/skills",
+  "repository": "https://github.com/michaelshimeles/skills",
+  "keywords": [
+    "software-factory",
+    "delivery",
+    "testing",
+    "code-review"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Software Factory Skills",
+    "shortDescription": "Production delivery skills for coding agents.",
+    "longDescription": "A cross-harness skill set for isolated implementation, clear architecture, durable evidence, bounded review, and governed Mission Control delivery.",
+    "developerName": "Software Factory contributors",
+    "category": "Productivity",
+    "capabilities": [
+      "Cross-harness skills",
+      "Governed delivery",
+      "Evidence and review"
+    ],
+    "defaultPrompt": "Use the relevant Software Factory skills to complete this change with evidence."
+  }
+}

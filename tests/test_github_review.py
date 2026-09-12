@@ -7,7 +7,7 @@ from pathlib import Path
 import pytest
 
 
-SCRIPT = Path(__file__).resolve().parents[1] / "greploop/scripts/github_review.py"
+SCRIPT = Path(__file__).resolve().parents[1] / "skills/greploop/scripts/github_review.py"
 SPEC = importlib.util.spec_from_file_location("github_review", SCRIPT)
 REVIEW = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(REVIEW)

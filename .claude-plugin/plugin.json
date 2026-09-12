@@ -1,0 +1,10 @@
+{
+  "name": "software-factory-skills",
+  "description": "Reusable delivery, architecture, evidence, review, and writing skills for production software work.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Software Factory contributors"
+  },
+  "homepage": "https://github.com/michaelshimeles/skills",
+  "repository": "https://github.com/michaelshimeles/skills"
+}

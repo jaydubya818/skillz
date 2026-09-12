@@ -14,7 +14,7 @@ import pytest
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SCRIPT = ROOT / "evidence-driven-testing" / "scripts" / "evidence.py"
+SCRIPT = ROOT / "skills" / "evidence-driven-testing" / "scripts" / "evidence.py"
 SPEC = importlib.util.spec_from_file_location("evidence_cli", SCRIPT)
 assert SPEC and SPEC.loader
 EVIDENCE = importlib.util.module_from_spec(SPEC)
