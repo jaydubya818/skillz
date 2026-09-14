@@ -3,9 +3,12 @@
 This repository is a collection of independently sourced skills. It does not
 apply one blanket license to every directory.
 
-- Jstack-derived skills are imported from
-  [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-  under the MIT license. The complete license and upstream notices are in
+- Jstack-derived skills originate in
+  [Cursor's pstack plugin](https://github.com/cursor/plugins/tree/main/pstack),
+  copyright 2026 Lauren Tan, and are used under the MIT license. This
+  repository imports the cross-harness port from
+  [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude).
+  The complete license and upstream notices are in
   [`skills/poteto-mode/references/licenses/`](skills/poteto-mode/references/licenses/).
 - `before-and-after` carries its PolyForm Shield 1.0.0 license in
   [`skills/before-and-after/LICENSE`](skills/before-and-after/LICENSE).
