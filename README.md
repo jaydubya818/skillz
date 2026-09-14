@@ -16,8 +16,8 @@ integration and hardening work; it does not replace pstack's authorship.
 This repository packages 61 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
-- 30 Jstack workflows for planning, implementation, review, and operations
-- 23 Jstack engineering principles
+- 30 workflows for planning, implementation, review, and operations
+- 23 engineering principles
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code
@@ -39,7 +39,7 @@ Skillz provides:
 - one source of truth for Claude Code, Codex, and Agent Skills-compatible tools
 - explicit activation descriptions instead of loading every skill into context
 - a Mission Control delivery contract from mission to release evidence
-- a pinned, reproducible Jstack distribution with upstream attribution
+- a pinned, reproducible distribution with upstream attribution
 - tightened authority boundaries for external writes and product decisions
 - conflict-safe user and project installers
 - package, link, manifest, installer, and workflow tests
@@ -318,7 +318,7 @@ rebuilds the import instead of relying on an undocumented manual copy.
 The integration preserves the upstream design-first, evidence-driven methods while
 tightening assumptions that are too broad for a governed software factory:
 
-- system, user, Mission Control, and repository rules override Jstack methods
+- system, user, Mission Control, and repository rules override methods
 - reversible actions still require authority when they write to external state
 - team messages, ticket updates, eval launches, publishing, merging,
   deployment, spending, and destructive cleanup are not implicitly authorized
@@ -479,7 +479,7 @@ The tests verify:
 - Codex metadata for every skill
 - Claude and Codex manifests pointing at the shared tree
 - local Markdown links
-- pinned Jstack provenance and hardening
+- pinned provenance and hardening
 - conflict refusal, backups, dry runs, copy mode, symlink mode, and idempotency
 - Greptile review freshness and bounded polling
 - isolated Playwright dependency handling
