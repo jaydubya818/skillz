@@ -5,8 +5,8 @@ license: MIT
 metadata:
   author: jstack-maintainers
   source: michael-denyer/pstack-claude
-  source-version: "0.9.29"
-  source-commit: 458050195fdb347955a63812e6d749f164a8f62d
+  source-version: "0.9.30"
+  source-commit: 45f768349a6d7d7e71509fee3f5bccfad54b3bad
   owner: software-factory
   risk: medium
   capabilities: jstack,engineering-workflow
@@ -54,22 +54,22 @@ Write `~/.claude/jstack-models.md` with the shape below. Overwrite the whole fil
 Per-role model overrides for Jstack skills. Each Jstack SKILL.md names its defaults in a Models section; the values here override those defaults. Delete a line to fall back to the skill default. A value of `inherit-parent` or `auto` runs that role on the parent session's model (the `Agent` call omits `model`); an alias entry in a panel list still counts toward that panel's fan-out.
 
 feature, refactoring: claude-opus-5
-bug-fix: claude-fable-5
-perf-issue: claude-fable-5
-hillclimb: claude-fable-5
+bug-fix: claude-fable-5-1
+perf-issue: claude-fable-5-1
+hillclimb: claude-fable-5-1
 judgment and prose: claude-opus-5
-strongest judgment: claude-fable-5
+strongest judgment: claude-fable-5-1
 how explorer: claude-opus-5
 how explainer: claude-opus-5
 why investigators: claude-opus-5
 why synthesizer: claude-opus-5
 reflect tooling: claude-opus-5
 reflect judgment, divergent, synthesizer: claude-opus-5
-arena runners: claude-opus-5, claude-fable-5, claude-sonnet-5
-arena cross-judge pool: claude-opus-5, claude-fable-5, claude-sonnet-5
+arena runners: claude-opus-5, claude-fable-5-1, claude-sonnet-5
+arena cross-judge pool: claude-opus-5, claude-fable-5-1, claude-sonnet-5
 swarm workers: claude-opus-5
-architect runners: claude-opus-5, claude-fable-5, claude-sonnet-5
-interrogate reviewers: claude-opus-5, claude-fable-5, claude-sonnet-5
+architect runners: claude-opus-5, claude-fable-5-1, claude-sonnet-5
+interrogate reviewers: claude-opus-5, claude-fable-5-1, claude-sonnet-5
 ```
 
 ### 6. Wire it in
@@ -84,6 +84,6 @@ Tell the user where the override was written and how it loads (via the `@` inclu
 
 Defaults originate from the upstream `plugins/pstack/models.json`. Refresh them through `scripts/vendor_jstack.py` after reviewing the upstream change.
 
-- Available Claude models: Opus 5 (`claude-opus-5`), Opus 4.8 (`claude-opus-4-8`), Opus 4.6 (`claude-opus-4-6`), Fable 5 (`claude-fable-5`), Sonnet 5 (`claude-sonnet-5`), Sonnet 4.6 (`claude-sonnet-4-6`), Haiku 4.5 (`claude-haiku-4-5`)
-- Default panel: `claude-opus-5`, `claude-fable-5`, `claude-sonnet-5`
+- Available Claude models: Opus 5 (`claude-opus-5`), Opus 4.8 (`claude-opus-4-8`), Opus 4.6 (`claude-opus-4-6`), Fable 5.1 (`claude-fable-5-1`), Sonnet 5 (`claude-sonnet-5`), Sonnet 4.6 (`claude-sonnet-4-6`), Haiku 4.5 (`claude-haiku-4-5`)
+- Default panel: `claude-opus-5`, `claude-fable-5-1`, `claude-sonnet-5`
 - Single-role default: `claude-opus-5`

@@ -6,6 +6,13 @@ Jstack is this repository's governed, cross-harness distribution of the
 planning, implementation, review, and engineering-principle skills imported
 from the credited upstream sources.
 
+Jstack is derived from
+[Cursor's pstack plugin](https://github.com/cursor/plugins/tree/main/pstack),
+created by Lauren Tan and released under the MIT license. This repository uses
+[michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude)
+as the cross-harness port. The Jstack name identifies this repository's
+integration and hardening work; it does not replace pstack's authorship.
+
 This repository packages 61 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
@@ -299,8 +306,8 @@ matches, not injected into every task.
 
 The collection imports 53 unique skills from
 [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-v0.9.29 at commit
-[`458050195fdb347955a63812e6d749f164a8f62d`](https://github.com/michael-denyer/pstack-claude/commit/458050195fdb347955a63812e6d749f164a8f62d).
+v0.9.30 at commit
+[`45f768349a6d7d7e71509fee3f5bccfad54b3bad`](https://github.com/michael-denyer/pstack-claude/commit/45f768349a6d7d7e71509fee3f5bccfad54b3bad).
 Its duplicate `unslop` is excluded because this collection keeps the existing
 enhanced definition as the canonical skill.
 

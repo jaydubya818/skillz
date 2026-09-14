@@ -83,8 +83,8 @@ def test_plugin_manifests_target_shared_skills_directory():
 
 def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():
     vendor = json.loads((ROOT / "vendor" / "jstack.json").read_text())
-    assert vendor["version"] == "0.9.29"
-    assert vendor["commit"] == "458050195fdb347955a63812e6d749f164a8f62d"
+    assert vendor["version"] == "0.9.30"
+    assert vendor["commit"] == "45f768349a6d7d7e71509fee3f5bccfad54b3bad"
     assert len(vendor["imported"]) == 53
     assert "setup-jstack" in vendor["imported"]
     assert "setup-pstack" not in vendor["imported"]
@@ -114,3 +114,11 @@ def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():
     assert "rm -rf" not in cleanup
     reflect = (SKILLS / "reflect" / "SKILL.md").read_text()
     assert "only when the task authorizes writes" in reflect
+
+
+def test_jstack_credits_original_pstack_authorship():
+    for path in (ROOT / "README.md", ROOT / "LICENSES.md"):
+        text = path.read_text()
+        assert "https://github.com/cursor/plugins/tree/main/pstack" in text
+        assert "Lauren Tan" in text
+        assert "https://github.com/michael-denyer/pstack-claude" in text

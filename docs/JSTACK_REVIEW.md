@@ -4,9 +4,14 @@
 
 Vendor the 53 unique skills from
 [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-v0.9.29 at commit `458050195fdb347955a63812e6d749f164a8f62d`.
+v0.9.30 at commit `45f768349a6d7d7e71509fee3f5bccfad54b3bad`.
 Keep this collection's `unslop` definition because the upstream tree contains
 the same skill name and Mission Control rejects ambiguous definitions.
+
+The imported work originates in
+[Cursor's pstack plugin](https://github.com/cursor/plugins/tree/main/pstack),
+created by Lauren Tan and released under the MIT license. Jstack is the name of
+this repository's integration, not a claim of original authorship.
 
 The imported tree includes 30 user-facing workflows and 23 internal
 `principle-*` references. Its source files, scripts, and relative references

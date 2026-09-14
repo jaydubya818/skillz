@@ -5,8 +5,8 @@ license: MIT
 metadata:
   author: jstack-maintainers
   source: michael-denyer/pstack-claude
-  source-version: "0.9.29"
-  source-commit: 458050195fdb347955a63812e6d749f164a8f62d
+  source-version: "0.9.30"
+  source-commit: 45f768349a6d7d7e71509fee3f5bccfad54b3bad
   owner: software-factory
   risk: low
   capabilities: jstack,multi-agent-workflow
@@ -48,7 +48,7 @@ Launch all reviewers in a single message using the `Agent` tool. Use the `interr
 | Subagent | Default model |
 |----------|---------------|
 | Reviewer A | `claude-opus-5` |
-| Reviewer B | `claude-fable-5` |
+| Reviewer B | `claude-fable-5-1` |
 | Reviewer C | `claude-sonnet-5` |
 
 For each reviewer:

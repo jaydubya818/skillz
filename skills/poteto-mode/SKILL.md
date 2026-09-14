@@ -5,8 +5,8 @@ license: MIT
 metadata:
   author: jstack-maintainers
   source: michael-denyer/pstack-claude
-  source-version: "0.9.29"
-  source-commit: 458050195fdb347955a63812e6d749f164a8f62d
+  source-version: "0.9.30"
+  source-commit: 45f768349a6d7d7e71509fee3f5bccfad54b3bad
   owner: software-factory
   risk: high
   capabilities: jstack,engineering-workflow
@@ -160,8 +160,8 @@ A large or cross-cutting effort (a migration across many call sites, an ambitiou
 Role defaults originate from the upstream `plugins/pstack/models.json`. Refresh them through `scripts/vendor_jstack.py` after reviewing the upstream change. A matching role line in `~/.claude/jstack-models.md` overrides each at runtime; see `/setup-jstack`.
 
 - feature, refactoring: `claude-opus-5`
-- bug-fix: `claude-fable-5`
-- perf-issue: `claude-fable-5`
-- hillclimb: `claude-fable-5`
+- bug-fix: `claude-fable-5-1`
+- perf-issue: `claude-fable-5-1`
+- hillclimb: `claude-fable-5-1`
 - judgment and prose: `claude-opus-5`
-- strongest judgment: `claude-fable-5`
+- strongest judgment: `claude-fable-5-1`
