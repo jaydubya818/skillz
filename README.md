@@ -8,10 +8,7 @@ from the credited upstream sources.
 
 Jstack is derived from
 [Cursor's pstack plugin](https://github.com/cursor/plugins/tree/main/pstack),
-created by Lauren Tan and released under the MIT license. This repository uses
-[michael-denyer/pstack-claude](https://github.com/michael-denyer/pstack-claude)
-as the cross-harness port. The Jstack name identifies this repository's
-integration and hardening work; it does not replace pstack's authorship.
+created by Lauren Tan and released under the MIT license. This repository uses as the cross-harness port. The Jstack name identifies this repository's integration and hardening work; it does not replace pstack's authorship.
 
 This repository packages 61 skills behind one canonical `skills/` tree:
 
