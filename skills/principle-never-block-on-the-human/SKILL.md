@@ -1,6 +1,6 @@
 ---
 name: principle-never-block-on-the-human
-description: "Apply when tempted to ask about a low-risk, reversible implementation detail inside the authorized scope. Proceed and present the result, but preserve product-owner decisions, approval policy, and external-write boundaries."
+description: "Apply when safe reversible implementation details can proceed inside scope."
 license: MIT
 metadata:
   author: jstack-maintainers

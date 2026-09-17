@@ -24,8 +24,10 @@ stay intact. `scripts/vendor_jstack.py` applies the integration layer and
 - Mission Control `owner`, `risk`, and capability values under portable
   `metadata`
 - `agents/openai.yaml` for Codex display and explicit invocation
-- trigger language where the source description did not explain when to use
-  the skill
+- the upstream `poteto-agent` and `comment-sicko` definitions at the Claude
+  plugin root and in direct Claude installations
+- concise trigger descriptions, with a package-wide budget test that keeps the
+  full collection discoverable without loading skill bodies up front
 - one canonical skill tree for Claude Code, Codex, and Mission Control
 
 ## Safety and compatibility changes
@@ -49,8 +51,8 @@ these changes every time the source is refreshed:
   automatically to recursive deletion.
 - Transcript workflows use the active harness's workspace-scoped history and
   never search unrelated project histories.
-- Project verification skills can target Claude Code, Codex, or one canonical
-  definition linked into both harness directories.
+- Project verification skills can use `.claude/skills/` for Claude-only work
+  or `.agents/skills/` as the Codex and shared canonical location.
 
 ## Recommended operating model
 

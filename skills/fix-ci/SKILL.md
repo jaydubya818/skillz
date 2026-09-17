@@ -1,6 +1,6 @@
 ---
 name: fix-ci
-description: "Find failing PR checks, inspect logs or external check links, and apply focused fixes Use this skill when the user asks for fix ci or the task clearly matches this workflow."
+description: "Use when failing pull-request checks need a root-cause fix and a verified rerun."
 license: MIT
 metadata:
   author: jstack-maintainers

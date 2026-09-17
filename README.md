@@ -35,6 +35,7 @@ Skillz provides:
 
 - one source of truth for Claude Code, Codex, and Agent Skills-compatible tools
 - explicit activation descriptions instead of loading every skill into context
+- a tested package-wide routing budget so all skill descriptions remain discoverable
 - a Mission Control delivery contract from mission to release evidence
 - a pinned, reproducible distribution with upstream attribution
 - tightened authority boundaries for external writes and product decisions
@@ -108,7 +109,8 @@ python3 scripts/install_skills.py --codex --dry-run
 python3 scripts/install_skills.py --codex
 ```
 
-Destination: `~/.codex/skills/`
+Destination: `~/.agents/skills/`, the user-level location documented by
+[OpenAI's skill guide](https://developers.openai.com/codex/skills).
 
 Each skill includes `agents/openai.yaml` for its Codex display name, concise
 description, and explicit invocation prompt. The collection manifest is
@@ -133,9 +135,11 @@ python3 scripts/install_skills.py \
   --project /path/to/project
 ```
 
-Project installs target `.claude/skills/` and `.codex/skills/`. Copy mode is
-portable. Symlink mode is better for active skill development because edits in
-this checkout are immediately visible to both harnesses.
+Project installs target `.claude/skills/` for Claude Code and
+`.agents/skills/` for Codex. Claude installs also place the two companion
+subagents in `.claude/agents/`. Copy mode is portable. Symlink mode is better
+for active skill development because edits in this checkout are immediately
+visible to both harnesses.
 
 ## Mission Control integration
 
@@ -164,7 +168,7 @@ the local scanner checks these roots in deterministic order:
 1. `skills/`
 2. `.agents/skills/`
 3. `.claude/skills/`
-4. `.codex/skills/`
+4. `.codex/skills/` (legacy compatibility)
 5. `.cursor/skills/`
 
 Identical same-name installations collapse to one skill. Different definitions
@@ -360,6 +364,7 @@ skillz/
 ├── .claude-plugin/plugin.json     # Claude Code plugin metadata
 ├── .codex-plugin/plugin.json      # Codex plugin metadata
 ├── .github/workflows/validate.yml # Portable CI checks
+├── agents/                         # Claude companion subagents
 ├── docs/JSTACK_REVIEW.md          # Import and governance review
 ├── scripts/
 │   ├── install_skills.py          # Safe Claude/Codex installer
@@ -395,8 +400,11 @@ comma-separated capabilities live under `metadata`.
 
 ### Claude Code
 
-Claude Code discovers the standard `SKILL.md` tree. Product-specific invocation
-controls can remain in Claude-facing metadata where needed, but shared bodies
+Claude Code discovers the standard `SKILL.md` tree. Per the
+[Claude plugin reference](https://code.claude.com/docs/en/plugins-reference),
+plugin installs also discover the definitions in `agents/` under the
+`software-factory-skills:<agent-name>` namespace. Direct installs receive the
+same definitions in `.claude/agents/` and use their bare names. Shared bodies
 must not assume that Claude-only tools exist in every harness.
 
 ### Codex
@@ -473,8 +481,10 @@ The tests verify:
 
 - exactly 61 canonical skill directories
 - portable frontmatter and matching directory names
+- concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
 - Claude and Codex manifests pointing at the shared tree
+- packaged Claude subagents and valid plugin/direct-install routing
 - local Markdown links
 - pinned provenance and hardening
 - conflict refusal, backups, dry runs, copy mode, symlink mode, and idempotency

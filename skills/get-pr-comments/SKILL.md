@@ -1,6 +1,6 @@
 ---
 name: get-pr-comments
-description: "Fetch and summarize review comments from the active pull request Use this skill when the user asks for get pr comments or the task clearly matches this workflow."
+description: "Use when pull-request feedback needs to be fetched and summarized for action."
 license: MIT
 metadata:
   author: jstack-maintainers

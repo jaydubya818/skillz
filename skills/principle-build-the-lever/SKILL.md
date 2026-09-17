@@ -1,6 +1,6 @@
 ---
 name: principle-build-the-lever
-description: "Apply to any non-trivial work, not just bulk work: edits, migrations, analyses, checks. Build the tool that does it or proves it (codemod, script, generator, or a skill your subagents follow) instead of working by hand. The tool is the artifact a reviewer can rerun. Use this skill when the user asks for principle build the lever or the task clearly matches this workflow."
+description: "Apply when a rerunnable script, codemod, generator, or check makes work auditable."
 license: MIT
 metadata:
   author: jstack-maintainers

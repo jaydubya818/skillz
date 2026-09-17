@@ -1,6 +1,6 @@
 ---
 name: principle-foundational-thinking
-description: "Apply before writing logic: choosing core types and data structures, sequencing scaffold-vs-feature work, asking what concurrent actors share. Get the data structures right so downstream code becomes obvious. Use this skill when the user asks for principle foundational thinking or the task clearly matches this workflow."
+description: "Apply when core types, data structures, or shared-state boundaries will shape the system."
 license: MIT
 metadata:
   author: jstack-maintainers

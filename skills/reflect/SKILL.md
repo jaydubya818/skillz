@@ -1,6 +1,6 @@
 ---
 name: reflect
-description: "Spawn three parallel review subagents over the active transcript, surface learnings, and route each to a concrete edit on an existing skill. Use when the user says reflect."
+description: "Use when approved session lessons should become durable workflow improvements."
 license: MIT
 metadata:
   author: jstack-maintainers

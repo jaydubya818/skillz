@@ -1,6 +1,6 @@
 ---
 name: fix-merge-conflicts
-description: "Resolve merge conflicts non-interactively, validate build and tests, and finalize conflict resolution Use this skill when the user asks for fix merge conflicts or the task clearly matches this workflow."
+description: "Use when a branch needs conflicts resolved and the merged result verified."
 license: MIT
 metadata:
   author: jstack-maintainers

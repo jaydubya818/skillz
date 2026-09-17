@@ -1,6 +1,6 @@
 ---
 name: bro
-description: "Restate the last message in plain human language, with no jargon. Use for /bro or when asked to say it plainly."
+description: "Use when the previous technical answer needs a direct, jargon-free restatement."
 license: MIT
 metadata:
   author: jstack-maintainers

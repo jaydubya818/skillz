@@ -10,11 +10,11 @@ from pathlib import Path
 import shutil
 import sys
 import tempfile
-from typing import Iterable
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 SKILLS_ROOT = REPO_ROOT / "skills"
+AGENTS_ROOT = REPO_ROOT / "agents"
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -28,7 +28,7 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     parser.add_argument(
         "--project",
         type=Path,
-        help="install into this project's .claude and/or .codex directory instead of user scope",
+        help="install into this project's .claude and/or .agents directory instead of user scope",
     )
     parser.add_argument(
         "--mode",
@@ -59,13 +59,25 @@ def selected_harnesses(args: argparse.Namespace) -> tuple[str, ...]:
     return ("claude",) if args.claude else ("codex",)
 
 
-def destination_root(harness: str, project: Path | None) -> Path:
+def skills_destination_root(harness: str, project: Path | None) -> Path:
     base = project.expanduser().resolve() if project else Path.home()
-    return base / f".{harness}" / "skills"
+    if harness == "claude":
+        return base / ".claude" / "skills"
+    if harness == "codex":
+        return base / ".agents" / "skills"
+    raise ValueError(f"unsupported harness: {harness}")
 
 
-def tree_digest(path: Path) -> str:
+def agents_destination_root(project: Path | None) -> Path:
+    base = project.expanduser().resolve() if project else Path.home()
+    return base / ".claude" / "agents"
+
+
+def path_digest(path: Path) -> str:
     digest = hashlib.sha256()
+    if path.is_file():
+        digest.update(path.read_bytes())
+        return digest.hexdigest()
     for item in sorted(candidate for candidate in path.rglob("*") if candidate.is_file()):
         digest.update(item.relative_to(path).as_posix().encode())
         digest.update(b"\0")
@@ -77,7 +89,12 @@ def tree_digest(path: Path) -> str:
 def same_install(source: Path, destination: Path, mode: str) -> bool:
     if destination.is_symlink():
         return mode == "symlink" and destination.resolve() == source.resolve()
-    return mode == "copy" and destination.is_dir() and tree_digest(source) == tree_digest(destination)
+    return (
+        mode == "copy"
+        and source.is_dir() == destination.is_dir()
+        and source.is_file() == destination.is_file()
+        and path_digest(source) == path_digest(destination)
+    )
 
 
 def backup_path(destination: Path) -> Path:
@@ -95,7 +112,10 @@ def backup_path(destination: Path) -> Path:
 def stage_copy(source: Path, destination_root_path: Path) -> Path:
     stage_parent = Path(tempfile.mkdtemp(prefix=".skill-install-", dir=destination_root_path))
     stage = stage_parent / source.name
-    shutil.copytree(source, stage)
+    if source.is_dir():
+        shutil.copytree(source, stage)
+    else:
+        shutil.copy2(source, stage)
     return stage
 
 
@@ -136,7 +156,7 @@ def install_one(
             assert staged is not None
             os.replace(staged, destination)
         else:
-            destination.symlink_to(source.resolve(), target_is_directory=True)
+            destination.symlink_to(source.resolve(), target_is_directory=source.is_dir())
     except Exception:
         if backup and backup.exists() and not destination.exists():
             os.replace(backup, destination)
@@ -155,10 +175,17 @@ def run(args: argparse.Namespace) -> list[str]:
         raise FileNotFoundError(f"no skills found under {SKILLS_ROOT}")
 
     installs = [
-        (source, destination_root(harness, args.project))
+        (source, skills_destination_root(harness, args.project))
         for harness in selected_harnesses(args)
         for source in skills
     ]
+    if "claude" in selected_harnesses(args):
+        if not AGENTS_ROOT.is_dir():
+            raise FileNotFoundError(f"companion agents directory not found: {AGENTS_ROOT}")
+        installs.extend(
+            (source, agents_destination_root(args.project))
+            for source in sorted(AGENTS_ROOT.glob("*.md"))
+        )
     for source, root in installs:
         destination = root / source.name
         exists = destination.exists() or destination.is_symlink()

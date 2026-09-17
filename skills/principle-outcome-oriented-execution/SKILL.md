@@ -1,6 +1,6 @@
 ---
 name: principle-outcome-oriented-execution
-description: "Apply during planned rewrites and migrations with explicit phase boundaries. Converge on the target architecture; don't preserve smooth intermediate states with throwaway compatibility code. Use this skill when the user asks for principle outcome oriented execution or the task clearly matches this workflow."
+description: "Apply when a bounded rewrite should converge without throwaway compatibility layers."
 license: MIT
 metadata:
   author: jstack-maintainers

@@ -1,6 +1,6 @@
 ---
 name: principle-encode-lessons-in-structure
-description: "Apply when you catch yourself writing the same instruction a second time, or notice a recurring correction. Encode the rule as a lint, metadata flag, runtime check, or script instead of more text."
+description: "Apply when a repeated instruction should become enforceable in tests, lint, metadata, or tools."
 license: MIT
 metadata:
   author: jstack-maintainers
