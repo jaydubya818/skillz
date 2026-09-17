@@ -13,6 +13,7 @@ import subprocess
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 DESTINATION = REPO_ROOT / "skills"
+AGENTS_DESTINATION = REPO_ROOT / "agents"
 MANIFEST = REPO_ROOT / "vendor" / "jstack.json"
 EXCLUDED = {"unslop": "the collection keeps its existing enhanced definition"}
 LOCAL_NAME_BY_SOURCE = {"setup-pstack": "setup-jstack"}
@@ -20,8 +21,8 @@ LOCAL_NAME_BY_SOURCE = {"setup-pstack": "setup-jstack"}
 JSTACK_BRANDING_REPLACEMENTS = (
     ("setup-pstack", "setup-jstack"),
     ("pstack-models", "jstack-models"),
-    ("pstack:poteto-agent", "jstack:poteto-agent"),
-    ("pstack:comment-sicko", "jstack:comment-sicko"),
+    ("pstack:poteto-agent", "software-factory-skills:poteto-agent"),
+    ("pstack:comment-sicko", "software-factory-skills:comment-sicko"),
     ("Configure which models pstack uses", "Configure which models Jstack uses"),
     ("configure pstack models", "configure Jstack models"),
     ("with the pstack workflow", "with the Jstack workflow"),
@@ -107,10 +108,59 @@ ACTIVATION_RE = re.compile(
 )
 
 DESCRIPTION_OVERRIDES = {
-    "principle-never-block-on-the-human": (
-        "Apply when tempted to ask about a low-risk, reversible implementation detail inside the authorized scope. "
-        "Proceed and present the result, but preserve product-owner decisions, approval policy, and external-write boundaries."
-    ),
+    "architect": "Use when a non-trivial change needs types and module boundaries designed before code.",
+    "arena": "Use when an important artifact needs independent solutions compared and synthesized.",
+    "automate-me": "Use when the user wants working preferences captured in a reusable mode skill.",
+    "babysit": "Use when an authorized pull request needs ongoing CI and review follow-through.",
+    "blast-radius": "Use when a change needs downstream risks traced and its key safety assumption proved.",
+    "bro": "Use when the previous technical answer needs a direct, jargon-free restatement.",
+    "create-verification-skill": "Use when a repository needs a repeatable driver that proves real UI, CLI, or service behavior.",
+    "deslop": "Use when code needs generated clutter removed and structure simplified without behavior changes.",
+    "figure-it-out": "Use when novel or multi-phase work needs an auditable workflow and no narrower playbook fits.",
+    "fix-ci": "Use when failing pull-request checks need a root-cause fix and a verified rerun.",
+    "fix-merge-conflicts": "Use when a branch needs conflicts resolved and the merged result verified.",
+    "get-pr-comments": "Use when pull-request feedback needs to be fetched and summarized for action.",
+    "how": "Use for runtime, ownership, layering, code-walkthrough, and placement questions.",
+    "interrogate": "Use when a change's assumptions, evidence, or design need adversarial review.",
+    "maintain-verification-skill": "Use when a project's verification driver or feature map may be stale.",
+    "make-pr-easy-to-review": "Use when a correct pull request needs clearer history, description, or reviewer guidance.",
+    "no-comments": "Use when code comments need structural review, root-cause fixes, and constraint encoding.",
+    "poteto-mode": "Use when non-trivial work should follow the smallest rigorous Jstack workflow.",
+    "principle-attack-the-premise": "Apply when repeated fixes fail and a shared assumption may be wrong.",
+    "principle-boundary-discipline": "Apply when validation or adapters leak from external boundaries into core logic.",
+    "principle-build-the-lever": "Apply when a rerunnable script, codemod, generator, or check makes work auditable.",
+    "principle-encode-lessons-in-structure": "Apply when a repeated instruction should become enforceable in tests, lint, metadata, or tools.",
+    "principle-exhaust-the-design-space": "Apply when a novel design needs concrete candidates compared before selection.",
+    "principle-experience-first": "Apply when scope threatens a polished, clear, and trustworthy user experience.",
+    "principle-fix-root-causes": "Apply when a workaround would hide a defect that can be reproduced and traced.",
+    "principle-foundational-thinking": "Apply when core types, data structures, or shared-state boundaries will shape the system.",
+    "principle-guard-the-context-window": "Apply when large files, logs, or broad exploration threaten reasoning focus.",
+    "principle-laziness-protocol": "Apply when a refactor is adding wrappers or abstractions instead of simplifying.",
+    "principle-make-operations-idempotent": "Apply when an operation must tolerate retries after partial completion.",
+    "principle-migrate-callers-then-delete-legacy-apis": "Apply when replacing an internal API without leaving ambiguous dual paths.",
+    "principle-minimize-reader-load": "Apply when layers, wrappers, or hidden state make simple behavior hard to follow.",
+    "principle-model-the-domain": "Apply when repeated state conditionals reveal a missing domain model.",
+    "principle-never-block-on-the-human": "Apply when safe reversible implementation details can proceed inside scope.",
+    "principle-outcome-oriented-execution": "Apply when a bounded rewrite should converge without throwaway compatibility layers.",
+    "principle-prove-it-works": "Apply when the actual candidate and observable result still need verification.",
+    "principle-redesign-from-first-principles": "Apply when a requirement breaks a foundational assumption and needs coherent redesign.",
+    "principle-separate-before-serializing-shared-state": "Apply when concurrent actors share mutable files, branches, keys, or objects.",
+    "principle-sequence-verifiable-units": "Apply when multi-step work must end each ordered unit in a verified state.",
+    "principle-subtract-before-you-add": "Apply when new work would otherwise build on dead or redundant structure.",
+    "principle-test-behavior-not-implementation": "Apply when tests mirror internals instead of asserting observable outcomes.",
+    "principle-type-system-discipline": "Apply when typed APIs or schemas should make invalid states unrepresentable.",
+    "recall": "Use when resuming work or reconstructing project context from workspace-scoped history.",
+    "reflect": "Use when approved session lessons should become durable workflow improvements.",
+    "setup-jstack": "Use when the user wants to configure Jstack's per-role Claude models.",
+    "show-me-your-work": "Use when long-running work needs an auditable decision and evidence log.",
+    "swarm": "Use when authorized independent workers can run without shared mutable state.",
+    "tdd": "Use when TDD is requested or a bug has a cheap, direct regression target.",
+    "teach": "Use when runtime behavior and design rationale should become one clear mental model.",
+    "technical-writing": "Use when docs, RFCs, READMEs, PRs, or commits need structured and direct prose.",
+    "thermo-nuclear-code-quality-review": "Use when the user requests an intentionally strict maintainability review.",
+    "typescript-best-practices": "Use when TypeScript needs focused type-safety, API, or error-handling guidance.",
+    "what-did-i-get-done": "Use when authored work needs a concise summary for a concrete time window.",
+    "why": "Use when design rationale must be recovered from source history and available records.",
 }
 
 HARDENINGS = {
@@ -133,6 +183,16 @@ HARDENINGS = {
         (
             "- Broken skill mid-task → fix it in its own PR. Don't block. Don't silently work around it.",
             "- Broken skill mid-task → record the failure and propose a focused fix. Implement or publish that fix only when it falls inside the authorized scope.",
+        ),
+        (
+            "**Use `subagent_type: \"software-factory-skills:poteto-agent\"` for any subagent you spawn inside a playbook step** (code-writing delegates, ad-hoc helpers). Plugin agents register under the plugin namespace; the bare name `poteto-agent` errors.",
+            "**Use `subagent_type: \"software-factory-skills:poteto-agent\"` for any subagent you spawn inside a playbook step when this collection is loaded as a plugin** (code-writing delegates, ad-hoc helpers). For a direct install, use the bare `poteto-agent` name installed under `.claude/agents/`.",
+        ),
+    ],
+    "no-comments": [
+        (
+            "1. Spawn an `Agent` with `subagent_type: \"software-factory-skills:comment-sicko\"`. Pass the scope. Do not restate its rules.",
+            "1. Spawn an `Agent` with `subagent_type: \"software-factory-skills:comment-sicko\"` when this collection is loaded as a plugin. For a direct install, use the bare `comment-sicko` name installed under `.claude/agents/`. Pass the scope. Do not restate its rules.",
         ),
     ],
     "principle-never-block-on-the-human": [
@@ -169,7 +229,7 @@ HARDENINGS = {
     "create-verification-skill": [
         (
             "This skill generates that as a project-local skill (`.claude/skills/verify/`) tailored to the repo. Name it `verify`.",
-            "This skill generates that as a project-local skill tailored to the repo. Use `.claude/skills/verify/` for Claude Code or `.codex/skills/verify/` for Codex. When both harnesses need one canonical definition, place it under `.agents/skills/verify/` and add conflict-checked relative links from both harness directories. Name it `verify`.",
+            "This skill generates that as a project-local skill tailored to the repo. Use `.claude/skills/verify/` for a Claude-only project or `.agents/skills/verify/` for Codex and shared Agent Skills discovery. When both harnesses need one canonical definition, place it under `.agents/skills/verify/` and add a conflict-checked relative link from `.claude/skills/verify`. Name it `verify`.",
         ),
         (
             "Write `.claude/skills/verify/SKILL.md` with YAML frontmatter",
@@ -196,6 +256,12 @@ HARDENINGS = {
         (
             "**Worktree.** Work from a git worktree off main; subagents inherit it. Multiple `Agent` calls on the same branch each get their own worktree, or `git fetch && git reset --hard origin/<branch>` between them. Dirty branch with unrelated work: patch out, fresh worktree, apply. Snarled worktree: reset from main, redo minimally.",
             "**Authority.** Commit, push, or open a pull request only when the user's request or Mission Control execution contract authorizes that publication step. Otherwise stop with a verified local handoff.\n\n**Worktree.** Work from a git worktree off main; subagents inherit it. Give each writing agent its own branch and worktree. Never reset a shared or dirty worktree to coordinate agents. Leave unrelated work untouched and create a fresh worktree for the authorized change.",
+        ),
+    ],
+    "poteto-mode/playbooks/multi-phase-plan.md": [
+        (
+            "3. Explore in subagents with `subagent_type: \"software-factory-skills:poteto-agent\"` and an explicit model per the Subagents section",
+            "3. Explore in subagents with the plugin type `subagent_type: \"software-factory-skills:poteto-agent\"`, or bare `poteto-agent` for a direct install, and an explicit model per the Subagents section",
         ),
     ],
     "poteto-mode/playbooks/worktree-cleanup.md": [
@@ -323,10 +389,10 @@ def normalize_skill(path: Path, *, version: str, commit: str) -> None:
     )
     if not ACTIVATION_RE.search(description):
         readable = name.replace("-", " ")
-        description += f" Use this skill when the user asks for {readable} or the task clearly matches this workflow."
-    if len(description) < 80:
-        description += " Use it only when the current task clearly matches this focused workflow."
-
+        description = description.rstrip()
+        if description[-1] not in ".!?":
+            description += "."
+        description += f" Use when the user asks for {readable} or the task clearly matches this workflow."
     preserved = [
         line
         for line in frontmatter
@@ -371,8 +437,11 @@ def main() -> int:
     args = parse_args()
     source = args.source.expanduser().resolve()
     source_skills = source / "plugins" / "pstack" / "skills"
+    source_agents = source / "plugins" / "pstack" / "agents"
     if not source_skills.is_dir():
         raise SystemExit(f"not a pstack-claude checkout: {source}")
+    if not source_agents.is_dir():
+        raise SystemExit(f"pstack-claude agent definitions not found: {source_agents}")
     version = (source / "VERSION").read_text().strip()
     commit = git_value(source, "rev-parse", "HEAD")
     remote = git_value(source, "remote", "get-url", "origin")
@@ -393,9 +462,16 @@ def main() -> int:
     if legacy_destinations and not args.replace:
         names = ", ".join(path.name for path in legacy_destinations)
         raise SystemExit(f"legacy skill names still exist; rerun with --replace: {names}")
+    if AGENTS_DESTINATION.exists() and not args.replace:
+        raise SystemExit("companion agents already exist; rerun with --replace")
 
     for legacy in legacy_destinations:
         shutil.rmtree(legacy)
+
+    if AGENTS_DESTINATION.exists():
+        shutil.rmtree(AGENTS_DESTINATION)
+    shutil.copytree(source_agents, AGENTS_DESTINATION)
+    apply_jstack_branding(AGENTS_DESTINATION)
 
     for source_name, local_name in zip(imported_sources, imported, strict=True):
         destination = DESTINATION / local_name

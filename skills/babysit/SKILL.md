@@ -1,6 +1,6 @@
 ---
 name: babysit
-description: "Watch an open PR \u2014 fix failing CI, handle the straightforward review comments, and drive it to a mergeable state. Claude Code analog of Cursor's built-in /babysit. Use after opening a PR when the user wants the agent to shepherd it without re-prompting. Use this skill when the user asks for babysit or the task clearly matches this workflow."
+description: "Use when an authorized pull request needs ongoing CI and review follow-through."
 license: MIT
 metadata:
   author: jstack-maintainers

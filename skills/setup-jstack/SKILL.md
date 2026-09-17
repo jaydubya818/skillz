@@ -1,6 +1,6 @@
 ---
 name: setup-jstack
-description: "Configure which models Jstack uses per role. Detects your available Claude models and writes a per-role override file that the user can include from their CLAUDE.md. Use for /setup-jstack, \"configure Jstack models\", or changing Jstack's model choices."
+description: "Use when the user wants to configure Jstack's per-role Claude models."
 license: MIT
 metadata:
   author: jstack-maintainers

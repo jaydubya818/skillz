@@ -1,6 +1,6 @@
 ---
 name: create-verification-skill
-description: "Generate a project-local verification skill that drives your app the way a user does \u2014 any language, framework, or platform. Use for /create-verification-skill, \"make a control skill for this repo\", \"make a driver skill for this repo\", or when a project has no scripted way to prove UI/CLI/service behavior."
+description: "Use when a repository needs a repeatable driver that proves real UI, CLI, or service behavior."
 license: MIT
 metadata:
   author: jstack-maintainers
@@ -16,7 +16,7 @@ metadata:
 
 On Codex, read the [platform mapping](../poteto-mode/references/codex-tools.md), including its per-skill notes, before following this skill.
 
-Every serious project needs a scripted way to drive the real app and prove behavior: launch it, exercise a feature the way a user would, and capture evidence. This skill generates that as a project-local skill tailored to the repo. Use `.claude/skills/verify/` for Claude Code or `.codex/skills/verify/` for Codex. When both harnesses need one canonical definition, place it under `.agents/skills/verify/` and add conflict-checked relative links from both harness directories. Name it `verify`. At the repo root a project skill by that name replaces Claude Code's bundled `/verify`, which only the user can invoke, so every playbook that names the driver skill can call the project one ([Claude Code 2.1.200 or later](https://code.claude.com/docs/en/skills#run-and-verify-your-app)). In a monorepo, write it in the touched package directory instead. You write the generator's output for the next agent, not for a human: it will be read cold, mid-task, by an agent that has never seen the app.
+Every serious project needs a scripted way to drive the real app and prove behavior: launch it, exercise a feature the way a user would, and capture evidence. This skill generates that as a project-local skill tailored to the repo. Use `.claude/skills/verify/` for a Claude-only project or `.agents/skills/verify/` for Codex and shared Agent Skills discovery. When both harnesses need one canonical definition, place it under `.agents/skills/verify/` and add a conflict-checked relative link from `.claude/skills/verify`. Name it `verify`. At the repo root a project skill by that name replaces Claude Code's bundled `/verify`, which only the user can invoke, so every playbook that names the driver skill can call the project one ([Claude Code 2.1.200 or later](https://code.claude.com/docs/en/skills#run-and-verify-your-app)). In a monorepo, write it in the touched package directory instead. You write the generator's output for the next agent, not for a human: it will be read cold, mid-task, by an agent that has never seen the app.
 
 ## 1. Interview the repo, not the user
 

@@ -1,6 +1,6 @@
 ---
 name: swarm
-description: "Fan out N parallel workers, drain them, and return one report. Use for /swarm, 'swarm this', or parallel coverage, races, gauntlets, and exploration."
+description: "Use when authorized independent workers can run without shared mutable state."
 license: MIT
 metadata:
   author: jstack-maintainers

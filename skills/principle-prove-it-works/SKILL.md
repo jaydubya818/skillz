@@ -1,6 +1,6 @@
 ---
 name: principle-prove-it-works
-description: "Apply after completing a task, before declaring done. Verify against the real artifact (run the feature, read the actual value, inspect the diff), not a proxy, self-report, or 'it compiles.' Use this skill when the user asks for principle prove it works or the task clearly matches this workflow."
+description: "Apply when the actual candidate and observable result still need verification."
 license: MIT
 metadata:
   author: jstack-maintainers

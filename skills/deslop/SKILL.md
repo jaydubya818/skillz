@@ -1,6 +1,6 @@
 ---
 name: deslop
-description: "Remove AI-generated code slop and clean up code style Use this skill when the user asks for deslop or the task clearly matches this workflow."
+description: "Use when code needs generated clutter removed and structure simplified without behavior changes."
 license: MIT
 metadata:
   author: jstack-maintainers

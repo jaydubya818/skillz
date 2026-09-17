@@ -39,6 +39,23 @@ def scalar_field(block: str, name: str) -> str:
     return match.group(1).strip().strip('"')
 
 
+def description_value(block: str) -> str:
+    lines = block.splitlines()
+    for index, line in enumerate(lines):
+        if not line.startswith("description:"):
+            continue
+        value = line.split(":", 1)[1].strip()
+        if value in {">", ">-", "|", "|-"}:
+            continuation = []
+            for candidate in lines[index + 1:]:
+                if not candidate.startswith((" ", "\t")):
+                    break
+                continuation.append(candidate.strip())
+            return " ".join(continuation)
+        return json.loads(value) if value.startswith('"') else value
+    raise AssertionError("missing description")
+
+
 def test_plugin_layout_has_one_canonical_skill_tree():
     discovered = {path.name for path in SKILLS.iterdir() if (path / "SKILL.md").is_file()}
     assert discovered == expected_skills()
@@ -63,6 +80,16 @@ def test_skill_frontmatter_uses_portable_fields_and_codex_metadata():
         assert 25 <= len(short) <= 64
 
 
+def test_skill_descriptions_fit_the_codex_discovery_budget():
+    descriptions = [
+        description_value(frontmatter(SKILLS / name / "SKILL.md"))
+        for name in expected_skills()
+    ]
+    byte_lengths = [len(description.encode("utf-8")) for description in descriptions]
+    assert all(length <= 220 for length in byte_lengths)
+    assert sum(byte_lengths) <= 8000
+
+
 def test_local_markdown_links_resolve():
     for markdown in ROOT.rglob("*.md"):
         for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", markdown.read_text()):
@@ -77,8 +104,26 @@ def test_plugin_manifests_target_shared_skills_directory():
     claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
     codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text())
     assert claude["name"] == codex["name"] == "software-factory-skills"
-    assert claude["version"] == codex["version"] == "2.0.0"
+    assert claude["version"] == codex["version"] == "2.1.0"
     assert codex["skills"] == "./skills/"
+
+
+def test_claude_companion_agents_are_packaged_and_referenced_for_both_install_modes():
+    plugin_name = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())["name"]
+    expected = {"comment-sicko", "poteto-agent"}
+    packaged = {path.stem for path in (ROOT / "agents").glob("*.md")}
+    assert packaged == expected
+    for name in expected:
+        assert scalar_field(frontmatter(ROOT / "agents" / f"{name}.md"), "name") == name
+
+    mode = (SKILLS / "poteto-mode" / "SKILL.md").read_text()
+    plan = (SKILLS / "poteto-mode" / "playbooks" / "multi-phase-plan.md").read_text()
+    comments = (SKILLS / "no-comments" / "SKILL.md").read_text()
+    assert f'{plugin_name}:poteto-agent' in mode
+    assert f'{plugin_name}:poteto-agent' in plan
+    assert f'{plugin_name}:comment-sicko' in comments
+    assert "For a direct install, use the bare" in mode
+    assert "For a direct install, use the bare" in comments
 
 
 def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():

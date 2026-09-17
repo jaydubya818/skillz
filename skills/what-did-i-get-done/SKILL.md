@@ -1,6 +1,6 @@
 ---
 name: what-did-i-get-done
-description: "Summarize authored commits over a user-specified time period into a concise update Use this skill when the user asks for what did i get done or the task clearly matches this workflow."
+description: "Use when authored work needs a concise summary for a concrete time window."
 license: MIT
 metadata:
   author: jstack-maintainers
