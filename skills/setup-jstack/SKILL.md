@@ -14,7 +14,7 @@ metadata:
 
 # Setup Jstack
 
-On Codex, read the [platform mapping](../poteto-mode/references/codex-tools.md), including its per-skill notes, before following this skill.
+On Codex, Cursor, or another non-Claude runtime, read the [runtime mapping](../poteto-mode/references/harness-tools.md), including its per-skill notes, before following this skill.
 
 Write `~/.claude/jstack-models.md`, a per-role model override sheet you include from your global `CLAUDE.md`. Each Jstack skill names a default model inline; the override sheet is the layer that adapts those defaults to the models you actually have access to.
 

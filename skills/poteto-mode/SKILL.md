@@ -16,7 +16,7 @@ metadata:
 
 ## Platform Adaptation
 
-These skills use Claude Code tool names (the `Skill` tool, the `Agent` tool, `AskUserQuestion`) and Claude model slugs (`claude-*`). On Claude Code they work as written. On Codex, read [`references/codex-tools.md`](references/codex-tools.md) for the Codex equivalent of a Claude tool, model, or skill named by these workflows. Other runtimes can discover the same Agent Skills tree, but they must use their own tool, model, and configuration equivalents. `codex-tools.md` is not a cross-runtime map.
+These skills use Claude Code tool names and Claude model slugs because that is the language of the upstream workflows. On Claude Code they work as written. On Codex, Cursor, or another runtime, read [`references/harness-tools.md`](references/harness-tools.md) and use the native equivalent for each tool, model, driver, transcript path, and companion agent.
 
 **Governance precedence.** When Mission Control governs the task, read and follow the **mission-control-delivery** skill first. Its execution contract controls authority, lineage, evidence, and state transitions. System, user, and repository instructions also take precedence. Poteto mode selects methods; it never broadens the authorized scope or grants permission to publish, message, merge, deploy, delete, or spend.
 

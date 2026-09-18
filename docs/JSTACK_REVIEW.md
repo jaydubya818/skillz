@@ -24,11 +24,12 @@ stay intact. `scripts/vendor_jstack.py` applies the integration layer and
 - Mission Control `owner`, `risk`, and capability values under portable
   `metadata`
 - `agents/openai.yaml` for Codex display and explicit invocation
-- the upstream `poteto-agent` and `comment-sicko` definitions at the Claude
-  plugin root and in direct Claude installations
+- the upstream `poteto-agent` and `comment-sicko` definitions for packaged
+  plugins and direct Claude installations
 - concise trigger descriptions, with a package-wide budget test that keeps the
   full collection discoverable without loading skill bodies up front
-- one canonical skill tree for Claude Code, Codex, and Mission Control
+- one canonical skill tree for Claude Code, Codex, Cursor, custom runtimes,
+  and Mission Control
 
 ## Safety and compatibility changes
 
@@ -52,7 +53,7 @@ these changes every time the source is refreshed:
 - Transcript workflows use the active harness's workspace-scoped history and
   never search unrelated project histories.
 - Project verification skills can use `.claude/skills/` for Claude-only work
-  or `.agents/skills/` as the Codex and shared canonical location.
+  or `.agents/skills/` for Codex, Cursor, and shared project discovery.
 
 ## Recommended operating model
 
@@ -101,6 +102,7 @@ git diff --check
 ```
 
 Review changes to `vendor/jstack.json`, every reported hardening anchor, the
-Codex mapping, and the upstream notices before accepting the refresh. The tool
-stops if upstream changes a hardening anchor or introduces its own `metadata`
-schema, so those changes cannot silently erase the integration policy.
+cross-runtime map, and the upstream notices before accepting the refresh. The
+tool stops if upstream changes a hardening anchor or introduces its own
+`metadata` schema, so those changes cannot silently erase the integration
+policy.

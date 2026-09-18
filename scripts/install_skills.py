@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Install this repository's skills for Claude Code, Codex, or both."""
+"""Install this repository's skills for supported agent runtimes."""
 
 from __future__ import annotations
 
@@ -24,7 +24,18 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     targets = parser.add_mutually_exclusive_group(required=True)
     targets.add_argument("--claude", action="store_true", help="install for Claude Code")
     targets.add_argument("--codex", action="store_true", help="install for Codex")
-    targets.add_argument("--all", action="store_true", help="install for Claude Code and Codex")
+    targets.add_argument("--cursor", action="store_true", help="install for Cursor")
+    targets.add_argument(
+        "--portable",
+        type=Path,
+        metavar="PATH",
+        help="install the canonical skills into an exact destination for another runtime",
+    )
+    targets.add_argument(
+        "--all",
+        action="store_true",
+        help="install for Claude Code, Codex, and Cursor",
+    )
     parser.add_argument(
         "--project",
         type=Path,
@@ -42,7 +53,16 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
         help="replace a conflicting install after moving it to a timestamp-free .backup path",
     )
     parser.add_argument("--dry-run", action="store_true", help="print actions without writing")
-    return parser.parse_args(argv)
+    args = parser.parse_args(argv)
+    if args.portable and args.project:
+        parser.error(
+            "--portable already names the destination and cannot be combined with --project"
+        )
+    return args
+
+
+def home_directory() -> Path:
+    return Path.home()
 
 
 def skill_directories() -> list[Path]:
@@ -55,21 +75,38 @@ def skill_directories() -> list[Path]:
 
 def selected_harnesses(args: argparse.Namespace) -> tuple[str, ...]:
     if args.all:
-        return ("claude", "codex")
-    return ("claude",) if args.claude else ("codex",)
+        return ("claude", "codex", "cursor")
+    if args.claude:
+        return ("claude",)
+    if args.codex:
+        return ("codex",)
+    if args.cursor:
+        return ("cursor",)
+    return ("portable",)
 
 
-def skills_destination_root(harness: str, project: Path | None) -> Path:
-    base = project.expanduser().resolve() if project else Path.home()
+def skills_destination_root(
+    harness: str,
+    project: Path | None,
+    portable: Path | None,
+) -> Path:
+    if harness == "portable":
+        if portable is None:
+            raise ValueError("portable destination is required")
+        return portable.expanduser().resolve()
+
+    base = project.expanduser().resolve() if project else home_directory()
     if harness == "claude":
         return base / ".claude" / "skills"
-    if harness == "codex":
+    if harness == "codex" or (harness == "cursor" and project):
         return base / ".agents" / "skills"
+    if harness == "cursor":
+        return base / ".cursor" / "skills"
     raise ValueError(f"unsupported harness: {harness}")
 
 
 def agents_destination_root(project: Path | None) -> Path:
-    base = project.expanduser().resolve() if project else Path.home()
+    base = project.expanduser().resolve() if project else home_directory()
     return base / ".claude" / "agents"
 
 
@@ -174,12 +211,15 @@ def run(args: argparse.Namespace) -> list[str]:
     if not skills:
         raise FileNotFoundError(f"no skills found under {SKILLS_ROOT}")
 
-    installs = [
-        (source, skills_destination_root(harness, args.project))
-        for harness in selected_harnesses(args)
-        for source in skills
-    ]
-    if "claude" in selected_harnesses(args):
+    harnesses = selected_harnesses(args)
+    installs = list(
+        dict.fromkeys(
+            (source, skills_destination_root(harness, args.project, args.portable))
+            for harness in harnesses
+            for source in skills
+        )
+    )
+    if "claude" in harnesses:
         if not AGENTS_ROOT.is_dir():
             raise FileNotFoundError(f"companion agents directory not found: {AGENTS_ROOT}")
         installs.extend(

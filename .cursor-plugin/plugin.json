@@ -6,5 +6,14 @@
     "name": "Software Factory contributors"
   },
   "homepage": "https://github.com/jaydubya818/skillz",
-  "repository": "https://github.com/jaydubya818/skillz"
+  "repository": "https://github.com/jaydubya818/skillz",
+  "keywords": [
+    "software-factory",
+    "jstack",
+    "delivery",
+    "testing",
+    "code-review"
+  ],
+  "skills": "./skills/",
+  "agents": "./agents/"
 }

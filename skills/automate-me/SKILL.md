@@ -14,7 +14,7 @@ metadata:
 
 # Automate me
 
-On Codex, read the [platform mapping](../poteto-mode/references/codex-tools.md), including its per-skill notes, before following this skill.
+On Codex, Cursor, or another non-Claude runtime, read the [runtime mapping](../poteto-mode/references/harness-tools.md), including its per-skill notes, before following this skill.
 
 A guided flow for turning the user's working conventions into a skill agents will follow. Creating or editing a user-scoped skill requires the user's explicit choice of user scope; otherwise keep the output project-local. The output is one `-mode` skill tailored to them (e.g. `jay-mode`, `priya-mode`).
 
