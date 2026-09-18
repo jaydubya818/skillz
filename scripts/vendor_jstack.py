@@ -15,6 +15,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 DESTINATION = REPO_ROOT / "skills"
 AGENTS_DESTINATION = REPO_ROOT / "agents"
 MANIFEST = REPO_ROOT / "vendor" / "jstack.json"
+HARNESS_TOOLS_TEMPLATE = REPO_ROOT / "vendor" / "harness-tools.md"
 EXCLUDED = {"unslop": "the collection keeps its existing enhanced definition"}
 LOCAL_NAME_BY_SOURCE = {"setup-pstack": "setup-jstack"}
 
@@ -23,6 +24,11 @@ JSTACK_BRANDING_REPLACEMENTS = (
     ("pstack-models", "jstack-models"),
     ("pstack:poteto-agent", "software-factory-skills:poteto-agent"),
     ("pstack:comment-sicko", "software-factory-skills:comment-sicko"),
+    ("codex-tools.md", "harness-tools.md"),
+    (
+        "On Codex, read the [platform mapping]",
+        "On Codex, Cursor, or another non-Claude runtime, read the [runtime mapping]",
+    ),
     ("Configure which models pstack uses", "Configure which models Jstack uses"),
     ("configure pstack models", "configure Jstack models"),
     ("with the pstack workflow", "with the Jstack workflow"),
@@ -33,7 +39,7 @@ JSTACK_BRANDING_REPLACEMENTS = (
     ("pstack SKILL.md", "Jstack SKILL.md"),
     ("pstack's model choices", "Jstack's model choices"),
     ("pstack poteto-mode tooling", "Jstack poteto-mode tooling"),
-    ("Codex tool mapping for pstack", "Codex tool mapping for Jstack"),
+    ("Codex tool mapping for pstack", "Runtime tool mapping for Jstack"),
     ("pstack / Claude action", "Jstack / Claude action"),
     ("skills pstack references", "Jstack references"),
     ("named in pstack", "named in Jstack"),
@@ -166,8 +172,8 @@ DESCRIPTION_OVERRIDES = {
 HARDENINGS = {
     "poteto-mode": [
         (
-            "`codex-tools.md` is not a cross-runtime map.\n\n",
-            "`codex-tools.md` is not a cross-runtime map.\n\n"
+            "These skills use Claude Code tool names (the `Skill` tool, the `Agent` tool, `AskUserQuestion`) and Claude model slugs (`claude-*`). On Claude Code they work as written. On Codex, read [`references/harness-tools.md`](references/harness-tools.md) for the Codex equivalent of a Claude tool, model, or skill named by these workflows. Other runtimes can discover the same Agent Skills tree, but they must use their own tool, model, and configuration equivalents. `harness-tools.md` is not a cross-runtime map.\n\n",
+            "These skills use Claude Code tool names and Claude model slugs because that is the language of the upstream workflows. On Claude Code they work as written. On Codex, Cursor, or another runtime, read [`references/harness-tools.md`](references/harness-tools.md) and use the native equivalent for each tool, model, driver, transcript path, and companion agent.\n\n"
             "**Governance precedence.** When Mission Control governs the task, read and follow "
             "the **mission-control-delivery** skill first. Its execution contract controls authority, "
             "lineage, evidence, and state transitions. System, user, and repository instructions "
@@ -229,7 +235,7 @@ HARDENINGS = {
     "create-verification-skill": [
         (
             "This skill generates that as a project-local skill (`.claude/skills/verify/`) tailored to the repo. Name it `verify`.",
-            "This skill generates that as a project-local skill tailored to the repo. Use `.claude/skills/verify/` for a Claude-only project or `.agents/skills/verify/` for Codex and shared Agent Skills discovery. When both harnesses need one canonical definition, place it under `.agents/skills/verify/` and add a conflict-checked relative link from `.claude/skills/verify`. Name it `verify`.",
+            "This skill generates that as a project-local skill tailored to the repo. Use `.claude/skills/verify/` for a Claude-only project or `.agents/skills/verify/` for Codex, Cursor, and shared Agent Skills discovery. When several runtimes need one canonical definition, place it under `.agents/skills/verify/` and add a conflict-checked relative link from `.claude/skills/verify`. Name it `verify`.",
         ),
         (
             "Write `.claude/skills/verify/SKILL.md` with YAML frontmatter",
@@ -238,6 +244,12 @@ HARDENINGS = {
         (
             "Create `.claude/skills/verify/features/README.md` plus one file per user-facing feature",
             "Create `features/README.md` under the selected `verify` skill plus one file per user-facing feature",
+        ),
+    ],
+    "maintain-verification-skill": [
+        (
+            "the project-local skill whose body has launch/drive sections and a feature map (`.claude/skills/verify/`, or `.claude/skills/verify-*/` from an older generator)",
+            "the project-local skill whose body has launch/drive sections and a feature map (`.agents/skills/verify/`, `.claude/skills/verify/`, or `.claude/skills/verify-*/` from an older generator)",
         ),
     ],
     "recall": [
@@ -479,6 +491,14 @@ def main() -> int:
             shutil.rmtree(destination)
         shutil.copytree(source_skills / source_name, destination)
         apply_jstack_branding(destination)
+        if local_name == "poteto-mode":
+            legacy_mapping = destination / "references" / "codex-tools.md"
+            if legacy_mapping.exists():
+                legacy_mapping.unlink()
+            shutil.copy2(
+                HARNESS_TOOLS_TEMPLATE,
+                destination / "references" / "harness-tools.md",
+            )
         normalize_skill(destination, version=version, commit=commit)
 
     MANIFEST.parent.mkdir(exist_ok=True)

@@ -1,10 +1,13 @@
 import json
 from pathlib import Path
 import re
+import subprocess
+import sys
 
 
 ROOT = Path(__file__).parents[1]
 SKILLS = ROOT / "skills"
+RELEASE_VERSION = "2.2.0"
 CORE_SKILLS = {
     "before-and-after",
     "code-structure",
@@ -101,11 +104,68 @@ def test_local_markdown_links_resolve():
 
 
 def test_plugin_manifests_target_shared_skills_directory():
+    portable = json.loads((ROOT / "plugin.json").read_text())
     claude = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
     codex = json.loads((ROOT / ".codex-plugin" / "plugin.json").read_text())
-    assert claude["name"] == codex["name"] == "software-factory-skills"
-    assert claude["version"] == codex["version"] == "2.1.0"
+    cursor = json.loads((ROOT / ".cursor-plugin" / "plugin.json").read_text())
+    manifests = (portable, claude, codex, cursor)
+    assert {manifest["name"] for manifest in manifests} == {"software-factory-skills"}
+    assert {manifest["version"] for manifest in manifests} == {RELEASE_VERSION}
+    assert portable["$schema"] == "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
     assert codex["skills"] == "./skills/"
+    assert cursor["skills"] == "./skills/"
+    assert cursor["agents"] == "./agents/"
+
+
+def test_claude_marketplace_distributes_the_root_plugin():
+    marketplace = json.loads(
+        (ROOT / ".claude-plugin" / "marketplace.json").read_text()
+    )
+    assert marketplace["name"] == "skillz"
+    assert marketplace["version"] == RELEASE_VERSION
+    assert marketplace["owner"]["name"] == "jaydubya818"
+    assert len(marketplace["plugins"]) == 1
+    plugin = marketplace["plugins"][0]
+    assert plugin["name"] == "software-factory-skills"
+    assert plugin["source"] == "./"
+    assert plugin["version"] == RELEASE_VERSION
+
+
+def test_release_metadata_matches_the_public_tag():
+    result = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check_release.py"), f"v{RELEASE_VERSION}"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 0, result.stderr
+    assert result.stdout.strip() == f"release metadata matches v{RELEASE_VERSION}"
+
+
+def test_release_metadata_rejects_a_mismatched_tag():
+    result = subprocess.run(
+        [sys.executable, str(ROOT / "scripts" / "check_release.py"), "v0.0.0"],
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=False,
+    )
+    assert result.returncode == 1
+    assert "expected 0.0.0" in result.stderr
+
+
+def test_cross_harness_mapping_replaces_the_codex_only_map():
+    mapping = SKILLS / "poteto-mode" / "references" / "harness-tools.md"
+    assert mapping.is_file()
+    assert mapping.read_text() == (ROOT / "vendor" / "harness-tools.md").read_text()
+    text = mapping.read_text()
+    for heading in ("## Claude Code", "## Codex", "## Cursor", "## Other runtimes"):
+        assert heading in text
+    assert "codex-tools.md" not in "\n".join(
+        path.read_text() for path in ROOT.rglob("*.md")
+    )
+    assert not (SKILLS / "poteto-mode" / "references" / "codex-tools.md").exists()
 
 
 def test_claude_companion_agents_are_packaged_and_referenced_for_both_install_modes():
@@ -159,6 +219,12 @@ def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():
     assert "rm -rf" not in cleanup
     reflect = (SKILLS / "reflect" / "SKILL.md").read_text()
     assert "only when the task authorizes writes" in reflect
+    create_verifier = (SKILLS / "create-verification-skill" / "SKILL.md").read_text()
+    assert "for Codex, Cursor, and shared Agent Skills discovery" in create_verifier
+    maintain_verifier = (
+        SKILLS / "maintain-verification-skill" / "SKILL.md"
+    ).read_text()
+    assert ".agents/skills/verify/" in maintain_verifier
 
 
 def test_jstack_credits_original_pstack_authorship():

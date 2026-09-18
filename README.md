@@ -1,6 +1,7 @@
 # Skillz
 
-Production-minded Agent Skills for Claude Code, Codex, and Mission Control.
+Production software skills for Claude Code, Codex, Cursor, Mission Control,
+and other Agent Skills runtimes.
 
 Jstack is this repository's governed, cross-harness distribution of the
 planning, implementation, review, and engineering-principle skills imported
@@ -8,7 +9,9 @@ from the credited upstream sources.
 
 Jstack is derived from
 [Cursor's pstack plugin](https://github.com/cursor/plugins/tree/main/pstack),
-created by Lauren Tan and released under the MIT license. This repository uses as the cross-harness port. The Jstack name identifies this repository's integration and hardening work; it does not replace pstack's authorship.
+created by Lauren Tan and released under the MIT license. This repository is a
+cross-runtime port. The Jstack name identifies this repository's integration
+and safety work. It does not replace pstack's authorship.
 
 This repository packages 61 skills behind one canonical `skills/` tree:
 
@@ -17,10 +20,10 @@ This repository packages 61 skills behind one canonical `skills/` tree:
 - 23 engineering principles
 
 Every skill uses portable
-[Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code
-and Codex read the same `SKILL.md` bodies, while harness-specific presentation
-metadata lives beside those files. Mission Control governance metadata is kept
-inside the standard `metadata` map instead of forking the skill format.
+[Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code,
+Codex, Cursor, and custom runtimes read the same `SKILL.md` bodies. Runtime
+metadata and plugin manifests stay beside the canonical tree. Mission Control
+governance metadata stays inside the standard `metadata` map.
 
 This is a mixed-source collection. Read [Licensing and attribution](LICENSES.md)
 before redistributing an individual skill.
@@ -33,7 +36,7 @@ for permission to publish, merge, deploy, or spend money.
 
 Skillz provides:
 
-- one source of truth for Claude Code, Codex, and Agent Skills-compatible tools
+- one source of truth for Claude Code, Codex, Cursor, and custom runtimes
 - explicit activation descriptions instead of loading every skill into context
 - a tested package-wide routing budget so all skill descriptions remain discoverable
 - a Mission Control delivery contract from mission to release evidence
@@ -58,7 +61,19 @@ For non-trivial software-factory work:
 Do not preload all 61 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
-## Quick installation
+## Choose an installation
+
+Mission Control is optional. It is one consumer of this repository, not a
+requirement for Claude Code, Codex, Cursor, or another runtime.
+
+| Runtime | Public package | User install | Project install |
+| --- | --- | --- | --- |
+| Claude Code | `.claude-plugin/plugin.json` and the `skillz` marketplace | `--claude` writes `~/.claude/skills/` and `~/.claude/agents/` | `.claude/skills/` and `.claude/agents/` |
+| Codex | `plugin.json` and `.codex-plugin/plugin.json` | `--codex` writes `~/.agents/skills/` | `.agents/skills/` |
+| Cursor | `plugin.json` and `.cursor-plugin/plugin.json` | `--cursor` writes `~/.cursor/skills/` | `.agents/skills/` |
+| Other runtime | Standard `skills/` tree | `--portable PATH` writes the exact path | Use the runtime's documented Agent Skills directory |
+
+### Install with the repository installer
 
 ```bash
 git clone https://github.com/jaydubya818/skillz.git
@@ -67,7 +82,7 @@ cd skillz
 # Always inspect the user-level change first.
 python3 scripts/install_skills.py --all --dry-run
 
-# Install for both Claude Code and Codex.
+# Install for Claude Code, Codex, and Cursor.
 python3 scripts/install_skills.py --all
 ```
 
@@ -82,7 +97,7 @@ python3 scripts/install_skills.py --all --replace
 Replacement moves the old directory to `<skill>.backup`, then `.backup-2`, and
 so on. An already-current copy is skipped, making repeated installs idempotent.
 
-## Installation options
+## Runtime-specific installation
 
 ### User-level Claude Code installation
 
@@ -102,6 +117,14 @@ claude --plugin-dir /path/to/skillz
 The Claude plugin manifest is
 [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json).
 
+To install the public Claude plugin from inside Claude Code, add this repository
+as a marketplace and install its package:
+
+```text
+/plugin marketplace add jaydubya818/skillz
+/plugin install software-factory-skills@skillz
+```
+
 ### User-level Codex installation
 
 ```bash
@@ -116,9 +139,41 @@ Each skill includes `agents/openai.yaml` for its Codex display name, concise
 description, and explicit invocation prompt. The collection manifest is
 [`.codex-plugin/plugin.json`](.codex-plugin/plugin.json).
 
+The root [`plugin.json`](plugin.json) follows the Agent Plugins standard. It
+packages the same tree for products that support that format.
+
+### User-level Cursor installation
+
+```bash
+python3 scripts/install_skills.py --cursor --dry-run
+python3 scripts/install_skills.py --cursor
+```
+
+Destination: `~/.cursor/skills/`. Cursor syncs personal skills from this path
+to Cursor Cloud Agents. The repository also includes
+[`.cursor-plugin/plugin.json`](.cursor-plugin/plugin.json) for local plugin
+testing and marketplace submission.
+
+### Custom runtime installation
+
+Pass the runtime's skill directory as an exact destination:
+
+```bash
+python3 scripts/install_skills.py \
+  --portable /path/to/runtime/skills \
+  --dry-run
+
+python3 scripts/install_skills.py \
+  --portable /path/to/runtime/skills
+```
+
+This mode installs only the canonical skills. A custom runtime must map its
+tools and worker controls with the
+[`harness-tools.md`](skills/poteto-mode/references/harness-tools.md) guide.
+
 ### Project-scoped installation
 
-Copy the skills into both harness directories for one project:
+Copy the skills into the shared runtime directories for one project:
 
 ```bash
 python3 scripts/install_skills.py \
@@ -135,11 +190,10 @@ python3 scripts/install_skills.py \
   --project /path/to/project
 ```
 
-Project installs target `.claude/skills/` for Claude Code and
-`.agents/skills/` for Codex. Claude installs also place the two companion
-subagents in `.claude/agents/`. Copy mode is portable. Symlink mode is better
-for active skill development because edits in this checkout are immediately
-visible to both harnesses.
+Project installs target `.claude/skills/` for Claude Code. Codex and Cursor
+share `.agents/skills/`, so `--all` writes that tree once. Claude installs also
+place the two companion agents in `.claude/agents/`. Copy mode is portable.
+Symlink mode lets an active checkout feed each runtime without duplicate edits.
 
 ## Mission Control integration
 
@@ -353,7 +407,7 @@ After a refresh, review:
 1. `vendor/jstack.json`
 2. every changed `SKILL.md`, script, and reference
 3. upstream licenses and notices
-4. Codex tool mappings
+4. cross-runtime tool mappings
 5. external-write and approval boundaries
 6. package tests and Mission Control lint scores
 
@@ -361,13 +415,16 @@ After a refresh, review:
 
 ```text
 skillz/
-├── .claude-plugin/plugin.json     # Claude Code plugin metadata
+├── plugin.json                    # Portable Agent Plugin metadata
+├── .claude-plugin/                # Claude plugin and marketplace metadata
 ├── .codex-plugin/plugin.json      # Codex plugin metadata
-├── .github/workflows/validate.yml # Portable CI checks
-├── agents/                         # Claude companion subagents
+├── .cursor-plugin/plugin.json     # Cursor plugin metadata
+├── .github/workflows/             # Validation and tagged-release jobs
+├── agents/                         # Packaged companion agents
 ├── docs/JSTACK_REVIEW.md          # Import and governance review
 ├── scripts/
-│   ├── install_skills.py          # Safe Claude/Codex installer
+│   ├── check_release.py           # Release-version gate
+│   ├── install_skills.py          # Conflict-safe runtime installer
 │   └── vendor_jstack.py           # Reproducible Jstack build
 ├── skills/
 │   └── <skill>/
@@ -376,7 +433,7 @@ skillz/
 │       ├── references/             # Optional detailed guidance
 │       └── scripts/                # Optional deterministic helpers
 ├── tests/                          # Package and workflow contracts
-├── vendor/jstack.json              # Pinned Jstack inventory
+├── vendor/                          # Pinned inventory and generated map source
 ├── AGENTS.md                       # Repository execution policy
 └── LICENSES.md                     # Per-source licensing map
 ```
@@ -411,8 +468,22 @@ must not assume that Claude-only tools exist in every harness.
 
 Codex uses the same skill bodies and reads `agents/openai.yaml` for display and
 explicit invocation. Jstack workflows consult
-[`skills/poteto-mode/references/codex-tools.md`](skills/poteto-mode/references/codex-tools.md)
+[`skills/poteto-mode/references/harness-tools.md`](skills/poteto-mode/references/harness-tools.md)
 when Claude tool names need a Codex equivalent.
+
+### Cursor
+
+Cursor can load the root Agent Plugin or the Cursor-specific manifest. User
+skill installs use `~/.cursor/skills/` so Cursor Cloud Agents can receive them.
+Project installs share `.agents/skills/` with Codex and other compatible tools.
+The runtime map explains how to replace Claude-only worker and model fields.
+
+### Other runtimes
+
+Other runtimes receive the same skill directories through `--portable PATH`.
+The runtime must discover standard Agent Skills or explicitly load the selected
+`SKILL.md`. The runtime map defines safe fallbacks when workers, task tracking,
+scheduled checks, or structured questions are unavailable.
 
 ### Mission Control
 
@@ -468,6 +539,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
+python3 scripts/check_release.py v2.2.0
 git diff --check
 ```
 
@@ -483,18 +555,22 @@ The tests verify:
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
-- Claude and Codex manifests pointing at the shared tree
-- packaged Claude subagents and valid plugin/direct-install routing
+- portable, Claude, Codex, and Cursor manifests for one package version
+- the Claude marketplace entry and the tagged-release version gate
+- packaged companion agents and valid plugin or direct-install routing
 - local Markdown links
 - pinned provenance and hardening
-- conflict refusal, backups, dry runs, copy mode, symlink mode, and idempotency
+- Claude, Codex, Cursor, and custom-runtime installer destinations
+- conflict refusal, backups, dry runs, copy mode, symlink mode, deduplication, and idempotency
 - Greptile review freshness and bounded polling
 - isolated Playwright dependency handling
 - evidence recorder lifecycle on capable hosts
 
 GitHub Actions runs the portable tests and Python syntax checks on every pull
-request and push to `main`. Native recorder coverage remains host-specific
-because desktop capture and FFmpeg filter availability vary.
+request and push to `main`. A `v*` tag must match every package manifest before
+the release job publishes source archives and SHA-256 checksums. Native recorder
+coverage remains host-specific because desktop capture and FFmpeg filter
+availability vary.
 
 ## Adding a skill
 
@@ -536,6 +612,12 @@ because desktop capture and FFmpeg filter availability vary.
   Greptile review workflow.
 - [Agent Skills](https://agentskills.io/specification) defines the portable
   skill format.
+- [Agent Plugins](https://agent-plugins.org/) defines the portable package
+  manifest.
+- [Claude plugin marketplaces](https://code.claude.com/docs/en/plugin-marketplaces),
+  [OpenAI's skill guide](https://developers.openai.com/codex/skills), and
+  [Cursor plugins](https://cursor.com/docs/plugins) define the runtime-specific
+  distribution paths.
 
 See [`LICENSES.md`](LICENSES.md) and the license files inside individual skill
 directories for exact terms.

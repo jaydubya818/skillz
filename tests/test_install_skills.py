@@ -56,6 +56,68 @@ def test_copy_installs_both_harnesses_and_is_idempotent(source_tree, tmp_path):
     assert all(line.startswith("skip ") for line in second)
 
 
+def test_cursor_project_install_reuses_portable_agents_directory(source_tree, tmp_path):
+    project = tmp_path / "project"
+    output = INSTALLER.run(args("--cursor", "--project", str(project)))
+    assert len(output) == 2
+    assert all(
+        (project / ".agents" / "skills" / name / "SKILL.md").is_file()
+        for name in ("alpha", "beta")
+    )
+    assert not (project / ".cursor").exists()
+
+
+def test_cursor_user_install_uses_cursor_cloud_synced_directory(
+    source_tree, tmp_path, monkeypatch
+):
+    user_home = tmp_path / "home"
+    monkeypatch.setattr(INSTALLER, "home_directory", lambda: user_home)
+    output = INSTALLER.run(args("--cursor"))
+    assert len(output) == 2
+    assert all(
+        (user_home / ".cursor" / "skills" / name / "SKILL.md").is_file()
+        for name in ("alpha", "beta")
+    )
+
+
+def test_portable_install_uses_exact_destination(source_tree, tmp_path):
+    destination = tmp_path / "custom-harness" / "skills"
+    output = INSTALLER.run(args("--portable", str(destination)))
+    assert len(output) == 2
+    assert all(
+        (destination / name / "SKILL.md").is_file()
+        for name in ("alpha", "beta")
+    )
+
+
+def test_portable_destination_cannot_be_combined_with_project(tmp_path):
+    with pytest.raises(SystemExit):
+        args("--portable", str(tmp_path / "skills"), "--project", str(tmp_path))
+
+
+def test_all_project_install_deduplicates_shared_codex_cursor_destination(
+    source_tree, tmp_path
+):
+    project = tmp_path / "project"
+    output = INSTALLER.run(args("--all", "--project", str(project)))
+    assert len(output) == 6
+    assert sum("/.agents/skills/" in line for line in output) == 2
+
+
+def test_all_user_install_keeps_codex_and_cursor_personal_roots(
+    source_tree, tmp_path, monkeypatch
+):
+    user_home = tmp_path / "home"
+    monkeypatch.setattr(INSTALLER, "home_directory", lambda: user_home)
+    output = INSTALLER.run(args("--all"))
+    assert len(output) == 8
+    for root in (".claude", ".agents", ".cursor"):
+        assert all(
+            (user_home / root / "skills" / name / "SKILL.md").is_file()
+            for name in ("alpha", "beta")
+        )
+
+
 def test_conflict_is_rejected_without_replace(source_tree, tmp_path):
     project = tmp_path / "project"
     destination = project / ".agents" / "skills" / "alpha"

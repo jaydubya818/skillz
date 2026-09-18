@@ -1,4 +1,5 @@
 {
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "software-factory-skills",
   "description": "Jstack delivery, architecture, evidence, review, and writing skills for production software work.",
   "version": "2.2.0",
@@ -6,5 +7,12 @@
     "name": "Software Factory contributors"
   },
   "homepage": "https://github.com/jaydubya818/skillz",
-  "repository": "https://github.com/jaydubya818/skillz"
+  "repository": "https://github.com/jaydubya818/skillz",
+  "keywords": [
+    "software-factory",
+    "jstack",
+    "delivery",
+    "testing",
+    "code-review"
+  ]
 }
