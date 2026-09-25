@@ -1,0 +1,4 @@
+interface:
+  display_name: "Agent Watchdog"
+  short_description: "Audit agent work and repair verified gaps"
+  default_prompt: "Use $agent-watchdog for this task and return a verified result."

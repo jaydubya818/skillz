@@ -1,0 +1,46 @@
+{
+  "schema": "vendored-agent-skills/v1",
+  "upstream": "https://github.com/BuilderIO/skills",
+  "commit": "fd8f20a879b507cf09feba08663a1edf7a949353",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Builder.io",
+  "imported": [
+    "agent-watchdog",
+    "an",
+    "efficient-fable",
+    "efficient-frontier",
+    "factory",
+    "factory-babysit-pr",
+    "factory-collect",
+    "factory-human-digest",
+    "factory-lookback",
+    "factory-recover",
+    "factory-review-prs",
+    "factory-ship",
+    "factory-watchdog",
+    "plan-arbiter",
+    "plow-ahead",
+    "quick-recap",
+    "read-the-damn-docs",
+    "rewind",
+    "stay-within-limits",
+    "turn-into-app",
+    "visual-edit",
+    "visual-plan",
+    "visual-recap",
+    "webmcp"
+  ],
+  "shared_resources": {
+    "factory": "skills/factory/references/",
+    "visual-plan-media": "skills/visual-plan/assets/visual-plan.png",
+    "visual-recap-media": "skills/visual-recap/assets/visual-recap.gif",
+    "dispatch-mcp": ".mcp.json"
+  },
+  "integration": [
+    "portable frontmatter and concise activation descriptions",
+    "Codex agents/openai.yaml metadata",
+    "self-contained MIT notices",
+    "installed-tree-safe Factory and media references",
+    "optional Agent-Native Dispatch MCP configuration"
+  ]
+}

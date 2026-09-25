@@ -1,0 +1,4 @@
+interface:
+  display_name: "Efficient Fable"
+  short_description: "Delegate bounded work while Fable decides"
+  default_prompt: "Use $efficient-fable for this task and return a verified result."

@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).parents[1]
 SKILLS = ROOT / "skills"
-RELEASE_VERSION = "2.2.0"
+RELEASE_VERSION = "2.3.0"
 CORE_SKILLS = {
     "before-and-after",
     "code-structure",
@@ -21,12 +21,14 @@ CORE_SKILLS = {
 
 
 def expected_skills() -> set[str]:
-    vendor = json.loads((ROOT / "vendor" / "jstack.json").read_text())
-    assert vendor["schema"] == "vendored-agent-skills/v1"
-    assert vendor["excluded"] == {
+    jstack = json.loads((ROOT / "vendor" / "jstack.json").read_text())
+    builderio = json.loads((ROOT / "vendor" / "builderio.json").read_text())
+    assert jstack["schema"] == "vendored-agent-skills/v1"
+    assert builderio["schema"] == "vendored-agent-skills/v1"
+    assert jstack["excluded"] == {
         "unslop": "the collection keeps its existing enhanced definition"
     }
-    return CORE_SKILLS | set(vendor["imported"])
+    return CORE_SKILLS | set(jstack["imported"]) | set(builderio["imported"])
 
 
 def frontmatter(path: Path) -> str:
@@ -72,7 +74,15 @@ def test_skill_frontmatter_uses_portable_fields_and_codex_metadata():
         assert scalar_field(block, "name") == name
         assert re.search(r"^description:", block, re.MULTILINE)
         assert re.search(r"^metadata:\n(?:  [a-z0-9-]+: .+\n?)+", block, re.MULTILINE)
-        for legacy in ("owner", "risk", "capabilities", "requires_tools", "related_skills"):
+        for legacy in (
+            "owner",
+            "risk",
+            "capabilities",
+            "requires_tools",
+            "related_skills",
+            "installer-group",
+            "visibility",
+        ):
             assert not re.search(rf"^{legacy}:", block, re.MULTILINE), f"legacy top-level field in {name}"
         if re.search(r"^allowed-tools:", block, re.MULTILINE):
             assert not re.search(r"^allowed-tools:\s*\n\s+-", block, re.MULTILINE)
@@ -113,6 +123,8 @@ def test_plugin_manifests_target_shared_skills_directory():
     assert {manifest["version"] for manifest in manifests} == {RELEASE_VERSION}
     assert portable["$schema"] == "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json"
     assert codex["skills"] == "./skills/"
+    assert codex["mcpServers"] == "./.mcp.json"
+    assert claude["mcpServers"] == "./.mcp.json"
     assert cursor["skills"] == "./skills/"
     assert cursor["agents"] == "./agents/"
 
@@ -233,3 +245,41 @@ def test_jstack_credits_original_pstack_authorship():
         assert "https://github.com/cursor/plugins/tree/main/pstack" in text
         assert "Lauren Tan" in text
         assert "https://github.com/michael-denyer/pstack-claude" in text
+
+
+def test_builderio_vendor_is_pinned_attributed_and_portable():
+    vendor = json.loads((ROOT / "vendor" / "builderio.json").read_text())
+    assert vendor["upstream"] == "https://github.com/BuilderIO/skills"
+    assert vendor["commit"] == "fd8f20a879b507cf09feba08663a1edf7a949353"
+    assert vendor["license"] == "MIT"
+    assert len(vendor["imported"]) == 24
+    assert set(vendor["imported"]).isdisjoint(CORE_SKILLS)
+    for name in vendor["imported"]:
+        skill = SKILLS / name
+        block = frontmatter(skill / "SKILL.md")
+        assert "source: BuilderIO/skills" in block
+        assert f"source-commit: {vendor['commit']}" in block
+        assert "license: MIT" in block
+        assert "capabilities: builderio," in block
+        assert (skill / "LICENSE").read_text().startswith("MIT License")
+
+    factory = SKILLS / "factory" / "references"
+    assert (factory / "factory-guide.md").is_file()
+    assert (factory / "factory-configuration.md").is_file()
+    assert (SKILLS / "visual-plan" / "assets" / "visual-plan.png").is_file()
+    assert (SKILLS / "visual-recap" / "assets" / "visual-recap.gif").is_file()
+    assert "/docs/agent-native-config" not in (
+        SKILLS / "turn-into-app" / "SKILL.md"
+    ).read_text().replace("https://www.agent-native.com/docs/agent-native-config/", "")
+
+
+def test_builderio_dispatch_connector_is_explicit_and_scoped():
+    config = json.loads((ROOT / ".mcp.json").read_text())
+    assert config == {
+        "mcpServers": {
+            "agent-native-dispatch": {
+                "type": "http",
+                "url": "https://dispatch.agent-native.com/mcp",
+            }
+        }
+    }

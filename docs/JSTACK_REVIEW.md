@@ -62,7 +62,7 @@ binds the Attempt to scope, authority, evidence, and handoff. Then use
 `poteto-mode` to select a workflow and load only the applicable public skills
 or principles.
 
-Do not preload all 61 skills. That wastes context and increases instruction
+Do not preload all 85 skills. That wastes context and increases instruction
 collisions. The descriptions are the routing layer; the selected `SKILL.md`
 files are the execution layer.
 

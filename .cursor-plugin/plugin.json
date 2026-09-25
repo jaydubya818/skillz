@@ -1,7 +1,7 @@
 {
   "name": "software-factory-skills",
-  "description": "Jstack delivery, architecture, evidence, review, and writing skills for production software work.",
-  "version": "2.2.0",
+  "description": "Cross-harness delivery, review, Agent-Native, visual, and software-factory skills for production work.",
+  "version": "2.3.0",
   "author": {
     "name": "Software Factory contributors"
   },
@@ -10,6 +10,8 @@
   "keywords": [
     "software-factory",
     "jstack",
+    "builderio",
+    "agent-native",
     "delivery",
     "testing",
     "code-review"

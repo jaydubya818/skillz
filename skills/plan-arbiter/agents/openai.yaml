@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Arbiter"
+  short_description: "Choose one executable plan from alternatives"
+  default_prompt: "Use $plan-arbiter for this task and return a verified result."

@@ -16,6 +16,12 @@ apply one blanket license to every directory.
   directories.
 - `unslop` carries its MIT license in
   [`skills/unslop/LICENSE`](skills/unslop/LICENSE).
+- The 24 skills recorded in
+  [`vendor/builderio.json`](vendor/builderio.json) originate in
+  [`BuilderIO/skills`](https://github.com/BuilderIO/skills), copyright 2026
+  Builder.io, and are used under the MIT license. Each imported skill directory
+  includes the complete upstream `LICENSE` notice so standalone installs retain
+  the required attribution.
 - Skills originating in
   [`michaelshimeles/skills`](https://github.com/michaelshimeles/skills) retain
   their source history and any license included with the source skill.

@@ -47,7 +47,7 @@ def check(tag: str) -> list[str]:
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("tag", help="release tag, for example v2.2.0")
+    parser.add_argument("tag", help="release tag, for example v2.3.0")
     args = parser.parse_args(argv)
     errors = check(args.tag)
     if errors:
