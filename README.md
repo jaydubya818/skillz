@@ -13,11 +13,17 @@ created by Lauren Tan and released under the MIT license. This repository is a
 cross-runtime port. The Jstack name identifies this repository's integration
 and safety work. It does not replace pstack's authorship.
 
-This repository packages 61 skills behind one canonical `skills/` tree:
+The collection also includes a reviewed, pinned import of 24 skills from
+[`BuilderIO/skills`](https://github.com/BuilderIO/skills). They cover agent
+review, model orchestration, Agent-Native apps, visual planning and editing,
+WebMCP, and experimental software-factory workflows.
+
+This repository packages 85 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
-- 30 workflows for planning, implementation, review, and operations
-- 23 engineering principles
+- 30 Jstack workflows for planning, implementation, review, and operations
+- 23 Jstack engineering principles
+- 24 Builder.io and Agent-Native workflows
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code,
@@ -58,7 +64,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 61 skills. Descriptions are the routing layer; the selected
+Do not preload all 85 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -171,6 +177,29 @@ This mode installs only the canonical skills. A custom runtime must map its
 tools and worker controls with the
 [`harness-tools.md`](skills/poteto-mode/references/harness-tools.md) guide.
 
+### Optional Agent-Native connections
+
+The repository installer copies skill instructions only. It does not install
+desktop software, authenticate accounts, or edit a runtime's MCP settings.
+Plugin-capable Claude and Codex installs can read the bundled [`.mcp.json`](.mcp.json),
+which declares only the Agent-Native Dispatch server. The runtime still controls
+connection approval, authentication, and app grants.
+
+| Skills | Additional requirement |
+| --- | --- |
+| `an` | Agent-Native Dispatch at `https://dispatch.agent-native.com/mcp`; authenticate and grant each app explicitly. |
+| `visual-plan`, `visual-recap` | Agent-Native Plan connector, or the documented local-files mode. |
+| `visual-edit` | A browser-capable coding host plus Agent-Native Design MCP or page WebMCP. |
+| `rewind` | macOS, the signed Clips Desktop app, Rewind enabled by the user, and the local Screen Memory MCP connection. |
+| `turn-into-app` | Node.js and pnpm for local builds, or authenticated Dispatch for a browser-only handoff. |
+| `webmcp` | A built-in browser with native WebMCP support or a page-world JavaScript evaluator. |
+| `factory*` | The source integrations, repository access, and scheduler capabilities named in the project config. |
+
+When a companion capability is missing, these skills stop with setup guidance;
+they do not silently install software, bypass authentication, or substitute an
+unapproved external service. Cursor and custom harness users must configure the
+required connectors through their runtime's documented MCP settings.
+
 ### Project-scoped installation
 
 Copy the skills into the shared runtime directories for one project:
@@ -250,6 +279,11 @@ skill guidance. External writes require explicit task authority.
 | Pull-request follow-through | `make-pr-easy-to-review` → `babysit`; add `greploop` only when Greptile is the requested reviewer |
 | Documentation | `technical-writing` → `unslop` |
 | Explain a subsystem | `teach`, which combines `how` and `why` |
+| Audit another agent | `agent-watchdog`; add repairs only when the request authorizes edits |
+| Compare proposed plans | `plan-arbiter` → one recommended execution handoff |
+| Interactive planning | `visual-plan`; use local-files mode for private or repo-owned artifacts |
+| Substantial change recap | `visual-recap` after verifying the exact diff |
+| Configure delivery automation | `factory` → enable one bounded, read-only workflow first |
 | Long unattended work | selected bounded playbook → `show-me-your-work` |
 | No clear playbook | `figure-it-out` with an explicit hypothesis and evidence loop |
 
@@ -270,6 +304,50 @@ propose an action that requires approval in the current task.
 | [`mission-control-delivery`](skills/mission-control-delivery/SKILL.md) | Low | Preserve Mission → WorkOrder → Task → Attempt → evidence → PR → release lineage. Use for governed software-factory work. |
 | [`new-feature`](skills/new-feature/SKILL.md) | Low | Isolate repository edits in a task-owned worktree without disturbing other work. Use before features, fixes, or documentation changes that edit Git. |
 | [`unslop`](skills/unslop/SKILL.md) | Low | Remove filler, generic AI phrasing, and mechanical prose from human-facing writing. Use on documentation, PR copy, comments, commits, and replies you edit. |
+
+### Builder.io agent and orchestration workflows
+
+| Skill | Risk | Purpose and activation |
+| --- | --- | --- |
+| [`agent-watchdog`](skills/agent-watchdog/SKILL.md) | Medium | Monitor or independently audit another agent's session, branch, PR, or transcript. It defaults to audit-only when repair authority is unclear. |
+| [`efficient-fable`](skills/efficient-fable/SKILL.md) | Low | Keep planning and final judgment with Claude Fable while cheaper agents handle bounded, independent work. |
+| [`efficient-frontier`](skills/efficient-frontier/SKILL.md) | Low | Apply the same bounded delegation pattern to any high-cost frontier model. |
+| [`plan-arbiter`](skills/plan-arbiter/SKILL.md) | Low | Compare competing plans against the real task and codebase, then return one executable recommendation. |
+| [`plow-ahead`](skills/plow-ahead/SKILL.md) | Medium | Continue through routine ambiguity with stated, reversible assumptions while preserving authority and safety stop conditions. |
+| [`quick-recap`](skills/quick-recap/SKILL.md) | Medium | Add or follow a compact red, yellow, or green final status-line convention. |
+| [`read-the-damn-docs`](skills/read-the-damn-docs/SKILL.md) | Low | Consult current primary documentation before acting on external APIs, packages, providers, or high-stakes behavior. |
+| [`stay-within-limits`](skills/stay-within-limits/SKILL.md) | Low | Check host usage between bounded work waves and pause before the active limit is exhausted. |
+
+### Builder.io Agent-Native workflows
+
+| Skill | Risk | Purpose and activation |
+| --- | --- | --- |
+| [`an`](skills/an/SKILL.md) | Medium | Open and operate explicitly granted Agent-Native workspace apps through Dispatch MCP. |
+| [`rewind`](skills/rewind/SKILL.md) | High | Retrieve a bounded range of local Clips Rewind context without exposing archive paths or uploading local frames. |
+| [`turn-into-app`](skills/turn-into-app/SKILL.md) | High | Convert a visible workflow, project, skill, thread, or spreadsheet into a verified Agent-Native app or Builder handoff. |
+| [`visual-edit`](skills/visual-edit/SKILL.md) | High | Open a running local app in Agent-Native Design, collect visual edits, and apply them back through explicit consent and conflict checks. |
+| [`visual-plan`](skills/visual-plan/SKILL.md) | Medium | Publish a structured interactive plan, or create a local-files plan when hosted writes are not appropriate. |
+| [`visual-recap`](skills/visual-recap/SKILL.md) | Medium | Turn an exact PR, branch, commit, or diff into a grounded visual review artifact. |
+| [`webmcp`](skills/webmcp/SKILL.md) | High | Use a web app's page tools through the host browser and verify mutations with readback before reporting success. |
+
+### Builder.io experimental Factory workflows
+
+Factory modules share the configuration guide bundled under
+[`skills/factory/references/`](skills/factory/references/). Start with manual or
+read-only operation. Fixes, replies, publication, approval, merge, deployment,
+recovery, and notifications remain separate gates.
+
+| Skill | Risk | Purpose and activation |
+| --- | --- | --- |
+| [`factory`](skills/factory/SKILL.md) | Medium | Configure source scope, schedules, isolation, prompt overlays, and independent action policies. |
+| [`factory-collect`](skills/factory-collect/SKILL.md) | Medium | Collect and triage configured feedback, telemetry, errors, and issues. |
+| [`factory-lookback`](skills/factory-lookback/SKILL.md) | Medium | Review bounded signal history for recurring patterns and systemic fixes. |
+| [`factory-human-digest`](skills/factory-human-digest/SKILL.md) | Low | Produce a read-only queue of work that still needs human judgment. |
+| [`factory-review-prs`](skills/factory-review-prs/SKILL.md) | High | Review a configured PR queue under independent review, reply, approval, and merge rules. |
+| [`factory-babysit-pr`](skills/factory-babysit-pr/SKILL.md) | High | Follow one explicitly authorized PR through fix, publish, reply, approval, merge, and soak gates. |
+| [`factory-ship`](skills/factory-ship/SKILL.md) | High | Complete an authorized delivery lifecycle without inferring publication, merge, deployment, or notification authority. |
+| [`factory-watchdog`](skills/factory-watchdog/SKILL.md) | Medium | Find verified stalls and notify only when the configured policy permits a concrete next step. |
+| [`factory-recover`](skills/factory-recover/SKILL.md) | Medium | Resume eligible interrupted work while preserving ownership and avoiding duplicate external actions. |
 
 ### Jstack planning, architecture, and understanding
 
@@ -357,6 +435,52 @@ matches, not injected into every task.
 | [`principle-test-behavior-not-implementation`](skills/principle-test-behavior-not-implementation/SKILL.md) | Writing or reviewing tests; call code as users do and assert literal observable outcomes. |
 | [`principle-type-system-discipline`](skills/principle-type-system-discipline/SKILL.md) | Designing typed APIs; make invalid states unrepresentable and parse external data at boundaries. |
 
+## Builder.io provenance and portability
+
+The collection imports 24 skills from
+[`BuilderIO/skills`](https://github.com/BuilderIO/skills) at commit
+[`fd8f20a879b507cf09feba08663a1edf7a949353`](https://github.com/BuilderIO/skills/commit/fd8f20a879b507cf09feba08663a1edf7a949353).
+Builder.io released the source under the MIT license. Every imported directory
+includes that license notice so direct and portable installs retain it.
+
+[`vendor/builderio.json`](vendor/builderio.json) records the source revision,
+inventory, shared resources, and integration changes.
+[`scripts/vendor_builderio.py`](scripts/vendor_builderio.py) reproduces the
+import and refuses an unreviewed skill inventory or name collision.
+
+The integration keeps the upstream skill bodies while adding package-level
+portability:
+
+- concise activation descriptions within the existing discovery budget
+- standard `metadata` provenance, risk, owner, and capability fields
+- `agents/openai.yaml` for explicit Codex discovery and invocation
+- a complete MIT notice in every imported skill directory
+- installed-tree-safe Factory references and bundled visual media
+- the reviewed Dispatch MCP declaration used by the `an` workflow
+- explicit compatibility notes and fail-closed setup behavior
+
+No imported skill grants authority to authenticate, publish, reply, approve,
+merge, deploy, notify, install desktop software, enable capture, or expose a
+hosted artifact. The active user request, repository rules, runtime permissions,
+and Factory action policies remain in control.
+
+The complete review and recommendations are in
+[`docs/BUILDERIO_REVIEW.md`](docs/BUILDERIO_REVIEW.md).
+
+### Updating the Builder.io import
+
+Review upstream changes first, then use a clean checkout:
+
+```bash
+python3 scripts/vendor_builderio.py /path/to/BuilderIO-skills --replace
+python3 -m pytest tests -q --ignore=tests/test_evidence.py
+git diff --check
+```
+
+The vendor tool stops when upstream adds or removes a skill. Review the new
+inventory, dependencies, licenses, authority boundaries, and generated
+Agent-Native sources before changing the expected set.
+
 ## Jstack provenance and hardening
 
 The collection imports 53 unique skills from
@@ -419,12 +543,14 @@ skillz/
 ├── .claude-plugin/                # Claude plugin and marketplace metadata
 ├── .codex-plugin/plugin.json      # Codex plugin metadata
 ├── .cursor-plugin/plugin.json     # Cursor plugin metadata
+├── .mcp.json                      # Optional Agent-Native Dispatch declaration
 ├── .github/workflows/             # Validation and tagged-release jobs
-├── agents/                         # Packaged companion agents
-├── docs/JSTACK_REVIEW.md          # Import and governance review
+├── agents/                        # Packaged companion agents
+├── docs/                          # Import, governance, and recommendation reviews
 ├── scripts/
 │   ├── check_release.py           # Release-version gate
 │   ├── install_skills.py          # Conflict-safe runtime installer
+│   ├── vendor_builderio.py        # Reproducible Builder.io import
 │   └── vendor_jstack.py           # Reproducible Jstack build
 ├── skills/
 │   └── <skill>/
@@ -432,8 +558,8 @@ skillz/
 │       ├── agents/openai.yaml      # Codex UI and invocation metadata
 │       ├── references/             # Optional detailed guidance
 │       └── scripts/                # Optional deterministic helpers
-├── tests/                          # Package and workflow contracts
-├── vendor/                          # Pinned inventory and generated map source
+├── tests/                         # Package and workflow contracts
+├── vendor/                        # Pinned inventories and generated map source
 ├── AGENTS.md                       # Repository execution policy
 └── LICENSES.md                     # Per-source licensing map
 ```
@@ -462,14 +588,18 @@ Claude Code discovers the standard `SKILL.md` tree. Per the
 plugin installs also discover the definitions in `agents/` under the
 `software-factory-skills:<agent-name>` namespace. Direct installs receive the
 same definitions in `.claude/agents/` and use their bare names. Shared bodies
-must not assume that Claude-only tools exist in every harness.
+must not assume that Claude-only tools exist in every harness. Plugin installs
+can also discover the Dispatch declaration in `.mcp.json`; direct skill copies
+do not modify Claude's connector configuration.
 
 ### Codex
 
 Codex uses the same skill bodies and reads `agents/openai.yaml` for display and
 explicit invocation. Jstack workflows consult
 [`skills/poteto-mode/references/harness-tools.md`](skills/poteto-mode/references/harness-tools.md)
-when Claude tool names need a Codex equivalent.
+when Claude tool names need a Codex equivalent. The Codex plugin manifest also
+points at the optional Dispatch declaration. Authentication and app access are
+still user-controlled.
 
 ### Cursor
 
@@ -484,6 +614,11 @@ Other runtimes receive the same skill directories through `--portable PATH`.
 The runtime must discover standard Agent Skills or explicitly load the selected
 `SKILL.md`. The runtime map defines safe fallbacks when workers, task tracking,
 scheduled checks, or structured questions are unavailable.
+
+Builder.io skills name their required host capabilities in `compatibility`.
+Runtimes may map equivalent tools, but they must not invent successful writes
+or bypass a missing connector. Factory skills read the bundled sibling guide;
+install the complete collection when using those modules.
 
 ### Mission Control
 
@@ -524,6 +659,9 @@ Most skills are Markdown-only. Individual workflows may need additional tools:
 | Perforce workflows | Configured `p4` CLI |
 | Visual comparison uploads | `@vercel/before-and-after`, `agent-browser`, and an authorized upload destination |
 | Parallel skills | A harness that exposes and authorizes independent agents or workers |
+| Agent-Native Dispatch | MCP client support plus an authenticated, explicitly granted Dispatch connection |
+| Agent-Native visual workflows | Plan or Design connector, or the documented local-files/browser path |
+| Clips Rewind | macOS, Clips Desktop, user-enabled capture, and Screen Memory MCP |
 
 Run the evidence environment check before recording:
 
@@ -539,7 +677,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.2.0
+python3 scripts/check_release.py v2.3.0
 git diff --check
 ```
 
@@ -551,7 +689,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 61 canonical skill directories
+- exactly 85 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
@@ -559,7 +697,7 @@ The tests verify:
 - the Claude marketplace entry and the tagged-release version gate
 - packaged companion agents and valid plugin or direct-install routing
 - local Markdown links
-- pinned provenance and hardening
+- pinned Jstack and Builder.io provenance, licenses, portability, and hardening
 - Claude, Codex, Cursor, and custom-runtime installer destinations
 - conflict refusal, backups, dry runs, copy mode, symlink mode, deduplication, and idempotency
 - Greptile review freshness and bounded polling
@@ -594,6 +732,7 @@ availability vary.
 - No skill is preloaded solely because it is installed.
 - No same-name user skill is silently overwritten.
 - No imported skill is automatically published to a registry.
+- No direct installer silently configures MCP, downloads Clips, or enables capture.
 - No multi-agent fan-out is enabled without a matching task and harness support.
 - No skill can silently authorize external writes, merge, deployment, deletion,
   spending, or a Product Owner decision.
@@ -604,6 +743,8 @@ availability vary.
   the repository history and original core collection.
 - [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
   provides the pinned upstream source used to build Jstack.
+- [`BuilderIO/skills`](https://github.com/BuilderIO/skills) provides the pinned
+  Builder.io, Agent-Native, and experimental Factory workflows under MIT.
 - [Cursor's upstream plugin](https://github.com/cursor/plugins/tree/main/pstack)
   is the original source of the methods distributed as Jstack.
 - [`vercel-labs/before-and-after`](https://github.com/vercel-labs/before-and-after)

@@ -1,7 +1,7 @@
 {
   "name": "software-factory-skills",
-  "version": "2.2.0",
-  "description": "Jstack delivery, architecture, evidence, review, and writing skills for production software work.",
+  "version": "2.3.0",
+  "description": "Cross-harness delivery, review, Agent-Native, visual, and software-factory skills for production work.",
   "author": {
     "name": "Software Factory contributors"
   },
@@ -10,22 +10,26 @@
   "keywords": [
     "software-factory",
     "jstack",
+    "builderio",
+    "agent-native",
     "delivery",
     "testing",
     "code-review"
   ],
   "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
   "interface": {
-    "displayName": "Jstack Software Factory Skills",
-    "shortDescription": "Production delivery skills for coding agents.",
-    "longDescription": "Jstack is a cross-harness skill set for isolated implementation, clear architecture, durable evidence, bounded review, and governed Mission Control delivery.",
+    "displayName": "Skillz Software Factory Skills",
+    "shortDescription": "Production workflows for coding agents.",
+    "longDescription": "Skillz combines Jstack engineering workflows with Builder.io Agent-Native, visual review, and governed software-factory skills for Claude Code, Codex, Cursor, and compatible harnesses.",
     "developerName": "Software Factory contributors",
     "category": "Productivity",
     "capabilities": [
       "Jstack cross-harness skills",
+      "Builder.io Agent-Native workflows",
       "Governed delivery",
-      "Evidence and review"
+      "Visual evidence and review"
     ],
-    "defaultPrompt": "Use the relevant Jstack Software Factory skills to complete this change with evidence."
+    "defaultPrompt": "Use only the relevant Skillz workflows for this task and return a verified result."
   }
 }

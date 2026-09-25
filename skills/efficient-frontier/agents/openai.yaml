@@ -1,0 +1,4 @@
+interface:
+  display_name: "Efficient Frontier"
+  short_description: "Use frontier tokens for judgment and review"
+  default_prompt: "Use $efficient-frontier for this task and return a verified result."
