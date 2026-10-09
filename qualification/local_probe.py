@@ -3,6 +3,7 @@ import argparse
 from copy import deepcopy
 import json
 import os
+import re
 from pathlib import Path
 import selectors
 import subprocess
@@ -297,7 +298,12 @@ def collect(root, output):
                 observation['model_execution'] = 'COMPLETED' if response.get('done') is True else 'UNKNOWN'
                 if observation['model_execution'] != 'COMPLETED':
                     raise ValidationError('generation completion is unknown')
-                if check_model() != runtime:
+                try:
+                    after_runtime = check_model()
+                except (OSError, ValueError):
+                    halt = 'model identity could not be confirmed after generation'
+                    raise
+                if after_runtime != runtime:
                     halt = 'model runtime changed during generation'
                     raise ValidationError('model runtime changed during generation')
                 observation['observations'] = observe(skill_id,parse_candidate(response))
@@ -320,13 +326,23 @@ def collect(root, output):
                 'oracle':observation.get('observations',{}).get('artifact_oracle','NOT_RUN')}),flush=True)
 
 
-def replay(root, directory, expected_digest):
+def replay(root, directory, expected_digest, collector_commit=None):
     from qualification.retain import bundle_data
     if digest_object(bundle_data(root,directory)) != expected_digest:
         raise ValidationError('retained observations differ from trusted bundle pin')
     catalog = build_catalog(root)
     plan = _plan(root, {m['skill_id']:m for m in catalog['skills']})
-    if json.loads((directory/'context.json').read_text()) != context(root,plan):
+    expected_context = context(root,plan)
+    if collector_commit is not None:
+        if not re.fullmatch(r'[0-9a-f]{40}',collector_commit):
+            raise ValidationError('collector revision must be an exact commit')
+        from hashlib import sha256
+        for path in expected_context['runner_files']:
+            source = subprocess.run(['git','show',collector_commit+':'+path],cwd=root,capture_output=True,timeout=10)
+            if source.returncode:
+                raise ValidationError('collector source unavailable')
+            expected_context['runner_files'][path] = 'sha256:' + sha256(source.stdout).hexdigest()
+    if json.loads((directory/'context.json').read_text()) != expected_context:
         raise ValidationError('probe corpus or runner changed')
     runtime = json.loads((directory/'runtime.json').read_text())
     if set(runtime) != {'name','digest','service_version'} or runtime['name'] != MODEL or runtime['digest'] != MODEL_DIGEST:
@@ -364,6 +380,7 @@ def main():
     action.add_argument('--collect',type=Path)
     action.add_argument('--replay',type=Path)
     parser.add_argument('--expected-digest')
+    parser.add_argument('--collector-commit')
     args = parser.parse_args()
     root = Path(__file__).resolve().parents[1]
     if args.collect:
@@ -371,7 +388,7 @@ def main():
     else:
         if not args.expected_digest:
             parser.error('--replay requires an independently retained --expected-digest')
-        print(json.dumps(replay(root,args.replay,args.expected_digest),indent=2))
+        print(json.dumps(replay(root,args.replay,args.expected_digest,args.collector_commit),indent=2))
 
 
 if __name__ == '__main__':

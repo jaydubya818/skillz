@@ -1,0 +1,16 @@
+{
+  "schema": "myskills.local-model-drift.v1",
+  "date": "2026-10-09",
+  "attempt": "local-attempt-2",
+  "model": "qwen3.5:35b-a3b-q8_0",
+  "pinned_digest": "655d273ede3adc056594f511c120d616d92bf4c4d5bcfe580f3cfa29abe8109d",
+  "observed_after_stop_digest": "accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+  "responses_retained": 10,
+  "responses_with_completed_artifact_verification": 9,
+  "last_response": "api-and-interface-design--adversarial",
+  "last_response_identity": "UNVERIFIED",
+  "remaining_requests": "NOT_RUN",
+  "decision": "STOP; no model substitution, alias creation, reinstall or further generation",
+  "cause": "UNKNOWN",
+  "scope": "Local runtime identity boundary; canonical Skill packages are unchanged"
+}

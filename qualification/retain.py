@@ -50,7 +50,7 @@ def package(root, directory):
             'The committed pin authenticates the exact bytes; replay does not prove model authorship.\n\n'
             + digest + '\n\n<details><summary>Machine-readable evidence, gzip + base64</summary>\n\n'
             + '```' + MARKER + '\n' + encoded + '\n```\n</details>\n')
-    if len(body.encode()) > 64000:
+    if len(body.encode()) > 65000:
         raise ValidationError('evidence exceeds one bounded PR comment')
     return body, {'schema':'myskills.local-probe-pin.v1','bundle_digest':digest,
                   'evidence_kind':'BOUNDED_PARTIAL_OBSERVATIONS_NOT_QUALIFICATION'}
@@ -62,7 +62,7 @@ def restore(root, body, pin, destination):
     if pin.get('schema') != 'myskills.local-probe-pin.v1' or pin.get('evidence_kind') != 'BOUNDED_PARTIAL_OBSERVATIONS_NOT_QUALIFICATION':
         raise ValidationError('unsupported observation pin')
     blocks = re.findall(r'```' + MARKER + r'\n([A-Za-z0-9+/=]+)\n```',body)
-    if len(blocks) != 1 or len(blocks[0]) > 64000:
+    if len(blocks) != 1 or len(blocks[0]) > 65000:
         raise ValidationError('invalid retained evidence comment')
     with gzip.GzipFile(fileobj=BytesIO(base64.b64decode(blocks[0],validate=True))) as archive:
         raw = archive.read(MAX_BUNDLE + 1)

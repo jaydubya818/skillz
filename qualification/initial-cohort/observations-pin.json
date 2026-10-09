@@ -1,0 +1,8 @@
+{
+  "bundle_digest": "sha256:4c4c2f06bc703f1da26dbb999682faf29a9c3f49ad187b2a642cd90ba16c02a1",
+  "collector_commit": "7eafed97eb7368a6da55fc2b9400d7048fb7c287",
+  "evidence_kind": "BOUNDED_PARTIAL_OBSERVATIONS_NOT_QUALIFICATION",
+  "github_comment_id": 6084558182,
+  "github_comment_url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6084558182",
+  "schema": "myskills.local-probe-pin.v1"
+}

@@ -107,3 +107,22 @@ def test_context_binds_corpus_runtime_and_runner():
     assert probe.context(ROOT,changed)!=context
     assert context['image']==probe.IMAGE
     assert len(context['runner_files'])==2
+
+
+def test_transient_post_generation_identity_failure_stops_without_retry(tmp_path,monkeypatch):
+    count={'checks':0,'generations':0}
+    runtime={'name':probe.MODEL,'digest':probe.MODEL_DIGEST,'service_version':'test'}
+    def check():
+        count['checks']+=1
+        if count['checks']==3:
+            raise ValidationError('installed model changed')
+        return runtime
+    def generate(*args):
+        count['generations']+=1
+        return {'done':True,'done_reason':'stop','message':{'content':json.dumps(candidate())}}
+    monkeypatch.setattr(probe,'check_model',check)
+    monkeypatch.setattr(probe,'local_api',generate)
+    probe.collect(ROOT,tmp_path/'attempt')
+    assert count=={'checks':3,'generations':1}
+    last=json.loads((tmp_path/'attempt/create-verification-skill--adversarial/observation.json').read_text())
+    assert last['model_execution']=='NOT_RUN'

@@ -58,3 +58,31 @@ jobs:
         with:
           name: myskills-browser-evidence
           path: .artifacts/myskills/browser
+  myskills-qualification-replay:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Load the exact offline verifier image
+        run: docker pull --platform linux/amd64 node:24-bookworm@sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a
+      - name: Restore pinned synthetic observations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m qualification.retain --restore .artifacts/qualification/retained --pin qualification/initial-cohort/observations-pin.json
+      - name: Recheck artifacts, confinement and cohort decisions without model calls
+        run: python -m qualification.checkpoint --observations .artifacts/qualification/retained --output .artifacts/qualification/checkpoint
+      - name: Reproduce package and admission assessment
+        run: |
+          python -m myskills.cohort_assessment --output .artifacts/qualification/assessment
+          python -m myskills.cohort_assessment --verify .artifacts/qualification/assessment --pin qualification/initial-cohort/assessment-pin.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: myskills-initial-qualification
+          path: .artifacts/qualification

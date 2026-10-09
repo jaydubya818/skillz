@@ -1,0 +1,5 @@
+{
+  "evidence_digest": "sha256:d951dcd9a5b4897b083ad2f473edf52ffa7ffd9296e707be3eb2394b84c8e101",
+  "evidence_kind": "ASSESSMENT_ONLY_NOT_QUALIFICATION",
+  "schema": "myskills.assessment-pin.v1"
+}
