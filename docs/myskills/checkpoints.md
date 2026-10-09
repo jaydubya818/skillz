@@ -138,3 +138,22 @@ established by that review. Portable suite: 155 tests PASS.
 Local metadata benchmark, 200 iterations over 92 Skills: exact lookup p95 0.016ms,
 search p95 0.095ms, resolution p95 2.666ms. Inventory generation took 131.956ms.
 Routing loads no instruction bodies. These are local measurements, not production SLOs.
+
+## Final clean-checkout qualification
+
+Checkpoint H remote SHA verified: 59d186c4f34116234533dee84ef5785f93c3c172.
+Hosted CI at that SHA: package-contract PASS (29s), myskills-browser PASS (58s).
+A fresh GitHub clone using the documented installation commands passes 155 portable
+tests and 25 browser checks, including four reviewed screenshot comparisons.
+Catalog and schema regenerate byte-for-byte. All 92 deterministic package exports
+preserve SKILL.md bytes. Python syntax checks pass. The fresh checkout remains clean.
+
+Public disclosure review: only public catalog material and synthetic fixtures are
+included. No Skill bodies, vendor attribution, installers or license files changed.
+No private local paths or live resource identifiers were added. The generated catalog
+and schema account for most changed lines; the rest implement A–H and their tests.
+
+Known limits: no deep-qualified real Skills, no behavioral model execution, no live
+platform integration, no production custody or durable recovery. Recorder tests retain
+their known FFmpeg/sandbox limitation. The earlier PR #6 Greploop attempt stopped on
+head change and establishes no bot approval; the final attempt is reported separately.

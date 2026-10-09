@@ -7,7 +7,10 @@ strict and has no Skill extension. Compatibility probes preserve these facts.
 
 ## Proposed change-impact release
 
-1. Pin the reviewed MySkills release commit and package digest algorithm.
+1. Use code checkpoint `59d186c4f34116234533dee84ef5785f93c3c172` as the reviewed
+   implementation anchor. Pin the final qualified PR #6 head and package digest
+   algorithm when opening the separate integration release; documentation or review
+   fixes after this anchor do not activate integration.
 2. Add an exact Skill binding and resolved composition graph to MyEve's canonical
    Work version and authority. Derive the owner from authenticated Work context.
    Use transactional owner installation/evidence stores in MyEve, including encrypted

@@ -1,5 +1,5 @@
 ---
-status: ready
+status: complete
 priority: p1
 issue_id: "001"
 tags: [myskills, governance, security]
@@ -31,7 +31,7 @@ review, disclosure checks, commits, pushes, and exact remote verification.
 - [x] E: qualification evidence, tamper checks, controlled promotion, private builder
 - [x] F: inactive platform compatibility contracts against current source
 - [x] G: functional local UI, shared agent API, browser/accessibility qualification
-- [ ] H: composed deterministic journey, fresh clone, CI, final independent review
+- [x] H: composed deterministic journey, fresh clone, CI, final independent review
 
 ## Work log
 ### 2026-10-08
