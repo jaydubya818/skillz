@@ -16,7 +16,8 @@ def report(root, retained):
     if digest_object(bundle(retained/'artifacts',retained/'workflows'))!=pin['bundle_digest']:
         raise ValidationError('checkpoint 2 evidence differs from committed custody pin')
     artifacts=behavior_v2.replay(root,retained/'artifacts',pin['artifact_collector_commit'])
-    workflows=workflow_probe.replay(root,retained/'workflows')
+    workflows=workflow_probe.replay(root,retained/'workflows',pin['workflow_collector_commit'])
+    workflow_completion=json.loads((retained/'workflows/completion.json').read_text())
     static=assess(root)
     expected=json.loads((root/'qualification/initial-cohort/assessment-pin.json').read_text())
     if static['evidence_digest']!=expected['evidence_digest']:
@@ -28,7 +29,8 @@ def report(root, retained):
         skill=result['binding']['skill_id']
         spec=next(s for s in static['skills'] if s['binding']['skill_id']==skill)
         tools=[w for w in workflows if w['binding']==result['binding']]
-        failed=any(a['artifact_oracle']=='FAIL' or a['effect_request_check']=='FAIL' for a in result['attempts']) or any(w['verification']['bounded_workflow']=='FAIL' for w in tools)
+        used_tools=any(w['tool_steps'] for w in tools)
+        failed=any(a['artifact_oracle']=='FAIL' or a['effect_request_check']=='FAIL' for a in result['attempts']) or any(w['runtime_admissible'] and w['verification']['bounded_workflow']=='FAIL' for w in tools)
         decisions.append(seal({'schema':'myskills.behavioral-decision.v2','binding':result['binding'],
             'provenance':spec['provenance'],'capabilities':spec['task_specification']['myapps_capabilities'],
             'intended_capability':spec['task_specification']['intended_capability'],
@@ -42,8 +44,8 @@ def report(root, retained):
                 'revocation':'PASS_ADMISSION_SCOPE','custody':'PASS_PINNED_BYTES',
                 'result_identity':'PASS_OBSERVED_RUNTIME','model_authorship_attestation':'NOT_ESTABLISHED'},
             'layer_b':{'artifact_experiment':result,'tool_fixtures':tools,
-                'tool_selection':'OBSERVED_FIXED_TOOLS' if tools else 'NOT_RUN',
-                'failure_handling':'SEE_CASE_VERDICTS' if tools else 'NOT_RUN',
+                'tool_selection':'OBSERVED_UNVERIFIED_BATCH' if used_tools and not workflow_completion['all_results_admissible'] else 'SEE_CASE_VERDICTS' if used_tools else 'NOT_RUN',
+                'failure_handling':'SEE_CASE_VERDICTS_WITH_RUNTIME_LIMITS' if used_tools else 'NOT_RUN',
                 'model_repeat_output_equal':result['repeat_output_equal'],
                 'general_inference_determinism':'NOT_ESTABLISHED','full_skill_workflow':'NOT_RUN',
                 'native_harness_compatibility':'NOT_RUN'},
@@ -71,7 +73,8 @@ def report(root, retained):
                                         'activation':'DISABLED'} for name in
             ['EngineeringRolePacks','SpecializedAgents','MultiAgentCompositions','FactoryWorkOrders','IndependentVerification','EnterpriseQualityContracts']},
         'orchestration':'Owned by MissionControl; MySkills exports package and evidence references only'}
-    return seal({'schema':'myskills.behavioral-checkpoint.v2','runtime_identity':'STABLE_OBSERVED_BATCHES',
+    return seal({'schema':'myskills.behavioral-checkpoint.v2','runtime_identity':workflow_completion['runtime_identity'],
+        'artifact_runtime_identity':'STABLE_OBSERVED_BATCH','workflow_completion':workflow_completion,
         'runtime':json.loads((retained/'artifacts/context.json').read_text())['runtime'],
         'harness':json.loads((retained/'artifacts/context.json').read_text())['harness'],
         'workflow_harness':json.loads((retained/'workflows/context.json').read_text())['harness'],

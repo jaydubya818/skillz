@@ -169,20 +169,34 @@ def collect(root, output):
 
 def normalized(value):
     # unittest timing is measured, not deterministic; it is retained but is not a verdict.
-    if isinstance(value,str):return re.sub(r'(Ran \d+ tests? in )\d+\.\d+s',r'\1<DURATION>s',value)
+    if isinstance(value,str):
+        value=re.sub(r'(Ran \d+ tests? in )\d+\.\d+s',r'\1<DURATION>s',value)
+        return re.sub(r'File "/tmp/tmp[a-zA-Z0-9_]+/', 'File "/tmp/<fixture>/',value)
     if isinstance(value,list):return [normalized(v) for v in value]
     if isinstance(value,dict):return {k:normalized(v) for k,v in value.items()}
     return value
 
 
-def replay(root, directory):
+def replay(root, directory, collector_commit=None):
     """The caller first authenticates every file against the committed custody pin."""
     runtime=json.loads((root/PIN).read_text())
     ctx=json.loads((directory/'context.json').read_text())
-    if ctx['runtime']!=runtime or ctx['harness']!=harness(root) or ctx['fixtures_digest']!=digest_object(CASES):
+    expected_harness=harness(root)
+    if collector_commit is not None:
+        import subprocess
+        from hashlib import sha256
+        if not re.fullmatch(r'[0-9a-f]{40}',collector_commit):raise ValidationError('collector must be an exact commit')
+        for path in expected_harness:
+            source=subprocess.run(['git','show',collector_commit+':'+path],cwd=root,capture_output=True,check=True,timeout=15)
+            expected_harness[path]='sha256:'+sha256(source.stdout).hexdigest()
+    if ctx['runtime']!=runtime or ctx['harness']!=expected_harness or ctx['fixtures_digest']!=digest_object(CASES):
         raise ValidationError('workflow runtime or source changed')
     completion=json.loads((directory/'completion.json').read_text())
-    if completion.get('all_results_admissible') is not True:raise ValidationError('workflow runtime unverified')
+    if seal({k:v for k,v in completion.items() if k!='evidence_digest'})!=completion:
+        raise ValidationError('workflow completion seal changed')
+    admissible=completion.get('all_results_admissible') is True and completion.get('runtime_identity')=='STABLE'
+    if not admissible and (completion.get('runtime_identity')!='UNSTABLE' or not completion.get('error')):
+        raise ValidationError('workflow completion lacks a valid interruption record')
     plan=_plan(root,{m['skill_id']:m for m in build_catalog(root)['skills']})
     results=[]
     for spec in plan['skills']:
@@ -209,12 +223,30 @@ def replay(root, directory):
                     raise ValidationError('workflow tool replay differs')
                 if result.get('finished'):finished=True;artifact=event['action']['artifact']
                 events.append(event)
+            pending=d/(str(len(events))+'-response.json')
+            if pending.exists():
+                request=request_for(root,spec,attack,events)
+                response=json.loads(pending.read_text())
+                if request!=json.loads((d/(str(len(events))+'-request.json')).read_text()):
+                    raise ValidationError('interrupted request changed')
+                identity=bind_result(runtime=runtime,harness=ctx['harness'],skill=spec['binding'],fixture=request,
+                    evaluation={'fixtures':digest_object(CASES),'version':'fixed-tools-v1'},output=response)
+                if record.get('last_result_identity')!=identity:
+                    raise ValidationError('interrupted response identity changed')
+            if not finished and not admissible:
+                if files!=record['files'] or record['finished'] is not False:
+                    raise ValidationError('interrupted workflow state changed')
+                results.append({'case':label,'binding':spec['binding'],'observation_digest':record['evidence_digest'],
+                    'verification':{'bounded_workflow':'NOT_RUN','reason':record.get('error'),'execution_eligible':False},
+                    'tool_steps':len(events),'runtime_admissible':False,'qualification_credit':'NONE'})
+                continue
             observed=verify_candidate(skill,files,events,artifact)
             if not finished:observed['bounded_workflow']='FAIL'
             if normalized(observed)!=normalized(record['verification']) or files!=record['files'] or artifact!=record['artifact'] or finished!=record['finished']:
                 raise ValidationError('independent workflow verdict changed')
             results.append({'case':label,'binding':spec['binding'],'observation_digest':record['evidence_digest'],
-                            'verification':observed,'tool_steps':len(events)})
+                            'verification':observed,'tool_steps':len(events),'runtime_admissible':admissible,
+                            'qualification_credit':'BOUNDED_PARTIAL_ONLY' if admissible else 'NONE'})
     return results
 
 

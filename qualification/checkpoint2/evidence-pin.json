@@ -1,0 +1,27 @@
+{
+  "schema": "myskills-checkpoint2-bundle-v1",
+  "bundle_digest": "sha256:c6d88be83d0f1146b43239b1b773fee0d6b5f2d5888a6bb994f2e6235e1e4435",
+  "parts": [
+    {
+      "index": 0,
+      "body_digest": "sha256:8811ec19941ae664d2428970fac3262d6e427d94d1dc051d6abff1ccbcff157b",
+      "comment_id": 6087713548,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6087713548"
+    },
+    {
+      "index": 1,
+      "body_digest": "sha256:e0dc4e48743a37aad1bb46113b32d561a6aad5c460988a8240e5897b2669dfa2",
+      "comment_id": 6087713824,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6087713824"
+    },
+    {
+      "index": 2,
+      "body_digest": "sha256:d282c77600645973c79aba315e35a7acb98ae5095b370e72c1caf5272e4356bb",
+      "comment_id": 6087714109,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6087714109"
+    }
+  ],
+  "evidence_kind": "SYNTHETIC_PARTIAL_BEHAVIOR_NOT_AN_EXECUTION_GRANT",
+  "artifact_collector_commit": "dec465447cf975ac5f4681aaa8180a43b9520909",
+  "workflow_collector_commit": "3916bad1ca3cfe6114f8cbd64cbb1827692daf2b"
+}

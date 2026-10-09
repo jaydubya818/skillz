@@ -46,3 +46,12 @@ deep qualification or production eligibility. The fresh clone and hosted CI pass
 review passes 29 focused tests and the offline checkpoint. Greploop is a separate
 bounded delivery review whose outcome is recorded on the PR. Further behavioral
 work waits at the runtime identity boundary; this file remains ready for that work.
+
+Checkpoint 2: identified Ollama automatic compatibility migration, reconstructed
+the original manifest digest and hashed both artifact generations. Thirty requests
+cover all ten Skills under the new exact local model pin: 13 artifact PASS, 17 FAIL,
+and ten identical representative/repeat pairs. Original nine verdicts preserved.
+Independent review closed false-PASS paths in a finite tool fixture harness. The
+tool batch stopped when Docker Desktop shut down again; all its qualification
+credit is withheld and later cases are NOT_RUN. Shared-runtime restart is pending
+an owner response. Catalog defaults and production boundaries remain unchanged.

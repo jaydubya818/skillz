@@ -81,6 +81,12 @@ jobs:
         run: |
           python -m myskills.cohort_assessment --output .artifacts/qualification/assessment
           python -m myskills.cohort_assessment --verify .artifacts/qualification/assessment --pin qualification/initial-cohort/assessment-pin.json
+      - name: Restore checkpoint 2 synthetic observations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m qualification.custody_v2 --restore .artifacts/qualification/checkpoint2-retained
+      - name: Independently replay checkpoint 2 without model calls
+        run: python -m qualification.checkpoint_two --retained .artifacts/qualification/checkpoint2-retained --output .artifacts/qualification/checkpoint2
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -1,11 +1,20 @@
 {
-  "schema":"myskills.test-runtime-interruption.v1",
-  "observed_at":"2026-10-09T19:09:45Z",
-  "cause_observation":"Docker backend log records its Electron app requested shutdown; initiator beyond that is not established.",
-  "scope":"Offline known-control run after the completed artifact batch; workflow model trials had not started.",
-  "effect":"Docker socket absent; container cleanup could not be confirmed. Harness raised ContainmentError and no new model requests were sent.",
-  "container":"myskills-qual-1f9c2a99492e400bb04c88be341b0fa6",
-  "recovery":"Reopened existing Docker Desktop. Engine29.7.2 unchanged. Exact container inspection returned No such container; task-container listing empty. Offline red/green control rerun passed.",
-  "credential_or_configuration_changes":0,
-  "production_integration":"NOT_RUN"
+  "schema": "myskills.test-runtime-interruption.v1",
+  "observed_at": "2026-10-09T19:09:45Z",
+  "cause_observation": "Docker backend log records its Electron app requested shutdown; initiator beyond that is not established.",
+  "scope": "Offline known-control run after the completed artifact batch; workflow model trials had not started.",
+  "effect": "Docker socket absent; container cleanup could not be confirmed. Harness raised ContainmentError and no new model requests were sent.",
+  "container": "myskills-qual-1f9c2a99492e400bb04c88be341b0fa6",
+  "recovery": "Reopened existing Docker Desktop. Engine29.7.2 unchanged. Exact container inspection returned No such container; task-container listing empty. Offline red/green control rerun passed.",
+  "credential_or_configuration_changes": 0,
+  "production_integration": "NOT_RUN",
+  "second_interruption": {
+    "observed_at": "2026-10-09T19:18:00Z",
+    "observation": "Docker Electron pid68438 requested backend shutdown; engine socket again absent. Initiator not established.",
+    "container": "myskills-qual-ee3f758bb4ff4c6fae6d54646207fef8",
+    "cleanup": "UNCONFIRMED",
+    "workflow_batch": "UNSTABLE; all workflow qualification credit withheld",
+    "later_workflow_cases": "NOT_RUN",
+    "restart_authorization": "Owner question pending after repeated shared-runtime shutdowns; no further model dispatch."
+  }
 }

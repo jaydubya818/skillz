@@ -143,3 +143,32 @@ def test_nonobject_driver_evidence_fails_without_aborting_batch(monkeypatch):
     value=cases.verify('create-verification-skill',cases.CASES['create-verification-skill']['files'],[],{})
     assert value['bounded_workflow']=='FAIL'
     assert value['checks']['evidence']==[{}, {}, {}]
+
+
+def test_interrupted_batch_replay_never_grants_runtime_credit(tmp_path,monkeypatch):
+    import json
+    from pathlib import Path
+    from myskills.manifest import ValidationError
+    class Guard:
+        halted=False
+        def __init__(self,pin):pass
+        def generate(self,request,retain):
+            response={'done':True,'done_reason':'stop','message':{'content':json.dumps({'tool':'finish','artifact':{}})}}
+            retain(response)
+            return response,{}
+        def finish(self):raise ValidationError('fixture engine unavailable at completion')
+    monkeypatch.setattr(workflow,'RuntimeGuard',Guard)
+    monkeypatch.setattr(workflow,'CASES',{'figure-it-out':cases.CASES['figure-it-out']})
+    monkeypatch.setattr(workflow,'verify',lambda *args:{'bounded_workflow':'FAIL'})
+    root=Path(__file__).parents[1]
+    workflow.collect(root,tmp_path/'run')
+    results=workflow.replay(root,tmp_path/'run')
+    assert len(results)==2
+    assert all(r['runtime_admissible'] is False and r['qualification_credit']=='NONE' for r in results)
+
+
+def test_replay_normalizes_only_measured_traceback_locations():
+    left='File "/tmp/tmpabcdef12/test_clamp.py", line 5\nAssertionError: 12 != 10'
+    right='File "/tmp/tmp9876abcd/test_clamp.py", line 5\nAssertionError: 12 != 10'
+    assert workflow.normalized(left)==workflow.normalized(right)
+    assert workflow.normalized(left)!=workflow.normalized(right.replace('12 != 10','12 != 12'))
