@@ -11,7 +11,7 @@ from myskills.digest import digest_object
 from myskills.manifest import ValidationError
 from qualification.local_probe import ContainmentError
 
-VERSION = 'myskills-tools/4.0.0'
+VERSION = 'myskills-tools/4.0.1'
 NAMESPACE = 'myskills'
 MAX_CALLS = 32
 CODES={'COMPLETED','CALL_ID_CONFLICT','INVALID_ARGUMENT','CANCELLED','SESSION_CLOSED','CALL_LIMIT',

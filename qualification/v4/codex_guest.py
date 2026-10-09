@@ -69,18 +69,18 @@ for key,value in options.items():
 proc=subprocess.Popen(argv,stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True,env=env,cwd=work)
 threading.Thread(target=lambda:emit({'channel':'stderr','value':proc.stderr.read(32768)}),daemon=True).start()
 def send(value):proc.stdin.write(json.dumps(value)+'\n');proc.stdin.flush()
-send({'id':1,'method':'initialize','params':{'clientInfo':{'name':'myskills_qualification','version':'4.0.0'},'capabilities':{'experimentalApi':True}}})
+send({'id':1,'method':'initialize','params':{'clientInfo':{'name':'myskills_qualification','version':'4.0.1'},'capabilities':{'experimentalApi':True}}})
 try:
     for line in proc.stdout:
         value=json.loads(line);emit({'channel':'event','value':value})
-        if value.get('id')==1:
+        if 'method' not in value and value.get('id')==1:
             if 'error' in value:break
             send({'method':'initialized','params':{}})
             send({'id':2,'method':'thread/start','params':{'model':config['model'],'modelProvider':'qualification',
                  'cwd':str(work),'approvalPolicy':'never','sandbox':'read-only','ephemeral':True,
                  'baseInstructions':config['policy'],'dynamicTools':config['tools'],
                  'experimentalRawEvents':True,'environments':[]}})
-        elif value.get('id')==2:
+        elif 'method' not in value and value.get('id')==2:
             if 'error' in value:break
             thread=value['result']['thread']['id']
             send({'id':3,'method':'turn/start','params':{'threadId':thread,'input':[{'type':'text','text':config['prompt']} ]}})

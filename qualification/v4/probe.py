@@ -19,7 +19,7 @@ from qualification.v4.provider import LocalResponses
 from qualification.v4.source_policy import executor
 
 IMAGE='sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60'
-HARNESS='codex-app-server/0.157.0+myskills-native-4.0.0'
+HARNESS='codex-app-server/0.157.0+myskills-native-4.0.1'
 
 
 def harness(root):
