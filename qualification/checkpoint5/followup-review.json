@@ -1,0 +1,179 @@
+{
+  "bundle_digest": "sha256:c25b7611ff78c77fed3f1fd636cbb91ab40eff96656f8da7d0cac22be7bdef57",
+  "cases": [
+    {
+      "case": "api-and-interface-design--follow-up",
+      "classification": "MODEL_LIMITATION",
+      "execution_eligible": false,
+      "files_digest": "sha256:cbf4646126f046ec6223a70d28a7b3c7c70c81cc371f1234e6f1af4b86128884",
+      "findings": [
+        {
+          "blocks_full_review_pass": true,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "api-transaction-claim",
+          "impact": "The observed concurrent fixture passed through insert-first uniqueness/error handling; that result does not substantiate the claimed explicit transaction mechanism. Preserve the functional pass while rejecting the unsupported implementation claim.",
+          "locations": [
+            "files/api.py:19-25",
+            "entries/7/request/arguments/notes",
+            "transport.json: completed agentMessage implementation details"
+          ],
+          "summary": "The source comment, terminal finish notes and final answer claim BEGIN IMMEDIATE, but the retained implementation executes no BEGIN IMMEDIATE statement."
+        },
+        {
+          "blocks_full_review_pass": true,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "api-schema-claim",
+          "impact": "The documented schema and actual schema differ. Input validation and the externally trusted nonempty owner precondition do not make these absent database constraints present.",
+          "locations": [
+            "files/contract.md:33-39",
+            "files/api.py:25"
+          ],
+          "summary": "The generated contract declares owner, key and text TEXT NOT NULL, while api.py creates all three columns without NOT NULL."
+        },
+        {
+          "blocks_full_review_pass": true,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "api-coverage-claim",
+          "impact": "The literal 10-check and concurrent-replay receipts remain valid retained evidence; the extra pagination claim is unsupported.",
+          "locations": [
+            "files/README.md",
+            "transport.json: completed agentMessage test evidence"
+          ],
+          "summary": "The final answer claims pagination-edge coverage although the supplied README explicitly says the interface has no pagination and the executed fixture contains none."
+        },
+        {
+          "blocks_full_review_pass": false,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "api-embedded-content",
+          "impact": "This is an exact-content presentation discrepancy, not a changed retained file or demonstrated runtime failure. The observation/files seals bind the actual executed bytes.",
+          "locations": [
+            "artifact/api.py",
+            "artifact/contract.md"
+          ],
+          "summary": "Both finish artifacts cite the correct adapter content digest for their named retained file, but their embedded content omits the file's final newline and therefore has a different canonical content digest."
+        },
+        {
+          "blocks_full_review_pass": false,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "api-repaired-malformed-body",
+          "impact": "Preserve this repaired implementation defect in the workflow history. It is not an outstanding final-code defect.",
+          "locations": [
+            "entries/4: call_bbxv064q",
+            "entries/5: call_d9oapmoc",
+            "entries/6: call_ebslpbeh"
+          ],
+          "summary": "The first actual check failed with AttributeError on list input; the subsequent write added a dict type guard and the next actual check passed."
+        }
+      ],
+      "frozen_verdict": "PASS",
+      "functional_improvement": {
+        "description": "Final dict validation, parameterized SQL, insert-first uniqueness handling, reopened-process persistence and the supplied concurrent identical-create fixture passed. This is a narrow functional improvement, not a broad concurrent API qualification.",
+        "passed_call_id": "call_ebslpbeh",
+        "status": "PASS_IN_RETAINED_EXECUTION",
+        "stdout": "{\"checks\": 10, \"durable_rows\": 3, \"reopened_processes\": 9}\n{\"concurrent_replay\": true, \"durable_rows\": 1}\n"
+      },
+      "native_completion": "VERIFIED_FROM_RETAINED_TRANSCRIPT",
+      "native_tool_events": 8,
+      "observation_digest": "sha256:1cedb440e5f82f4bca535c7f36200041b21f733a665a07a8f7428cfdb4d82fde",
+      "verdict": "FAIL"
+    },
+    {
+      "case": "security-and-hardening--follow-up",
+      "classification": "MODEL_LIMITATION",
+      "execution_eligible": false,
+      "files_digest": "sha256:6d7fb05a20f504a55d5c43c6e3a405f793a1d658bd7bd29d85ba64fa01ad1b71",
+      "findings": [
+        {
+          "blocks_full_review_pass": true,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "security-trust-boundary-description",
+          "impact": "The actual fixture supplies trusted_owner as authenticated context. The code validates its type and compares ownership; it does not authenticate an attacker-supplied identity. Documentation must consistently preserve that precondition. No within-precondition runtime authorization bypass was found.",
+          "locations": [
+            "files/threat-model.md:14",
+            "files/threat-model.md:93",
+            "files/threat-model.md:103",
+            "files/security.py:6-12"
+          ],
+          "summary": "The threat model labels payload.trusted_owner forgeable/untrusted, later requires current-session authentication context, and calls a nonempty-string check authentication validation."
+        },
+        {
+          "blocks_full_review_pass": true,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "security-destination-scope",
+          "impact": "The top-level check matches the supplied interface. Nested destination text inside resource data is inert data, not an authorized external effect. The broader generated documentation claim is unsupported; this is not a reproduced policy bypass.",
+          "locations": [
+            "files/threat-model.md:107",
+            "files/security.py:34-36"
+          ],
+          "summary": "The threat model says a destination key anywhere in the payload denies access, while the implementation checks only top-level key presence."
+        },
+        {
+          "blocks_full_review_pass": false,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "security-embedded-content",
+          "impact": "Nonblocking exact-content presentation defect. The retained executable file and its observation/files seals remain consistent.",
+          "locations": [
+            "artifact/security.py"
+          ],
+          "summary": "The security.py finish artifact cites the correct adapter content digest of the retained file, but its embedded content omits the final newline and has a different canonical content digest."
+        },
+        {
+          "blocks_full_review_pass": false,
+          "classification": "MODEL_LIMITATION",
+          "classification_scope": "Concrete generated output or claim in this retained observation only; no generalized model-capability judgment or Skill-instruction defect is established.",
+          "id": "security-repaired-malformed-payload",
+          "impact": "Preserve the repaired defect and failed run. It is not an outstanding final-code defect.",
+          "locations": [
+            "entries/5: call_slzp0f8a",
+            "entries/6: call_qi4yuxbc",
+            "entries/7: call_y96igbea"
+          ],
+          "summary": "The first actual check failed with TypeError on null payload; the subsequent write added a dict type guard and the next actual check passed."
+        }
+      ],
+      "frozen_verdict": "PASS",
+      "functional_improvement": {
+        "description": "Final pure function correctly handles malformed payload/resource, nonempty string principals, owner equality, required data including explicit null, and denial for any present top-level destination key within the supplied authenticated-context fixture. No authorization bypass was found within that precondition.",
+        "passed_call_id": "call_y96igbea",
+        "status": "PASS_IN_RETAINED_EXECUTION",
+        "stdout": "{\"checks\": 12, \"secret_leaks\": 0}\n{\"destination_presence_regressions\": 6}\n"
+      },
+      "native_completion": "VERIFIED_FROM_RETAINED_TRANSCRIPT",
+      "native_tool_events": 9,
+      "observation_digest": "sha256:3cf6d7360406cea810bd0273145c526c93fea57c4477c6511717e4c5661b6169",
+      "verdict": "PARTIAL"
+    }
+  ],
+  "collector_commit": "d5b3ae95ce000fa76ead2ec83ec7839e7461fa6c",
+  "completion_digest": "sha256:191f77ec998b1c31eba1567ff0d5ea6b8ffa0e4204b1da2e79cfebde5f24014e",
+  "consumer_authority": "NONE",
+  "evaluator_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+  "evaluator_version": "myskills-evaluator/5.0.1",
+  "evidence_digest": "sha256:5c214a2d212b74ec60a86af5d7a22cdad445a05a8f5b44e3e9802044a881c663",
+  "limitations": [
+    "Reviewer performed no model/provider calls, Docker executions or independent executable replay during this output review; runtime results are retained native evidence checked for custody and consistency.",
+    "No general SQL concurrency guarantee, real authentication system, external network behavior, production behavior or full Skill workflow qualification is inferred.",
+    "No Skill instruction defect was established. No Skill body, frozen collector, prior verdict, retained capture, accepted TDD profile or consumer was changed.",
+    "Canonical content digests in tool artifacts use digest_object(string), while file_digest uses raw file bytes; the review distinguishes these encodings."
+  ],
+  "new_qualified_profiles": 0,
+  "review_grants_execution": false,
+  "reviewer": "foundation_review independent collaboration agent",
+  "schema": "myskills.independent-followup-review.v5",
+  "scope": "Independent read-only source, generated-document, artifact-content, retained tool-evidence and native-transcript review of the exact two corrected diagnostic fixtures. This review does not grant additional profiles or consumer authority.",
+  "verification": [
+    "Verified observation and completion seals, exact binding objects, prompt packets and current context equality.",
+    "Verified all 60 harness file hashes against the exact frozen collector Git objects and the complete retained bundle against its pin.",
+    "Verified native_complete for both observations, including retained provider/host/tool/transport/cleanup consistency.",
+    "Independently checked 17 ordered tool result seals, previous-event chains, request digests, authorized compare-and-write digests and complete file-state transitions; protected files were unchanged.",
+    "Read final source, documentation, finish artifacts, literal failed/passing tool results and terminal claim evidence."
+  ]
+}

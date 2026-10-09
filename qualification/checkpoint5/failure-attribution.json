@@ -48,6 +48,26 @@
       "failure": "Pretrial review found missing provider-completion gating and incomplete transitive source hashes",
       "classification": "HARNESS_DEFECT",
       "correction": "Fixed and regression-tested before native trials. Incomplete provider/tool custody halts dispatch; required imported policy/verifier sources are pinned."
+    },
+    {
+      "failure": "Checkpoint-5 API follow-up initially called get on a list body",
+      "classification": "MODEL_LIMITATION",
+      "correction": "The model repaired type-check ordering and passed actual ordinary and controlled concurrency execution. The initial failed command, source snapshot and output remain retained. This is an observed output defect, not a general model capability claim."
+    },
+    {
+      "failure": "Checkpoint-5 API follow-up contradicts source with BEGIN IMMEDIATE and NOT NULL claims, cites unrun pagination coverage, and embeds content inconsistent with its digest",
+      "classification": "MODEL_LIMITATION",
+      "correction": "Independent source/claim review rejects the output despite functional PASS. Overall follow-up FAIL; no new profile or Skill instruction defect is established. No forced rerun or Skill body change."
+    },
+    {
+      "failure": "Checkpoint-5 security follow-up initially crashed on a null payload",
+      "classification": "MODEL_LIMITATION",
+      "correction": "The model added an explicit dictionary guard and passed corrected malformed-resource, required-data, typed-identity and destination-presence cases. The original failed command and source snapshot remain retained."
+    },
+    {
+      "failure": "Checkpoint-5 security threat model misstates trusted authentication context and the scope of destination denial",
+      "classification": "MODEL_LIMITATION",
+      "correction": "Independent review records PARTIAL: implementation passes within the authenticated-context fixture precondition, while documentation claims remain deficient. An embedded-content final-newline mismatch is retained as an artifact-consistency finding. No runtime policy bypass or original Skill instruction defect is established."
     }
   ],
   "skill_instruction_defect": "NOT_ESTABLISHED",

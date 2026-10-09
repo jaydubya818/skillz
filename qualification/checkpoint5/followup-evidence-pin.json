@@ -1,0 +1,30 @@
+{
+  "schema": "myskills-checkpoint5-bundle-v1",
+  "codec": "xz-base64",
+  "bundle_digest": "sha256:c25b7611ff78c77fed3f1fd636cbb91ab40eff96656f8da7d0cac22be7bdef57",
+  "parts": [
+    {
+      "index": 0,
+      "body_digest": "sha256:ad68b435ad26370b9a46fe132d9cf2519d703ade5aef8cfc58f21abbb0e2b53b",
+      "comment_id": 6090558752
+    },
+    {
+      "index": 1,
+      "body_digest": "sha256:c79d8b077975b941cee798d511df48ac8dd96480b68548744660b6604ac9fcac",
+      "comment_id": 6090559064
+    },
+    {
+      "index": 2,
+      "body_digest": "sha256:45c74cd91f9b56b1ac13fc9e49125a1aea3b719eba0a00dc7322582641ae6ed8",
+      "comment_id": 6090559406
+    },
+    {
+      "index": 3,
+      "body_digest": "sha256:af8820b78be8365cee98ae091baaebdb8ab57c74529975df624fb0fc8ef3f7af",
+      "comment_id": 6090559704
+    }
+  ],
+  "evidence_kind": "SYNTHETIC_PARTIAL_BEHAVIOR_NOT_AN_EXECUTION_GRANT",
+  "collector_commit": "d5b3ae95ce000fa76ead2ec83ec7839e7461fa6c",
+  "accepted_tdd_profile": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731"
+}

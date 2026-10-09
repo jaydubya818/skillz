@@ -82,6 +82,34 @@ local/fresh/hosted exports match exactly. All three jobs passed in
 Artifact `11648880874` has GitHub-verified archive digest
 `sha256:487e297724e25889dbcc006703f5b926d274a5294d7e3a1d35ccdbe893705b54`.
 The exact validation receipt is `qualification/checkpoint5/validation-pin.json`.
+An independent audit of the actual GitHub metadata, downloaded archive, fresh
+clone and acceptance decision is retained in `acceptance-review.json`.
+
+After TDD acceptance, two additional native workflows ran from collector
+`d5b3ae95ce000fa76ead2ec83ec7839e7461fa6c` with the same pinned model, harness and
+adapter. Both completed without interruption; the runtime stayed STABLE and all
+trial containers were removed. Four separately pinned private PR comments retain
+their complete observations, including failed intermediate commands, in bundle
+`sha256:c25b7611ff78c77fed3f1fd636cbb91ab40eff96656f8da7d0cac22be7bdef57`.
+
+API repaired a malformed-list crash and passed ordinary and actual concurrent
+execution. Independent review nevertheless records **FAIL**: its contract/comment
+claims `BEGIN IMMEDIATE` and `NOT NULL` behavior absent from the source, cites
+pagination coverage that was not run, and embeds content inconsistent with the
+attached digests. Security repaired a null-payload crash and passed the corrected
+authorization fixture, including missing-data and destination-presence cases.
+Its complete output remains **PARTIAL** because the threat model misstates the
+authenticated context and promises destination denial beyond the implemented
+top-level check. An embedded-content newline mismatch is also retained. No
+within-precondition security bypass was established by this follow-up.
+
+These are observed model-output limitations, not established defects in the
+original Skill instructions. The reviewed follow-up report preserves functional
+improvement separately from claim correctness and grants **zero additional
+profiles**. See `followup-review.json`, `followup-evidence-pin.json` and
+`failure-attribution.json`. CI replays these observations without model calls;
+successful CI means faithful verification of the retained PASS/PARTIAL/FAIL
+results, not promotion of the API or security Skills.
 
 All 92 original Skills/manifests, bodies, licenses and attribution remain intact.
 PR #6 stays at `d57ff77b8522f897fc6ae392cf59b3141295ba82`. Catalog defaults remain

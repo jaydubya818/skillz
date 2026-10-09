@@ -49,7 +49,8 @@ def report(root,retained):
         verdict=successor_evaluate(CASES[name],session.files,record['entries'],session.artifact,session.finished) if admissible else frozen
         reviewed=next(v for v in review['cases'] if v['case']==name)
         require(reviewed['observation_digest']==record['evidence_digest'] and reviewed['files_digest']==digest_object(record['files']),'follow-up reviewed files differ')
-        status='NOT_RUN' if not admissible else 'PASS' if verdict['status']=='PASS' and reviewed['verdict']=='PASS' else 'FAIL'
+        require(reviewed['verdict'] in ('PASS','PARTIAL','FAIL'),'unsupported follow-up review verdict')
+        status='NOT_RUN' if not admissible else 'FAIL' if verdict['status']!='PASS' else reviewed['verdict']
         rows.append(seal({'native_collection_key':identity,'evaluator':{'version':VERSION,'digest':file_digest(root/'qualification/evaluator_successor_v5.py')},
                           'status':status,'frozen_evaluation':normalized(frozen),'verification':normalized(verdict),'review':reviewed,
                           'observation_digest':record['evidence_digest'],'execution_eligible':False,'profile_qualification':'PARTIAL_ADDITIONAL_COVERAGE_REQUIRED'}))
