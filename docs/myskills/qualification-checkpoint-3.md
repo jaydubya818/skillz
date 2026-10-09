@@ -183,7 +183,7 @@ python -m qualification.checkpoint_three \
 python -m pytest tests -q --ignore=tests/test_evidence.py
 ```
 
-CI is configured to replay retained tool effects and independent checks. Only
+Hosted replay reproduces retained tool effects and independent checks. Only
 unittest durations and ephemeral traceback directories are normalized for decision
 comparison. Original response/output bytes remain in custody. Supplemental review
 code and findings have their own digests and cannot silently rewrite the frozen
@@ -194,8 +194,24 @@ container isolation controls. Independent read-only review passes the custody,
 reporting and closed-admission scope. It verified all 20 observations, 127 event
 bindings, ten decision files, five inactive consumer exports and four supplemental
 findings, and ran 15 focused tests. The reviewer made no Docker or model calls.
-This review does not approve any Skill. Fresh-clone and hosted validation are
-pending at this source checkpoint.
+This review does not approve any Skill.
+
+[Hosted CI at 5b6f4de](https://github.com/jaydubya818/skillz/actions/runs/37986063245)
+passed all three jobs: 222 portable tests, 21 platform browser checks and complete
+offline qualification replay. A fresh GitHub clone of that same revision passed
+222 portable tests, restored the pinned evidence from GitHub, and passed complete
+checkpoint-3 replay. Local, fresh-clone and hosted checkpoint files are byte-identical,
+with evidence digest
+`sha256:4e5a037b73e3755036b183a928b10c49a49f68b2070c05c060f0138f72fc609e`.
+This proves reproduction of retained evidence, not general model determinism.
+
+The [compatibility artifact pin](../../qualification/checkpoint3/compatibility-artifact-pin.json)
+binds the tested source, verified archive digest, checkpoint file, ten Skill
+decisions and all five consumer exports. The
+[hosted artifact](https://github.com/jaydubya818/skillz/actions/runs/37986063245/artifacts/11643625982)
+contains those files under `checkpoint3/`. If hosted retention expires, restore
+and replay the pinned source revision. Empty ready lists and disabled execution
+remain part of every consumer contract.
 
 PR #6 stays frozen. PR #7 remains a draft evidence checkpoint. The next checkpoint
 should qualify a versioned tool adapter with clearer typed command handling, address
