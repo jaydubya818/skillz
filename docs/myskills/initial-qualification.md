@@ -19,6 +19,9 @@ PARTIAL describes bounded experimental evidence. It is separate from catalog
 qualification, which remains NOT_EVALUATED for every Skill. NOT_RUN means the
 local runtime identity boundary prevented a behavioral attempt. No row grants
 production execution, publishing, credentials or dependency-loading authority.
+The original collector used PARTIAL as its transcript-envelope label even for
+unstarted cases. The checkpoint ignores that label and derives behavioral status
+from verified observations. Original transcript bytes remain unchanged.
 
 | Exact SkillID | Behavioral result / trust | Retained observation | Missing qualification |
 |---|---|---|---|
@@ -141,6 +144,21 @@ Consumers must trust the reviewed repository pin independently and verify the bu
 a producer-supplied digest alone is insufficient.
 
 ## Release boundary
+
+The implementation at `549556d867efce07e5c5497f675fc04913183706` passed 184 portable
+tests in a fresh remote clone. That clone restored the evidence from GitHub and
+reproduced checkpoint digest
+`sha256:f7cca1def77510c717a30b5bf28055447f7a52988f93aa3f73b96fb5371035d3`.
+Independent review passed 29 focused tests, repeated all nine artifact verdicts
+and reran live confinement checks without any model call.
+
+[Hosted CI](https://github.com/jaydubya818/skillz/actions/runs/37957469071) passed all
+three jobs: 184 portable tests, 21 existing browser checks, and offline qualification
+replay. The [qualification artifact](https://github.com/jaydubya818/skillz/actions/runs/37957469071/artifacts/11628118824)
+contains `checkpoint/checkpoint.json`, `checkpoint/skills/*.json`, and
+`checkpoint/myapps.json`. Replay success preserves the six observed artifact
+failures; it does not turn them into behavioral PASS results. The PR records the
+latest CI revision and the separate bounded Greploop outcome.
 
 Recommended PR #6 disposition: SPLIT. PR #6 remains at the accepted foundation
 commit. The experimental runtime and this checkpoint belong to dependent PR #7.

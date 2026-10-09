@@ -21,11 +21,13 @@ native Codex compatibility. Preserve PARTIAL and NOT_RUN limits explicitly.
 - [x] Bind capabilities, test effects, tasks, adversarial inputs and dependencies
 - [x] Test source tamper, revocation, admission and owner isolation
 - [x] Review the producer/verifier separation and fault-inject cleanup/timeout failures
-- [ ] Retain unpaid local observations and independently replay candidate bytes
-- [ ] Retain the pinned composition and its unqualified-admission boundary
-- [ ] Provide exact MyApps references, eligibility and coverage gaps
-- [ ] Finish fresh-clone suites, hosted CI and bounded Greploop
-- [ ] Preserve all 92 Skills, manifests, licenses and production boundaries
+- [x] Retain unpaid local observations and independently replay candidate bytes
+- [x] Retain the pinned composition and its unqualified-admission boundary
+- [x] Provide exact MyApps references, eligibility and coverage gaps
+- [x] Finish fresh-clone suites, hosted CI and independent review
+- [x] Preserve all 92 Skills, manifests, licenses and production boundaries
+- [ ] Stabilize the model identity and qualify full native workflows
+- [ ] Run the real composition after all children qualify
 
 ## Work log
 2026-10-09: Independent review found and verified fixes for source/corpus binding,
@@ -35,3 +37,12 @@ resumed. The first collection has UNKNOWN completion and earns no qualification
 credit. Recovered exact implementation edits into the persistent task directory;
 confirmed GitHub PR #6 and canonical main remain unchanged. Record any retry as a
 separate attempt with its actual service version.
+
+The bounded checkpoint is retained on PR #7. Attempt 2 stopped on an actual model
+digest change. Nine artifact verdicts reproduce, three PASS and six FAIL. The tenth
+response is unverified, and the remaining five Skills are NOT_RUN. No Skill receives
+deep qualification or production eligibility. The fresh clone and hosted CI pass
+184 portable tests; CI also passes 21 browser checks and offline replay. Independent
+review passes 29 focused tests and the offline checkpoint. Greploop is a separate
+bounded delivery review whose outcome is recorded on the PR. Further behavioral
+work waits at the runtime identity boundary; this file remains ready for that work.
