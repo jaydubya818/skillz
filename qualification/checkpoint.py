@@ -12,6 +12,12 @@ from qualification.local_probe import replay
 PIN_DIRECTORY = Path('qualification/initial-cohort')
 
 
+def behavioral_status(attempts):
+    verified = any(a['model_execution'] == 'COMPLETED' and
+                   a['artifact_verification'] == 'COMPLETED' for a in attempts)
+    return 'PARTIAL' if verified else 'NOT_RUN'
+
+
 def checkpoint(root, observations):
     pin = json.loads((root/PIN_DIRECTORY/'observations-pin.json').read_text())
     replays = replay(root,observations,pin['bundle_digest'],pin['collector_commit'])
@@ -30,6 +36,9 @@ def checkpoint(root, observations):
             attempts.append({'kind':kind,'binding':observation['binding'],
                 'model_execution':observation['model_execution'],
                 'artifact_verification':observation['artifact_verification'],
+                'runtime_identity':('VERIFIED' if observation['artifact_verification']=='COMPLETED' else
+                    'UNVERIFIED' if observation['model_execution']=='COMPLETED' else 'NOT_RUN'),
+                'error':observation.get('error'),
                 'artifact_oracle':observation.get('observations',{}).get('artifact_oracle','NOT_RUN'),
                 'effect_request_check':observation.get('observations',{}).get('effect_request_check','NOT_RUN'),
                 'observation_digest':observation['evidence_digest'], 'file':name+'/observation.json'})
@@ -40,7 +49,7 @@ def checkpoint(root, observations):
             'intended_capability':item['task_specification']['intended_capability'],
             'current_permitted_effects':[],
             'test_adapter_effects':['synthetic.artifact.produce','offline.container.evaluate'],
-            'behavioral_qualification':'PARTIAL' if any(a['model_execution']=='COMPLETED' for a in attempts) else 'NOT_RUN',
+            'behavioral_qualification':behavioral_status(attempts),
             'catalog_qualification':'NOT_EVALUATED','trust':'UNTRUSTED','execution_eligible':False,
             'full_workflow':'NOT_RUN','native_harness_compatibility':'NOT_RUN',
             'packaging':'PASS','assessment_digest':item['evidence_digest'],

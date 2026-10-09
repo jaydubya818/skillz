@@ -109,13 +109,14 @@ def test_context_binds_corpus_runtime_and_runner():
     assert len(context['runner_files'])==2
 
 
-def test_transient_post_generation_identity_failure_stops_without_retry(tmp_path,monkeypatch):
+@pytest.mark.parametrize('failure', [ValidationError,KeyError,TypeError,TimeoutError])
+def test_transient_post_generation_identity_failure_stops_without_retry(tmp_path,monkeypatch,failure):
     count={'checks':0,'generations':0}
     runtime={'name':probe.MODEL,'digest':probe.MODEL_DIGEST,'service_version':'test'}
     def check():
         count['checks']+=1
         if count['checks']==3:
-            raise ValidationError('installed model changed')
+            raise failure('installed model changed')
         return runtime
     def generate(*args):
         count['generations']+=1
@@ -126,3 +127,12 @@ def test_transient_post_generation_identity_failure_stops_without_retry(tmp_path
     assert count=={'checks':3,'generations':1}
     last=json.loads((tmp_path/'attempt/create-verification-skill--adversarial/observation.json').read_text())
     assert last['model_execution']=='NOT_RUN'
+
+
+def test_unverified_completed_generation_receives_no_partial_credit():
+    from qualification.checkpoint import behavioral_status
+    unverified={'model_execution':'COMPLETED','artifact_verification':'FAIL'}
+    pending={'model_execution':'NOT_RUN','artifact_verification':'NOT_RUN'}
+    assert behavioral_status([unverified,pending])=='NOT_RUN'
+    verified={'model_execution':'COMPLETED','artifact_verification':'COMPLETED'}
+    assert behavioral_status([verified,unverified])=='PARTIAL'

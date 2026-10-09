@@ -18,6 +18,7 @@ from myskills.manifest import ValidationError
 from qualification.probe_cases import PROBES
 
 IMAGE = 'sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a'
+IMAGE_REFERENCE = 'node:24-bookworm@' + IMAGE
 MODEL = 'qwen3.5:35b-a3b-q8_0'
 MODEL_DIGEST = '655d273ede3adc056594f511c120d616d92bf4c4d5bcfe580f3cfa29abe8109d'
 OPTIONS = {'temperature': 0, 'seed': 7381, 'num_ctx': 32768, 'num_predict': 2048}
@@ -84,7 +85,7 @@ def container_command(name):
         '--network=none','--read-only','--cap-drop=ALL','--security-opt=no-new-privileges',
         '--user=65534:65534','--cpus=1','--memory=256m','--memory-swap=256m','--pids-limit=32',
         '--log-driver=none','--tmpfs','/tmp:rw,noexec,nosuid,size=16m','--entrypoint=python3',
-        '-i',IMAGE,'-I','-u','-c',WRAPPER]
+        '-i',IMAGE_REFERENCE,'-I','-u','-c',WRAPPER]
 
 
 def run_program(program, inputs, *, timeout=10):
@@ -300,7 +301,7 @@ def collect(root, output):
                     raise ValidationError('generation completion is unknown')
                 try:
                     after_runtime = check_model()
-                except (OSError, ValueError):
+                except (OSError, ValueError, KeyError, TypeError):
                     halt = 'model identity could not be confirmed after generation'
                     raise
                 if after_runtime != runtime:
@@ -312,7 +313,7 @@ def collect(root, output):
                 halt = str(error)
                 observation['containment'] = 'UNKNOWN'
                 observation['error'] = halt
-            except (OSError, ValueError, KeyError, ValidationError) as error:
+            except (OSError, ValueError, KeyError, TypeError) as error:
                 observation['error'] = str(error)
                 if observation['model_execution'] in ('DISPATCHED','UNKNOWN'):
                     observation['model_execution'] = 'UNKNOWN'
@@ -368,7 +369,8 @@ def replay(root, directory, expected_digest, collector_commit=None):
                 raise ValidationError('retained model response changed')
             actual = observe(spec['binding']['skill_id'],parse_candidate(response))
             if actual != observation['observations']:
-                raise ValidationError('independent observation did not reproduce: ' + label)
+                details = {'attempt':label,'expected':observation['observations'],'actual':actual}
+                raise ValidationError('independent observation did not reproduce: ' + json.dumps(details))
             results.append({'attempt':label,'replay':'PASS','artifact_oracle':actual['artifact_oracle'],
                             'effect_request_check':actual['effect_request_check']})
     return results
