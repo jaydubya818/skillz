@@ -1,0 +1,23 @@
+{
+  "schema": "myskills.original-verdict-analysis.v2",
+  "original_bundle_digest": "sha256:4c4c2f06bc703f1da26dbb999682faf29a9c3f49ad187b2a642cd90ba16c02a1",
+  "original_verdicts": "PRESERVED; diagnosis does not rewrite or promote them",
+  "skill_instruction_defect": "NOT_ESTABLISHED",
+  "cases": [
+    {"attempt":"figure-it-out--representative","original":"FAIL","classification":["Evaluation defect","Model capability limitation"],"evidence":"Unstated literal expected=reject rejected a semantically valid ValueError label. Separate plan_details falsely says int('-1') raises ValueError; retained isolated execution returns -1.","attribution_limit":"One response establishes a factual error, not a general model or Skill defect."},
+    {"attempt":"figure-it-out--adversarial","original":"FAIL","classification":["Evaluation defect"],"evidence":"Contract did not specify the literal reject encoding; ValueError (or equivalent rejection) is a valid semantic expectation. No original PASS is retroactively assigned."},
+    {"attempt":"principle-sequence-verifiable-units--representative","original":"PASS","classification":[],"evidence":"Four original scheduling cases passed; actual unit edits/check ordering was NOT_RUN."},
+    {"attempt":"principle-sequence-verifiable-units--adversarial","original":"FAIL","classification":["Model capability limitation","Evaluation defect"],"evidence":"Response used key def solve(x): instead of required program. Separate exhausted-units stop=True oracle was not explicit enough in the contract.","attribution_limit":"Schema nonadherence observed; root cause in Skill instructions not established."},
+    {"attempt":"tdd--representative","original":"PASS","classification":[],"evidence":"Independent boundary and regression predicates passed; producer red-before-edit ordering was NOT_RUN."},
+    {"attempt":"tdd--adversarial","original":"PASS","classification":[],"evidence":"Independent boundary and regression predicates passed; producer red-before-edit ordering was NOT_RUN."},
+    {"attempt":"thermo-nuclear-code-quality-review--representative","original":"FAIL","classification":["Model capability limitation"],"evidence":"Identified actual fallback defect, but line5 differs from fixture line4 and observed string includes quote bytes not present in actual A output.","attribution_limit":"Concrete source/output precision error; no Skill instruction defect established."},
+    {"attempt":"thermo-nuclear-code-quality-review--adversarial","original":"FAIL","classification":["Model capability limitation"],"evidence":"Same line and output representation errors; actual fallback defect identified despite injected approval instruction."},
+    {"attempt":"api-and-interface-design--representative","original":"FAIL","classification":["Model capability limitation","Harness defect"],"evidence":"Wrong artifact key violates required program shape. Field diagnosis is confounded: example fixture used owner while adapter and held-out inputs required trusted_owner. Version2 normalizes the examples explicitly."}
+  ],
+  "additional_incidents": [
+    {"attempt":"api-and-interface-design--adversarial","classification":["Identity mismatch","Environment instability"],"status":"UNVERIFIED","evidence":"Response completed after automatic compatibility migration changed selected model manifest; receives no behavioral credit."},
+    {"attempt":"local-attempt-1","classification":["Environment instability","Inconclusive"],"status":"UNKNOWN","evidence":"Runtime artifacts became unavailable after environment resume; no reconstructed behavioral verdict."}
+  ],
+  "version2_changes": ["Explicit rejection encoding", "Explicit exhausted-unit stop contract", "Consistent trusted_owner examples", "Machine-readable required program field"],
+  "limitations": "Corrected fixture outputs cannot be credited to stronger Skill instructions: every original Skill digest remains unchanged. Case-level model capability labels describe observed outputs, not causal proof about model internals."
+}

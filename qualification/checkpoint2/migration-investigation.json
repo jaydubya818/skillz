@@ -1,0 +1,86 @@
+{
+  "schema": "myskills.runtime-migration-investigation.v2",
+  "cause": "Automatic Ollama local compatibility GGUF migration and selected-child movement",
+  "runtime": "0.40.2",
+  "log_excerpt": [
+    "time=2026-10-09T08:57:41.183-07:00 level=INFO source=migrate.go:410 msg=\"starting local compat GGUF migration\" model=qwen3.5:35b-a3b-q8_0 required_bytes=48908145072",
+    "time=2026-10-09T08:59:15.661-07:00 level=INFO source=migrate.go:451 msg=\"completed local compat GGUF migration\" model=qwen3.5:35b-a3b-q8_0 duration=1m34.478753042s"
+  ],
+  "old_manifest_reconstruction": {
+    "method": "Remove runner and format from ggml child5ce6; compact original field order, no newline",
+    "sha256": "655d273ede3adc056594f511c120d616d92bf4c4d5bcfe580f3cfa29abe8109d"
+  },
+  "new_manifest": {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+      "mediaType": "application/vnd.docker.container.image.v1+json",
+      "digest": "sha256:b2c35e0c36ae6030f935e3cd951827407e8c1184efa0ed6bfc25eb023e2bd939",
+      "size": 189
+    },
+    "layers": [
+      {
+        "mediaType": "application/vnd.ollama.image.model",
+        "digest": "sha256:2ff4caf9bbdc57827703b50471b7e4df7f26e306626d19e556c0c0beeabaeb13",
+        "size": 37802973792
+      },
+      {
+        "mediaType": "application/vnd.ollama.image.projector",
+        "digest": "sha256:489d5e0a682060521694bf97aea6504cb30ab4286af8a7e8a3d73ed8a81907e2",
+        "size": 902821664
+      },
+      {
+        "mediaType": "application/vnd.ollama.image.license",
+        "digest": "sha256:7339fa418c9ad3e8e12e74ad0fd26a9cc4be8703f9c110728a992b193be85cb2",
+        "size": 11355,
+        "from": "qwen3.5:35b-a3b-q8_0"
+      },
+      {
+        "mediaType": "application/vnd.ollama.image.params",
+        "digest": "sha256:9371364b27a52acac9d87f88bd93c9db1174d8d6ec57f6888925cdc1788871ff",
+        "size": 65,
+        "from": "qwen3.5:35b-a3b-q8_0"
+      }
+    ],
+    "runner": "llamacpp",
+    "format": "gguf"
+  },
+  "large_artifact_verification": [
+    {
+      "expected": "acd3c29c18f07df11b02809f1787803dbf0ba97abcd16c26e38b75168fce79e0",
+      "actual": "acd3c29c18f07df11b02809f1787803dbf0ba97abcd16c26e38b75168fce79e0",
+      "bytes": 38697019328,
+      "unchanged_during_read": true
+    },
+    {
+      "expected": "2ff4caf9bbdc57827703b50471b7e4df7f26e306626d19e556c0c0beeabaeb13",
+      "actual": "2ff4caf9bbdc57827703b50471b7e4df7f26e306626d19e556c0c0beeabaeb13",
+      "bytes": 37802973792,
+      "unchanged_during_read": true
+    },
+    {
+      "expected": "489d5e0a682060521694bf97aea6504cb30ab4286af8a7e8a3d73ed8a81907e2",
+      "actual": "489d5e0a682060521694bf97aea6504cb30ab4286af8a7e8a3d73ed8a81907e2",
+      "bytes": 902821664,
+      "unchanged_during_read": true
+    }
+  ],
+  "quantization": "Both old and converted configs declare Q8_0; no quantization change established",
+  "provider_substitution": "No evidence: same loopback Ollama service/version; runner backend selection changed",
+  "in_place_artifact_mutation": "Not observed; original and new stored bytes separately match content digests",
+  "historical_runtime_digests": "Old observations retain weaker tag-only identity, not upgraded by this investigation",
+  "source": {
+    "migrate.go": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.2/compatmigrate/migrate.go",
+      "sha256": "33edb41ade3a884b8fe64286c768965a1f20097f734688ccc5bc10b4fc5dcf44"
+    },
+    "manifest.go": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.2/manifest/manifest.go",
+      "sha256": "2b534fa50c385a71d7b6e4d4bb6664feb8e65df209f91af84562424d8858936e"
+    },
+    "paths.go": {
+      "url": "https://github.com/ollama/ollama/blob/v0.40.2/manifest/paths.go",
+      "sha256": "ce16336074693e19fa8c75147c67b155b9be03542a5dd77500e8be42dba8ff04"
+    }
+  }
+}
