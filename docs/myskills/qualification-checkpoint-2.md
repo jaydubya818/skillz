@@ -170,3 +170,31 @@ artifacts, but cannot turn the batch into a stable model run. Overall runtime
 status is UNSTABLE. The separately completed 30-request artifact batch remains
 STABLE within its observed interval. The incident record is
 [container-interruption.json](../../qualification/checkpoint2/container-interruption.json).
+
+## Checkpoint validation
+
+[Hosted CI at ff58a34](https://github.com/jaydubya818/skillz/actions/runs/37980147393)
+passed all three jobs: 207 portable tests, 21 browser checks and offline evidence
+replay. Replay verified all 30 artifact observations and the six completed tool
+cases while withholding the entire interrupted tool batch's qualification credit.
+A fresh GitHub clone of the same revision passed 207 portable tests locally.
+Local Docker replay remains blocked at the shared-runtime restart boundary.
+
+The [compatibility artifact pin](../../qualification/checkpoint2/compatibility-artifact-pin.json)
+records the exact hosted archive and file digests for `checkpoint2/myapps.json`,
+`checkpoint2/missioncontrol.json` and all ten per-Skill decisions. These are
+consumer references with empty ready lists and execution disabled. The artifact
+can be [downloaded from CI](https://github.com/jaydubya818/skillz/actions/runs/37980147393/artifacts/11640532417).
+If hosted retention expires, restore and replay the pinned source revision.
+
+Independent review passed the runtime investigation, fixture controls, custody
+and interrupted-evidence handling within the reviewed scope. It found no remaining
+blocking findings. The reviewer did not restart Docker or make model calls;
+hosted CI supplied the separate container replay evidence.
+
+Keep PR #6 at its accepted foundation revision and preserve the split. PR #7
+remains a draft evidence checkpoint, not a qualification or deployment approval.
+The next checkpoint requires restoring the isolated runtime, confirming cleanup
+of the interrupted container, and starting a new tool-trial attempt with fresh
+identity checks. Native workflow and dependency gates must pass before any
+composition member becomes eligible.
