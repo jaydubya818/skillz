@@ -1,8 +1,11 @@
 # MySkills checkpoint 5 — first behavioral profile
 
-The native TDD corpus completed all eleven workflows with the pinned unpaid local
-model. Final acceptance is **PENDING fresh-clone and hosted agreement**. Replay
-exports are provisional and grant no execution authority.
+**One exact TDD profile is behaviorally qualified.** The native corpus completed
+all eleven workflows with the pinned unpaid local model. The separate acceptance
+record is `qualification/checkpoint5/accepted-profile.json`, seal
+`sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731`.
+Replay exports remain provisional source evidence; the acceptance record resolves
+their PENDING_VALIDATION state. Neither record grants consumer execution authority.
 
 The scope is a finite Python `clamp` bug-fix corpus: interpret the requirement,
 repair or write a meaningful test, capture the actual intended assertion failure
@@ -72,6 +75,14 @@ requires no model service or provider calls. The separate acceptance gate requir
 the exact seven local/fresh/hosted exports to match, verifies the archive against
 GitHub's artifact digest and run/head identity, and requires successful CI.
 
+Fresh clone at `586da31e5928ea04dfb114249afba06f916129a9`: **267 portable tests,
+21 browser checks, 92-Skill catalog and full qualification replay PASS**. All seven
+local/fresh/hosted exports match exactly. All three jobs passed in
+[hosted run 37999875198](https://github.com/jaydubya818/skillz/actions/runs/37999875198).
+Artifact `11648880874` has GitHub-verified archive digest
+`sha256:487e297724e25889dbcc006703f5b926d274a5294d7e3a1d35ccdbe893705b54`.
+The exact validation receipt is `qualification/checkpoint5/validation-pin.json`.
+
 All 92 original Skills/manifests, bodies, licenses and attribution remain intact.
 PR #6 stays at `d57ff77b8522f897fc6ae392cf59b3141295ba82`. Catalog defaults remain
 UNTRUSTED / NOT_EVALUATED. Globally trusted Skills: **0**. Five-stage composition
@@ -81,6 +92,7 @@ verification children are still missing.
 MyApps, MissionControl, MyEve/Sofie subagents/Role Packs and MyFactory receive
 inactive evidence references only. Their harness equivalence and consumer
 execution are NOT_RUN; a matching Codex version or manifest is insufficient.
+Exact inactive references are in `qualification/checkpoint5/consumer-compatibility.json`.
 Consumer source references remain explicitly bound to checkpoint-4 inspected
 commits, not claimed to describe any subsequent consumer changes.
 

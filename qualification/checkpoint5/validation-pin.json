@@ -1,0 +1,49 @@
+{
+  "archive_digest": "sha256:487e297724e25889dbcc006703f5b926d274a5294d7e3a1d35ccdbe893705b54",
+  "artifact_id": 11648880874,
+  "browser_checks": {
+    "count": 21,
+    "log_digest": "sha256:7b37f0526e59a6558b9db26c54cc1ffd753fc0f89596c5609e877c1560c4498f",
+    "status": "PASS"
+  },
+  "catalog_skills": 92,
+  "checkpoint_evidence_digest": "sha256:b9b9e51c63ce03673f7519b72e981f359e1b9faa51c33164a694096fe475883a",
+  "evidence_digest": "sha256:46916142d20143e1d5a9f7124477ba10ba99c812c9dc20784f424e6c321919d3",
+  "fresh_clone_files": {
+    "MissionControl.json": "sha256:200c2afe213dade4645d79c6bb1521df426d3555898a631662fc5584347866e5",
+    "MyApps.json": "sha256:f2c82a43f6cceb3798a4a6e8f397b49893c5c2d8510b2bd34d3248b2524c6dc2",
+    "MyEve-Sofie-subagents.json": "sha256:bdae5b26b3106269396ec2eaa94cc31009ddbe0683b11ac40dc93f447a0b616a",
+    "MyFactory.json": "sha256:4abe15da55c2bca2aedc027c59d9fbeeba06e3468e1cdad748cf690b7386eb77",
+    "checkpoint.json": "sha256:4bc0b27dc56703a48b43d9aac6c4c837d45a3994d3f41d33edb180714819265b",
+    "matrix.json": "sha256:4299fbfe2625baf74096387b2ab174633111ed9d01ab9d82df245e154af68a5f",
+    "profile.json": "sha256:ab28c09f586784ab3c5fd799e08e1c9fc1aae684a3056342e9ac989760626b03"
+  },
+  "hosted_files": {
+    "MissionControl.json": "sha256:200c2afe213dade4645d79c6bb1521df426d3555898a631662fc5584347866e5",
+    "MyApps.json": "sha256:f2c82a43f6cceb3798a4a6e8f397b49893c5c2d8510b2bd34d3248b2524c6dc2",
+    "MyEve-Sofie-subagents.json": "sha256:bdae5b26b3106269396ec2eaa94cc31009ddbe0683b11ac40dc93f447a0b616a",
+    "MyFactory.json": "sha256:4abe15da55c2bca2aedc027c59d9fbeeba06e3468e1cdad748cf690b7386eb77",
+    "checkpoint.json": "sha256:4bc0b27dc56703a48b43d9aac6c4c837d45a3994d3f41d33edb180714819265b",
+    "matrix.json": "sha256:4299fbfe2625baf74096387b2ab174633111ed9d01ab9d82df245e154af68a5f",
+    "profile.json": "sha256:ab28c09f586784ab3c5fd799e08e1c9fc1aae684a3056342e9ac989760626b03"
+  },
+  "local_files": {
+    "MissionControl.json": "sha256:200c2afe213dade4645d79c6bb1521df426d3555898a631662fc5584347866e5",
+    "MyApps.json": "sha256:f2c82a43f6cceb3798a4a6e8f397b49893c5c2d8510b2bd34d3248b2524c6dc2",
+    "MyEve-Sofie-subagents.json": "sha256:bdae5b26b3106269396ec2eaa94cc31009ddbe0683b11ac40dc93f447a0b616a",
+    "MyFactory.json": "sha256:4abe15da55c2bca2aedc027c59d9fbeeba06e3468e1cdad748cf690b7386eb77",
+    "checkpoint.json": "sha256:4bc0b27dc56703a48b43d9aac6c4c837d45a3994d3f41d33edb180714819265b",
+    "matrix.json": "sha256:4299fbfe2625baf74096387b2ab174633111ed9d01ab9d82df245e154af68a5f",
+    "profile.json": "sha256:ab28c09f586784ab3c5fd799e08e1c9fc1aae684a3056342e9ac989760626b03"
+  },
+  "portable_tests": {
+    "count": 267,
+    "log_digest": "sha256:967e4b403ce0211e9f2999635e780cd5f2d73e1e697d0ab895d8aee4b50bc0ae",
+    "status": "PASS"
+  },
+  "recorder_tests": "BLOCKED_FFMPEG_SANDBOX_NOT_COUNTED_AS_PASS",
+  "report_file_digest": "sha256:4bc0b27dc56703a48b43d9aac6c4c837d45a3994d3f41d33edb180714819265b",
+  "run_id": 37999875198,
+  "schema": "myskills.checkpoint-validation.v5",
+  "source_commit": "586da31e5928ea04dfb114249afba06f916129a9"
+}
