@@ -1,6 +1,6 @@
 ---
 name: agent-watchdog
-description: "Audit or monitor another agent's session, PR, branch, or transcript. Use when asked to watch, compare, review, or repair agent work."
+description: "Audit, monitor, compare, or repair another agent's session or PR when asked."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

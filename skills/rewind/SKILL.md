@@ -1,6 +1,6 @@
 ---
 name: rewind
-description: "Retrieve bounded local Clips Rewind context. Use when the user refers to something they recently saw or said."
+description: "Retrieve local Clips Rewind context for something the user recently saw or said."
 license: MIT
 compatibility: "Requires macOS, Clips Desktop with Rewind enabled, and the local Screen Memory MCP connection."
 metadata:

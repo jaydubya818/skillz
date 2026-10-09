@@ -1,6 +1,6 @@
 ---
 name: plan-arbiter
-description: "Compare competing plans and recommend one executable path. Use when asked to judge, merge, or cross-review plans."
+description: "Compare, judge, or combine competing plans into one executable path."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

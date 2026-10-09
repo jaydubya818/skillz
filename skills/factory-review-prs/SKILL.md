@@ -1,6 +1,6 @@
 ---
 name: factory-review-prs
-description: "Review configured PR queues under independent reply, approval, and merge gates. Use for PR triage."
+description: "Triage PR queues under separate reply, approval, and merge gates."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

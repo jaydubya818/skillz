@@ -1,6 +1,6 @@
 ---
 name: stay-within-limits
-description: "Check host usage between bounded work waves. Use when long-running or parallel work must stay within limits."
+description: "Check host usage limits between bounded waves of long-running work."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

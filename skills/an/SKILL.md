@@ -1,6 +1,6 @@
 ---
 name: an
-description: "Operate Agent-Native apps through Dispatch MCP. Use for /an or work in a granted Agent-Native app."
+description: "Operate granted Agent-Native apps through Dispatch MCP; use for /an."
 license: MIT
 compatibility: "Requires the Agent-Native Dispatch MCP connector and a host that supports MCP Apps or returned links."
 metadata:

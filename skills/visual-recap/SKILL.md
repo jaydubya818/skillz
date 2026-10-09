@@ -1,6 +1,6 @@
 ---
 name: visual-recap
-description: "Turn a PR, branch, commit, or diff into a grounded Agent-Native visual recap for substantial changes."
+description: "Create an Agent-Native visual recap from a substantial code change."
 license: MIT
 compatibility: "Hosted mode requires the Agent-Native Plan connector; local-files mode requires the Agent-Native CLI."
 metadata:

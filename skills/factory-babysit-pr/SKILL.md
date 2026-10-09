@@ -1,6 +1,6 @@
 ---
 name: factory-babysit-pr
-description: "Monitor one authorized PR and apply separate fix, publish, reply, approval, merge, and soak gates."
+description: "Monitor one authorized PR with separate fix, publish, reply, and merge gates."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

@@ -22,6 +22,13 @@ apply one blanket license to every directory.
   Builder.io, and are used under the MIT license. Each imported skill directory
   includes the complete upstream `LICENSE` notice so standalone installs retain
   the required attribution.
+- The seven adaptations recorded in
+  [`vendor/addyosmani.json`](vendor/addyosmani.json) derive from
+  [`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills), copyright
+  2025 Addy Osmani, under the MIT license. Skillz contributors rewrote and
+  extended the workflows as documented in
+  [`docs/ADDYOSMANI_REVIEW.md`](docs/ADDYOSMANI_REVIEW.md). Each adapted directory
+  retains the complete upstream MIT notice, including supporting references.
 - Skills originating in
   [`michaelshimeles/skills`](https://github.com/michaelshimeles/skills) retain
   their source history and any license included with the source skill.

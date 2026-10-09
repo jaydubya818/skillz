@@ -1,6 +1,6 @@
 ---
 name: factory-collect
-description: "Collect and triage configured product signals under separate fix, reply, and close policies. Use for current intake."
+description: "Triage configured product signals under separate fix, reply, and close policies."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

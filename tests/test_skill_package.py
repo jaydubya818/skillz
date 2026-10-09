@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).parents[1]
 SKILLS = ROOT / "skills"
-RELEASE_VERSION = "2.3.0"
+RELEASE_VERSION = "2.4.0"
 CORE_SKILLS = {
     "before-and-after",
     "code-structure",
@@ -23,12 +23,19 @@ CORE_SKILLS = {
 def expected_skills() -> set[str]:
     jstack = json.loads((ROOT / "vendor" / "jstack.json").read_text())
     builderio = json.loads((ROOT / "vendor" / "builderio.json").read_text())
+    addyosmani = json.loads((ROOT / "vendor" / "addyosmani.json").read_text())
     assert jstack["schema"] == "vendored-agent-skills/v1"
     assert builderio["schema"] == "vendored-agent-skills/v1"
     assert jstack["excluded"] == {
         "unslop": "the collection keeps its existing enhanced definition"
     }
-    return CORE_SKILLS | set(jstack["imported"]) | set(builderio["imported"])
+    assert addyosmani["schema"] == "vendored-agent-skills/v1"
+    return (
+        CORE_SKILLS
+        | set(jstack["imported"])
+        | set(builderio["imported"])
+        | set(addyosmani["imported"])
+    )
 
 
 def frontmatter(path: Path) -> str:

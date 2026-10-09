@@ -1,6 +1,6 @@
 ---
 name: plow-ahead
-description: "Proceed through routine ambiguity with stated assumptions. Use when the user requests autonomous progress."
+description: "Proceed through routine ambiguity when autonomous progress is requested."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:
