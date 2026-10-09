@@ -101,3 +101,17 @@ hashed file set and the exact manifest. Ignored local artifacts never enter it.
 Future runtimes must consume validated packages, not execute the source checkout
 or install dependencies implicitly. This offline export is not Factory custody
 fencing and does not make scripts safe to run.
+
+## Registry decisions
+
+`GovernedRegistry` keeps immutable manifests separate from current decisions.
+`RegistryAdmin` is a trusted operator API. Never register it as an owner/agent tool.
+Version revocation, publisher suspension and dependency revocation deny new use
+without deleting historical identity. Lifecycle transitions reject resurrection.
+Moving a draft to qualified requires the qualification service, not a package claim.
+
+Update discovery returns exact alternative versions and a security diff. It never
+selects the newest version, changes an installation or substitutes admitted Work.
+An explicit decision is needed even for a downgrade. Private and public versions
+are not offered as updates to one another. The reference uses a process lock;
+production must enforce the same rules transactionally in its owning data store.

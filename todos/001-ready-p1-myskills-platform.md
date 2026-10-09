@@ -24,7 +24,7 @@ Implement the authorized checkpoints in order, with negative tests, independent
 review, disclosure checks, commits, pushes, and exact remote verification.
 
 ## Acceptance criteria
-- [ ] A: inventory, strict manifest, digest, provenance and safe default metadata
+- [x] A: inventory, strict manifest, digest, provenance and safe default metadata
 - [ ] B: registry, exact dependency graph, lifecycle, update/revocation
 - [ ] C: isolated owner state, install/enable, private records
 - [ ] D: deterministic resolver and routing corpus

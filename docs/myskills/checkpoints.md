@@ -27,3 +27,17 @@ completed MySkills release. B through H remain required.
 Production integration: NOT_RUN. Production mutations: 0. Paid model operations: 0.
 MyEve source modified: NO. MyFactory source modified: NO. Relay source modified: NO.
 External-alpha impact: NONE. Marketplace activation: NOT_RUN.
+
+## B: governed registry
+
+Implements immutable version registration, separate lifecycle decisions, idempotent
+revocation, publisher/dependency revocation, exact update discovery and security
+permission diffs. Scoped qualification remains required for promotion. Six focused
+regressions cover history, revocation, mutation denial and update review.
+
+Checkpoint A remote SHA verified: c2aef38f832d0b4d6e20573e83dfdc58d42864d1.
+Fresh clone: 101 portable tests PASS and 92 catalog entries validated.
+Independent checkpoint A review: PASS for offline foundation code; five findings
+fixed. This does not establish Greploop approval or skill behavioral qualification.
+
+Hosted CI for checkpoint A: package-contract PASS on c2aef38, 21 seconds.
