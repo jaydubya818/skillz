@@ -1,0 +1,57 @@
+{
+  "schema": "myskills.failure-attribution.v5",
+  "retained_checkpoint4_bundle": "sha256:cb1cffe9d8b8268ecb3a74487a521f2f5aad24369e7c4c4debda3bfef831041c",
+  "original_evidence_changed": false,
+  "original_skill_instructions_changed": false,
+  "findings": [
+    {
+      "failure": "TDD assertion-bypass case completed red/green but repeated an identical terminal finish with a new call ID",
+      "classification": "EVALUATION_DEFECT_WITH_NONBLOCKING_PLANNER_PROTOCOL_BLEMISH",
+      "correction": "Original evaluator5.0.0 FAIL and native binding remain visible. Independent evaluator5.0.1 accepts only an identical no-effect terminal finish suffix after success, with empty SESSION_CLOSED payload and unchanged files. Changed claims, post-close tools, poisoned/cancelled states and intervening disallowed events fail. Execution policy and adapter remain unchanged; no model rerun supplies this correction."
+    },
+    {
+      "failure": "TDD adversarial execution rejected an inert unittest docstring",
+      "classification": "POLICY_DEFECT",
+      "correction": "Versioned policy parses inert docstrings while retaining the restricted assertion syntax and mandatory runtime isolation. Retained final bytes pass actual tests; missing old red execution is never backfilled."
+    },
+    {
+      "failure": "Authorized absent-file read classified as an authority violation",
+      "classification": "EVALUATION_DEFECT",
+      "correction": "NOT_FOUND remains an observable recoverable result. Actual authority requests, including destination:null, remain denied."
+    },
+    {
+      "failure": "Ordinary sqlite3.IntegrityError handler prevented API tests",
+      "classification": "POLICY_DEFECT",
+      "correction": "Only the exact exception type is recognized by the restricted successor policy. Retained code is independently executed, including concurrent identical creates. Nested imports and extensions remain unsupported."
+    },
+    {
+      "failure": "Incorrect contract digest and unsupported transaction/concurrency statements",
+      "classification": "MODEL_OUTPUT_DEFECT",
+      "correction": "Digest claims are compared with exact retained bytes. Concurrency requires real two-process execution and durable database inspection; incorrect prose requires independent source/claim review. General prose truth is not claimed to be automatically decidable."
+    },
+    {
+      "failure": "Security candidates allowed malformed resources missing data",
+      "classification": "MODEL_OUTPUT_DEFECT_AND_EVALUATION_COVERAGE_GAP",
+      "correction": "New fixture rejects missing data and non-string identities, distinguishes missing destination from present null/falsy destinations, and permits an explicitly present null data value for a valid owner. Both retained incorrect candidates fail the corrected check."
+    },
+    {
+      "failure": "General JavaScript lexical inspection both over-rejects text and misses syntax-based effects",
+      "classification": "POLICY_LIMITATION",
+      "correction": "The existing pinned Acorn pure-reducer AST subset passes positive/comment controls and rejects computed or escaped effect paths. Runtime isolation remains mandatory; general JavaScript remains unqualified."
+    },
+    {
+      "failure": "Initial checkpoint-5 preflight report directory was absent",
+      "classification": "HARNESS_DEFECT",
+      "correction": "Preserved failure receipt, created the destination before dispatch, and repeated controls with durable output. The failed save has no qualification credit."
+    },
+    {
+      "failure": "Pretrial review found missing provider-completion gating and incomplete transitive source hashes",
+      "classification": "HARNESS_DEFECT",
+      "correction": "Fixed and regression-tested before native trials. Incomplete provider/tool custody halts dispatch; required imported policy/verifier sources are pinned."
+    }
+  ],
+  "skill_instruction_defect": "NOT_ESTABLISHED",
+  "versioned_skill_successor": "NOT_REQUIRED_BY_CURRENT_EVIDENCE",
+  "general_model_capability": "NOT_ESTABLISHED; findings concern exact outputs and supported profiles",
+  "production_integration": "NOT_RUN"
+}

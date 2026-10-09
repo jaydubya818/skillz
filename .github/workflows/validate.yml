@@ -74,6 +74,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Install pinned static parser for checkpoint 5 controls
+        run: npm ci --ignore-scripts --prefix qualification/v4/js-policy
       - name: Load the exact offline verifier image
         run: docker pull --platform linux/amd64 node:24-bookworm@sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a
       - name: Restore pinned synthetic observations
@@ -104,6 +109,12 @@ jobs:
         run: python -m qualification.custody_v4 --restore .artifacts/qualification/checkpoint4-retained
       - name: Independently replay checkpoint 4 tools and output counterexamples without model calls
         run: python -m qualification.checkpoint_four --retained .artifacts/qualification/checkpoint4-retained --output .artifacts/qualification/checkpoint4
+      - name: Restore checkpoint 5 native TDD observations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m qualification.custody_v5 --restore .artifacts/qualification/checkpoint5-retained
+      - name: Independently replay checkpoint 5 red-green, adversarial and retained-failure controls
+        run: python -m qualification.checkpoint_five --retained .artifacts/qualification/checkpoint5-retained --previous .artifacts/qualification/checkpoint4-retained --output .artifacts/qualification/checkpoint5
       - uses: actions/upload-artifact@v4
         if: always()
         with:
