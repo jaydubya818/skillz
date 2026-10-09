@@ -121,6 +121,8 @@ jobs:
         run: python -m qualification.custody_v5 --pin qualification/checkpoint5/followup-evidence-pin.json --restore .artifacts/qualification/checkpoint5-followup-retained
       - name: Independently replay follow-ups and preserve reviewed failures
         run: python -m qualification.checkpoint_five_followup --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint5-followup
+      - name: Verify checkpoint 6 source claims and retained contradictions
+        run: python -m qualification.checkpoint_six --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint6
       - uses: actions/upload-artifact@v4
         if: always()
         with:

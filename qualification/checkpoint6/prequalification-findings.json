@@ -1,0 +1,49 @@
+{
+  "schema": "myskills.prequalification-findings.v6",
+  "qualification_credit": false,
+  "findings": [
+    {
+      "type": "MISSING_IMPLEMENTATION_CONTROL",
+      "result": "EXPECTED_RED",
+      "evidence": "\n==================================== ERRORS ====================================\n______________ ERROR collecting tests/test_myskills_claims_v6.py _______________\nImportError while importing test module '/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/tests/test_myskills_claims_v6.py'.\nHint: make sure your test modules/packages have valid Python names.\nTraceback:\n/opt/homebrew/Cellar/python@3.14/3.14.7/Frameworks/Python.framework/Versions/3.14/lib/python3.14/importlib/__init__.py:88: in import_module\n    return _bootstrap._gcd_import(name[level:], package, level)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\ntests/test_myskills_claims_v6.py:5: in <module>\n    from qualification.v6.claims import reference, verify_claim, gate, text_digest\nE   ModuleNotFoundError: No module named 'qualification.v6.claims'\n=========================== short test summary info ============================\nERROR tests/test_myskills_claims_v6.py\n!!!!!!!!!!!!!!!!!!!! Interrupted: 1 error during collection !!!!!!!!!!!!!!!!!!!!\n1 error in 0.08s\n",
+      "digest": "sha256:6cf05ad8bfd87a8d3ee1425c7c6f18ecd2bf810f7cfe44be9a7d0589bac1b1e6"
+    },
+    {
+      "type": "CLAIM_PROPOSITION_SUBSTITUTION",
+      "found_by": "Independent review",
+      "correction": "Full approved proposition digest required in controller authority; broader statements, changed expected values and changed scope cannot reuse a receipt."
+    },
+    {
+      "type": "COMPLETION_SUCCESS_CONFUSION",
+      "found_by": "Independent review",
+      "correction": "Completed failures remain COMPLETE with failing values; unavailable executions remain NOT_RUN. One failed probe cannot discard another completed observation."
+    },
+    {
+      "type": "AUTHENTICATION_ATTRIBUTION",
+      "found_by": "Independent review",
+      "correction": "Real credential authentication is recorded as a required evidence gap, not attributed as an explicit retained producer statement."
+    },
+    {
+      "type": "ADAPTER_ERROR_EXPECTATION",
+      "result": "FAILED_CONTROLLER_CHECK",
+      "evidence": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 203, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/qualification/checkpoint_six.py\", line 152, in <module>\n    args=parser.parse_args();value=report(Path.cwd(),args.retained)\n                                   ~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/qualification/checkpoint_six.py\", line 125, in report\n    controls=boundaries()\n  File \"/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/qualification/checkpoint_six.py\", line 52, in boundaries\n    require(all(value['code']=='EFFECT_DENIED' for value in results),'claim effect escaped adapter')\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/qualification/checkpoint_four.py\", line 27, in require\n    if not condition:raise ValidationError(message)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nmyskills.manifest.ValidationError: claim effect escaped adapter\n",
+      "digest": "sha256:ca2e7c7b8f9f40f1d2413b0197cfbcfbd6af847c895b02f1efeef65ed027b2de",
+      "correction": "Unknown claim_result argument correctly produces ERROR/INVALID_ARGUMENT with empty payload. Exact response regression added; adapter unchanged."
+    },
+    {
+      "type": "CONCURRENCY_SCOPE",
+      "found_by": "Independent review",
+      "correction": "Supplemental versioned start barrier records both workers ready; conditional missing-row barrier scope is explicit. Frozen historical race fixture unchanged."
+    },
+    {
+      "type": "REGRESSION_FIXTURE_REVISION_SCHEMA",
+      "result": "FAILED_CONTROLLER_CHECK",
+      "old_fixture_digest": "sha256:a683797322008dc9ff97af14a9862ae0740a21a1edf87c8333b695c85f6a00ae",
+      "evidence": "Traceback (most recent call last):\n  File \"<frozen runpy>\", line 203, in _run_module_as_main\n  File \"<frozen runpy>\", line 88, in _run_code\n  File \"/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/qualification/checkpoint_six.py\", line 161, in <module>\n    require(all(check['status']=='PASS' for ledger in value['ledgers'].values()\n    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n                for check in ledger['retained_failure_regressions']), 'retained claim regression not reproduced; report preserved')\n                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification/qualification/checkpoint_four.py\", line 27, in require\n    if not condition:raise ValidationError(message)\n                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nmyskills.manifest.ValidationError: retained claim regression not reproduced; report preserved\n{\"evidence_digest\": \"sha256:68f039886b32326a9f41b743193c0fb141599aba9c4dd4734493829d8435d47d\", \"results\": [{\"api-and-interface-design\": {\"VERIFIED\": 8, \"CONTRADICTED\": 5, \"UNSUPPORTED\": 3}}, {\"security-and-hardening\": {\"VERIFIED\": 8, \"CONTRADICTED\": 4, \"UNSUPPORTED\": 1, \"NOT_EVALUATED\": 1}}]}\n",
+      "correction": "Preflight used different field names and omitted collector commit when hashing the same snapshot. Every mismatch was solely revision metadata. Canonical provenance now binds observation digest, native transcript digest and collector commit. Statements, source bytes, ranges, expected verdicts and behavioral evidence are unchanged. Failed report retained."
+    }
+  ],
+  "original_skills_changed": false,
+  "model_trials": 0,
+  "evidence_digest": "sha256:d7121dbac3128e5b54ada6ccb222f4291c7d08f778f2f70ae80255c4f643431e"
+}
