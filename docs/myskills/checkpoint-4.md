@@ -114,6 +114,14 @@ replays checkpoints 1–4 and retains these artifacts. Recorder tests remain loc
 blocked by the previously recorded FFmpeg/sandbox limitations; portable tests do
 not replace them.
 
+The fresh GitHub clone at `8072604fa8180ec85725ec786c80dcc21e4c87b1` passed 252
+portable tests, 21 browser checks, catalog validation and checkpoint-4 replay.
+[Hosted validation](https://github.com/jaydubya818/skillz/actions/runs/37996305509)
+passed all three jobs, including replays of checkpoints 1–4. The seven generated
+report/reference files are byte-identical locally, in the fresh clone and in the
+verified hosted artifact. Their exact hashes and artifact identity are recorded
+in [`validation-pin.json`](../../qualification/checkpoint4/validation-pin.json).
+
 Next checkpoint: qualify the corrected fixture policy with an explicit principal
 and resource schema, and require generated contracts/evidence claims to match
 actual results. Preserve the current model and Skill digests unless a separately
