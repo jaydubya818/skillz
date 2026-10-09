@@ -28,7 +28,7 @@ review, disclosure checks, commits, pushes, and exact remote verification.
 - [x] B: registry, exact dependency graph, lifecycle, update/revocation
 - [x] C: isolated owner state, install/enable, private records
 - [x] D: deterministic resolver and routing corpus
-- [ ] E: qualification evidence, tamper checks, controlled promotion, private builder
+- [x] E: qualification evidence, tamper checks, controlled promotion, private builder
 - [ ] F: inactive platform compatibility contracts against current source
 - [ ] G: functional local UI, shared agent API, browser/accessibility qualification
 - [ ] H: composed deterministic journey, fresh clone, CI, final independent review

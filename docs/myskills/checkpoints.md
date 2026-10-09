@@ -75,3 +75,18 @@ all fixed and re-reviewed PASS within the static-package-only scope.
 
 Deep-qualified actual catalog skills: 0. No real Skill gained platform trust.
 Checkpoint D remote SHA verified: 59341b1352a76113f6a1fe4c3724cee8bf1eba6e.
+
+## F: inactive platform compatibility
+
+The read-only canonical-source probe confirms MyEve routing ownership/no fallback,
+executes the actual MyFactory cloud parser against a synthetic valid request and an
+invalid Skill extension, and confirms Relay's strict registration boundary. No
+compatibility source changed. Exact source revisions remain in private task evidence.
+
+Three reference-contract tests bind the complete proposed Work fixture to independent
+authority, reject altered identities/owners/expiry, preserve privacy in advertisement,
+and enforce zero-operation limits. Independent F review PASS within the inactive
+fixture scope. Actual integration: NOT_RUN. This is not live protocol compatibility.
+See the separate [change-impact proposal](integration-proposal.md).
+
+Checkpoint E remote SHA verified: 0cde4b71f02cd1a108481aa5919eba6806251b0a.
