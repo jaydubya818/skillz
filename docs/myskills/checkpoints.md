@@ -64,3 +64,14 @@ Synthetic qualified fixtures exercise the positive path without elevating real s
 Independent review found three dependency bypasses; all fixed and re-reviewed PASS.
 
 Checkpoint C remote SHA verified: e0abd4993c127c90477fb415bc5de475c31b7f49.
+
+## E: qualification and private builder
+
+Eight focused tests cover the private lifecycle, isolation of body/evidence/install,
+exact runtime/policy/corpus scope, reviewer authority, static effect ceilings, wrong
+and re-sealed evidence, owner-private evaluations of public skills, revoked replay,
+version mutation and malicious draft patterns. Independent review found four issues;
+all fixed and re-reviewed PASS within the static-package-only scope.
+
+Deep-qualified actual catalog skills: 0. No real Skill gained platform trust.
+Checkpoint D remote SHA verified: 59341b1352a76113f6a1fe4c3724cee8bf1eba6e.

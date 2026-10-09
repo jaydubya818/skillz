@@ -150,3 +150,26 @@ matches return the canonical exact identity. No instruction bodies enter routing
 External dependency resolution is unavailable until qualified connector adapters
 exist. Merely listing a dependency identity as available cannot grant its effects.
 Selection returns no Work authority; Factory admission remains a separate check.
+
+## Qualification and private authoring
+
+`QualificationStore` accepts reports only through an authenticated trusted reviewer
+and separate acceptance boundary. It binds exact package identity, dependency graph,
+runtime/harness, policy, corpus, results, reviewer, timestamp and limitations.
+Reviewer scope limits cannot be widened by a report. PLATFORM_QUALIFIED additionally
+requires explicit platform acceptance and sandbox-or-deeper evidence. This work
+promotes no real catalog skills to that trust level.
+
+Evidence has its own visibility. An owner's evaluation of a public skill remains
+private to that owner. Checksums bind immutable record keys and detect corruption;
+they are not publisher signatures. Production evidence custody and reviewer identity
+must be supplied by the existing authenticated verifier architecture.
+
+`PrivateBuilder` supports draft, validate, static qualification and separate private
+install. Its executable pack checks schema, package determinism, digest tampering,
+unknown authority/secret fields, declared zero effects, dependency absence and runtime
+scope. The resulting DETERMINISTIC_TESTED claim applies only to the
+`myskills-reference` / `static-package-only` policy and corpus. It establishes no
+instruction behavior, model quality, network safety or production runtime support.
+The static reviewer cannot grant effects or operations. Cached acceptance rechecks
+current revocation. All free-form owner instructions remain unexecuted.
