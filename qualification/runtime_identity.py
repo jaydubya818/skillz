@@ -50,7 +50,10 @@ def api(path, body=None):
 
 
 def command(args):
-    return subprocess.run(args,check=True,capture_output=True,text=True,timeout=15).stdout.strip()
+    try:
+        return subprocess.run(args,check=True,capture_output=True,text=True,timeout=15).stdout.strip()
+    except subprocess.SubprocessError as error:
+        raise ValidationError('runtime identity command failed: '+args[0]) from error
 
 
 def hashed(path):

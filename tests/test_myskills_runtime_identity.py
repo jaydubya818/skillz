@@ -67,3 +67,12 @@ def test_corrected_fixture_is_separate_from_original():
     assert 'trusted_owner' in new['fixture']['requests'][0]
     assert new['binding']==old['binding']
     assert revised['format']['properties']['artifact']['required']==['program']
+
+
+def test_identity_command_failure_is_a_recordable_closed_failure(monkeypatch):
+    from qualification import runtime_identity as runtime
+    import subprocess
+    def fail(*args,**kwargs):raise subprocess.TimeoutExpired('docker',15)
+    monkeypatch.setattr(runtime.subprocess,'run',fail)
+    with pytest.raises(ValidationError,match='identity command failed'):
+        runtime.command(['docker','version'])

@@ -91,6 +91,8 @@ def collect(root, output):
                     record['generation']='COMPLETED'
                     record['loaded_model']=loaded
                     record['identity']='PRE_POST_CHECKED_BATCH_HASH_PENDING'
+                    record['result_identity']=bind_result(runtime=runtime,harness=ctx['harness'],
+                        skill=spec['binding'],fixture=request,evaluation=ctx['evaluation'],output=response)
                     candidate=legacy.parse_candidate(response)
                     record['observations']=legacy.observe(spec['binding']['skill_id'],candidate)
                     record['verification']='COMPLETED'
@@ -121,12 +123,21 @@ def collect(root, output):
     save(output/'completion.json',seal(completion))
 
 
-def replay(root, directory):
+def replay(root, directory, collector_commit=None):
     """Caller must authenticate the whole bundle against the committed custody pin."""
     plan=_plan(root,{m['skill_id']:m for m in build_catalog(root)['skills']})
     runtime=json.loads((root/PIN).read_text())
     ctx=json.loads((directory/'context.json').read_text())
-    if context(root,plan,runtime)!=ctx:
+    expected_context=context(root,plan,runtime)
+    if collector_commit is not None:
+        import re
+        import subprocess
+        from hashlib import sha256
+        if not re.fullmatch(r'[0-9a-f]{40}',collector_commit):raise ValidationError('collector must be an exact commit')
+        for path in expected_context['harness']:
+            source=subprocess.run(['git','show',collector_commit+':'+path],cwd=root,capture_output=True,check=True,timeout=15)
+            expected_context['harness'][path]='sha256:'+sha256(source.stdout).hexdigest()
+    if expected_context!=ctx:
         raise ValidationError('runtime, harness or evaluator differs from retained experiment')
     completion=json.loads((directory/'completion.json').read_text())
     if completion.get('all_results_admissible') is not True or completion.get('runtime_identity')!='STABLE':
