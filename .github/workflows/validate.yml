@@ -21,4 +21,6 @@ jobs:
       - name: Validate package, installer, and portable workflows
         run: python -m pytest tests -q --ignore=tests/test_evidence.py
       - name: Check Python syntax
-        run: python -m compileall -q scripts skills
+        run: python -m compileall -q scripts skills myskills
+      - name: Validate governed catalog
+        run: python -m myskills validate

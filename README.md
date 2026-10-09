@@ -798,3 +798,11 @@ availability vary.
 
 See [`LICENSES.md`](LICENSES.md) and the license files inside individual skill
 directories for exact terms.
+
+## MySkills governance foundation
+
+The additive [MySkills reference library](docs/myskills/README.md) inventories this
+collection with immutable package digests, provenance, explicit trust and
+qualification metadata. Run `python3 -m myskills validate` or inspect the
+[generated catalog](catalog/myskills.json). Existing runtime installation is unchanged.
+Catalog inclusion grants no execution authority and does not establish qualification.
