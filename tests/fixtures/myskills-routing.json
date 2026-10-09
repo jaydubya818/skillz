@@ -1,0 +1,12 @@
+[
+  {"request":"design API contracts","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"set up CI automation","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"migrate database with concurrent backfill","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"improve frontend loading and error states","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"add observability without private data leakage","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"optimize performance","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"review security hardening","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"review code","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"implement then test and independently verify","expected":"NO_ELIGIBLE_SKILL"},
+  {"request":"predict lottery numbers","expected":"NO_ELIGIBLE_SKILL"}
+]

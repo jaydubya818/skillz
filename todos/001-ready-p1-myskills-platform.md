@@ -26,7 +26,7 @@ review, disclosure checks, commits, pushes, and exact remote verification.
 ## Acceptance criteria
 - [x] A: inventory, strict manifest, digest, provenance and safe default metadata
 - [x] B: registry, exact dependency graph, lifecycle, update/revocation
-- [ ] C: isolated owner state, install/enable, private records
+- [x] C: isolated owner state, install/enable, private records
 - [ ] D: deterministic resolver and routing corpus
 - [ ] E: qualification evidence, tamper checks, controlled promotion, private builder
 - [ ] F: inactive platform compatibility contracts against current source

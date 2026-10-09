@@ -134,3 +134,19 @@ This reference store is ephemeral and process-local. It is suitable for determin
 qualification and the local prototype, not deployed multi-tenant custody. Production
 private storage, encryption, transactions, authentication and recovery need the
 separate MyEve integration release.
+
+## Resolver
+
+`Resolver` ranks metadata within the owner's exact enabled installations. Every
+component must pass revocation, installation, runtime, capability, trust, effect,
+model-route and scoped qualification checks. No default qualification provider
+permits selection. Package-authored labels cannot satisfy that requirement.
+
+Equal best scores return AMBIGUOUS. No eligible match returns NO_ELIGIBLE_SKILL.
+A denied best match blocks silent fallback to a weaker match. The deterministic
+lexical rank is a reference baseline, not a semantic intelligence claim. Alias
+matches return the canonical exact identity. No instruction bodies enter routing.
+
+External dependency resolution is unavailable until qualified connector adapters
+exist. Merely listing a dependency identity as available cannot grant its effects.
+Selection returns no Work authority; Factory admission remains a separate check.

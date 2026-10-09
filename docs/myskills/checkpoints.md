@@ -52,3 +52,15 @@ Independent B and C reviews PASS within the offline authenticated-session scope.
 The decision digest does not replace authentication or owner authorization.
 
 Checkpoint B remote SHA verified: d21578a624878d649856825784fd942f5e534b78.
+
+## D: resolver
+
+Nine deterministic tests cover exact selection, no match, ambiguity, unqualified
+catalog matches, revocation, excessive effects, disabled/missing child installations,
+private resolution freeze and external dependency denial. A ten-request corpus uses
+the actual library, including all seven curated capability areas; every request
+returns NO_ELIGIBLE_SKILL because these entries remain NOT_EVALUATED. No bodies load.
+Synthetic qualified fixtures exercise the positive path without elevating real skills.
+Independent review found three dependency bypasses; all fixed and re-reviewed PASS.
+
+Checkpoint C remote SHA verified: e0abd4993c127c90477fb415bc5de475c31b7f49.
