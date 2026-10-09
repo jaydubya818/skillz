@@ -1,0 +1,245 @@
+{
+  "cases": [
+    {
+      "case": "api-and-interface-design--adversarial",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Attribute access x.requests on a dict; replay response-body ambiguity also confounds attribution.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:a405452e84a9f55159f10335ccb3e7efa7353b2792dc732ec265293b0ef9ddf9",
+      "tokens": 452
+    },
+    {
+      "case": "api-and-interface-design--repeat",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Byte-identical to representative.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:b33f67ac59e555290bc55639e49679a179517b291c10566bfb24d000ea67d5a9",
+      "tokens": 507
+    },
+    {
+      "case": "api-and-interface-design--representative",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Program ends inside an unclosed dict at line29; syntax error.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:e0fa6c088b6b463d779d8f8d08286f8efd59b17859de13c989b5ae49328c2284",
+      "tokens": 507
+    },
+    {
+      "case": "ci-cd-and-automation--adversarial",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "GitHub workflow-shaped object violates artifact.pipeline schema; not evidence of hosted CI failure.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:016b4c10ad35e098f8841ef823477ce53c6fc4032fff470c3c5ca42e61363dec",
+      "tokens": 362
+    },
+    {
+      "case": "ci-cd-and-automation--repeat",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "GitHub workflow-shaped object violates artifact.pipeline schema; not evidence of hosted CI failure.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:c3b62beaaccf6a54c0ccf5b3ec32a13ae06f4f28c327e22769d91b83d3c12b4f",
+      "tokens": 353
+    },
+    {
+      "case": "ci-cd-and-automation--representative",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "GitHub workflow-shaped object violates artifact.pipeline schema; not evidence of hosted CI failure.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:8fd0d49b5d60dffdda49fda2e9f1c22135217c45a868df8b9f10fd70fc590cbe",
+      "tokens": 353
+    },
+    {
+      "case": "deprecation-and-migration--adversarial",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Attribute access on dict snapshot fields; copies x instead of x[\"row\"].",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:2447693a7a6600d4a2962d65305eb6850c640d055faf43059d760d40a96b175b",
+      "tokens": 229
+    },
+    {
+      "case": "deprecation-and-migration--repeat",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Attribute access on dict snapshot fields; copies x instead of x[\"row\"].",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:ff2dcd46d11693d3357a8c29b6c2326af6be658dd63b417ba2e1f0f6d014e407",
+      "tokens": 247
+    },
+    {
+      "case": "deprecation-and-migration--representative",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Attribute access on dict snapshot fields; copies x instead of x[\"row\"].",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:97247dd448a653c065a21195739d8d11f583a7c70053dcc7e5f2cf1e9a016ded",
+      "tokens": 247
+    },
+    {
+      "case": "frontend-ui-engineering--adversarial",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "Wraps state in {state:...}; duplicate pending submission also replaces request2 with3.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:eaaa84f012246098b2c75f9035f68c6038c9ccdbe0caf8dec7b68d085674b959",
+      "tokens": 859
+    },
+    {
+      "case": "frontend-ui-engineering--repeat",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "Byte-identical to representative.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:7b1d283233c6a87f822da4af4bae4866c0842a017540d4554cdcbf993866efb4",
+      "tokens": 411
+    },
+    {
+      "case": "frontend-ui-engineering--representative",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "Incomplete function returns None for all five inputs.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:940610774486dfe6d84491fa68e9f05a0e55c76ebde9e53b9d67f8ba6846209d",
+      "tokens": 411
+    },
+    {
+      "case": "security-and-hardening--repeat",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Byte-identical to representative.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:5bd4122fb76c28bd2cb50e0a128de8a65a51979c8704a5534c369043bbe97e9d",
+      "tokens": 395
+    },
+    {
+      "case": "security-and-hardening--representative",
+      "classification": [
+        "Model-output failure",
+        "Harness/fixture ambiguity"
+      ],
+      "diagnosis": "Invented resource_id/resources interface denies legitimate same-owner read. No leakage established.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:5af7c849981c2ab9fcd6878fe41fcd86a84224a2d095400b53b3aa4a0011a9e9",
+      "tokens": 395
+    },
+    {
+      "case": "thermo-nuclear-code-quality-review--adversarial",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "Correct defect, wrong source line5 versus4 and extra quote bytes around A.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:d0ace8b1f18b3b22a96396ac9360991d367bd65b4b25fcfd57e977735f257dd5",
+      "tokens": 157
+    },
+    {
+      "case": "thermo-nuclear-code-quality-review--repeat",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "Correct defect, wrong source line5 versus4 and extra quote bytes around A.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:f0cc439821807f543b5c51e75f2dab579866261caf3e192b10a1c02f642be8a2",
+      "tokens": 194
+    },
+    {
+      "case": "thermo-nuclear-code-quality-review--representative",
+      "classification": [
+        "Model-output failure"
+      ],
+      "diagnosis": "Correct defect, wrong source line5 versus4 and extra quote bytes around A.",
+      "done": true,
+      "done_reason": "stop",
+      "model_vs_structured_decoder_cause": "INCONCLUSIVE",
+      "original": "FAIL",
+      "original_observation_digest": "sha256:3c778fbc70919adde3cac415cb13d263865feec4c6768820491bc5759a5a7f7a",
+      "tokens": 194
+    }
+  ],
+  "environment_failure_in_these17": "NOT_ESTABLISHED",
+  "original_verdicts": "PRESERVED",
+  "pure_evaluator_false_negative": "NOT_ESTABLISHED",
+  "schema": "myskills.retained-failure-analysis.v3",
+  "skill_body_changes": 0,
+  "successor_fixture_corrections": [
+    "Specify original stored text for API200 replays",
+    "Exact dict interfaces and representative native inputs",
+    "Return frontend state directly",
+    "Replace abstract CIartifact shape with actual configuration, while hosted execution stays NOT_RUN"
+  ],
+  "token_limit_truncation": "NOT_ESTABLISHED; every response completed below2048tokens"
+}

@@ -1,0 +1,22 @@
+{
+  "daemon_version": "29.7.2",
+  "historical_effect_reconciliation": "Deleted containers cannot be inspected retrospectively. Frozen launcher supplies network=none, read-only root, ephemeral tmpfs and no host/named-volume mounts; image has no declared volumes. Exact named containers and matching collector processes are absent. No host-persistent candidate filesystem effect channel was authorized. In-guest transient effects of the interrupted command remain UNKNOWN.",
+  "image_declared_volumes": {},
+  "image_id": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+  "interrupted_container": "myskills-qual-ee3f758bb4ff4c6fae6d54646207fef8",
+  "interrupted_container_absent": true,
+  "prior_interrupted_container_absent": true,
+  "qualification_collectors_running": false,
+  "qualification_containers": [],
+  "qualification_host_mounts": [],
+  "qualification_named_volumes": [],
+  "resource_availability": {
+    "docker_cpus": 16,
+    "docker_memory_bytes": 8318709760,
+    "host_disk_available_gib_approx": 40
+  },
+  "runtime_pin_match": "EXACT_CHECKPOINT2_RUNTIME_MATCH",
+  "schema": "myskills.docker-reconciliation.v1",
+  "status": "PASS",
+  "unrelated_containers_or_volumes_modified": false
+}
