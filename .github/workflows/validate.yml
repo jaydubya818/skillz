@@ -87,6 +87,12 @@ jobs:
         run: python -m qualification.custody_v2 --restore .artifacts/qualification/checkpoint2-retained
       - name: Independently replay checkpoint 2 without model calls
         run: python -m qualification.checkpoint_two --retained .artifacts/qualification/checkpoint2-retained --output .artifacts/qualification/checkpoint2
+      - name: Restore checkpoint 3 synthetic observations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m qualification.custody_v3 --restore .artifacts/qualification/checkpoint3-retained
+      - name: Independently replay checkpoint 3 native workflows without model calls
+        run: python -m qualification.checkpoint_three --retained .artifacts/qualification/checkpoint3-retained --output .artifacts/qualification/checkpoint3
       - uses: actions/upload-artifact@v4
         if: always()
         with:

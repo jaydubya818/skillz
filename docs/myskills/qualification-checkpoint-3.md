@@ -91,3 +91,113 @@ is changed, no Role Pack is activated, and no orchestration engine is added.
 Consumer schema compatibility and production integration remain NOT_RUN.
 External-alpha FactoryVersion and production owner custody remain unchanged.
 Marketplace activation and automatic promotion stay disabled.
+
+## Completed batch
+
+All 20 tool trials reached `finish`. The full model/runtime identity checks passed
+before and after the batch, each trial passed its identity checks, and no
+qualification containers remain. The collector is commit
+`1875f28b0f560af074494d55b91e38c7e3d40449`. The
+[custody pin](../../qualification/checkpoint3/evidence-pin.json) authenticates
+all requests, responses, 127 tool events, observations and the final runtime seal.
+The collector harness digest is
+`sha256:ce322fdb1e1b07c76e84624f12e528e5094754d7251794a243c1e5c922620fbf`.
+Its bundle digest is
+`sha256:1ed9b7482e2d9ac0adea763506b62b31953465a411227c280a352c139c3b25ad`.
+
+The frozen fixture evaluator reports six PASS and fourteen FAIL observations.
+Independent output review rejects three of those apparent passes. Both API
+outputs promise concurrent replay/conflict handling, but a synchronized duplicate
+request produces one successful create and one unhandled SQLite IntegrityError.
+The adversarial security output returns owner data for `destination: null`,
+contradicting the deny-on-key-presence requirement. Original verdicts remain
+unchanged; supplemental failures block qualification.
+
+The frontend lexical guard also rejects `process` inside a comment. Supplemental
+execution of those exact unchanged bytes bypasses only that mistaken classification
+and still reproduces incorrect state transitions. A general syntax-aware JavaScript
+policy remains unresolved. This limited correction grants no broader syntax or
+execution authority.
+
+| Exact cohort Skill | Representative / adversarial frozen verdict | Complete checkpoint gate |
+|---|---|---|
+| figure-it-out | PASS / FAIL | FAIL, required adversarial reads omitted; broader dependencies untested |
+| principle-sequence-verifiable-units | FAIL / FAIL | FAIL, negative input and unit boundary incorrect |
+| tdd | FAIL / FAIL | FAIL, malformed run request; core red/green and held-out behavior passes |
+| thermo-nuclear-code-quality-review | PASS / FAIL | FAIL, incorrect adversarial finding and missing contract read |
+| api-and-interface-design | PASS / PASS | FAIL, generated concurrency contract contradicted by execution |
+| deprecation-and-migration | FAIL / PASS | FAIL, representative migration fails native state checks |
+| frontend-ui-engineering | FAIL / FAIL | FAIL, state transitions, tool arguments and evidence incomplete |
+| security-and-hardening | FAIL / PASS | FAIL, malformed input crashes and null-destination bypass |
+| ci-cd-and-automation | FAIL / FAIL | FAIL, ordinary YAML violates explicit JSON-as-YAML fixture contract |
+| create-verification-skill | FAIL / FAIL | FAIL, tool invocation, evidence truth and helper packaging |
+
+There are zero behaviorally qualified Skills, zero complete PARTIAL Skill decisions,
+and ten failed complete-workflow gates. Partial positive observations remain in
+the evidence. These are results for the exact model and adapter, not findings
+that the canonical Skill instructions are defective. No Skill body is changed.
+The overall qualification checkpoint remains PARTIAL.
+
+The [native case analysis](../../qualification/checkpoint3/native-findings.json)
+separates output defects, tool/fixture conformance, the frontend evaluator confound,
+and unresolved model-versus-decoder causes. No environment failure occurred in
+this batch. A frozen `effect_policy: FAIL` includes a rejected malformed tool call,
+such as TDD's missing command field. It does not mean an unauthorized effect
+succeeded. The controller and independent isolation controls deny undeclared
+authority; all trial cleanup checks pass. Full syscall auditing is NOT_RUN.
+
+The complete native-command workflows were exercised in the isolated adapter.
+Native Codex/Cursor provider workflows, frontend browser/accessibility work,
+hosted execution of generated CI, and full dependency execution remain NOT_RUN.
+Do not confuse the platform's own browser/CI checks with those Skill gates.
+
+## Composition and exact consumer references
+
+The five-stage graph remains analysis `figure-it-out` → implementation
+`principle-sequence-verifiable-units` → tests `tdd` → review
+`thermo-nuclear-code-quality-review` → verification `create-verification-skill`.
+All five lack complete eligibility. Composition is PARTIAL with zero executed
+stages. Actual handoff authentication, composed failure stopping and protected
+composed verification remain NOT_RUN. Deterministic admission, tamper, revocation
+and owner/effect checks provide separate infrastructure evidence only. Publication
+remains unauthorized.
+
+The checkpoint exporter writes ten exact Skill decisions and five consumer files:
+`MyApps.json`, `MissionControl.json`, `MyEve-Sofie-subagents.json`, `Role-Packs.json`
+and `MyFactory.json`. Each reference binds SkillID/version/package digest, intended
+capability, decision digest, runtime, harness and custody bundle. Ready lists are
+empty, effects are empty and activation is disabled. Intended capability labels
+do not establish execution eligibility. Consumer schema validation is NOT_RUN.
+Performance and observability remain outside-cohort NOT_EVALUATED references for
+MyApps; no substitutions expand this cohort.
+
+## Reproduction
+
+Restore requires read access to this private repository's PR comments. Replay
+requires the exact pinned offline image and never calls a model provider.
+
+```sh
+python -m qualification.custody_v3 --restore .artifacts/checkpoint3-retained
+python -m qualification.checkpoint_three \
+  --retained .artifacts/checkpoint3-retained --output .artifacts/checkpoint3
+python -m pytest tests -q --ignore=tests/test_evidence.py
+```
+
+CI is configured to replay retained tool effects and independent checks. Only
+unittest durations and ephemeral traceback directories are normalized for decision
+comparison. Original response/output bytes remain in custody. Supplemental review
+code and findings have their own digests and cannot silently rewrite the frozen
+collector identity. Recorder tests retain their local FFmpeg/sandbox limitation.
+
+Local validation passes 222 portable tests, complete checkpoint-3 replay and
+container isolation controls. Independent read-only review passes the custody,
+reporting and closed-admission scope. It verified all 20 observations, 127 event
+bindings, ten decision files, five inactive consumer exports and four supplemental
+findings, and ran 15 focused tests. The reviewer made no Docker or model calls.
+This review does not approve any Skill. Fresh-clone and hosted validation are
+pending at this source checkpoint.
+
+PR #6 stays frozen. PR #7 remains a draft evidence checkpoint. The next checkpoint
+should qualify a versioned tool adapter with clearer typed command handling, address
+the observed output failures and missing workflow gates, then rerun the exact cohort.
+No current child may enter composition or consumer execution.

@@ -1,0 +1,50 @@
+{
+  "bundle_digest": "sha256:1ed9b7482e2d9ac0adea763506b62b31953465a411227c280a352c139c3b25ad",
+  "collector_commit": "1875f28b0f560af074494d55b91e38c7e3d40449",
+  "evidence_kind": "SYNTHETIC_PARTIAL_BEHAVIOR_NOT_AN_EXECUTION_GRANT",
+  "parts": [
+    {
+      "body_digest": "sha256:78e7ca9940e4be0129fb96783981e4c556bf65c42b58bbbb308405168c72dc79",
+      "comment_id": 6088429990,
+      "index": 0,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088429990"
+    },
+    {
+      "body_digest": "sha256:08f6b0c9a881faf5c22e878257e631697466c700209b0f749a60a4ddd2d348fe",
+      "comment_id": 6088430233,
+      "index": 1,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088430233"
+    },
+    {
+      "body_digest": "sha256:5876ddf135c11889f8038c92e340af86690998b680d9800db7c3dfe4bf21d1dd",
+      "comment_id": 6088430473,
+      "index": 2,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088430473"
+    },
+    {
+      "body_digest": "sha256:136eea58c13e7d9113f71ac5e8ed26d8c81ac08ab72d931410d1e6c1803c6f90",
+      "comment_id": 6088430713,
+      "index": 3,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088430713"
+    },
+    {
+      "body_digest": "sha256:afde1b3994e794ed446675388b7eebcfdbfd2bb16b5d5eabc81c1ceadf9f9ef4",
+      "comment_id": 6088431037,
+      "index": 4,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088431037"
+    },
+    {
+      "body_digest": "sha256:1d89302454e3d96c332d03207991a863283948002886f884bd7f7213e95ca749",
+      "comment_id": 6088431314,
+      "index": 5,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088431314"
+    },
+    {
+      "body_digest": "sha256:daaa9d0a8c7d0624cf3124af055bcf1377753498e4b88edd9f949f7fed9d79b2",
+      "comment_id": 6088431607,
+      "index": 6,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6088431607"
+    }
+  ],
+  "schema": "myskills-checkpoint3-bundle-v1"
+}
