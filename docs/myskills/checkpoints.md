@@ -90,3 +90,22 @@ fixture scope. Actual integration: NOT_RUN. This is not live protocol compatibil
 See the separate [change-impact proposal](integration-proposal.md).
 
 Checkpoint E remote SHA verified: 0cde4b71f02cd1a108481aa5919eba6806251b0a.
+
+## G: local UI and shared action API
+
+The loopback-only prototype supports discovery, exact details, install/enable/disable,
+private draft/validate/qualify/accept, and reviewed updates. All actions share the
+authenticated Application service. Session, cross-origin and administrator denials
+are covered. Four application tests and 21 browser checks pass, including four
+automated accessibility scans, stale-response protection, errors/retry and layout.
+Portable suite: 135 tests PASS. Four reviewed screenshot comparisons also pass.
+Recorder limitations remain unchanged.
+
+Independent UI review identified exact-version control, stale-response and historical
+evidence display issues; each has a fix and regression coverage. Nested provenance
+diffs are human-readable; private card state reflects the current exact installation
+after updates and uninstall. Browser screenshots and reports remain in task/CI artifacts.
+This is an ephemeral reference UI, not production multi-tenant custody.
+Independent re-review: PASS for this scope; no outstanding G findings.
+
+Checkpoint F remote SHA verified: 27b0d08031711f8c85ce195d37a8657b2b2cdb4d.

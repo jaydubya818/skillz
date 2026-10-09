@@ -112,6 +112,8 @@ def test_skill_descriptions_fit_the_codex_discovery_budget():
 
 def test_local_markdown_links_resolve():
     for markdown in ROOT.rglob("*.md"):
+        if any(part in {"node_modules", ".artifacts", ".git"} for part in markdown.relative_to(ROOT).parts):
+            continue
         for target in re.findall(r"\[[^]]+\]\(([^)]+)\)", markdown.read_text()):
             if target.startswith(("http://", "https://", "#")):
                 continue

@@ -24,3 +24,27 @@ jobs:
         run: python -m compileall -q scripts skills myskills
       - name: Validate governed catalog
         run: python -m myskills validate
+  myskills-browser:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: scripts/myskills-browser/package-lock.json
+      - name: Install pinned browser tooling
+        run: npm ci --prefix scripts/myskills-browser
+      - name: Install Chromium
+        working-directory: scripts/myskills-browser
+        run: npx playwright install --with-deps chromium
+      - name: Qualify local owner journeys and accessibility
+        run: node tests/myskills-browser.mjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: myskills-browser-evidence
+          path: .artifacts/myskills/browser

@@ -173,3 +173,31 @@ scope. The resulting DETERMINISTIC_TESTED claim applies only to the
 instruction behavior, model quality, network safety or production runtime support.
 The static reviewer cannot grant effects or operations. Cached acceptance rechecks
 current revocation. All free-form owner instructions remain unexecuted.
+
+## Local owner interface
+
+```sh
+python3 -m myskills.ui --port 0
+npm ci --prefix scripts/myskills-browser
+cd scripts/myskills-browser && npx playwright install chromium
+cd ../..
+node tests/myskills-browser.mjs
+```
+
+Open the startup URL, including its session fragment. The server binds only to
+127.0.0.1 and uses a per-process token, exact Host/Origin checks and a restrictive
+content policy. It serves one synthetic authenticated owner. State is ephemeral;
+stopping the process removes drafts, evidence and installations. Do not deploy this
+server or use it for real private custody.
+
+Discover, detail, installation, private drafts, qualification and exact updates use
+the same `Application.execute` action boundary available to an agent adapter. Owner
+identity, reviewer identity and administrator methods are not request parameters.
+Installation and enabling create no Work authority. Nested permission differences
+are shown before the explicit update decision; each update starts disabled.
+
+Browser qualification covers complete owner flows, stale responses, errors/retry,
+keyboard use, responsive layouts and four automated WCAG A/AA scans. Screenshots
+and the report are retained in `.artifacts/myskills/browser` and hosted CI artifacts.
+For same-platform visual comparison, set `MYSKILLS_VISUAL_BASELINE` to a directory
+of reviewed screenshots. This is not a complete manual accessibility audit.
