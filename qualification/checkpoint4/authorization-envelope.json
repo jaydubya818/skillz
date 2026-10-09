@@ -1,0 +1,71 @@
+{
+  "adapter": "myskills-tools/4.0.1",
+  "allowed_paid_operations": 0,
+  "authorization": "DENIED_UNAPPROVED",
+  "data_egress_allowlist": [],
+  "evidence_digest": "sha256:bb5be71f85aa7de8a8bd8f8826233c1771e0a061786d5ec070120e01561f1a50",
+  "maximum_infrastructure_spend_usd": 0,
+  "maximum_spend_usd": 0,
+  "per_trial_limits": {
+    "candidate_cpu": 1,
+    "candidate_memory_mib": 256,
+    "candidate_pids": 32,
+    "host_mounts": [],
+    "network": "NONE",
+    "seconds": 600,
+    "tool_calls": 32
+  },
+  "persistent_owner_custody": false,
+  "production_effects": [],
+  "publication": false,
+  "requested_case_count": 6,
+  "required_before_any_future_dispatch": [
+    "Owner-approved exact provider/model revision and endpoint, with reproducible model identity where available",
+    "Explicit model/infrastructure budgets and request limits; credentials remain host-controlled",
+    "Exact native executable/SDK/image and immutable consumer harness commit",
+    "Provider-specific cancellation/billing semantics and authorized synthetic source-disclosure scope",
+    "Separate consumer admission review; this envelope grants no execution"
+  ],
+  "retry_after_ambiguous_dispatch": false,
+  "routes": {
+    "Cursor": {
+      "adapter": "NOT_IMPLEMENTED; MCP response envelope alone is not a native execution qualification",
+      "protocol": "Native shell/file tools; installed CLI exposes auth/model/API key, no observed supported local-provider selection",
+      "status": "NOT_RUN_AUTHORIZATION_BOUNDARY",
+      "version": "2025.09.18-7ae6800"
+    },
+    "MyEve-DeepAgents": {
+      "canonical_commit": "2ef364024bc1cdd3e10ec28f3d340119c6f87d41",
+      "current_native_route": "Anthropic Gateway; paid provider boundary; NOT_RUN",
+      "historical_commit": "96ae446e1f0f69e57fa2b9a2b6c5de3b3b1b083d",
+      "historical_package": "deepagents@1.14.1",
+      "protocol": "Historical strict virtual file SDK; cancellation fences later writes but does not attest provider billing abort",
+      "status": "NOT_QUALIFIED_NOT_REGISTERED_IN_CURRENT_RELEASE"
+    },
+    "MyFactory": {
+      "canonical_commit": "030b1a51017f3159436b93817ed2d5bf6ae18288",
+      "difference": "Vercel Sandbox.create is infrastructure authority even with deterministic model relay; this isolated dynamic-tool controller is not that harness",
+      "native_cli": "Codex0.157.0",
+      "protocol": "createCodexAdapter with scrubbed private HOME, loopback Responses spend gateway, native shell/files retained",
+      "status": "NOT_RUN_INFRASTRUCTURE_AUTHORIZATION_BOUNDARY"
+    }
+  },
+  "schema": "myskills.native-authorization-envelope.v1",
+  "skills": [
+    {
+      "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+      "skill_id": "tdd",
+      "version": "0.0.0+legacy.5b84efae14381a18"
+    },
+    {
+      "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+      "skill_id": "api-and-interface-design",
+      "version": "0.0.0+legacy.601c7b409edee7c7"
+    },
+    {
+      "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+      "skill_id": "security-and-hardening",
+      "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+    }
+  ]
+}
