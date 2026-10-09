@@ -109,3 +109,32 @@ This is an ephemeral reference UI, not production multi-tenant custody.
 Independent re-review: PASS for this scope; no outstanding G findings.
 
 Checkpoint F remote SHA verified: 27b0d08031711f8c85ce195d37a8657b2b2cdb4d.
+
+## H: deterministic composed contract journey
+
+Five exact canonical cohort bindings remain denied because they are NOT_EVALUATED.
+Five synthetic private fixtures exercise the positive no-provider handoff contract.
+Result and Proof retain all bindings and the composition digest. Faults stop later
+stages; producer crash remains UNKNOWN and replay preserves the original attempt.
+Publication remains separately gated and unavailable in this fixture.
+
+Sixteen tests cover the composed path, second-owner denial, child escalation,
+substitution, revoked/disabled components, revoked evidence, mid-handoff revocation,
+retained UNKNOWN and verifier tampering. This is contract qualification, not actual
+Skill execution or deep behavioral qualification. All 92 catalog entries retain
+UNTRUSTED / NOT_EVALUATED. Production integration and paid operations remain zero.
+
+Checkpoint G remote SHA verified: 3d71c532d054f22600b3f620ed08fe9249dc1ade.
+Hosted CI at that SHA: package-contract PASS (19s), myskills-browser PASS (39s).
+
+Independent H review found two binding gaps: the verifier did not recheck the root
+Skill, and the admission receipt covered only the base proposal. Both are fixed;
+the verifier rechecks the full Work envelope and the receipt binds the composition.
+Authority fixture types are now strictly validated with four malformed-input tests.
+Independent H and final reference-boundary security review: PASS after these fixes.
+Actual Skill behavioral execution, live integration and Greploop approval are not
+established by that review. Portable suite: 155 tests PASS.
+
+Local metadata benchmark, 200 iterations over 92 Skills: exact lookup p95 0.016ms,
+search p95 0.095ms, resolution p95 2.666ms. Inventory generation took 131.956ms.
+Routing loads no instruction bodies. These are local measurements, not production SLOs.

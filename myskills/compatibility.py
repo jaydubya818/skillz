@@ -11,6 +11,9 @@ WORK_SCHEMA = obj(
     budget=obj(operations={'type': 'integer', 'minimum': 0}, paid_operations={'type': 'integer', 'minimum': 0}),
     expires_at={'type': 'integer', 'minimum': 0},
 )
+AUTHORITY_SCHEMA = obj(schema=string(values=('myskills.authority-fixture.v1',)),
+    proposal_digest=string(DIGEST), owner=string(), publication={'type': 'boolean'},
+    effects=array(string(values=EFFECTS)), expires_at={'type': 'integer', 'minimum': 0})
 
 def work_proposal(selection, **context):
     if selection['state'] != 'SELECTED' or not selection['selected']:
@@ -28,8 +31,7 @@ def validate_admission(proposal, authority, *, session, resolver, policy, now):
 def _validate_admission(proposal, authority, *, session, resolver, policy, now):
     validate(proposal, WORK_SCHEMA)
     # Authority is an authenticated external fixture input. Nothing here creates it.
-    if set(authority) != {'schema', 'proposal_digest', 'owner', 'publication', 'effects', 'expires_at'}:
-        raise ValidationError('invalid authority fixture')
+    validate(authority, AUTHORITY_SCHEMA)
     if authority['schema'] != 'myskills.authority-fixture.v1' or authority['owner'] != session.owner or proposal['owner'] != session.owner:
         raise ValidationError('authority owner mismatch')
     if authority['publication'] is not False or authority['proposal_digest'] != digest_object(proposal):

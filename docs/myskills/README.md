@@ -201,3 +201,34 @@ keyboard use, responsive layouts and four automated WCAG A/AA scans. Screenshots
 and the report are retained in `.artifacts/myskills/browser` and hosted CI artifacts.
 For same-platform visual comparison, set `MYSKILLS_VISUAL_BASELINE` to a directory
 of reviewed screenshots. This is not a complete manual accessibility audit.
+
+## Composed compatibility journey
+
+```sh
+mkdir -p .artifacts/myskills
+python3 -m myskills.reference_journey > .artifacts/myskills/composed-journey.json
+```
+
+The actual five-stage cohort is figure-it-out, principle-sequence-verifiable-units,
+tdd, thermo-nuclear-code-quality-review and create-verification-skill. The journey
+verifies their current package bytes, pins their versions/digests in a composition,
+and proves they remain ineligible while NOT_EVALUATED.
+
+A separate five-stage synthetic fixture exercises the positive static-contract path:
+private creation and qualification, explicit installation/enable, exact resolution,
+Work proposal, separately supplied authority fixture, admission, ordered handoffs,
+candidate, verification and retained Result/Proof. It does not run the real Skills,
+produce a code change, or establish their behavioral qualification. The verifier
+checks the fixed candidate contract; it is not a production independent verifier.
+
+Composition identity covers the ordered stages, exact bindings, input/output format,
+effect ceiling and stop-on-failure policy. Work authority additionally covers the
+composition digest. Each component is checked again at handoff. The fixture allows
+zero effects, operations and spend. A failed stage stops successors. A producer
+crash remains UNKNOWN; replay returns the retained record and never creates another
+attempt. Read access remains owner-partitioned. A verified candidate remains private.
+
+The journal is ephemeral test support, not production crash recovery or another Work
+runtime. MyEve and MyFactory continue to own durable Work and execution. Their frozen
+protocols are unchanged and do not accept the proposed Skill extension. The read-only
+source probe and [integration proposal](integration-proposal.md) document that gap.

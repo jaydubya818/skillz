@@ -24,6 +24,14 @@ jobs:
         run: python -m compileall -q scripts skills myskills
       - name: Validate governed catalog
         run: python -m myskills validate
+      - name: Retain deterministic composed journey
+        run: |
+          mkdir -p .artifacts/myskills
+          python -m myskills.reference_journey > .artifacts/myskills/composed-journey.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: myskills-composed-journey
+          path: .artifacts/myskills/composed-journey.json
   myskills-browser:
     runs-on: ubuntu-latest
     steps:

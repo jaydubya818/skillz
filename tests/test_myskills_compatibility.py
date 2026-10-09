@@ -64,3 +64,11 @@ def test_static_skill_cannot_receive_execution_budget():
     authority['proposal_digest'] = digest_object(work)
     with pytest.raises(ValidationError, match='ceiling'):
         validate_admission(work, authority, session=session, resolver=resolver, policy=policy, now=1)
+
+
+@pytest.mark.parametrize('field,value', [('effects', 'merge.execute'), ('owner', []), ('publication', 0), ('expires_at', True)])
+def test_authority_fixture_rejects_malformed_types(field, value):
+    _, session, resolver, policy, work, authority = prepared()
+    authority[field] = value
+    with pytest.raises(ValidationError):
+        validate_admission(work, authority, session=session, resolver=resolver, policy=policy, now=1)
