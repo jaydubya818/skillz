@@ -1,6 +1,6 @@
 ---
 name: factory-recover
-description: "Resume eligible interrupted coding runs without repeating completed actions. Use after an interrupted run."
+description: "Resume eligible interrupted runs without repeating completed actions."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

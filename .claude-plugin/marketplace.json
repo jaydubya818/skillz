@@ -5,13 +5,13 @@
     "url": "https://github.com/jaydubya818"
   },
   "description": "Production software and Agent-Native skills for coding agents.",
-  "version": "2.3.0",
+  "version": "2.4.0",
   "plugins": [
     {
       "name": "software-factory-skills",
       "source": "./",
       "description": "Cross-harness delivery, review, Agent-Native, visual, and software-factory skills for production work.",
-      "version": "2.3.0",
+      "version": "2.4.0",
       "author": {
         "name": "Software Factory contributors"
       },

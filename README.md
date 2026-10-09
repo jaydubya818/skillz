@@ -18,12 +18,19 @@ The collection also includes a reviewed, pinned import of 24 skills from
 review, model orchestration, Agent-Native apps, visual planning and editing,
 WebMCP, and experimental software-factory workflows.
 
-This repository packages 85 skills behind one canonical `skills/` tree:
+The collection also adapts seven production engineering skills from
+[`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills), covering
+API contracts, CI/CD, migrations, UI quality, observability, performance, and
+security. The [selection review](docs/ADDYOSMANI_REVIEW.md) accounts for all 25
+upstream skills and explains the corrections and overlap decisions.
+
+This repository packages 92 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
 - 30 Jstack workflows for planning, implementation, review, and operations
 - 23 Jstack engineering principles
 - 24 Builder.io and Agent-Native workflows
+- 7 adapted Addy Osmani production engineering workflows
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code,
@@ -64,7 +71,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 85 skills. Descriptions are the routing layer; the selected
+Do not preload all 92 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -435,6 +442,34 @@ matches, not injected into every task.
 | [`principle-test-behavior-not-implementation`](skills/principle-test-behavior-not-implementation/SKILL.md) | Writing or reviewing tests; call code as users do and assert literal observable outcomes. |
 | [`principle-type-system-discipline`](skills/principle-type-system-discipline/SKILL.md) | Designing typed APIs; make invalid states unrepresentable and parse external data at boundaries. |
 
+## Addy Osmani production engineering skills
+
+| Skill | Reach for it when |
+| --- | --- |
+| [api-and-interface-design](skills/api-and-interface-design/SKILL.md) | Defining a public contract, compatible evolution, or duplicate-safe mutation. |
+| [ci-cd-and-automation](skills/ci-cd-and-automation/SKILL.md) | Creating pipeline checks or controlled artifact promotion. |
+| [deprecation-and-migration](skills/deprecation-and-migration/SKILL.md) | Moving consumers or persistent data across releases. |
+| [frontend-ui-engineering](skills/frontend-ui-engineering/SKILL.md) | Building a complete accessible interaction with honest UI states. |
+| [observability-and-instrumentation](skills/observability-and-instrumentation/SKILL.md) | Adding operational logs, metrics, traces, or actionable alerts. |
+| [performance-optimization](skills/performance-optimization/SKILL.md) | Investigating slow paths and verifying measured improvements. |
+| [security-and-hardening](skills/security-and-hardening/SKILL.md) | Reviewing security or changing sensitive trust boundaries. |
+
+These are curated adaptations, not an installation of the upstream plugin.
+Each is self-contained, carries the upstream MIT notice, and includes Codex UI
+metadata. No upstream hooks, slash-command wrappers, personas, or automatic
+workflow activation are installed. Existing Jstack and delivery workflows
+continue to handle planning, testing, review, and shipping.
+
+[vendor/addyosmani.json](vendor/addyosmani.json) pins the reviewed source and
+its file hashes. [The integration review](docs/ADDYOSMANI_REVIEW.md) records
+all selection decisions, scenario checks, and the manual refresh procedure.
+Do not overwrite these adaptations with a raw upstream copy.
+
+Match process to stakes: visually check a small style edit; verify a feature's
+behavior and failure states; use focused contract, migration, or security
+guidance for changes that cross those boundaries. A skill's presence never
+requires loading the whole collection or starting the full lifecycle.
+
 ## Builder.io provenance and portability
 
 The collection imports 24 skills from
@@ -677,7 +712,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.3.0
+python3 scripts/check_release.py v2.4.0
 git diff --check
 ```
 
@@ -689,7 +724,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 85 canonical skill directories
+- exactly 92 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
@@ -697,7 +732,8 @@ The tests verify:
 - the Claude marketplace entry and the tagged-release version gate
 - packaged companion agents and valid plugin or direct-install routing
 - local Markdown links
-- pinned Jstack and Builder.io provenance, licenses, portability, and hardening
+- pinned Jstack, Builder.io, and Addy Osmani provenance and license retention
+- isolated installation of every Addy adaptation with all local references
 - Claude, Codex, Cursor, and custom-runtime installer destinations
 - conflict refusal, backups, dry runs, copy mode, symlink mode, deduplication, and idempotency
 - Greptile review freshness and bounded polling

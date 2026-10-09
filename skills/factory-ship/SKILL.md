@@ -1,6 +1,6 @@
 ---
 name: factory-ship
-description: "Complete authorized delivery work under explicit publish, merge, deployment, closure, and notification gates."
+description: "Ship authorized work under separate publish, merge, deploy, and notification gates."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

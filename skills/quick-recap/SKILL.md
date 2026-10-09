@@ -1,6 +1,6 @@
 ---
 name: quick-recap
-description: "Add or follow a red, yellow, or green status-line convention. Use for compact agent completion status."
+description: "Use a red, yellow, or green status line for compact agent completion reports."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

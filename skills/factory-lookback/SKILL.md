@@ -1,6 +1,6 @@
 ---
 name: factory-lookback
-description: "Audit bounded signal history for recurring patterns and systemic fixes. Use for periodic lookbacks."
+description: "Audit signal history for recurring problems and systemic fixes."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: efficient-frontier
-description: "Keep judgment with a frontier model and delegate bounded work. Use for costly tasks with independent slices."
+description: "Delegate costly independent work while a frontier model retains judgment."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

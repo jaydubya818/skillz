@@ -1,6 +1,6 @@
 ---
 name: factory
-description: "Configure sources, schedules, isolation, and action gates. Use when setting up governed delivery automation."
+description: "Configure governed delivery sources, schedules, isolation, and action gates."
 license: MIT
 compatibility: "Works in Agent Skills runtimes with the configured integrations and scheduler capabilities used by the selected workflow."
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: turn-into-app
-description: "Build a verified Agent-Native app from a visible workflow, skill, thread, project, or spreadsheet."
+description: "Build a verified Agent-Native app from a workflow, skill, or visible artifact."
 license: MIT
 compatibility: "Local builds require Node.js, pnpm, and a coding host; browser-only handoffs require authenticated Agent-Native Dispatch."
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: efficient-fable
-description: "Keep judgment with Claude Fable and delegate bounded work. Use for large Fable tasks with independent slices."
+description: "Delegate bounded independent work while Claude Fable retains judgment."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

@@ -1,6 +1,6 @@
 ---
 name: webmcp
-description: "Use a web app through its page MCP tools before UI automation. Use for /webmcp or page-tool work."
+description: "Operate a web app through its page MCP tools; use for /webmcp."
 license: MIT
 compatibility: "Requires a built-in browser with native WebMCP support or a page-world JavaScript evaluator."
 metadata:

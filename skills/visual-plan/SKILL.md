@@ -1,6 +1,6 @@
 ---
 name: visual-plan
-description: "Create a structured Agent-Native plan with optional visual review. Use when a plan needs an interactive review surface."
+description: "Create an interactive Agent-Native plan for visual review."
 license: MIT
 compatibility: "Hosted mode requires the Agent-Native Plan connector; local-files mode requires the Agent-Native CLI."
 metadata:

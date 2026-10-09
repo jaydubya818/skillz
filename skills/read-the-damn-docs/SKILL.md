@@ -1,6 +1,6 @@
 ---
 name: read-the-damn-docs
-description: "Read current primary docs before relying on memory. Use for external APIs, packages, or high-stakes behavior."
+description: "Read primary docs for external APIs, packages, or high-stakes behavior."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

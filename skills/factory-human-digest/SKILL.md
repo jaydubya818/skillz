@@ -1,6 +1,6 @@
 ---
 name: factory-human-digest
-description: "Summarize configured work that needs human judgment. Use for a read-only decision queue."
+description: "Read-only summary of configured work needing human decisions."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

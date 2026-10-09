@@ -1,6 +1,6 @@
 ---
 name: factory-watchdog
-description: "Monitor authorized delivery work for verified stalls. Use for policy-gated scheduled follow-through."
+description: "Monitor authorized delivery tasks for verified stalls."
 license: MIT
 compatibility: "Works in Claude Code, Codex, Cursor, and Agent Skills-compatible harnesses when the required host tools are available."
 metadata:

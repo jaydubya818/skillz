@@ -1,6 +1,6 @@
 ---
 name: visual-edit
-description: "Open a running local app in Agent-Native Design. Use for visual editing, responsive review, or source handoff."
+description: "Edit or review a running local app through Agent-Native Design."
 license: MIT
 compatibility: "Requires a browser-capable coding host plus the hosted Agent-Native Design connector or page WebMCP tools."
 metadata:
