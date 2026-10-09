@@ -115,3 +115,22 @@ selects the newest version, changes an installation or substitutes admitted Work
 An explicit decision is needed even for a downgrade. Private and public versions
 are not offered as updates to one another. The reference uses a process lock;
 production must enforce the same rules transactionally in its owning data store.
+
+## Owner installation state
+
+`OwnerStore.session(authenticated_owner)` binds a reference session to one owner.
+Adapters must derive that owner from authentication, never request-body identity.
+The same session methods serve UI and agent actions. There is no authorization
+object, execution method or publisher method in the owner API.
+
+Concurrent installs converge to one exact disabled installation. Enable, disable,
+uninstall and update check revisions. Reinstalling cannot reuse an old revision.
+Updates require the digest of the exact reviewed difference and recheck revocation
+under the same lock. An update starts disabled and retains the old package for
+historical Work. The decision digest is an integrity check, not authentication or
+owner approval by itself. The caller must obtain the owner's explicit decision.
+
+This reference store is ephemeral and process-local. It is suitable for deterministic
+qualification and the local prototype, not deployed multi-tenant custody. Production
+private storage, encryption, transactions, authentication and recovery need the
+separate MyEve integration release.

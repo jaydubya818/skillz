@@ -41,3 +41,14 @@ Independent checkpoint A review: PASS for offline foundation code; five findings
 fixed. This does not establish Greploop approval or skill behavioral qualification.
 
 Hosted CI for checkpoint A: package-contract PASS on c2aef38, 21 seconds.
+
+## C: owner isolation and installations
+
+Authenticated-owner reference sessions implement install, enable, disable, uninstall,
+exact reviewed update and monotonic revisions. Concurrent duplicate installs converge.
+Four owner-state tests cover cross-owner installation denial, stale decisions,
+revocation racing update review, explicit update and historical identity retention.
+Independent B and C reviews PASS within the offline authenticated-session scope.
+The decision digest does not replace authentication or owner authorization.
+
+Checkpoint B remote SHA verified: d21578a624878d649856825784fd942f5e534b78.
