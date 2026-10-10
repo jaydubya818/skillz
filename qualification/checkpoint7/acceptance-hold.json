@@ -1,0 +1,228 @@
+{
+  "accepted_profile": "tdd-python-clamp-offline-v1",
+  "accepted_profiles": 1,
+  "affected_security_profile": {
+    "acceptance": "PENDING_FRESH_HOSTED_VALIDATION",
+    "bindings": [
+      {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+          "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+          "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+          "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+          "version": "myskills-profile-evaluator/7.0.0"
+        },
+        "harness": {
+          "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+          "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+          "skill_id": "security-and-hardening",
+          "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:4b9e951c1da403ff95ddffbdb5aeb4a593723e8ae5511849f4a1f864ace78d25",
+          "name": "security-and-hardening--representative",
+          "schema_digest": "sha256:6481df9d9460fd5c29ec90cfb520b0a575fcc770867d7f2a526fe276a1360e8f"
+        }
+      },
+      {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+          "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+          "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+          "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+          "version": "myskills-profile-evaluator/7.0.0"
+        },
+        "harness": {
+          "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+          "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+          "skill_id": "security-and-hardening",
+          "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:cfc8792404d854d46c1f12cc60387732b77cf73e95a4a1ee49beb5df8605fc8c",
+          "name": "security-and-hardening--adversarial",
+          "schema_digest": "sha256:c1619a3402997ab1b68293fb6b0a1dcbb7b888b1a49e3c60cd76325c25b4e10d"
+        }
+      }
+    ],
+    "case_evidence": [
+      "sha256:77a209592b187ac238e3e6257fd7b57b4798fd5c9e86c8ee575813306527f14e",
+      "sha256:1d1090dc82eb1965149bd075f3e4413f72107af4d7be09d01ae5483a6ed9d3e5"
+    ],
+    "evidence_digest": "sha256:53e2477ba1ecc67003a4e21ffd7d164c8ce3c1c378d54a95fb311ba8906d97bb",
+    "execution_eligible": false,
+    "global_trust": "UNTRUSTED",
+    "profile": "security-and-hardening-review-assisted-offline-v1",
+    "reviewer_feedback_assistance": true,
+    "scope": "Exact representative and adversarial correction fixtures only; protected synthetic gateway integration, no real provider or released consumer qualification.",
+    "starting_native_bundle": "sha256:6687de94941201792001762f3d8311371e454fb72ea56a2857457f93a69b0bd4",
+    "status": "PASS"
+  },
+  "api_profile": "FAIL",
+  "candidate_evaluator_controls": {
+    "evidence_digest": "sha256:00433dc617639284191fb53a80efaf2e2d2cf9dc220fa9e9596e39a0015e480e",
+    "fixture_digest": "sha256:54c557765b4069ea92544c18c166310181917d33b5040fd299186e7e38bf8838",
+    "native_model_credit": false,
+    "results": [
+      {
+        "counterexample": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 1,
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 139, in <module>\nsqlite3.OperationalError: no such table: notes\n",
+          "stdout": "",
+          "unauthorized_changes": []
+        },
+        "positive": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"facts\": {\"api.authentication\": true, \"api.authorization\": true, \"api.compatibility\": true, \"api.concurrency\": true, \"api.contract\": true, \"api.coverage\": true, \"api.errors\": true, \"api.idempotency\": true, \"api.schema\": true}, \"suite\": \"api-and-interface-design\"}\n",
+          "unauthorized_changes": []
+        },
+        "skill": "api-and-interface-design",
+        "status": "PASS"
+      },
+      {
+        "counterexample": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 1,
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 53, in <module>\nAssertionError: {'security.threats': True, 'security.surface': True, 'security.controls': True, 'security.enforcement': True, 'security.resources': True, 'security.isolation': True, 'security.effects': False, 'security.credentials': True, 'security.negatives': False}\n",
+          "stdout": "{\"facts\": {\"security.controls\": true, \"security.credentials\": true, \"security.effects\": false, \"security.enforcement\": true, \"security.isolation\": true, \"security.negatives\": false, \"security.resources\": true, \"security.surface\": true, \"security.threats\": true}, \"suite\": \"security-and-hardening\"}\n",
+          "unauthorized_changes": []
+        },
+        "positive": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"facts\": {\"security.controls\": true, \"security.credentials\": true, \"security.effects\": true, \"security.enforcement\": true, \"security.isolation\": true, \"security.negatives\": true, \"security.resources\": true, \"security.surface\": true, \"security.threats\": true}, \"suite\": \"security-and-hardening\"}\n",
+          "unauthorized_changes": []
+        },
+        "skill": "security-and-hardening",
+        "status": "PASS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "candidate_index": "sha256:46babba5870395839859193f80cf6c7e384e706578b779e8954f4b145e936ae4",
+  "candidate_report": "sha256:2576edea3ef5cea171e0d5d19fe20ed6f93c8456bb7040fd229c587f5b0d9875",
+  "classification": "EVALUATION_SPECIFICITY_DEFECT; generated API concurrency failure remains separately established.",
+  "clearance": "A versioned validation correction must independently establish intended negative-control failure reasons and matching complete fresh/hosted evidence. A later green CI run alone cannot remove this hold.",
+  "diagnostic_evaluator_controls": {
+    "evidence_digest": "sha256:932bcc675769c30cafd6fb6a10ae58afde812f7fd0fcba1006da226f645e2e0d",
+    "fixture_digest": "sha256:54c557765b4069ea92544c18c166310181917d33b5040fd299186e7e38bf8838",
+    "native_model_credit": false,
+    "results": [
+      {
+        "counterexample": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 1,
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 85, in <module>\nAssertionError: Traceback (most recent call last):\n  File \"<string>\", line 30, in <module>\n  File \"/tmp/<fixture>/api.py\", line 26, in handle\n    conn.execute(\"PRAGMA journal_mode=WAL\")\n  File \"<string>\", line 16, in execute\nsqlite3.OperationalError: database is locked\n\n",
+          "stdout": "",
+          "unauthorized_changes": []
+        },
+        "positive": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"facts\": {\"api.authentication\": true, \"api.authorization\": true, \"api.compatibility\": true, \"api.concurrency\": true, \"api.contract\": true, \"api.coverage\": true, \"api.errors\": true, \"api.idempotency\": true, \"api.schema\": true}, \"suite\": \"api-and-interface-design\"}\n",
+          "unauthorized_changes": []
+        },
+        "skill": "api-and-interface-design",
+        "status": "PASS"
+      },
+      {
+        "counterexample": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 1,
+          "stderr": "Traceback (most recent call last):\n  File \"<string>\", line 53, in <module>\nAssertionError: {'security.threats': True, 'security.surface': True, 'security.controls': True, 'security.enforcement': True, 'security.resources': True, 'security.isolation': True, 'security.effects': False, 'security.credentials': True, 'security.negatives': False}\n",
+          "stdout": "{\"facts\": {\"security.controls\": true, \"security.credentials\": true, \"security.effects\": false, \"security.enforcement\": true, \"security.isolation\": true, \"security.negatives\": false, \"security.resources\": true, \"security.surface\": true, \"security.threats\": true}, \"suite\": \"security-and-hardening\"}\n",
+          "unauthorized_changes": []
+        },
+        "positive": {
+          "cleanup_confirmed": true,
+          "evidence": null,
+          "exit_code": 0,
+          "stderr": "",
+          "stdout": "{\"facts\": {\"security.controls\": true, \"security.credentials\": true, \"security.effects\": true, \"security.enforcement\": true, \"security.isolation\": true, \"security.negatives\": true, \"security.resources\": true, \"security.surface\": true, \"security.threats\": true}, \"suite\": \"security-and-hardening\"}\n",
+          "unauthorized_changes": []
+        },
+        "skill": "security-and-hardening",
+        "status": "PASS"
+      }
+    ],
+    "status": "PASS"
+  },
+  "diagnostic_execution_index": 9,
+  "diagnostic_report": "sha256:f0a57b1908f7830820c000b70a927b03752a3c9a21d5ed8440666a816348fe4b",
+  "diagnostics_digest": "sha256:7ef344f5bc10b7172c2527df347004ec6de0b0e46ef232fdba5f53466c997b97",
+  "diagnostics_seal": "sha256:d5fc828607b0c80e55303e10c452031b4adb7d0a98e51423116eb3655b5fd8ac",
+  "effect_on_security": "Its finite native outputs and 18 claim instances retain their candidate evidence; shared full-checkpoint validation is unresolved, so no security profile is accepted.",
+  "evidence_digest": "sha256:8066baafc4d3c3bef1d06e198fd286f896c186accaebe5ce4f22a9ffd452c227",
+  "execution_eligible": false,
+  "external_alpha_impact": "NONE",
+  "finding": "The API negative control exited on a concurrent WAL lock exception before reaching the intended verifier-interference check. The frozen reporter accepts any clean nonzero exit; this execution does not demonstrate rejection for the intended reason.",
+  "frozen_evaluator_changed": false,
+  "global_trust": "UNTRUSTED",
+  "marketplace_activation": "DISABLED",
+  "new_accepted_profiles": 0,
+  "original_evidence_overwritten": false,
+  "paid_operations": 0,
+  "production_integration": "NOT_RUN",
+  "reports": {
+    "replay-diagnostic-followup": "sha256:12593b215cc8b1fe4ded6a3698b37fa6a0c6d3e0a97450af675657cf37d4e6f1",
+    "report-followup": "sha256:79c2f67f05ba35fbd68e3a1af451d68bc51191b2a1e75b5bdc2ea4dcd94cf99c"
+  },
+  "schema": "myskills.acceptance-hold.v7",
+  "security_profile": "PARTIAL",
+  "sources": {
+    "qualification/checkpoint7/evaluator-counterexamples.json": "sha256:b383e964eb6d697919bc9f466df93546b484f0a443ec393caa963d5918f76f89",
+    "qualification/checkpoint_seven.py": "sha256:35282d38204bbbf99e846d8a86cf72791150d95310d20df1ab4336b86b89b3d3",
+    "qualification/v7/checks.py": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3"
+  },
+  "unchanged_candidate_profiles_and_matrix": true
+}

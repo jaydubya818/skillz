@@ -113,3 +113,24 @@ the original result and rethrows failures; it never retries or suppresses them.
 The wrapper and its regression are separate from all frozen native/evaluator
 identities. Fresh-clone checkpoint-7 exports at that revision matched all16
 local report bytes, but hosted acceptance was withheld.
+
+Hosted run 38018012620 passed the historical checks, then attempted and failed
+the assisted checkpoint-7 tool/state comparison. Its differing tool response
+was not retained, so the cause remains INCONCLUSIVE. A second diagnostic
+observer enables the adapter's existing durable journal and records evaluator
+and control results before the unchanged comparisons. Failures still propagate.
+
+That observer exposed a separate evaluation-specificity defect locally. The API
+negative control failed at the known concurrent WAL operation before reaching
+the intended verifier-interference check. The frozen reporter accepts any clean
+nonzero result. This execution cannot establish that the intended attack was
+detected, and its report differs from the earlier report. Exact results and
+seals are preserved in `qualification/checkpoint7/acceptance-hold.json`.
+
+The checkpoint therefore accepts no new profile: API is FAIL and security is
+PARTIAL. Security's finite native results and 18 verified claim instances remain
+candidate evidence; they do not override incomplete shared validation. The sole
+accepted profile remains the historical TDD profile. A later green CI run alone
+cannot lift this hold. A versioned validation correction must establish intended
+negative-control failure reasons and complete matching fresh/hosted evidence.
+All frozen evaluators and historical reports remain unchanged.

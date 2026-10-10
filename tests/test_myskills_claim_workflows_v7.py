@@ -141,3 +141,39 @@ def test_legacy_difference_is_retained_before_exception_without_changing_result(
     assert diagnostics.legacy.evaluate is original
     saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
     assert saved['outcome']=='FAIL' and saved['qualification_credit'] is False
+
+
+def test_checkpoint_replay_retains_actual_tool_and_evaluator_results(tmp_path, monkeypatch):
+    import pytest
+    from qualification import replay_checkpoint7_diagnostics as diagnostics
+    from qualification.checkpoint_four import unseal
+    fixture={'files':{'source.txt':'source'},'writable':[],'commands':{}}
+    retained=tmp_path/'retained';(retained/'case').mkdir(parents=True)
+    (retained/'case/observation.json').write_text(json.dumps({'binding':{'fixture':'exact'}}))
+    output=tmp_path/'output';original_session=diagnostics.tools_replay.Session
+    run_result={'exit_code':1,'stderr':'counterexample'}
+    original_executor=lambda skill: lambda *args,**kwargs: run_result
+    monkeypatch.setattr(diagnostics.evaluator,'executor',original_executor)
+    monkeypatch.setattr(diagnostics.checkpoint,'executor',original_executor)
+    monkeypatch.setattr(diagnostics,'file_digest',lambda path:'bound-source')
+    monkeypatch.setattr(diagnostics.subprocess,'check_output',lambda *args,**kwargs:'bound-revision')
+    def fail_after_capture(*args):
+        expected=original_session('case',fixture,None).call('read','read_file',{'path':'source.txt'})
+        session=diagnostics.tools_replay.Session('case',fixture,None)
+        actual=session.call('read','read_file',{'path':'source.txt'})
+        assert actual==expected
+        captured=json.loads((output/'replay-journal/case/0-completed.json').read_text());unseal(captured)
+        assert captured['result']==actual and captured['binding']=={'fixture':'exact'}
+        for factory in [diagnostics.evaluator.executor,diagnostics.checkpoint.executor]:
+            assert factory('api')({'api.py':'source'},['check'],[]) is run_result
+        saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+        assert [r['result'] for r in saved['executions']]==[run_result,run_result]
+        raise ValueError('independent tool replay differs')
+    monkeypatch.setattr(diagnostics.checkpoint,'report',fail_after_capture)
+    with pytest.raises(ValueError,match='independent tool replay differs'):
+        diagnostics.replay(tmp_path,retained,tmp_path,output)
+    assert diagnostics.tools_replay.Session is original_session
+    assert diagnostics.evaluator.executor is original_executor
+    assert diagnostics.checkpoint.executor is original_executor
+    saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+    assert saved['outcome']=='FAIL' and saved['qualification_credit'] is False
