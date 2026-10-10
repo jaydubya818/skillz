@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MySkills · Capability library</title>
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="shell">
+      <aside>
+        <div class="brand">MySkills<span>Capability library</span></div>
+        <nav aria-label="Main navigation">
+          <button data-view="discover" aria-current="page">Discover</button
+          ><button data-view="installed">Installed</button
+          ><button data-view="private">My Skills</button
+          ><button data-view="updates">Updates</button
+          ><button data-view="permissions">Trust & permissions</button
+          ><button data-view="qualification">Qualification</button>
+        </nav>
+        <p class="aside-note">
+          A capability describes what can be done.<br />Authority decides what
+          may be done.
+        </p>
+      </aside>
+      <div class="workspace">
+        <header>
+          <span>PERSONAL LIBRARY</span
+          ><span class="local">Local prototype · session only</span>
+        </header>
+        <main id="main" tabindex="-1"><div id="view"></div></main>
+        <footer>
+          Production integration is off. No skills execute here. Private drafts
+          and installations reset when the server stops.
+        </footer>
+      </div>
+    </div>
+    <div id="status" role="status" aria-live="polite"></div>
+    <dialog id="detail" aria-labelledby="detail-title">
+      <button id="close-detail" class="close" aria-label="Close skill details">
+        Close
+      </button>
+      <div id="detail-content"></div>
+    </dialog>
+  </body>
+</html>
