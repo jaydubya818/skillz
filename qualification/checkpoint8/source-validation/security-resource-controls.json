@@ -1,0 +1,160 @@
+{
+  "actual": {
+    "cleanup_confirmed": true,
+    "evidence": null,
+    "exit_code": 0,
+    "stderr": "",
+    "stdout": "{\"positive\": {\"data\": \"OWN\", \"status\": 200}, \"present_null_data\": {\"data\": null, \"status\": 200}, \"rows\": [{\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"destination\": null, \"resource\": {\"data\": \"OWN\", \"owner\": \"a\"}, \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.null-destination\", \"expected_rejection_class\": \"EFFECT_DESTINATION\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": {\"data\": \"FOREIGN\", \"owner\": \"b\"}, \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.foreign-owner\", \"expected_rejection_class\": \"OWNER_SCOPE\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": {\"owner\": \"a\"}, \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.missing-data\", \"expected_rejection_class\": \"RESOURCE_INVALID\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": null, \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.null-resource\", \"expected_rejection_class\": \"RESOURCE_INVALID\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": [], \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.list-resource\", \"expected_rejection_class\": \"RESOURCE_INVALID\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": {\"data\": \"OWN\", \"owner\": true}, \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.boolean-owner\", \"expected_rejection_class\": \"RESOURCE_INVALID\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": {\"data\": \"OWN\", \"owner\": 1}, \"token\": \"fixture-a\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.integer-owner\", \"expected_rejection_class\": \"RESOURCE_INVALID\", \"outcome\": \"DENIED\"}, {\"actual_response\": {\"data\": null, \"status\": 403}, \"attempt\": {\"resource\": {\"data\": \"OWN\", \"owner\": \"a\"}, \"token\": \"invalid\"}, \"boundary\": \"protected-gateway-and-candidate-authorize\", \"control_id\": \"security.resource.v8.invalid-token\", \"expected_rejection_class\": \"CREDENTIAL_INVALID\", \"outcome\": \"DENIED\"}]}\n",
+    "unauthorized_changes": []
+  },
+  "behavioral_credit": false,
+  "boundary": "protected-gateway-and-candidate-authorize",
+  "evidence_digest": "sha256:99beb8dffbb1232a523d8cc8390605c6ad86e0ab32335dfab150e0a09343c097",
+  "expected": {
+    "positive": {
+      "data": "OWN",
+      "status": 200
+    },
+    "present_null_data": {
+      "data": null,
+      "status": 200
+    },
+    "rows": [
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "destination": null,
+          "resource": {
+            "data": "OWN",
+            "owner": "a"
+          },
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.null-destination",
+        "expected_rejection_class": "EFFECT_DESTINATION",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": {
+            "data": "FOREIGN",
+            "owner": "b"
+          },
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.foreign-owner",
+        "expected_rejection_class": "OWNER_SCOPE",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": {
+            "owner": "a"
+          },
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.missing-data",
+        "expected_rejection_class": "RESOURCE_INVALID",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": null,
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.null-resource",
+        "expected_rejection_class": "RESOURCE_INVALID",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": [],
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.list-resource",
+        "expected_rejection_class": "RESOURCE_INVALID",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": {
+            "data": "OWN",
+            "owner": true
+          },
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.boolean-owner",
+        "expected_rejection_class": "RESOURCE_INVALID",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": {
+            "data": "OWN",
+            "owner": 1
+          },
+          "token": "fixture-a"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.integer-owner",
+        "expected_rejection_class": "RESOURCE_INVALID",
+        "outcome": "DENIED"
+      },
+      {
+        "actual_response": {
+          "data": null,
+          "status": 403
+        },
+        "attempt": {
+          "resource": {
+            "data": "OWN",
+            "owner": "a"
+          },
+          "token": "invalid"
+        },
+        "boundary": "protected-gateway-and-candidate-authorize",
+        "control_id": "security.resource.v8.invalid-token",
+        "expected_rejection_class": "CREDENTIAL_INVALID",
+        "outcome": "DENIED"
+      }
+    ]
+  },
+  "limitation": "Rejection classes identify controller-owned single-fault test cases; candidate responses expose only status 403, not a structured reason code.",
+  "program_digest": "sha256:1a793001034e70d09bb20147d4e43b16e4f75b1c4fcd9f49869a24f3a33953e6",
+  "source_digest": "sha256:21a32a9a723306eac86b8d22e978c706c30756e8f622a5e1b58967017a9a71eb",
+  "status": "PASS",
+  "version": "myskills-negative-controls/8.0.0"
+}

@@ -1,0 +1,35 @@
+{
+  "canonical_pr6_sha": "d57ff77b8522f897fc6ae392cf59b3141295ba82",
+  "canonical_pr7_sha": "c7c53a261552297d9398b00e822d7cfaf7c63fff",
+  "cause": "External terminal process deleted the checkout and local evidence during a native trial.",
+  "collector_commit_remote_recovery": "NOT_FOUND_IN_CHECKED_REMOTE_OR_INTEGRATION_OBJECT_STORE",
+  "deleted_checkout": "/Users/jaywest/.codex/visualizations/2026/10/09/01a11f25-f14d-7a13-8036-afac830fd22b/myskills-qualification",
+  "docker_reconciliation": "No MySkills qualification container present in post-interruption listing; unrelated containers unchanged",
+  "evidence_digest": "sha256:6169895a94f6683878000b9dbb564ef5022c70f60c84ade837006c3000b5944d",
+  "external_alpha_impact": "NONE",
+  "lost_local_collector_commit_short": "c93b164",
+  "native_batch": {
+    "collector_exit_code": 1,
+    "completion": "NOT_ESTABLISHED",
+    "last_observed_case": "api-and-interface-design--representative",
+    "last_observed_tool_requests": 11,
+    "local_transcripts": "DELETED",
+    "qualification_credit": false
+  },
+  "observed_process": {
+    "command": "rm -rf /Users/jaywest/.codex/archived_sessions /Users/jaywest/.codex/visualizations",
+    "parent_pid": 3707,
+    "pid": 20124
+  },
+  "paid_operations": 0,
+  "pretrial_portable_tests": {
+    "observed_result": "324 passed in 107.42s",
+    "retained_evidence": "Tool output only; local log deleted"
+  },
+  "pretrial_review": "PASS_SCOPED; no native qualification established",
+  "production_integration": "NOT_RUN",
+  "profile_promotion": "NONE",
+  "recovery_required": "Restore canonical source and remote historical evidence, recover or reconstruct reviewed C8 changes, review and run a new exact batch; never award interrupted batch PASS.",
+  "schema": "myskills.checkpoint8-interruption.v1",
+  "status": "INTERRUPTED_NOT_QUALIFIED"
+}

@@ -1,0 +1,25 @@
+{
+  "date": "2026-10-10",
+  "environment_match": true,
+  "evidence_digest": "sha256:f2693cd6bfb142e776531354e63233b032b214386439bed24a26b20509658c58",
+  "historical_runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14",
+  "metadata_change_cause": "NOT_ESTABLISHED; current show includes a new modification timestamp, but historical raw response was not retained",
+  "model_bytes_match": true,
+  "model_digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+  "native_batch": "NOT_RUN",
+  "next_boundary": "Resolve exact metadata identity or authorize a separately pinned recovery successor; do not weaken historical guard",
+  "paid_operations": 0,
+  "qualification_credit": false,
+  "recovered_runtime_digest": "sha256:ac26a2e9bf3afc13b7513772a816c522740767924fbee3c801faa08dce769276",
+  "recovery_pin_created": false,
+  "runtime_binaries_match": true,
+  "schema": "myskills.recovery-admission.v8",
+  "stable_runtime_differences": [
+    {
+      "historical": "sha256:277347f005e74b3203152b1a6ad444b9e80c096bbbb95c6a7b4c612506e00ee3",
+      "path": "/service/show_digest",
+      "recovered": "sha256:0c90c3e0a5236b1f0c3f378dff8f5ae0ddb6009d5157c7b69899a750265f876e"
+    }
+  ],
+  "status": "BLOCKED"
+}

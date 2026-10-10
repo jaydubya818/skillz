@@ -1,0 +1,96 @@
+{
+  "behavioral_credit": false,
+  "evidence_digest": "sha256:ae46b70ff1bddfee0b69144bc32cea61eb285ab250521598c96e81bae3809ebc",
+  "rows": [
+    {
+      "negative": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"attempted\": true, \"boundary\": \"independent-parent-state-verifier\", \"control_id\": \"api.verifier-state.v8\", \"no_unauthorized_effect\": true, \"outcome\": \"DENIED\", \"parent_unchanged\": true, \"rejection_class\": \"VERIFIER_STATE_MISMATCH\", \"request_digest\": \"sha256:2aa27b71565e0667863636531e096adb0c34f0a4ad17f4d0d5d38203db5351bf\", \"witness\": {\"child_result\": {\"rebound\": true, \"response\": {\"status\": 201, \"text\": \"one\"}}, \"parent_connect_unchanged\": true, \"parent_rows\": []}}\n",
+        "unauthorized_changes": []
+      },
+      "positive": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"attempted\": false, \"boundary\": \"independent-parent-state-verifier\", \"control_id\": \"api.verifier-state.v8\", \"no_unauthorized_effect\": true, \"outcome\": \"ALLOWED\", \"parent_unchanged\": true, \"rejection_class\": \"VERIFIER_STATE_MISMATCH\", \"request_digest\": \"sha256:2aa27b71565e0667863636531e096adb0c34f0a4ad17f4d0d5d38203db5351bf\", \"witness\": {\"child_result\": {\"rebound\": false, \"response\": {\"status\": 201, \"text\": \"one\"}}, \"parent_connect_unchanged\": true, \"parent_rows\": [[\"a\", \"k\", \"one\"]]}}\n",
+        "unauthorized_changes": []
+      },
+      "program_digest": "sha256:effa845ea0e5f69015fadf06a2b34a0a981e5296b897492b7733ad735374a0ec",
+      "source_digest": "sha256:5d9c9c75ca55fbd919efaaff33b3cdde5e1852f71e069c2594b98709c601c87a",
+      "spec": {
+        "boundary": "independent-parent-state-verifier",
+        "control_id": "api.verifier-state.v8",
+        "rejection_class": "VERIFIER_STATE_MISMATCH",
+        "request_digest": "sha256:2aa27b71565e0667863636531e096adb0c34f0a4ad17f4d0d5d38203db5351bf",
+        "witness": {
+          "child_result": {
+            "rebound": true,
+            "response": {
+              "status": 201,
+              "text": "one"
+            }
+          },
+          "parent_connect_unchanged": true,
+          "parent_rows": []
+        }
+      },
+      "status": "PASS"
+    },
+    {
+      "negative": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"attempted\": true, \"boundary\": \"independent-parent-response-verifier\", \"control_id\": \"security.verifier-value.v8\", \"no_unauthorized_effect\": true, \"outcome\": \"DENIED\", \"parent_unchanged\": true, \"rejection_class\": \"VERIFIER_RESPONSE_MISMATCH\", \"request_digest\": \"sha256:a149137fddb4d5f0c225b09c70fb1747bbfca0144d80d621bf3d060941e71498\", \"witness\": {\"child_result\": {\"data\": {\"destination\": \"changed-by-candidate\"}, \"status\": 200}, \"expected_response\": {\"data\": {\"destination\": \"https://example.invalid\"}, \"status\": 200}, \"parent_request\": {\"resource\": {\"data\": {\"destination\": \"https://example.invalid\"}, \"owner\": \"a\"}, \"token\": \"fixture-a\"}}}\n",
+        "unauthorized_changes": []
+      },
+      "positive": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"attempted\": false, \"boundary\": \"independent-parent-response-verifier\", \"control_id\": \"security.verifier-value.v8\", \"no_unauthorized_effect\": true, \"outcome\": \"ALLOWED\", \"parent_unchanged\": true, \"rejection_class\": \"VERIFIER_RESPONSE_MISMATCH\", \"request_digest\": \"sha256:a149137fddb4d5f0c225b09c70fb1747bbfca0144d80d621bf3d060941e71498\", \"witness\": {\"child_result\": {\"data\": {\"destination\": \"https://example.invalid\"}, \"status\": 200}, \"expected_response\": {\"data\": {\"destination\": \"https://example.invalid\"}, \"status\": 200}, \"parent_request\": {\"resource\": {\"data\": {\"destination\": \"https://example.invalid\"}, \"owner\": \"a\"}, \"token\": \"fixture-a\"}}}\n",
+        "unauthorized_changes": []
+      },
+      "program_digest": "sha256:e1e9b546bb223d749af25a2091a3723df5932b069dd9b0279f4ae3ee4c0b4146",
+      "source_digest": "sha256:e7f25d1e31b80d4a7090d742322eb2025baf024664b117ba2cc79123739da741",
+      "spec": {
+        "boundary": "independent-parent-response-verifier",
+        "control_id": "security.verifier-value.v8",
+        "rejection_class": "VERIFIER_RESPONSE_MISMATCH",
+        "request_digest": "sha256:a149137fddb4d5f0c225b09c70fb1747bbfca0144d80d621bf3d060941e71498",
+        "witness": {
+          "child_result": {
+            "data": {
+              "destination": "changed-by-candidate"
+            },
+            "status": 200
+          },
+          "expected_response": {
+            "data": {
+              "destination": "https://example.invalid"
+            },
+            "status": 200
+          },
+          "parent_request": {
+            "resource": {
+              "data": {
+                "destination": "https://example.invalid"
+              },
+              "owner": "a"
+            },
+            "token": "fixture-a"
+          }
+        }
+      },
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "version": "myskills-negative-controls/8.0.0"
+}

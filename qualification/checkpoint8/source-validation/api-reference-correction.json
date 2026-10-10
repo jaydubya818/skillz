@@ -1,0 +1,34 @@
+{
+  "behavioral_credit": false,
+  "evidence_digest": "sha256:bb14723533e5b00740f310d435d88dd37e873bd13524dfa6527fd72ac411d047",
+  "results": [
+    {
+      "actual": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"facts\": {\"api.authentication\": true, \"api.authorization\": true, \"api.compatibility\": true, \"api.concurrency\": true, \"api.contract\": true, \"api.coverage\": true, \"api.errors\": true, \"api.idempotency\": true, \"api.schema\": true}, \"suite\": \"api-and-interface-design\"}\n",
+        "unauthorized_changes": []
+      },
+      "command_digest": "sha256:99948b79c945203d745154afbabd330e699b08492cabd87428656a5c08b948c7",
+      "command_name": "test",
+      "status": "PASS"
+    },
+    {
+      "actual": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"checks\": 10, \"durable_rows\": 3, \"reopened_processes\": 9}\n",
+        "unauthorized_changes": []
+      },
+      "command_digest": "sha256:e38117650750200c040ec0f605753960800d3dd79f4bded9935d9ee08e4f6699",
+      "command_name": "legacy",
+      "status": "PASS"
+    }
+  ],
+  "source_digest": "sha256:9c2ebfe049e254828d6822802eb6eb108ea1f247451ab906cc5211852ff5212e",
+  "status": "PASS"
+}

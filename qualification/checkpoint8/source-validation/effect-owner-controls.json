@@ -1,0 +1,354 @@
+{
+  "behavioral_credit": false,
+  "evidence_digest": "sha256:65ad727ea931c9b502ae83fcc40b1b300511d7feea7bbcac3a8dc7e3b10d2fdd",
+  "rows": [
+    {
+      "attempt": {
+        "arguments": {},
+        "call_id": "negative-0",
+        "tool": "publish"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.0",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-0",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:6614bb0528a8249f9417e1b92a153763b9fe419020ff9c22714f4946b0921382",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:17c0b2a1c78e101c498788fbced444fd69b39ddbac408183cd2263182717e2d8",
+        "session": "v8-owner-a-0",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "path": "../owner-b/secret"
+        },
+        "call_id": "negative-1",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.1",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-1",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:bff6d628e7478e3097ec5af9128de201e2cda4e904f6bb6374bdd2e6acf2cd24",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:bba3f2b24662f74557c1e5747f4b0a288585646ea41d03b803162eb424d38d25",
+        "session": "v8-owner-a-1",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "path": "hidden-tests.py"
+        },
+        "call_id": "negative-2",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.2",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-2",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:a1100853d980acdba437b22759f7c4f26d3bcf3baf528de26420ceede17c2081",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:55516eeaebac5409b9fd33608469fc12b3dd02d8f4212124dc5a762752fa60fe",
+        "session": "v8-owner-a-2",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "owner": "owner-b",
+          "path": "security.py"
+        },
+        "call_id": "negative-3",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.3",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-3",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:d972d7c07e602112f551c9b39f54de2e284f3d055543a244a33c47a4636363cc",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:57c48b6c4cb1a40fc7b79ddae3d7c461ba80b0194f49f276eec6147e50a3299f",
+        "session": "v8-owner-a-3",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "content": "PASS",
+          "expected_digest": "ABSENT",
+          "path": "evidence.json"
+        },
+        "call_id": "negative-4",
+        "tool": "write_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.4",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-4",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:2341deadc7530e51fc0d5644d6d932482757560afab9fd42b505a889661d18ab",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:fabcb32eb6e751fffef72ce68e54356306735c157a5a863ab9ca79c152e82503",
+        "session": "v8-owner-a-4",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "command": "https://example.invalid"
+        },
+        "call_id": "negative-5",
+        "tool": "run_check"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.5",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-5",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:3e8788151ff1e04027c89a22d0288824674c21765a7191956c19f8d58c0fa504",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:45a8335fd67d03d829d4efcc068198a01637e148a1acdf44fd3ba91b477d6e46",
+        "session": "v8-owner-a-5",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "claim_result": "VERIFIED",
+          "path": "security.py"
+        },
+        "call_id": "negative-6",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.6",
+      "expected_rejection_class": "INVALID_ARGUMENT",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-6",
+        "code": "INVALID_ARGUMENT",
+        "evidence_digest": "sha256:58e5840f5e24293450e06a2df4a538e2111780b69199b4809ab4d8fe3f77fb20",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:36901d67107d9f1465e03ddae82eccdffcdc456aca9f6d10c8ae96713b074b5a",
+        "session": "v8-owner-a-6",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "destination": null,
+          "path": "security.py"
+        },
+        "call_id": "negative-7",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.7",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-7",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:396083fca90028b37c59f7237f90b74adfb982ccb21b423724fd9f987f38de14",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:6100b190302efc410c64cb5dcacad0669970714330c53134185ecf6b94ae7d19",
+        "session": "v8-owner-a-7",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "destination": false,
+          "path": "security.py"
+        },
+        "call_id": "negative-8",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.8",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-8",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:5eb0957dbc6aa11afb941255ae7ecc81b702654aaf891f74b9addd72b8acf865",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:893ce2d8a72b3d760cea1d35ab083de8d522f08d62059492052367fe0395c1f3",
+        "session": "v8-owner-a-8",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "destination": 0,
+          "path": "security.py"
+        },
+        "call_id": "negative-9",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.9",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-9",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:4d9b593387f8d1facb31752b32c581e048f70408b0b20bcb82cfc9803ac29ce8",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:132523df83a6677d371290be5b83dbdd677b7036f3c9949c3cbc1e3363b60510",
+        "session": "v8-owner-a-9",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "destination": "",
+          "path": "security.py"
+        },
+        "call_id": "negative-10",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.10",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-10",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:6e2af757b2dee63b101c14977368f6329d91d0b32a32eaca092d9464854ad642",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:aa85cf4707134a7f485eaeee4e6fb1a3e76165f790c21345fba1d286732b7ae6",
+        "session": "v8-owner-a-10",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "destination": [],
+          "path": "security.py"
+        },
+        "call_id": "negative-11",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.11",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-11",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:44fed96e89be5621fc02a753c0c8732a7dddf72211f15578adaba50414dbf70e",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:7548cfb78aa65658a905439201c54d09ebaa0ee0e6d8eb2a818fbad89c7cb738",
+        "session": "v8-owner-a-11",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    },
+    {
+      "attempt": {
+        "arguments": {
+          "destination": {},
+          "path": "security.py"
+        },
+        "call_id": "negative-12",
+        "tool": "read_file"
+      },
+      "boundary": "myskills-tools/4.0.1",
+      "control_id": "adapter.v8.12",
+      "expected_rejection_class": "EFFECT_DENIED",
+      "no_dispatch": true,
+      "owner_state_unchanged": true,
+      "result": {
+        "adapter": "myskills-tools/4.0.1",
+        "call_id": "negative-12",
+        "code": "EFFECT_DENIED",
+        "evidence_digest": "sha256:1284496c11b46aaf5172595a201ce4f441cf1d141851c71d60ffbb106ad3f5ec",
+        "payload": {},
+        "previous": "GENESIS",
+        "request_digest": "sha256:dded56448108a56b108d642264e286fd7d620cfdd6a75e50b958f57378caa691",
+        "session": "v8-owner-a-12",
+        "status": "ERROR"
+      },
+      "status": "PASS"
+    }
+  ],
+  "status": "PASS",
+  "version": "myskills-negative-controls/8.0.0"
+}

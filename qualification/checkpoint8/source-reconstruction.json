@@ -1,0 +1,52 @@
+{
+  "schema": "myskills.source-recovery.v1",
+  "files": {
+    "qualification/checkpoint8/input-snapshots.json": {
+      "expected": "sha256:e5154292151f3397f6d3f79ec4d1dde419a054555e8f65f4fe54a06030097326",
+      "actual": "sha256:e5154292151f3397f6d3f79ec4d1dde419a054555e8f65f4fe54a06030097326"
+    },
+    "qualification/custody_v8.py": {
+      "expected": "sha256:0a6b3cb18cce3258da700c932ad8a04a1c32d67e3d00f298c8a3659b020efe6a",
+      "actual": "sha256:0a6b3cb18cce3258da700c932ad8a04a1c32d67e3d00f298c8a3659b020efe6a"
+    },
+    "qualification/v8/__init__.py": {
+      "expected": "sha256:5a9e18171cdbae9d0d3dfcdd7b80c4d0559161f076394e8cc881b4755a72ff1e",
+      "actual": "sha256:5a9e18171cdbae9d0d3dfcdd7b80c4d0559161f076394e8cc881b4755a72ff1e"
+    },
+    "qualification/v8/cases.py": {
+      "expected": "sha256:b149dc11da17b267e9e880b858cd542a302e694d73374341c795cb4671a4d675",
+      "actual": "sha256:b149dc11da17b267e9e880b858cd542a302e694d73374341c795cb4671a4d675"
+    },
+    "qualification/v8/checks.py": {
+      "expected": "sha256:4bba495c823ba7763b5dc40ad492e6ef0ead01df704faac2760f1d8f22c9f91f",
+      "actual": "sha256:4bba495c823ba7763b5dc40ad492e6ef0ead01df704faac2760f1d8f22c9f91f"
+    },
+    "qualification/v8/controls.py": {
+      "expected": "sha256:515bfe363b80e82c3d2f9b217e4d6d96417c1ea3c0d5d1a28d48273799d711ed",
+      "actual": "sha256:515bfe363b80e82c3d2f9b217e4d6d96417c1ea3c0d5d1a28d48273799d711ed"
+    },
+    "qualification/v8/evaluate.py": {
+      "expected": "sha256:0af386c4debc0aa08c485829cef399639f2afc871d190f133c950149c1bada6c",
+      "actual": "sha256:0af386c4debc0aa08c485829cef399639f2afc871d190f133c950149c1bada6c"
+    },
+    "qualification/v8/probe.py": {
+      "expected": "sha256:87fc40ac1a5561f126558d54ec988af90fcf8d04ed8f3a4ad2856b7150d6cacd",
+      "actual": "sha256:87fc40ac1a5561f126558d54ec988af90fcf8d04ed8f3a4ad2856b7150d6cacd"
+    },
+    "qualification/v8/sqlite_probe.py": {
+      "expected": "sha256:95414b58ad115c070a62cfb7a69fa41f5e1071a83cea08c23acb7c4e4e72156e",
+      "actual": "sha256:95414b58ad115c070a62cfb7a69fa41f5e1071a83cea08c23acb7c4e4e72156e"
+    },
+    "tests/test_myskills_specific_controls_v8.py": {
+      "expected": "sha256:380fd9458c3d728a6219c3fcbac46bf995aa7f7989dc7c2b4583a0b8e9aeb7a9",
+      "actual": "sha256:380fd9458c3d728a6219c3fcbac46bf995aa7f7989dc7c2b4583a0b8e9aeb7a9"
+    }
+  },
+  "status": "MATCH",
+  "not_recovered": [
+    "original git commit object",
+    "original interrupted native transcript",
+    "original SQLite capture files"
+  ],
+  "evidence_digest": "sha256:b46e2ed19959b066d2b944900d01182ed0a406327be7d4bf9e629c3ee9609136"
+}
