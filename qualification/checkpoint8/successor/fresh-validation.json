@@ -1,0 +1,67 @@
+{
+  "accepted_profiles": 1,
+  "ci_workflow_changed": false,
+  "clean_checkout": true,
+  "commands_log_digest": "sha256:c6257fbeab8f92b1821ad26a6a23d52272f24c1fe293acaa2fcc7cc56e4f6377",
+  "consumer_activation": "DISABLED",
+  "dependency_install": {
+    "mode": "npm ci --offline --ignore-scripts; existing Python environment reused",
+    "packages": 1,
+    "parser": "acorn@8.15.0"
+  },
+  "evidence_digest": "sha256:654f8a93583864106ed3ed31cd3d2677d490c97a94f43f05ad79c79ce0ac0fc4",
+  "evidence_restore": "LOCAL_DIGEST_PINNED_PARTS; no external publication or model execution",
+  "external_alpha_impact": "NONE",
+  "globally_trusted_skills": 0,
+  "historical_custody": "sha256:6b4ba94c8483d38fa89ee83c816ce7d3e6162198f0c47439acf8a9b7b8474cb0",
+  "historical_failed_profiles_promoted": false,
+  "historical_files_unchanged": 520,
+  "historical_tdd_accepted_record": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+  "historical_tdd_candidate_digest": "sha256:b9b9e51c63ce03673f7519b72e981f359e1b9faa51c33164a694096fe475883a",
+  "historical_tdd_replay": "PASS_MATCHES_ACCEPTED_CANDIDATE",
+  "hosted_source_run": {
+    "browser": "PASS",
+    "head": "dd8655cf3d9710f46313d1576158b38cff9fff03",
+    "historical_failures_overridden": false,
+    "historical_replay": "PASS_THIS_RUN_ONLY",
+    "id": 38071359010,
+    "package_contract": "PASS",
+    "successor_replay": "NOT_RUN"
+  },
+  "hosted_successor_blocker": "Explicit authorization for the eight full native transcript parts remains pending",
+  "local_fresh_reports_byte_identical": true,
+  "log_digests": {
+    "catalog.log": "sha256:cda1f26348b17f243ee6034211cab10952695818b0d6fd88bdae0612708195da",
+    "clone.log": "sha256:b0b36113d914a381408e27f8776d54749386285925a7ecb63c78eb63ae468800",
+    "historical-custody.log": "sha256:87142b86a2941d66c2e1e877477f6f8584021f25b0587e6df33148712d0ff594",
+    "historical-tdd-replay.log": "sha256:f77ec4d619e4f2073b5942f5b09a80b7678fa7adf6f664d1812368afc62c9978",
+    "local-pinned-restore.log": "sha256:b7db7af2c239d4446baa486d87c8e3466558ada4d40c97ec26759180578ce219",
+    "locked-parser.log": "sha256:0c1704df3d810ccd1e0b35aede5671c896cea8d4abfcf355628a1aceea0e8445",
+    "portable.log": "sha256:6ba17f8f6a2f09874792d624111843bf5e3787a2cb1e06a33b08bea0ac763c2b",
+    "successor-replay.log": "sha256:40939af3b46f1e3cbcef006790881771918d716b2e25122a6c9f1cca106f5de0",
+    "whitespace.log": "sha256:e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "marketplace_activation": "DISABLED",
+  "native_bundle_digest": "sha256:af12d52061c706aee5be94aa2d23e74b53d4d05ac262a44becd1f1e2a301974c",
+  "native_collector_sha": "5044c86af8934cf23838a33bc0cd9df3909ba6d3",
+  "new_accepted_profiles": 0,
+  "paid_operations": 0,
+  "portable_tests": {
+    "failed": 0,
+    "passed": 356,
+    "recorder": "EXCLUDED; historical FFmpeg/sandbox limitation unchanged"
+  },
+  "pr_disposition": "DRAFT_HOLD",
+  "production_integration": "NOT_RUN",
+  "profiles": {
+    "api-and-interface-design": "FAIL",
+    "security-and-hardening": "PASS"
+  },
+  "schema": "myskills.fresh-validation.v8.2",
+  "security_acceptance": "PENDING_HOSTED_SUCCESSOR_VALIDATION",
+  "source_sha": "dd8655cf3d9710f46313d1576158b38cff9fff03",
+  "status": "PASS",
+  "successor_assisted_replay": "PASS_EXACT_VERDICTS_REPRODUCED",
+  "successor_report": "sha256:9cda189094deb588dcbf843133bedfac1d3f36b1f68470f516ffb9028db1cb87",
+  "successor_report_file_digest": "sha256:dd1f166f69606a78b1bdac8e2f9cef7dde8d72ff004d0b00f7a783f7465ab137"
+}

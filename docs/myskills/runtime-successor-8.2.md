@@ -132,3 +132,24 @@ failed in the original positive control. The failed artifact is retained as
 SHA-256 `433e7b0c5088c5efd726a1dbed6d54326400dd50dcc111dfea83e9b72018e4a3`.
 No CI gate was removed or bypassed. Fresh successor hosted replay cannot run
 until authorized evidence custody is available to the runner.
+
+## Fresh checkout
+
+A fresh GitHub clone of `dd8655cf3d9710f46313d1576158b38cff9fff03` passed all
+356 portable tests and validated the unchanged 92-Skill catalog. It reused the
+existing Python environment and installed only `acorn@8.15.0` from the offline
+cache using the committed lockfile and disabled install scripts.
+
+The fresh checkout restored the eight local parts against the committed bundle
+digest. Its assisted replay report is byte-identical to the first local replay.
+Historical TDD replay reproduced accepted candidate digest `b9b9e51c…`.
+Historical custody verification preserved all 520 original files and the
+checkpoint-7 acceptance hold. The checkout stayed clean. Exact references are
+in `fresh-validation.json`.
+
+Hosted run `38071359010` on that commit passed the existing package, browser and
+historical replay jobs. This later green run does not erase the earlier SQLite
+failure, repair the historical evaluator, or validate successor transcripts.
+The workflow is unchanged and has not run successor replay. No new profile is
+accepted. The eight evidence parts need explicit disclosure authorization
+before hosted replay can be enabled. PR #7 remains draft and on HOLD.
