@@ -1,0 +1,18 @@
+{
+  "base_after": "main",
+  "base_before": "codex/myskills-platform",
+  "base_sha": "dee52b0344c700237f18f6bff1a4eb016a8317a4",
+  "changed_files": 212,
+  "diff_sha256": "dbbcb2e2bb179e99b8eb073b8433aac886b97f62f456d21a8549b36f1c6919e4",
+  "diff_unchanged": true,
+  "draft": true,
+  "evidence_digest": "sha256:b3adf477bb70501a305d12bdebb90f6576dfd037fccc8a04e0dcec7eba6f6d2e",
+  "foundation_and_main_tree": "0359847e9630370a86e40536672abd275e1aad4c",
+  "foundation_head": "d57ff77b8522f897fc6ae392cf59b3141295ba82",
+  "head_at_retarget": "125fcc7e2a506df97d1bc5176520d4313f7b89bf",
+  "hold": true,
+  "independent_review": "source-compatible; frozen foundation tree equals main; GitHub compare agrees with local file list",
+  "merge_authorized": false,
+  "public_evidence_upload": "AWAITING_EXACT_BUNDLE_REVIEW_AND_FINAL_OWNER_APPROVAL",
+  "schema": "myskills.pr7-retarget.v1"
+}

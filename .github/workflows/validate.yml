@@ -122,7 +122,7 @@ jobs:
       - name: Independently replay follow-ups and preserve reviewed failures
         run: python -m qualification.replay_followup_diagnostics --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint5-followup
       - name: Verify checkpoint 6 source claims and retained contradictions
-        run: python -m qualification.checkpoint_six --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint6
+        run: python -m qualification.replay_checkpoint6_diagnostics --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint6
       - name: Restore checkpoint 7 native source-supported workflows
         env:
           GH_TOKEN: ${{ github.token }}
