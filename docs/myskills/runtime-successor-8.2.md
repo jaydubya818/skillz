@@ -1,8 +1,10 @@
 # MySkills recovery runtime 8.2
 
 This is a separate qualification profile, authorized on 2026-10-10. PR #7 stays
-draft and on HOLD. PR #6 is still open and unmerged at the frozen foundation
-commit, so the dependency relationship is unchanged.
+draft and on HOLD. PR #6 merged as `dee52b0344c700237f18f6bff1a4eb016a8317a4`.
+Canonical main has the same tree as frozen foundation `d57ff77b…`. PR #7 still
+targets `codex/myskills-platform`; retargeting requires owner approval. The
+read-only comparison is retained in `retarget-assessment.json`.
 
 The model manifest remains
 `sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173`.
@@ -72,8 +74,61 @@ mandatory.
 At source preparation, focused identity, tamper, evaluator and custody tests
 pass 54 cases. Review found one missing imported harness dependency; its regression
 failed before the binding correction and passes afterward. This is not behavioral
-qualification. Native results, independent
-output review and replay must be retained separately before any acceptance.
+qualification.
 No Skill instructions, historical observations, catalog trust or consumer
 repositories are changed. Paid model operations are zero; production and
 marketplace execution remain disabled.
+
+## Native results
+
+Collector `5044c86af8934cf23838a33bc0cd9df3909ba6d3` completed all four trials.
+Admission and closing full-byte hashes matched the complete successor runtime
+pin. The batch reports STABLE, no halt, and all results admissible. Tool
+containers were removed after each trial. Independent review checked every
+model-to-tool request, journal chain, source/test/document binding, workflow
+order, final response and recorded cleanup.
+
+| Case | Evaluator and independent review |
+|---|---|
+| API representative | FAIL |
+| API adversarial | PASS |
+| Security representative | PASS |
+| Security adversarial | PASS |
+
+The API representative changed whitespace inside its CREATE TABLE SQL string
+in addition to the two reviewed edits. The exact AST policy rejects that extra
+change. This is an out-of-profile edit, not an observed retry, timeout or
+concurrency failure. Every recorded functional and source-claim check passed.
+The adversarial API output satisfies the exact edit policy. Both API cases
+recorded the full contract before implementation and ran the concurrency and
+legacy checks. The API profile remains FAIL because both cases must pass.
+
+Both security cases preserved the retained implementation and generated
+source-supported claim records after actual tests. Resource checks distinguish
+missing data from present null data and exercise eight denials. The candidate
+returns status 403 without a reason code; rejection classes identify controlled
+single-fault fixtures. This does not establish reason-coded production error
+semantics. Security remains a candidate pending fresh and hosted validation.
+
+The native bundle digest is
+`sha256:af12d52061c706aee5be94aa2d23e74b53d4d05ac262a44becd1f1e2a301974c`.
+It contains 144 files and is retained in the separate immutable evidence vault.
+Public transcript publication is pending explicit authorization. Automatic
+approval review rejected the attempted PR evidence comment before publication;
+no bundle comment was posted. Eight prepared parts total 466,548 bytes. Common
+credential-pattern checks found no matches, but that check does not grant
+disclosure authority. Review summaries and digests are recorded separately.
+
+The first local assisted replay reproduced all four native verdicts exactly.
+Specific verifier denials and 13 adapter effect/owner controls passed. Its
+sealed report is `9cda189094deb588dcbf843133bedfac1d3f36b1f68470f516ffb9028db1cb87`.
+The post-run container inventory found no remaining MySkills containers.
+`native-validation.json` records this checkpoint without accepting a new profile.
+
+Historical evaluation results and the checkpoint-7 hold remain unchanged.
+Hosted run `38070021442` at collector `5044c86…` passed 354 portable tests with
+two macOS-only skips and the browser job. Its historical checkpoint-7 replay
+failed in the original positive control. The failed artifact is retained as
+SHA-256 `433e7b0c5088c5efd726a1dbed6d54326400dd50dcc111dfea83e9b72018e4a3`.
+No CI gate was removed or bypassed. Fresh successor hosted replay cannot run
+until authorized evidence custody is available to the runner.

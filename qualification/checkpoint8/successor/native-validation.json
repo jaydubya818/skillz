@@ -1,0 +1,58 @@
+{
+  "accepted_behavioral_profiles": 1,
+  "case_verdicts": {
+    "api-and-interface-design--adversarial": "PASS",
+    "api-and-interface-design--representative": "FAIL",
+    "security-and-hardening--adversarial": "PASS",
+    "security-and-hardening--representative": "PASS"
+  },
+  "collector_commit": "5044c86af8934cf23838a33bc0cd9df3909ba6d3",
+  "completed_cases": 4,
+  "completion_digest": "sha256:1a8aa1b72420b19d6cff655212cb4268013feefb8749e3af2a4a6364d09835ef",
+  "consumer_execution": "DISABLED",
+  "effect_controls": "sha256:65ad727ea931c9b502ae83fcc40b1b300511d7feea7bbcac3a8dc7e3b10d2fdd",
+  "evidence_digest": "sha256:e7ebea865f4b5124d69cf34d873ec97150f26cc05273802af134ee957fa2289f",
+  "external_alpha_impact": "NONE",
+  "focused_tests": {
+    "failed": 0,
+    "passed": 54
+  },
+  "fresh_clone": "PENDING",
+  "globally_trusted_skills": 0,
+  "historical_failed_hosted_run": {
+    "artifact_id": 11677160109,
+    "artifact_sha256": "433e7b0c5088c5efd726a1dbed6d54326400dd50dcc111dfea83e9b72018e4a3",
+    "browser": "PASS",
+    "diagnostic_file_sha256": "1ee8d1251ece8268e6d819c6ebc9454486cc1f18b44bf4da2c144ede6ae7a785",
+    "head": "5044c86af8934cf23838a33bc0cd9df3909ba6d3",
+    "historical_replay": "FAIL",
+    "id": 38070021442,
+    "package_tests": {
+      "passed": 354,
+      "skipped": 2
+    }
+  },
+  "historical_tdd_changed": false,
+  "hosted_successor_replay": "BLOCKED_PENDING_EXPLICIT_BUNDLE_DISCLOSURE_AUTHORIZATION",
+  "independent_output_review": "sha256:07fa0e8e9ac0818fb7b67f2c0c1aceccba1e69f258988c86178c553f60ec81fb",
+  "local_assisted_replay": "PASS_EXACT_VERDICTS_REPRODUCED",
+  "local_report_digest": "sha256:9cda189094deb588dcbf843133bedfac1d3f36b1f68470f516ffb9028db1cb87",
+  "local_report_file_digest": "sha256:dd1f166f69606a78b1bdac8e2f9cef7dde8d72ff004d0b00f7a783f7465ab137",
+  "marketplace_activation": "DISABLED",
+  "native_bundle_digest": "sha256:af12d52061c706aee5be94aa2d23e74b53d4d05ac262a44becd1f1e2a301974c",
+  "native_cases": 4,
+  "new_accepted_profiles": 0,
+  "paid_operations": 0,
+  "postrun_available_bytes": 14776188928,
+  "postrun_myskills_containers": [],
+  "pr_status": "DRAFT_HOLD",
+  "production_integration": "NOT_RUN",
+  "profile_candidates": {
+    "api-and-interface-design": "FAIL",
+    "security-and-hardening": "PASS"
+  },
+  "runtime_identity": "STABLE",
+  "schema": "myskills.native-validation.v8.2",
+  "specific_verifier_controls": "sha256:ae46b70ff1bddfee0b69144bc32cea61eb285ab250521598c96e81bae3809ebc",
+  "tool_calls": 63
+}

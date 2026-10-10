@@ -1,0 +1,22 @@
+{
+  "approval_required": true,
+  "canonical_main": "dee52b0344c700237f18f6bff1a4eb016a8317a4",
+  "current_base": "codex/myskills-platform",
+  "diff_sha256": "9a7e3d220588846112b575c0a26cfbddf57fd0b812034ddc3df834cb700e9452",
+  "evidence_digest": "sha256:57f799a988914e099a699dea5084d2c7f2e82f1f2d5e2c520b9bd69bbf621138",
+  "foundation_tree": "0359847e9630370a86e40536672abd275e1aad4c",
+  "limitation": "Source compatibility only. Retargeted CI has not run. No merge, retarget, deployment or branch rewrite is authorized.",
+  "main_tree": "0359847e9630370a86e40536672abd275e1aad4c",
+  "merge_base": "d57ff77b8522f897fc6ae392cf59b3141295ba82",
+  "merge_recommendation": "HOLD",
+  "pr6_head": "d57ff77b8522f897fc6ae392cf59b3141295ba82",
+  "pr6_merged_at": "2026-10-10T16:52:07Z",
+  "pr6_state": "MERGED",
+  "pr7_diff_equal": true,
+  "pr7_head_assessed": "5044c86af8934cf23838a33bc0cd9df3909ba6d3",
+  "proposed_base": "main",
+  "read_only": true,
+  "retarget": "NOT_PERFORMED",
+  "schema": "myskills.retarget-assessment.v8.2",
+  "tree_equal": true
+}

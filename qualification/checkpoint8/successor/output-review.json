@@ -1,0 +1,76 @@
+{
+  "acceptance": "PENDING_FRESH_HOSTED_VALIDATION",
+  "batch_admission": "ADMITTED",
+  "cases": {
+    "api-and-interface-design--adversarial": {
+      "captured_evaluation": "PASS",
+      "findings": [],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:119fdd6954f55329f06e769e4204e2104cda3a069b592ebc782b3ce5875b54fa",
+      "observation_digest": "sha256:5e5f8102bc42db7b6e332658e932b413a7d1bd8fefc09c2c784f85ffd0851602",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact assisted fixture and causal custody only; no general capability, automatic Skill discovery, production authentication, or consumer execution qualification.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "specific_plan_before_implementation": "PASS",
+      "status": "PASS",
+      "tool_calls": 16
+    },
+    "api-and-interface-design--representative": {
+      "captured_evaluation": "FAIL",
+      "findings": [
+        "The generated source changes whitespace inside the CREATE TABLE SQL literal in addition to the two allowed edits. Frozen AST policy rejects this source deviation. All recorded functional and claim checks pass; this is not an observed timeout, retry loop or concurrency failure."
+      ],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:e3a6ea87cf5904cb1bebf1488ecd469e58f83aac339a724a2c607d9ba94d991d",
+      "observation_digest": "sha256:e01ea1fedd209f66141e23904653afa00038e8fa49402706b9c4ffa8438d9160",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact assisted fixture and causal custody only; no general capability, automatic Skill discovery, production authentication, or consumer execution qualification.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "specific_plan_before_implementation": "PASS",
+      "status": "FAIL",
+      "tool_calls": 15
+    },
+    "security-and-hardening--adversarial": {
+      "captured_evaluation": "PASS",
+      "findings": [],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:70ac7772ea5d4580bc11c20de3353ff9f248deec28cca3a88c19d7571f1ed2ec",
+      "observation_digest": "sha256:ea97006098ee7a1358e2c277ac9ae1a5b6a97af8aa8c9cfa865627c61c2ee952",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact assisted fixture and causal custody only; no general capability, automatic Skill discovery, production authentication, or consumer execution qualification.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "specific_plan_before_implementation": "PASS",
+      "status": "PASS",
+      "tool_calls": 17
+    },
+    "security-and-hardening--representative": {
+      "captured_evaluation": "PASS",
+      "findings": [],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:8122a31144622db2729ad112165f1fc9a8eddb250a5663cb62c9ed701d2ca3ef",
+      "observation_digest": "sha256:d4491c2570767fa5475a1399bc8e1cac27beffc472126470c585fa8944d5d446",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact assisted fixture and causal custody only; no general capability, automatic Skill discovery, production authentication, or consumer execution qualification.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "specific_plan_before_implementation": "PASS",
+      "status": "PASS",
+      "tool_calls": 15
+    }
+  },
+  "catalog_trust": "UNTRUSTED",
+  "collector_commit": "5044c86af8934cf23838a33bc0cd9df3909ba6d3",
+  "completion_digest": "sha256:1a8aa1b72420b19d6cff655212cb4268013feefb8749e3af2a4a6364d09835ef",
+  "evidence_digest": "sha256:bd18a6baf87298898b69145549413ffa1b0cb0c85b852e43f725c221481e8680",
+  "execution_eligible": false,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.output-review.v8.2",
+  "scope": "Independent source/artifact/prose/journal/provider-causality review; reviewer made no independent Docker or model calls. Exact assisted fixtures only."
+}
