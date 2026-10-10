@@ -117,3 +117,27 @@ def test_passing_execution_never_cancels_retained_counterevidence():
     assert case_status(True,'PASS','PASS',None)=='PASS'
     assert case_status(False,'PASS','PASS',None)=='PARTIAL'
     assert case_status(True,'PASS','FAIL',None)=='FAIL'
+
+
+def test_legacy_difference_is_retained_before_exception_without_changing_result(tmp_path, monkeypatch):
+    import pytest
+    from qualification import replay_followup_diagnostics as diagnostics
+    from qualification.checkpoint_four import unseal
+    result={'status':'FAIL','stderr':'database is locked'}
+    original=lambda *args, **kwargs: result
+    monkeypatch.setattr(diagnostics.legacy,'evaluate',original)
+    monkeypatch.setattr(diagnostics,'file_digest',lambda path:'bound-source')
+    monkeypatch.setattr(diagnostics.subprocess,'check_output',lambda *args, **kwargs:'bound-revision')
+    output=tmp_path/'diagnostic'
+    def failing_report(root,retained):
+        observed=diagnostics.legacy.evaluate({'skill':'api'}, {'api.py':'source'}, [], {}, True)
+        assert observed is result
+        saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+        assert saved['observations'][0]['result']==result
+        raise ValueError('frozen evaluation differs')
+    monkeypatch.setattr(diagnostics.legacy,'report',failing_report)
+    with pytest.raises(ValueError,match='frozen evaluation differs'):
+        diagnostics.replay(tmp_path,tmp_path,output)
+    assert diagnostics.legacy.evaluate is original
+    saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+    assert saved['outcome']=='FAIL' and saved['qualification_credit'] is False

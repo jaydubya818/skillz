@@ -102,3 +102,14 @@ independent review and matching report bytes before a candidate is accepted.
 Recorder tests remain excluded from the portable suite because of the retained
 FFmpeg/sandbox limitation. Greptile remains DEFERRED; no new source disclosure
 was authorized. Paid provider operations are zero.
+
+Final validation run 38017403315 failed the historical checkpoint-5 follow-up
+comparison before checkpoint 7 ran. Its specific differing evaluator output was
+not retained by the legacy reporter, so this second failure is INCONCLUSIVE and
+must not be asserted to be the earlier confirmed WAL exception. The exact log
+and artifact identity are preserved separately. A diagnostic wrapper now records
+the raw evaluator result before that unchanged strict comparison. It returns
+the original result and rethrows failures; it never retries or suppresses them.
+The wrapper and its regression are separate from all frozen native/evaluator
+identities. Fresh-clone checkpoint-7 exports at that revision matched all16
+local report bytes, but hosted acceptance was withheld.
