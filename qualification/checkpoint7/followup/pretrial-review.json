@@ -1,0 +1,18 @@
+{
+  "evidence_digest": "sha256:542e0e719143a943681f0a82819c5c3db433494533f7784ad5f858ac6c6880d0",
+  "native_credit": false,
+  "new_harness": "codex-app-server/0.157.0+myskills-native-7.1.0",
+  "postnative_review_required": [
+    "Single finish and no post-close tools",
+    "Exact neutral finish notes/final text",
+    "Actual tool call IDs versus evidence digests",
+    "Source comments and documentation",
+    "Full workflow and source-to-claim evidence"
+  ],
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.feedback-successor-pretrial.v7r1",
+  "scope": "Explicit review-assisted correction only; not general or unassisted Skill qualification",
+  "starting_snapshots_verified": true,
+  "status": "PASS",
+  "unchanged_tests_effects_adapter_evaluator": true
+}

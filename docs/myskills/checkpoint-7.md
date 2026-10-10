@@ -46,3 +46,17 @@ gates. Deterministic evaluator controls receive no native behavioral credit.
 Exact profile results and final validation receipts are added after execution.
 No consumer repository or production system is modified. Catalog defaults stay
 UNTRUSTED / NOT_EVALUATED. Publishing and marketplace activation remain disabled.
+
+The initial four-case batch receives no qualification credit. Three native turns
+completed; the last reached its output limit after repeated post-close calls.
+Runtime identity stayed stable and container cleanup was confirmed. The sealed
+reconciliation, raw transcripts, exact artifacts and four failed output reviews
+are retained. API output kept an inaccurate BEGIN IMMEDIATE comment; one final
+message misstated a test citation. Security output confused call identities with
+evidence digests, and the interrupted case mistyped its final document digest.
+
+One versioned successor batch uses harness 7.1.0 with explicit reviewer feedback
+and the sealed failed representative outputs as its starting artifacts. It
+keeps the same checks, permitted effects, adapter, model and profile evaluator.
+Any resulting candidate applies only to this reviewer-assisted correction task.
+It cannot establish unassisted generation or general-purpose Skill trust.

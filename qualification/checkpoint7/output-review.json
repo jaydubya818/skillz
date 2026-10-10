@@ -1,0 +1,60 @@
+{
+  "batch_admission": "WITHHELD",
+  "cases": {
+    "api-and-interface-design--adversarial": {
+      "captured_evaluation": "PASS",
+      "findings": [
+        "api.py retains false BEGIN IMMEDIATE source comment.",
+        "Final message says the document cites call_1j907mxx; actual document cites call_d1enawdl."
+      ],
+      "journal_and_causal_custody": "PASS_FOR_CAPTURED_ENTRIES",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:23880c4ce7acded1e9403bf23609ed57846c3d7e904468847d2e0b89173a2aa0",
+      "observation_digest": "sha256:ce17a3d13b67ab60bc67a295ea84fe2965f0a4c7656dd6795161619071260f33",
+      "status": "FAIL"
+    },
+    "api-and-interface-design--representative": {
+      "captured_evaluation": "FAIL",
+      "findings": [
+        "api.py retains false BEGIN IMMEDIATE source comment.",
+        "Second finish changed notes and was denied SESSION_CLOSED; unchanged terminal policy fails."
+      ],
+      "journal_and_causal_custody": "PASS_FOR_CAPTURED_ENTRIES",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:3410326767dcc4c48714f9b30c3f26182002eb398a4d9d4d7372d659d10fae00",
+      "observation_digest": "sha256:b7145155b09bee91140724ffc34193daea75e9d80b172816d00ce89eb6c149ee",
+      "status": "FAIL"
+    },
+    "security-and-hardening--adversarial": {
+      "captured_evaluation": null,
+      "findings": [
+        "Successful finish mistyped the document digest; denied later finishes cannot repair it.",
+        "Repeated post-close read/finish attempts reached OUTPUT_LIMIT; generation UNKNOWN and no completed native turn."
+      ],
+      "journal_and_causal_custody": "PASS_FOR_CAPTURED_ENTRIES",
+      "native_generation": "UNKNOWN",
+      "native_transcript_digest": "sha256:dfda32c50945fae0906dda6133e12b7c1057fa56e0c19ad66bab81f17ebc8a0b",
+      "observation_digest": "sha256:1a4d8c53f2633be876eb903cd2840f3d51ac8e37cd398b66bc7cc5c3941800de",
+      "status": "FAIL"
+    },
+    "security-and-hardening--representative": {
+      "captured_evaluation": "FAIL",
+      "findings": [
+        "Document uses response evidence digest instead of actual call_8k2yn3u0.",
+        "Finish uses response evidence digest instead of actual call_wn0ieoou.",
+        "Post-finish read was denied SESSION_CLOSED."
+      ],
+      "journal_and_causal_custody": "PASS_FOR_CAPTURED_ENTRIES",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:46c9c062ac26ff97ff1481eee3f7f5f2a2ee9a6a29b2de012f9d4f280f4edf6a",
+      "observation_digest": "sha256:5926e7a94ec06173877f623db427a58f9a5d0be73981aed090db1a1349e8073b",
+      "status": "FAIL"
+    }
+  },
+  "completion_digest": "sha256:1e8d8a5bad4174ac82bf7faa32f9675e2dbf441fd01d98d381271c26dc3c15f1",
+  "evidence_digest": "sha256:e6bd8a43fc06f3c7e3f52c9b7d6217e4e27e5303de80c6f6973ea65fb690998a",
+  "qualification_credit": false,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.output-review.v7",
+  "scope": "Independent source/artifact/prose/journal/provider-causality review; no independent Docker/model rerun"
+}

@@ -123,6 +123,12 @@ jobs:
         run: python -m qualification.checkpoint_five_followup --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint5-followup
       - name: Verify checkpoint 6 source claims and retained contradictions
         run: python -m qualification.checkpoint_six --retained .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint6
+      - name: Restore checkpoint 7 native source-supported workflows
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m qualification.custody_v7 --restore .artifacts/qualification/checkpoint7-retained
+      - name: Independently verify checkpoint 7 claims, effects and preserved verifier failures
+        run: python -m qualification.checkpoint_seven --retained .artifacts/qualification/checkpoint7-retained --previous .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint7
       - uses: actions/upload-artifact@v4
         if: always()
         with:
