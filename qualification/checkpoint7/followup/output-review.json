@@ -1,0 +1,68 @@
+{
+  "acceptance": "PENDING_FRESH_HOSTED_VALIDATION",
+  "api_adverse_evidence_gate": "BLOCKED_BY_SEPARATE_HOSTED_COUNTEREXAMPLE",
+  "batch_admission": "ADMITTED",
+  "cases": {
+    "api-and-interface-design--adversarial": {
+      "captured_evaluation": "FAIL",
+      "findings": [
+        "Code write preceded the first contract write, violating the required document-before-code workflow."
+      ],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:014ccef803da92bc00a8d1792116f4338ef5aac7deb7492e7c1b63325ef974ef",
+      "observation_digest": "sha256:c9df3a503224f78890504fd0f6de9e02620b723c1abf535d0eb9bc0de0bd9333",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact review-assisted output and causal custody only. Separate adverse evidence and validation gates remain mandatory.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "status": "FAIL"
+    },
+    "api-and-interface-design--representative": {
+      "captured_evaluation": "PASS",
+      "findings": [],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:211ac86d91c959045d86846df8f7e9cc7d69c2162a96086ea458e2e3f49a7592",
+      "observation_digest": "sha256:c6db9eb0f737e645041fd333910665167ce8ef7b1ee2fba6e3973d3aa4579342",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact review-assisted output and causal custody only. Separate adverse evidence and validation gates remain mandatory.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "status": "PASS"
+    },
+    "security-and-hardening--adversarial": {
+      "captured_evaluation": "PASS",
+      "findings": [],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:a12aabbe5dd98983c4727f87ebe2faf43a6c1f8b01b32e0eb150039c20cfd3e9",
+      "observation_digest": "sha256:55c975704b785bdb71c76bc49ed7a3ee0f505429b6f18e57ee5b71880266be28",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact review-assisted output and causal custody only. Separate adverse evidence and validation gates remain mandatory.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "status": "PASS"
+    },
+    "security-and-hardening--representative": {
+      "captured_evaluation": "PASS",
+      "findings": [],
+      "journal_and_causal_custody": "PASS",
+      "native_generation": "COMPLETED",
+      "native_transcript_digest": "sha256:5605a8e469aff9809b17aa84ecb2017d7b4f6c6c70e53ef06f12897358551440",
+      "observation_digest": "sha256:a07668d4efd667a2ccb87864cca7abeae50a2d5d23e5ca37d2a5963b9144c46d",
+      "protected_files_and_cleanup": "PASS",
+      "scope": "Exact review-assisted output and causal custody only. Separate adverse evidence and validation gates remain mandatory.",
+      "single_finish_neutral_text": "PASS",
+      "source_claim_bindings": "PASS",
+      "status": "PASS"
+    }
+  },
+  "catalog_trust": "UNTRUSTED",
+  "completion_digest": "sha256:1a8aa1b72420b19d6cff655212cb4268013feefb8749e3af2a4a6364d09835ef",
+  "evidence_digest": "sha256:374531fef920d530f5a14a56823410d3b6750a92b5a2ea1d7ec38ee4b3556368",
+  "execution_eligible": false,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.output-review.v7",
+  "scope": "Independent source/artifact/prose/journal/provider-causality review; no independent Docker/model rerun"
+}

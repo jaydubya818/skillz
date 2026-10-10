@@ -1,0 +1,6 @@
+{
+  "file_digest": "sha256:0c6559164033ba06526d7e9f822ce7e69a7d83a9d4005fed553e7e083b70e9ca",
+  "evidence_digest": "sha256:a5a185f21076750329c74f65f9e7271559a3619cc65cadb74a1a2c95cf909c42",
+  "collector_commit": "f7c3145b929417a92032309fe1e4ee9a363f3421",
+  "completion_digest": "sha256:b7e5a312f8be1dd9f5b7bccbf913fc46d0ce38e387201a4852da77700e70b27d"
+}

@@ -1,0 +1,23 @@
+{
+  "criteria_unchanged": true,
+  "docker_calls": 0,
+  "evidence_digest": "sha256:34289b4b98bbe8ab0362b657c6375fa41ab6cac6fd3723692f3476bf11dd7a1f",
+  "failures_propagate": true,
+  "focused_tests": 12,
+  "model_calls": 0,
+  "persists_before_comparison": true,
+  "qualification_credit": false,
+  "restores_evaluator_binding": true,
+  "retries": 0,
+  "returns_identical_result": true,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.diagnostic-review.v1",
+  "scope": "Diagnostic retention correction only. Earlier failed hosted runs remain evidence; acceptance requires separate validation.",
+  "sources": {
+    ".github/workflows/validate.yml": "sha256:38470150d8aca55348450f1e86130d0c96353a34f2103a7463df6cc86af7f6ac",
+    "qualification/checkpoint7/hosted-validation-failure.json": "sha256:9c4e79282d987bf1520ab8f52bfd28951bd070e659d09e42bb73f1d896c1da44",
+    "qualification/replay_followup_diagnostics.py": "sha256:0f9ef80169e291bf509bfefe1d21ab9effdf9c1df3cfa0800a9566b0e7a42d8b",
+    "tests/test_myskills_claim_workflows_v7.py": "sha256:a5d618f11766da36b252e35dbf1a8863678172a12a3fc43f9a8e227b2ac34057"
+  },
+  "status": "PASS"
+}

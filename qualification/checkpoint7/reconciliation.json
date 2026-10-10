@@ -1,0 +1,37 @@
+{
+  "cases": {
+    "api-and-interface-design--adversarial": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "observed_verification": "PASS",
+      "pending_provider_responses": [],
+      "transport_failure": null
+    },
+    "api-and-interface-design--representative": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "observed_verification": "FAIL",
+      "pending_provider_responses": [],
+      "transport_failure": null
+    },
+    "security-and-hardening--adversarial": {
+      "cleanup_confirmed": true,
+      "generation": "UNKNOWN",
+      "observed_verification": null,
+      "pending_provider_responses": [],
+      "transport_failure": "OUTPUT_LIMIT"
+    },
+    "security-and-hardening--representative": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "observed_verification": "FAIL",
+      "pending_provider_responses": [],
+      "transport_failure": null
+    }
+  },
+  "completion_digest": "sha256:1e8d8a5bad4174ac82bf7faa32f9675e2dbf441fd01d98d381271c26dc3c15f1",
+  "evidence_digest": "sha256:be7f7795ad95271e261eca23c07a0429379d526d75282313d1e551e19de7185a",
+  "next_batch_requires_fresh_RuntimeGuard": true,
+  "qualification_containers_remaining": 0,
+  "qualification_credit": false
+}

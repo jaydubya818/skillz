@@ -1,0 +1,24 @@
+{
+  "accepted_tdd_profile": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+  "base_commit": "e121c059385b82033fffac655681962266241872",
+  "evidence_digest": "sha256:4a5aa7db79992f80c9ad5020e2b9cdb2f2fa45ce0a39f7d65307dbed5e57e4a6",
+  "exports": {
+    "MissionControl.json": "sha256:b6d642e9e76d8a330b75c261eb55df57b9e433983e04ea646c6d2c5fe803ede8",
+    "MyApps.json": "sha256:977bf8e92c4cf8930f1b1caf135d697f6a1896847dbd6a7465703dba1a6368aa",
+    "MyEve-Sofie-subagents.json": "sha256:ba16730c426a57e24b70f39f3fcaad98f4a8f1bafc52e3e0b0af49a8657fc200",
+    "MyFactory.json": "sha256:389c932a74eb8fbe7820a1a5161ddbc8d843d627c3e306fcaf373463feccb287",
+    "checkpoint.json": "sha256:24d02d185740fd2ca675073d78154a2bcb24e769ac44797d87c5de80892d2035",
+    "claims.json": "sha256:8418870c0f8a81238ef21f7483df8da1d03df4262fe29975e06d2ff2c049b6a7",
+    "composition.json": "sha256:60ef28d3bc5103904c61ae8587eec5ec16678ea6e79443e1f7ce0bb6946963f6",
+    "matrix.json": "sha256:9fd2adaccecef4dbf2ad11be3fc19221e6e58441a6eacabf681be8bdb8385033"
+  },
+  "fresh_clone": "PENDING",
+  "hosted_ci": "PENDING",
+  "independent_review_digest": "sha256:e69718288a4db4713cb9c9e5a3ee1444f95afd90bfeab39b22e5d7954d6e4633",
+  "local_portable_log_digest": "sha256:55724f2cfdf6dac456f4b7c02716951a7b874db2402c441fecfec9689ad0e023",
+  "local_portable_tests": 289,
+  "note": "Remote validation is a subsequent exact-SHA receipt; this source checkpoint does not claim future runs passed.",
+  "report_digest": "sha256:2ed5201448b3fa222eecfac6ff0fad79287a210697b2b01c459ff1579a842cfc",
+  "schema": "myskills.checkpoint6.report-pin",
+  "verifier_digest": "sha256:33457bff1b64f55db201317c39599e4bf311a279beb9d5ed18362338cc7b8140"
+}

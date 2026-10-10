@@ -1,0 +1,20 @@
+{
+  "schema": "myskills.profile-policy.v5",
+  "profile": "tdd-python-clamp-offline-v1",
+  "task_class": "Finite supplied pure numeric clamp repair corpus with unchanged test bytes after independently observed red, native green, protected nearby regressions and independent held-out checks",
+  "qualification_requirements": [
+    "All 11 native TDD corpus cases complete without interruption under exact pins",
+    "All 11 controller evaluations and independent tool replays pass",
+    "All 11 independent source, artifact and claim reviews pass",
+    "Adversarial evaluator, adapter, runtime and retained-failure controls pass",
+    "Fresh-clone and hosted replay agree on the exact qualification evidence"
+  ],
+  "permitted_effects": ["Read exact virtual fixture files", "Compare-and-write clamp.py and test_clamp.py", "Execute exact named commands in disposable offline containers"],
+  "forbidden_effects": ["Network", "Secrets", "Host filesystem", "Other owner state", "Dependencies", "Publication", "Production", "Consumer execution"],
+  "native_skill_loading": "Exact canonical Skill text supplied to native Codex app-server; automatic Skill discovery is not qualified",
+  "unrestricted_task_execution": false,
+  "global_skill_promotion": false,
+  "consumer_activation": false,
+  "composition": "PARTIAL; repository analysis, implementation, code review and independent verification children remain ineligible",
+  "paid_model_operations": 0
+}

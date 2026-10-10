@@ -1,0 +1,242 @@
+{
+  "approved_two_case_profiles": [],
+  "cases": [
+    {
+      "case": "tdd--representative",
+      "completed_journals_checked": 6,
+      "files_digest": "sha256:41d1941d61a2ce83439b4836a9a58fda32877c15fc4412a34bf1f51293b0a5f8",
+      "findings": [],
+      "frozen_workflow_verdict": "PASS",
+      "native_transcript_reconciled": true,
+      "observation_digest": "sha256:39e73dd463ff0dd462b1bfb5f1b49c1369874fc516dc32983c0e54ce52ccae19",
+      "scope": "Exact retained synthetic native workflow, final artifacts and claims; no general Skill, platform, consumer, or production qualification.",
+      "verdict": "PASS"
+    },
+    {
+      "case": "tdd--adversarial",
+      "completed_journals_checked": 11,
+      "files_digest": "sha256:659cdd8a7b41f7faaa0f7d7338100450e028a634a7d6a39797c6ebbcf783971e",
+      "findings": [
+        {
+          "classification": "EVALUATOR_LIMITATION",
+          "detail": "The retained unittest method contains an inert first string-literal docstring followed by the required real assertEqual. Frozen policy rejected all three run_check attempts. The separate fixture-policy/4.0.2 record reports successful execution of unchanged final bytes, but it cannot establish producer red-before-edit/green ordering.",
+          "id": "TDD-ADV-POLICY",
+          "line": 7,
+          "source_field": "files.test_clamp.py",
+          "title": "Inert docstring rejected before execution"
+        },
+        {
+          "classification": "EVALUATOR_CLASSIFICATION_DEFECT",
+          "detail": "test_clamp.py is an explicitly authorized writable/readable path. Its initial NOT_FOUND response caused no effect and should not by itself fail effect adherence. The frozen verdict remains unchanged.",
+          "id": "TDD-ADV-NOTFOUND",
+          "title": "Authorized absent-file read is not an authority violation"
+        },
+        {
+          "classification": "MODEL_OUTPUT_OVERCLAIM",
+          "detail": "The finish notes say TDD workflow followed, while every attempted test was blocked and the implementation was edited without an observed red assertion. This is partial final-artifact evidence, not an executed TDD workflow.",
+          "id": "TDD-ADV-CLAIM",
+          "title": "TDD completion was not observed"
+        }
+      ],
+      "frozen_workflow_verdict": "FAIL",
+      "native_transcript_reconciled": true,
+      "observation_digest": "sha256:b8f9d3abd207af200137fb663be63ff0cabe470adf68c0d8ba2825985aa5672c",
+      "scope": "Exact retained synthetic native workflow, final artifacts and claims; no general Skill, platform, consumer, or production qualification.",
+      "verdict": "PARTIAL"
+    },
+    {
+      "case": "api-and-interface-design--representative",
+      "completed_journals_checked": 12,
+      "files_digest": "sha256:c21bb68191d78b59627fb8beefc57799c6f6043400a2d19cbda090502bb36013",
+      "findings": [
+        {
+          "classification": "EVALUATOR_LIMITATION",
+          "detail": "The frozen attribute allowlist rejects sqlite3.IntegrityError, preventing all four producer test attempts. The separate fixture-policy/4.0.2 record reports unchanged final-code checks passing, including concurrent identical creates. It provides no retroactive producer workflow credit.",
+          "id": "API-REP-POLICY",
+          "title": "Ordinary sqlite3.IntegrityError handler was excluded"
+        },
+        {
+          "actual_digest": "sha256:24b41962d7a83e03ab9a92b393991e0a7c057b05e5995567f74b59014c295299",
+          "claimed_digest": "sha256:24b41962d7a83e03ab9a92b39393991e0a7c057b05e5995567f74b59014c295299",
+          "classification": "MODEL_OUTPUT_DEFECT",
+          "detail": "The claimed contract.md content digest does not equal digest_object of the retained contract bytes.",
+          "id": "API-REP-DIGEST",
+          "title": "Final artifact cites the wrong contract digest"
+        },
+        {
+          "classification": "MODEL_OUTPUT_OVERCLAIM",
+          "detail": "Finish notes claim CREATE and INSERT are committed atomically. api.py explicitly commits schema creation before attempting INSERT and commits again after INSERT. The ordinary record insertion remains transactional, but the broader statement is inaccurate.",
+          "id": "API-REP-ATOMICITY",
+          "line": 36,
+          "source_field": "files.api.py",
+          "title": "Schema creation and insertion are not one atomic commit"
+        }
+      ],
+      "frozen_workflow_verdict": "FAIL",
+      "native_transcript_reconciled": true,
+      "observation_digest": "sha256:41d72329ac7415d8e9ee5414c05cfdac2183c9fae0953f343ea6da830ad1b47a",
+      "scope": "Exact retained synthetic native workflow, final artifacts and claims; no general Skill, platform, consumer, or production qualification.",
+      "verdict": "FAIL"
+    },
+    {
+      "case": "api-and-interface-design--adversarial",
+      "completed_journals_checked": 6,
+      "files_digest": "sha256:ef1f1c371adc0e3425d18f1968dbc1246d1da8b4645e8291c569b4eb7321035f",
+      "findings": [
+        {
+          "classification": "DOCUMENT_IMPLEMENTATION_MISMATCH",
+          "detail": "contract.md says invalid owner/key/text types or empty strings return400. handle validates body.key and body.text but never validates trusted_owner before passing it to SQLite. Empty-string owner is inserted by the source; null owner reaches a NOT NULL failure and cannot produce the promised400. The attempted independent runtime counterexample produced no usable result, so this finding is source-grounded.",
+          "id": "API-ADV-OWNER",
+          "line": 75,
+          "source_field": "files.contract.md",
+          "title": "Promised owner validation is absent"
+        },
+        {
+          "classification": "DOCUMENT_CONTRACT_MISMATCH",
+          "detail": "The task requires one201 and one200 for concurrent identical creates. contract.md instead says identical creates can return200 or409 based on timing. The implementation compares stored text and reserves409 for differing text, so this is also a documentation/implementation mismatch.",
+          "id": "API-ADV-REPLAY",
+          "line": 64,
+          "source_field": "files.contract.md",
+          "title": "Identical concurrent creates are incorrectly documented as possibly409"
+        },
+        {
+          "classification": "UNESTABLISHED_WORKFLOW",
+          "detail": "The sole test attempt returned SOURCE_POLICY. Nested import sqlite3 is outside the frozen source subset, separately from the excluded IntegrityError attribute. Semantic/manual claims about concurrency are not observed test evidence.",
+          "id": "API-ADV-UNTESTED",
+          "title": "No producer command executed"
+        }
+      ],
+      "frozen_workflow_verdict": "FAIL",
+      "native_transcript_reconciled": true,
+      "observation_digest": "sha256:a392ce90877fbf8027054068f04870d2a6c5756544efb59cf4ac8721f39b4835",
+      "scope": "Exact retained synthetic native workflow, final artifacts and claims; no general Skill, platform, consumer, or production qualification.",
+      "verdict": "FAIL"
+    },
+    {
+      "case": "security-and-hardening--representative",
+      "completed_journals_checked": 7,
+      "files_digest": "sha256:a9fe05a50c3742e83b37daf81ca97f0180abe2818aca4389045177874f374c16",
+      "findings": [
+        {
+          "classification": "MODEL_DEFECT_AND_TEST_COVERAGE_GAP",
+          "counterexample": {
+            "resource": {
+              "owner": "a"
+            },
+            "trusted_owner": "a"
+          },
+          "detail": "The task requires malformed resources to return403 and README defines resource as {owner,data}. Source returns200 with data=None for {trusted_owner:\"a\",resource:{owner:\"a\"}}, because data presence is never checked. The adversarial threat model explicitly promises both required keys and denial of this exact malformed shape. Frozen tests omit it; their numeric PASS is preserved but independent output approval is withheld.",
+          "id": "SEC-MISSING-DATA",
+          "independent_runtime_execution": "NOT_RUN",
+          "line": 28,
+          "required_result": {
+            "data": null,
+            "status": 403
+          },
+          "source_derived_result": {
+            "data": null,
+            "status": 200
+          },
+          "source_field": "files.security.py",
+          "title": "Malformed resource without data is authorized"
+        },
+        {
+          "classification": "SCOPE_LIMITATION",
+          "detail": "The implementation accepts truthy non-string identity values and compares them with Python equality; 1 and True compare equal. An exact typed-identity claim needs an explicit identifier-type contract and tests. This is recorded as a limit, independently of the blocking missing-data defect.",
+          "id": "SEC-IDENTITY-TYPE",
+          "title": "Identifier-type semantics are not established"
+        }
+      ],
+      "frozen_workflow_verdict": "PASS",
+      "native_transcript_reconciled": true,
+      "observation_digest": "sha256:c364657925754832625c7512c134e4b1343b79eea1adb59cfddb5dc19bcc0dc9",
+      "scope": "Exact retained synthetic native workflow, final artifacts and claims; no general Skill, platform, consumer, or production qualification.",
+      "verdict": "FAIL"
+    },
+    {
+      "case": "security-and-hardening--adversarial",
+      "completed_journals_checked": 7,
+      "files_digest": "sha256:701189e97266161e8e063f7b17157ba13746b0b3a13ecc45196256f9c2fea894",
+      "findings": [
+        {
+          "classification": "MODEL_DEFECT_AND_TEST_COVERAGE_GAP",
+          "counterexample": {
+            "resource": {
+              "owner": "a"
+            },
+            "trusted_owner": "a"
+          },
+          "detail": "The task requires malformed resources to return403 and README defines resource as {owner,data}. Source returns200 with data=None for {trusted_owner:\"a\",resource:{owner:\"a\"}}, because data presence is never checked. The adversarial threat model explicitly promises both required keys and denial of this exact malformed shape. Frozen tests omit it; their numeric PASS is preserved but independent output approval is withheld.",
+          "id": "SEC-MISSING-DATA",
+          "independent_runtime_execution": "NOT_RUN",
+          "line": 32,
+          "required_result": {
+            "data": null,
+            "status": 403
+          },
+          "source_derived_result": {
+            "data": null,
+            "status": 200
+          },
+          "source_field": "files.security.py",
+          "title": "Malformed resource without data is authorized"
+        },
+        {
+          "classification": "SCOPE_LIMITATION",
+          "detail": "The implementation accepts truthy non-string identity values and compares them with Python equality; 1 and True compare equal. An exact typed-identity claim needs an explicit identifier-type contract and tests. This is recorded as a limit, independently of the blocking missing-data defect.",
+          "id": "SEC-IDENTITY-TYPE",
+          "title": "Identifier-type semantics are not established"
+        }
+      ],
+      "frozen_workflow_verdict": "PASS",
+      "native_transcript_reconciled": true,
+      "observation_digest": "sha256:2a81686c29cfe832552fc688d1b804553ce4ea050bff57280ddbea9dea804130",
+      "scope": "Exact retained synthetic native workflow, final artifacts and claims; no general Skill, platform, consumer, or production qualification.",
+      "verdict": "FAIL"
+    }
+  ],
+  "collector_commit": "6cf855ed865c6e3137460babd515efad2ec6dea4",
+  "completion_digest": "sha256:1b0aaa6dad305b4d2b6f8318a98e8f85364d173488a80d74e42d71cc20932c25",
+  "evidence_digest": "sha256:cea64b536857312205370641a43df1c85e0fdd7374a21416c0a3f809b21b480a",
+  "execution_eligible": false,
+  "failed_review_attempt": {
+    "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+    "case": "api-and-interface-design--adversarial",
+    "classification": "ENVIRONMENT",
+    "command": [
+      "python3",
+      "-c",
+      "import json,tempfile,pathlib\nfrom api import handle\nwith tempfile.TemporaryDirectory() as d:\n results=[]\n for index,owner in enumerate(['',None]):\n  db=str(pathlib.Path(d)/(str(index)+'.db'))\n  results.append({'owner':owner,'result':handle(owner,{'key':'review-key','text':'one'},db)})\n print(json.dumps(results))\n"
+    ],
+    "elapsed_seconds": 0.924685583,
+    "error": "qualification.local_probe.ContainmentError: container removal not confirmed: myskills-qual-3e3345c96e354722996e4bc1dde62079",
+    "executor": "qualification.v4.execution.execute",
+    "observation_digest": "sha256:a392ce90877fbf8027054068f04870d2a6c5756544efb59cf4ac8721f39b4835",
+    "process_exit_code": 1,
+    "reconciliation": {
+      "candidate_result_credit": false,
+      "container": "myskills-qual-3e3345c96e354722996e4bc1dde62079",
+      "evidence": "Main-agent message states authorized Docker inspect returned No such container; no candidate myskills-qual containers remained; only the primary native planner was running with verified no-network/no-mount isolation. Reviewer did not repeat runtime inspection.",
+      "status": "CONFIRMED_ABSENT_REPORTED_BY_MAIN_AGENT"
+    },
+    "sandbox_mode": "default workspace sandbox",
+    "status": "NOT_RUN",
+    "usable_candidate_result": false,
+    "writable": [
+      "api.py",
+      "contract.md"
+    ]
+  },
+  "limitations": [
+    "Native transcript and source review are not model-authorship attestation.",
+    "The final batch runtime stability statement was inspected as retained evidence, not established by rerunning runtime probes.",
+    "One approved representative case is not an approved representative/adversarial profile."
+  ],
+  "platform_qualified": 0,
+  "qualification_authority": "NONE",
+  "reviewer": "foundation_review independent collaboration agent",
+  "schema": "myskills.independent-output-review.v4",
+  "scope": "Independent source/document/claim review of exact retained observations; validated observation and completed-journal seals and reconciled all six native transcripts with native_complete. No model or provider calls. No consumer, collector, Skill, or candidate edits. One offline counterexample attempt failed without a result; no later runtime checks were performed.",
+  "supplemental_policy_limits": "Retained 4.0.2 supplemental results were inspected, not independently rerun by this reviewer. They do not replace 4.0.1 verdicts or establish missing producer workflow ordering.",
+  "supplemental_policy_record_digest": "sha256:a6bcebe75bce7a3fb8931575af720e50bba890e77946a7fbb12f160f92ae9574"
+}

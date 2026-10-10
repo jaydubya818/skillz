@@ -1,0 +1,45 @@
+{
+  "claims_recomputed": 30,
+  "composition_execution": "NOT_RUN",
+  "consumer_execution": "DISABLED",
+  "evidence_digest": "sha256:e69718288a4db4713cb9c9e5a3ee1444f95afd90bfeab39b22e5d7954d6e4633",
+  "findings_resolved": [
+    "Complete proposition binding prevents receipt substitution",
+    "Completed failing execution remains evaluated failure",
+    "Per-run evidence survives another probe failure",
+    "Concurrency probe proves both workers reach an actual start barrier",
+    "Authentication gaps distinguished from explicit producer claims",
+    "Regression expectations corrected only for canonical revision metadata"
+  ],
+  "limitations": [
+    "No general Skill qualification",
+    "No new model workflow",
+    "No third-party source disclosure"
+  ],
+  "new_profiles": 0,
+  "preservation_verified": [
+    "Accepted TDD bytes",
+    "Native context",
+    "Original failed reports and fixture",
+    "Historical API FAIL and security PARTIAL"
+  ],
+  "pure_tests_passed": 22,
+  "report_digest": "sha256:2ed5201448b3fa222eecfac6ff0fad79287a210697b2b01c459ff1579a842cfc",
+  "retained_contradictions_reproduced": 9,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.independent-review.v6",
+  "scope": "Independent source and retained-evidence review; no independent Docker/model or full-suite rerun.",
+  "verdict": "PASS",
+  "verifier": {
+    "digest": "sha256:33457bff1b64f55db201317c39599e4bf311a279beb9d5ed18362338cc7b8140",
+    "sources": {
+      "qualification/checkpoint6/retained-claim-regressions.json": "sha256:0dbf765fd46c6b82f4edd87dd07304f3861ff89cc0bfad3af011c4f91c83893c",
+      "qualification/checkpoint_six.py": "sha256:ac050dbe5882f54e0ad0e352405db263a4af2fd2ab31666ad3ded495c46ed5e1",
+      "qualification/v6/__init__.py": "sha256:4d56710c7ae8b89cf94953d020983d753b61c0248a29b353d30e5693fec7c8b8",
+      "qualification/v6/claims.py": "sha256:a2aca0f4927f730104bc533804e37e4c537219edd218ecb3afba9abeab2d1374",
+      "qualification/v6/inventory.py": "sha256:b97f3e74af8216e18915f52b325d2e6e03f27c6db695f53462e6ced54878ab88",
+      "qualification/v6/probes.py": "sha256:fac302e20d0938b9f288c77c0a2c9d7c61504b5f7189399af499b2e26321ddc0"
+    },
+    "version": "myskills-claims/6.0.0"
+  }
+}

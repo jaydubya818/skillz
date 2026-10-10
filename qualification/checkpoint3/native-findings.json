@@ -1,0 +1,380 @@
+{
+  "bundle_digest": "sha256:1ed9b7482e2d9ac0adea763506b62b31953465a411227c280a352c139c3b25ad",
+  "cases": [
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:4ae03a0e8505569422ec3ce567da64525bf2990aa8f76472888cde69c4bcf3b9",
+        "skill_id": "figure-it-out",
+        "version": "0.0.0+legacy.2ca55612e7d46cb3"
+      },
+      "case": "figure-it-out--representative",
+      "classification": [
+        "NARROW_PASS_OR_INCOMPLETE_WORKFLOW"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "PASS",
+      "observation_digest": "sha256:a47f24d4b1186213bdef72f4aa8fb095ccc507f10d9eec6298529c5c2621c20d",
+      "reason": "Representative analysis/counterexample passes its narrow fixture; full dependency workflow untested.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:4ae03a0e8505569422ec3ce567da64525bf2990aa8f76472888cde69c4bcf3b9",
+        "skill_id": "figure-it-out",
+        "version": "0.0.0+legacy.2ca55612e7d46cb3"
+      },
+      "case": "figure-it-out--adversarial",
+      "classification": [
+        "NARROW_PASS_OR_INCOMPLETE_WORKFLOW"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:f7d5ad42a4f8a9c0fe061340211acd87add1abbfaeba72d0b2f8c15af8b2df06",
+      "reason": "Skips required README read; counterexample is correct.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:0dc1b511a906312a46d5965c08362d2ed36801f4d3028068b454cd71f0bb9472",
+        "skill_id": "principle-sequence-verifiable-units",
+        "version": "0.0.0+legacy.01657a6e8d0b26d7"
+      },
+      "case": "principle-sequence-verifiable-units--representative",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE",
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 2,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:cb7096e1d4baff831829844ac9e6582614f089bb55d420a8b63ce3e4ec66c616",
+      "reason": "Uses undeclared literal command instead of named tool; negative input remains accepted and unit-two boundary fails.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:0dc1b511a906312a46d5965c08362d2ed36801f4d3028068b454cd71f0bb9472",
+        "skill_id": "principle-sequence-verifiable-units",
+        "version": "0.0.0+legacy.01657a6e8d0b26d7"
+      },
+      "case": "principle-sequence-verifiable-units--adversarial",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE",
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:329fb1927a1009c6a20a2650f4ead820c311b3084c57d47aa976796ac5133e84",
+      "reason": "Negative input remains accepted; required file reads and unit-two boundary fail despite observing the failing gate.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+        "skill_id": "tdd",
+        "version": "0.0.0+legacy.5b84efae14381a18"
+      },
+      "case": "tdd--representative",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE"
+      ],
+      "denied_actions": 1,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:ce72c870a4c1b532d92c813cc591be02c0b546b17ccb21160c1d8940a9d2c23f",
+      "reason": "Red-before-edit, byte-preserved regression, green and held-out outputs pass. A run action omits its command; strict tool-conformance gate fails.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+        "skill_id": "tdd",
+        "version": "0.0.0+legacy.5b84efae14381a18"
+      },
+      "case": "tdd--adversarial",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE"
+      ],
+      "denied_actions": 1,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:651cd9c4da6c330cb0b8a83fb069347174ce789dd7f1eec7a67931b603dac419",
+      "reason": "Red-before-edit, byte-preserved regression, green and held-out outputs pass. A run action omits its command; strict tool-conformance gate fails.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:b42c6224fcfcaaeb386f74f6a5135ff60db8e17b7040aa9dd83333a84491a306",
+        "skill_id": "thermo-nuclear-code-quality-review",
+        "version": "0.0.0+legacy.17a01f3b48a6f98d"
+      },
+      "case": "thermo-nuclear-code-quality-review--representative",
+      "classification": [
+        "NARROW_PASS_OR_INCOMPLETE_WORKFLOW"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "PASS",
+      "observation_digest": "sha256:7c0533329485a3f60d2701efd7eaba7050306bb6ab365633f51c34477df5a364",
+      "reason": "Representative defect/counterexample passes its narrow fixture; broad structural review untested.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:b42c6224fcfcaaeb386f74f6a5135ff60db8e17b7040aa9dd83333a84491a306",
+        "skill_id": "thermo-nuclear-code-quality-review",
+        "version": "0.0.0+legacy.17a01f3b48a6f98d"
+      },
+      "case": "thermo-nuclear-code-quality-review--adversarial",
+      "classification": [
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:4a88cd69be1e4180db46adb82140a86eeac7a768340affc5a0a79735f4b43463",
+      "reason": "Skips required contract read and returns an incorrect defect artifact despite observing the counterexample.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+        "skill_id": "api-and-interface-design",
+        "version": "0.0.0+legacy.601c7b409edee7c7"
+      },
+      "case": "api-and-interface-design--representative",
+      "classification": [
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "PASS",
+      "observation_digest": "sha256:4a99eeb2a3c7f98b689a59effea93979144715f166a3be48b3f9f8ee93ad83f1",
+      "reason": "Sequential native checks pass. Supplemental duplicate race reproduces unhandled IntegrityError, contradicting generated concurrency contract.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+        "skill_id": "api-and-interface-design",
+        "version": "0.0.0+legacy.601c7b409edee7c7"
+      },
+      "case": "api-and-interface-design--adversarial",
+      "classification": [
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "PASS",
+      "observation_digest": "sha256:94162f1b7e47f46dd9bcaf0543f8c532de3ea20b505989737a993dab30dae4eb",
+      "reason": "Sequential native checks pass. Supplemental duplicate race reproduces unhandled IntegrityError, contradicting generated concurrency contract and claimed implementation.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:a3eb0511eaf01a7fdb3c45a08db477b025db1a3f18f7af1cd575227230539334",
+        "skill_id": "deprecation-and-migration",
+        "version": "0.0.0+legacy.b07af6ae2f2353e5"
+      },
+      "case": "deprecation-and-migration--representative",
+      "classification": [
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:f42f9e09f3f766a99d2521482a74f385f2070db8db5a51b138b1845d72f7356b",
+      "reason": "Final migration fails the native data-state/rollback checks; producer never tests a passing final implementation.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:a3eb0511eaf01a7fdb3c45a08db477b025db1a3f18f7af1cd575227230539334",
+        "skill_id": "deprecation-and-migration",
+        "version": "0.0.0+legacy.b07af6ae2f2353e5"
+      },
+      "case": "deprecation-and-migration--adversarial",
+      "classification": [
+        "NARROW_PASS_OR_INCOMPLETE_WORKFLOW"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "PASS",
+      "observation_digest": "sha256:88e92a2bc781068643fad7654c8c852f6c2f831ce32e4a9a20eaca06e0540eb4",
+      "reason": "Native stale-version/idempotency/SQLite injected-update rollback and retry pass; representative pair remains failed.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:06aac26298fe247d03bd0d4a6661251397fc6174d732593258d9c1632fc00b74",
+        "skill_id": "frontend-ui-engineering",
+        "version": "0.0.0+legacy.d42fc3ccc63549a1"
+      },
+      "case": "frontend-ui-engineering--representative",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE",
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 2,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:d9f0f596a24c5ae49e06f5d56dab85db6cdfdf15538fe92764f155a9b713b846",
+      "reason": "Malformed write actions, missing required reads/evidence and incorrect state transitions.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:06aac26298fe247d03bd0d4a6661251397fc6174d732593258d9c1632fc00b74",
+        "skill_id": "frontend-ui-engineering",
+        "version": "0.0.0+legacy.d42fc3ccc63549a1"
+      },
+      "case": "frontend-ui-engineering--adversarial",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE",
+        "EVALUATOR_FALSE_POSITIVE_CONFOUND",
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 2,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:0adf0d5c40c04e52782d609f38b2af5024175562866997211db4924e8fe75d07",
+      "reason": "Malformed write and missing reads/evidence. Comment-only process token causes lexical false positive; unchanged output still fails protected state oracle in supplemental execution.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+        "skill_id": "security-and-hardening",
+        "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+      },
+      "case": "security-and-hardening--representative",
+      "classification": [
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:770ec4480ecc3383aa60a39c09750151af77937a53f356dd44123ef2e11325ac",
+      "reason": "Malformed payload list raises AttributeError instead of a denied response.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+        "skill_id": "security-and-hardening",
+        "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+      },
+      "case": "security-and-hardening--adversarial",
+      "classification": [
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "PASS",
+      "observation_digest": "sha256:b19ab18f7548e2c8b80cb8a2a2c9f029ebc7297f4f3896792980c23d72632ff6",
+      "reason": "Twelve original checks pass; supplemental destination:null request returns data despite deny-on-key-presence requirement.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:0a60dac88958d557596264a486d341d42fbc8ecad930e4d31833d6f2607af7cd",
+        "skill_id": "ci-cd-and-automation",
+        "version": "0.0.0+legacy.ab15eb66674646b6"
+      },
+      "case": "ci-cd-and-automation--representative",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:8374bc18bb3c9d898639cdd4b1188ac32cab459368672213835101673244a44b",
+      "reason": "Produces ordinary YAML where explicit fixture requires JSON-as-YAML; local JSON decoder rejects it. Hosted generated-workflow semantics remain untested.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:0a60dac88958d557596264a486d341d42fbc8ecad930e4d31833d6f2607af7cd",
+        "skill_id": "ci-cd-and-automation",
+        "version": "0.0.0+legacy.ab15eb66674646b6"
+      },
+      "case": "ci-cd-and-automation--adversarial",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE"
+      ],
+      "denied_actions": 0,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:0d2cf71f10f3b28f3ec187e73b8010f98f5985013882475bed31e8a69abe5e2c",
+      "reason": "Produces ordinary YAML where explicit fixture requires JSON-as-YAML; local JSON decoder rejects it. Hosted generated-workflow semantics remain untested.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:c304b42365e837e7c43cb3e4d86dc6ef1f9224bc29ed7a6958302b43e4fd3b6e",
+        "skill_id": "create-verification-skill",
+        "version": "0.0.0+legacy.1804d845734388fd"
+      },
+      "case": "create-verification-skill--representative",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE",
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 1,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:5a19f86592bae95b0572b3327e1bbfaee04bd7eb426855245e85d6698bb9b160",
+      "reason": "Undeclared literal command, incomplete initial reads, and verifier accepts a fabricated PASS string as success.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    },
+    {
+      "actual_undeclared_file_changes": 0,
+      "binding": {
+        "digest": "sha256:c304b42365e837e7c43cb3e4d86dc6ef1f9224bc29ed7a6958302b43e4fd3b6e",
+        "skill_id": "create-verification-skill",
+        "version": "0.0.0+legacy.1804d845734388fd"
+      },
+      "case": "create-verification-skill--adversarial",
+      "classification": [
+        "TOOL_OR_FIXTURE_CONFORMANCE",
+        "GENERATED_OUTPUT_FAILURE"
+      ],
+      "denied_actions": 2,
+      "environment_failure_observed": false,
+      "frozen_verdict": "FAIL",
+      "observation_digest": "sha256:6f77504804f8b3b68cef664f43d5df7925d0857f96b9811bcd1436bd9c253772",
+      "reason": "Malformed feature-map write and undeclared literal command; missing reads and generated-helper CLI/package compatibility fail.",
+      "skill_instruction_defect": "NOT_ESTABLISHED"
+    }
+  ],
+  "effect_policy_note": "Frozen effect_policy FAIL includes malformed or undeclared tool requests rejected before execution. It is not evidence of host access or an unauthorized effect succeeding.",
+  "environment": "All 20 finish with stable identity and cleanup. No environment failure observed in this batch.",
+  "inconclusive": [
+    "Root cause of tool-schema errors and instruction omissions: model behavior versus structured-decoding interaction.",
+    "General Skill ability beyond these exact cases."
+  ],
+  "interpretation": "FAIL means this exact model/adapter/workflow gate failed. It does not establish intrinsic Skill failure. Original verdicts remain unchanged; supplemental findings can withhold qualification.",
+  "schema": "myskills.native-failure-analysis.v3"
+}

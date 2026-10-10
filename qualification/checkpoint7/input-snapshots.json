@@ -1,0 +1,100 @@
+{
+  "evidence_digest": "sha256:09c69710a91d9c4ddcded1c1afc2078bc4a7ecd7634b8d47bb85d1ee10b2e479",
+  "origin_bundle": "sha256:c25b7611ff78c77fed3f1fd636cbb91ab40eff96656f8da7d0cac22be7bdef57",
+  "schema": "myskills.checkpoint7.input-snapshots",
+  "skills": {
+    "api-and-interface-design": {
+      "binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "digest": "sha256:a8a9f23514e4bb38a52e0c18db17a55e6ff0dc048ed67d3ea0ddb443a61c6a3e",
+          "policy_digest": "sha256:a4429cb3cfc598e855fd5ad2cb811dea97a1eff6821aaeb3021679e9747c799d",
+          "policy_version": "fixture-policy/5.0.0",
+          "version": "myskills-evaluator/5.0.0"
+        },
+        "harness": {
+          "digest": "sha256:5fa9be606b767cf280704669234cfd49a40d620c01c4908ae87aa99860a2c7d2",
+          "version": "codex-app-server/0.157.0+myskills-native-5.0.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+          "skill_id": "api-and-interface-design",
+          "version": "0.0.0+legacy.601c7b409edee7c7"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:5c8a347540d8e1af15acb7586970e40eb5e4b283748e173409ecf6040795f950",
+          "name": "api-and-interface-design--follow-up",
+          "schema_digest": "sha256:88e33983128a2f0fd5c9767884ec6d3353480a6531861f565f9aaa4bf059146f"
+        }
+      },
+      "collector_commit": "d5b3ae95ce000fa76ead2ec83ec7839e7461fa6c",
+      "files": {
+        "README.md": "Local Python API with server-authenticated trusted_owner; body is untrusted. No external callers. SQLite notes(owner TEXT,key TEXT,text TEXT,PRIMARY KEY(owner,key)); persistent replay cache is this table. Schema created IF NOT EXISTS by handle. Inputs/outputs are Python dicts, not objects. No pagination in this interface.",
+        "api.py": "import sqlite3\n\n\ndef handle(trusted_owner, body, db_path):\n    # Validate body is a dict-like object with get method\n    if not isinstance(body, dict):\n        return {\"status\": 400, \"text\": None}\n\n    # Validate body.key as nonempty string\n    key = body.get(\"key\")\n    if not isinstance(key, str) or not key:\n        return {\"status\": 400, \"text\": None}\n\n    # Validate body.text as nonempty string\n    text = body.get(\"text\")\n    if not isinstance(text, str) or not text:\n        return {\"status\": 400, \"text\": None}\n\n    # Use BEGIN IMMEDIATE to serialize writes and acquire lock early\n    conn = sqlite3.connect(db_path, timeout=30.0)\n    conn.execute(\"PRAGMA journal_mode=WAL\")\n    try:\n        with conn:  # Auto-commit on success, rollback on exception\n            conn.execute(\n                \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\"\n            )\n\n            # Try to insert; UNIQUE constraint will trigger ON CONFLICT\n            try:\n                conn.execute(\n                    \"INSERT INTO notes (owner, key, text) VALUES (?, ?, ?)\",\n                    (trusted_owner, key, text),\n                )\n                return {\"status\": 201, \"text\": text}\n            except sqlite3.IntegrityError:\n                # Conflict occurred; fetch existing row to determine replay vs conflict\n                cursor = conn.execute(\n                    \"SELECT text FROM notes WHERE owner = ? AND key = ?\",\n                    (trusted_owner, key),\n                )\n                row = cursor.fetchone()\n                if row is None:\n                    # Should not happen; re-raise for safety\n                    raise\n\n                existing_text = row[0]\n                if existing_text == text:\n                    # Idempotent replay with identical payload\n                    return {\"status\": 200, \"text\": existing_text}\n                else:\n                    # Conflict: different text for same owner/key\n                    return {\"status\": 409, \"text\": None}\n    finally:\n        conn.close()\n",
+        "contract.md": "# API Contract: Notes Store\n\n## Interface\n\nFunction signature: `handle(trusted_owner, body, db_path) -> dict`\n\n- `trusted_owner`: Authenticated nonempty string from fixture (not from body)\n- `body`: Untrusted Python dict with optional `key` and `text` fields\n- `db_path`: File path to SQLite database\n\n## Validation Rules\n\n1. **Required fields**: `body.key` and `body.text` must be present and be nonempty strings\n2. **Malformed body**: Returns `{\"status\": 400, \"text\": null}` for missing/invalid key or text\n3. **Ignored input**: `body.owner` is ignored; only `trusted_owner` parameter is authoritative\n\n## Create Behavior\n\n- **First creation** (owner/key not in database):\n  - Returns HTTP 201 with `{\"status\": 201, \"text\": <original_text>}`\n  - Stores row: `(owner, key, text)` with PRIMARY KEY(owner, key)\n  \n- **Idempotent replay** (owner/key exists with identical text):\n  - Returns HTTP 200 with `{\"status\": 200, \"text\": <original_stored_text>}`\n  - No duplicate row created\n  \n- **Conflict** (owner/key exists with different text):\n  - Returns HTTP 409 with `{\"status\": 409, \"text\": null}`\n  - No row modification\n\n## Schema\n\n```sql\nCREATE TABLE IF NOT EXISTS notes (\n    owner TEXT NOT NULL,\n    key TEXT NOT NULL,\n    text TEXT NOT NULL,\n    PRIMARY KEY(owner, key)\n);\n```\n\n## Concurrency Handling\n\n- Parallel identical creates for same (owner, key): Exactly one succeeds with 201; replays receive 200\n- Parallel conflict attempts: Only one 409 returned per conflicting attempt; unique constraint enforces idempotency\n- Durable across process boundaries via SQLite file persistence\n\n## Error Responses\n\n| Status | Meaning | Body |\n|--------|---------|------|\n| 400 | Malformed request (missing/empty key or text) | `{\"status\": 400, \"text\": null}` |\n| 409 | Duplicate with different payload | `{\"status\": 409, \"text\": null}` |\n\n## Invariants\n\n1. Exactly one row per (owner, key) pair persisted\n2. Stored text never modified after successful 201 creation\n3. Replay returns original stored text even on subsequent calls\n4. SQLite PRIMARY KEY constraint guarantees uniqueness across concurrent writes\n"
+      },
+      "observation_digest": "sha256:1cedb440e5f82f4bca535c7f36200041b21f733a665a07a8f7428cfdb4d82fde"
+    },
+    "security-and-hardening": {
+      "binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "digest": "sha256:a8a9f23514e4bb38a52e0c18db17a55e6ff0dc048ed67d3ea0ddb443a61c6a3e",
+          "policy_digest": "sha256:a4429cb3cfc598e855fd5ad2cb811dea97a1eff6821aaeb3021679e9747c799d",
+          "policy_version": "fixture-policy/5.0.0",
+          "version": "myskills-evaluator/5.0.0"
+        },
+        "harness": {
+          "digest": "sha256:5fa9be606b767cf280704669234cfd49a40d620c01c4908ae87aa99860a2c7d2",
+          "version": "codex-app-server/0.157.0+myskills-native-5.0.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+          "skill_id": "security-and-hardening",
+          "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:86cca1c609fd1bd24cc58fcba6f0b3011c888601734c75907619ac221d2a55ea",
+          "name": "security-and-hardening--follow-up",
+          "schema_digest": "sha256:08cc9774dcbc96b95322d7b78672254d8df63ded06faaaf5a84d5070fa8eae80"
+        }
+      },
+      "collector_commit": "d5b3ae95ce000fa76ead2ec83ec7839e7461fa6c",
+      "files": {
+        "README.md": "CLI reads a JSON DICT. trusted_owner is authenticated fixture context; body_owner, destination and resource data are untrusted. resource is {owner,data}. Assets are owner data. No network fetch is supported.",
+        "app.py": "import json,sys\nfrom security import authorize\nprint(json.dumps(authorize(json.load(sys.stdin))))\n",
+        "security.py": "def authorize(payload):\n    # Validate payload is a dict\n    if not isinstance(payload, dict):\n        return {\"status\": 403, \"data\": None}\n    \n    # Validate trusted_owner exists and is nonempty string\n    if \"trusted_owner\" not in payload:\n        return {\"status\": 403, \"data\": None}\n    \n    trusted_owner = payload[\"trusted_owner\"]\n    if not isinstance(trusted_owner, str) or trusted_owner == \"\":\n        return {\"status\": 403, \"data\": None}\n    \n    # Validate resource exists and is a dict\n    if \"resource\" not in payload:\n        return {\"status\": 403, \"data\": None}\n    \n    resource = payload[\"resource\"]\n    if not isinstance(resource, dict):\n        return {\"status\": 403, \"data\": None}\n    \n    # Validate resource has both owner and data keys (present, even if null/other values)\n    if \"owner\" not in resource or \"data\" not in resource:\n        return {\"status\": 403, \"data\": None}\n    \n    # Validate resource.owner is nonempty string; data may be null\n    if not isinstance(resource[\"owner\"], str) or resource[\"owner\"] == \"\":\n        return {\"status\": 403, \"data\": None}\n    \n    # Check trusted_owner exactly matches resource.owner\n    if trusted_owner != resource[\"owner\"]:\n        return {\"status\": 403, \"data\": None}\n    \n    # Deny if destination key is present (even if null)\n    if \"destination\" in payload:\n        return {\"status\": 403, \"data\": None}\n    \n    # All checks pass - allow read with resource.data (may be null)\n    return {\"status\": 200, \"data\": resource[\"data\"]}\n",
+        "threat-model.md": "# Threat Model: CLI Resource Authorization\n\n## Trust Boundary Trace\n\n### Assets\n- **owner_data**: Protected data associated with resource.owner, stored in `resource.data`\n\n### Actors\n1. **authenticated user** (identified by `trusted_owner`) - claims identity for access requests\n2. **body_owner** - declared owner in request payload (untrusted input)\n3. **system** - enforces authorization logic via `authorize(payload)`\n\n### Untrusted Inputs\n- `payload.trusted_owner`: Claims authentication (could be forged, replayed, or stale)\n- `payload.body_owner`: External actor identifier (not used for auth, but may appear in logs)\n- `payload.resource.owner`: Declared resource owner (untrusted; must match authenticated identity)\n- `payload.resource.data`: Resource payload content (may contain malicious content)\n- `payload.destination`: Target destination key (if present, denies access to prevent exfiltration)\n\n### Consequential Operations\n- Returning data allows unauthenticated/impersonated read of another user's data (cross-tenant breach)\n- Allowing any destination enables unauthorized data exfiltration to attacker-controlled endpoints\n\n## Abuse Cases\n\n### Cross-Owner Authorization Bypass\n**Scenario**: Attacker provides valid `trusted_owner` but modifies `resource.owner` to access other users' data.\n\n**Input**: \n```json\n{\"trusted_owner\": \"alice\", \"resource\": {\"owner\": \"bob\", \"data\": {\"sensitive\": \"info\"}}}\n```\n**Impact**: Unauthorized read of bob's data by alice (cross-tenant access)\n**Control**: Strict equality check: `trusted_owner == resource.owner`\n\n### Malformed Resource Access\n**Scenario**: Attacker omits required keys to trigger fallback behavior or bypass validation.\n\n**Input 1** - missing `data` key:\n```json\n{\"trusted_owner\": \"alice\", \"resource\": {\"owner\": \"alice\"}}\n```\n**Impact**: Potential data leak if code falls back to default or skips validation\n**Control**: Validate both keys exist before any access; return 403 on missing keys\n\n**Input 2** - malformed resource type:\n```json\n{\"trusted_owner\": \"alice\", \"resource\": null}\n```\n**Impact**: AttributeError or unexpected behavior in code using `.get()`\n**Control**: Type-check resource is a dict; use explicit key access, not `.get()` for required fields\n\n### Null Authentication Bypass\n**Scenario**: Attacker sends falsy `trusted_owner` to bypass auth.\n\n**Input 1** - null trusted_owner:\n```json\n{\"trusted_owner\": null, \"resource\": {\"owner\": \"alice\", \"data\": {}}}\n```\n**Impact**: Unauthorized access if empty/false/null treated as valid\n**Control**: Explicitly check `isinstance(trusted_owner, str) and trusted_owner != \"\"`\n\n**Input 2** - empty string:\n```json\n{\"trusted_owner\": \"\", \"resource\": {\"owner\": \"alice\", \"data\": {}}}\n```\n**Impact**: Same as null; empty strings are falsy but may pass implicit checks\n**Control**: Explicit nonempty string validation\n\n### Destination Exfiltration Attack\n**Scenario**: Attacker includes `destination` key to route data exfiltration.\n\n**Input 1** - present destination:\n```json\n{\"trusted_owner\": \"alice\", \"resource\": {\"owner\": \"alice\", \"data\": {...}}, \"destination\": \"evil.com\"}\n```\n**Impact**: Data leaked to attacker-controlled endpoint\n**Control**: DENY if `destination` key exists at all (even with null/false value)\n\n**Input 2** - destination as empty/null:\n```json\n{\"trusted_owner\": \"alice\", \"resource\": {\"owner\": \"alice\", \"data\": {...}}, \"destination\": null}\n```\n**Impact**: Bypass if code checks `if destination:` instead of key presence\n**Control**: Check `not \"destination\" in payload` (key presence, not value truthiness)\n\n### Replay Attack\n**Scenario**: Attacker reuses valid past request with modified resource.owner.\n\n**Context**: Auth tokens/headers may be replayed from captured logs or network traffic.\n\n**Impact**: Past authenticated requests can be repurposed for cross-tenant access.\n**Control**: Trust only `trusted_owner` from current session, not payload body; always compare against current `resource.owner`\n\n### Concurrency Race Condition\n**Scenario**: Attacker exploits time-between-check-and-use race when accessing file/queue systems.\n\n**Impact**: Even if authorization passes initially, resource state may change before use.\n**Control**: Authorization happens at exact request time; no stale caching. For filesystem operations, verify ownership with atomic checks.\n\n## Required Controls Implementation\n\n1. **Authentication validation**: `trusted_owner` must exist and be nonempty string\n2. **Resource validation**: `resource` must be dict with both `owner` and `data` keys (both present, even if data is null)\n3. **Owner validation**: `resource.owner` must be nonempty string\n4. **Cross-tenant check**: `trusted_owner == resource.owner` (strict equality)\n5. **Destination denial**: If `\"destination\"` key exists anywhere in payload, deny (return 403)\n6. **Return values**: Success = `{status:200, data:resource.data}`; Deny = `{status:403, data:null}`\n\n## Privacy Considerations\n- No secrets logged or included in responses\n- `trusted_owner` is authentication context (not echoed back)\n- `resource.data` may be null; only returned on successful auth\n- All error responses return uniform `{status:403,data:null}` to avoid information leakage\n"
+      },
+      "observation_digest": "sha256:3cf6d7360406cea810bd0273145c526c93fea57c4477c6511717e4c5661b6169"
+    }
+  }
+}

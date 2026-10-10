@@ -1,0 +1,26 @@
+{
+  "acceptance_hold_confirmed": true,
+  "criteria_unchanged": true,
+  "docker_calls": 0,
+  "evidence_digest": "sha256:02c518dfda0800afaef229398b250eeeb39546c488c0b82e50c66557f802b79c",
+  "failures_propagate": true,
+  "focused_tests": 13,
+  "model_calls": 0,
+  "persists_before_comparison": true,
+  "qualification_credit": false,
+  "restores_all_bindings": true,
+  "retries": 0,
+  "returns_identical_result": true,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.diagnostic-review.v2",
+  "scope": "Observer correctness and acceptance HOLD classification only; no new Skill profile accepted.",
+  "sources": {
+    ".github/workflows/validate.yml": "sha256:d8f36c486d7afbca38957f7e7daad973c3532336a19890c3b6600c2b0986cfda",
+    "docs/myskills/checkpoint-7.md": "sha256:b3a681bbc54ef96ae051b419c3193b2002217a497a31139b40aa3e16f6a3c97b",
+    "qualification/checkpoint7/acceptance-hold.json": "sha256:5317bc1bc15ea6a1452626e3f57972f52d727adc7538d4572795f7631249f36d",
+    "qualification/checkpoint7/hosted-replay-failure.json": "sha256:929ae681662e9e97b86d2c3cba461d6b637ee079694d2d03a0379d6c733484ed",
+    "qualification/replay_checkpoint7_diagnostics.py": "sha256:56ec12a21970932962040a712fb8fc4432b214cef32065bd164485d299a00dd2",
+    "tests/test_myskills_claim_workflows_v7.py": "sha256:3bcea5e3068cf425edb0f6df7956319d1373053bc4df50b83899e8ecc0d1dd42"
+  },
+  "status": "PASS"
+}

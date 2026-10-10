@@ -1,0 +1,3 @@
+FROM node:24-bookworm@sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a
+COPY openai-codex-0.157.0-linux-x64.tgz /tmp/codex.tgz
+RUN mkdir -p /opt/codex && tar -xzf /tmp/codex.tgz -C /opt/codex --strip-components=1 && rm /tmp/codex.tgz

@@ -1,0 +1,50 @@
+{
+  "cases": {
+    "api-and-interface-design--adversarial": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "host_mounts": [],
+      "identity": "PRE_POST_CHECKED",
+      "native_causal_completion": true,
+      "network": "none",
+      "observation_digest": "sha256:c9df3a503224f78890504fd0f6de9e02620b723c1abf535d0eb9bc0de0bd9333",
+      "transport_failure": null
+    },
+    "api-and-interface-design--representative": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "host_mounts": [],
+      "identity": "PRE_POST_CHECKED",
+      "native_causal_completion": true,
+      "network": "none",
+      "observation_digest": "sha256:c6db9eb0f737e645041fd333910665167ce8ef7b1ee2fba6e3973d3aa4579342",
+      "transport_failure": null
+    },
+    "security-and-hardening--adversarial": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "host_mounts": [],
+      "identity": "PRE_POST_CHECKED",
+      "native_causal_completion": true,
+      "network": "none",
+      "observation_digest": "sha256:55c975704b785bdb71c76bc49ed7a3ee0f505429b6f18e57ee5b71880266be28",
+      "transport_failure": null
+    },
+    "security-and-hardening--representative": {
+      "cleanup_confirmed": true,
+      "generation": "COMPLETED",
+      "host_mounts": [],
+      "identity": "PRE_POST_CHECKED",
+      "native_causal_completion": true,
+      "network": "none",
+      "observation_digest": "sha256:a07668d4efd667a2ccb87864cca7abeae50a2d5d23e5ca37d2a5963b9144c46d",
+      "transport_failure": null
+    }
+  },
+  "completion_digest": "sha256:1a8aa1b72420b19d6cff655212cb4268013feefb8749e3af2a4a6364d09835ef",
+  "evidence_digest": "sha256:f7bd36c396b4fb14c074be4ff61a1fcfd95c32f771a918257e26c681e8eae7fd",
+  "no_further_model_trials": true,
+  "qualification_containers_remaining": 0,
+  "runtime_identity": "STABLE",
+  "schema": "myskills.native-reconciliation.v7r1"
+}

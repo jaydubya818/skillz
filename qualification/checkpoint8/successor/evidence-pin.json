@@ -1,0 +1,43 @@
+{
+  "bundle_digest": "sha256:af12d52061c706aee5be94aa2d23e74b53d4d05ac262a44becd1f1e2a301974c",
+  "codec": "xz-base64",
+  "collector_commit": "5044c86af8934cf23838a33bc0cd9df3909ba6d3",
+  "evidence_kind": "SYNTHETIC_PARTIAL_BEHAVIOR_NOT_AN_EXECUTION_GRANT",
+  "hosted_restore": "NOT_AVAILABLE",
+  "parts": [
+    {
+      "body_digest": "sha256:953074eee780b4d20758d6bdbb77e160609955d82a441183a71e744c9affecf0",
+      "index": 0
+    },
+    {
+      "body_digest": "sha256:aee51b77bd85a6b9572792c43450a9baea9c3d591831f4e537913b34c7ca051c",
+      "index": 1
+    },
+    {
+      "body_digest": "sha256:a70f47f01a283de653d485f7dee0c6117f175520b45054d97b664572dfa80c29",
+      "index": 2
+    },
+    {
+      "body_digest": "sha256:25ea186e506fedf4a787eef2172071ff36cfa98c3d46a38b8f0aad85ef37d9cf",
+      "index": 3
+    },
+    {
+      "body_digest": "sha256:6051ce956597a68f7bd5755e18a229664dbc07e0a074855cde930e273ead6096",
+      "index": 4
+    },
+    {
+      "body_digest": "sha256:353c4ed7a58daee4fd597761464346cb70c549ee77e478f038d6ec706cbb8e1c",
+      "index": 5
+    },
+    {
+      "body_digest": "sha256:c9a2b1dbd24f8ca7d3760dd870e1e07c023c3a233986ce0a0145a4f884af60e7",
+      "index": 6
+    },
+    {
+      "body_digest": "sha256:58ba4007fbfed02d7eaf5bd1d16c299fe3a57eb59e4677e40fe0d28f4ff282ce",
+      "index": 7
+    }
+  ],
+  "publication": "PENDING_EXPLICIT_BUNDLE_DISCLOSURE_AUTHORIZATION",
+  "schema": "myskills-checkpoint8-bundle-v1"
+}

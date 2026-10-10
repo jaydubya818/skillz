@@ -1,0 +1,257 @@
+{
+  "environment": {
+    "candidate_host_mounts": [],
+    "candidate_network": "none",
+    "docker": {
+      "ApiVersion": "1.55",
+      "Arch": "arm64",
+      "BuildTime": "2026-08-05T18:28:35.000000000+00:00",
+      "Components": [
+        {
+          "Details": {
+            "ApiVersion": "1.55",
+            "Arch": "arm64",
+            "BuildTime": "Wed Aug  5 18:28:35 2026",
+            "Experimental": "false",
+            "GitCommit": "6a43e3d",
+            "GoVersion": "go1.26.5",
+            "KernelVersion": "7.0.12-linuxkit",
+            "MinAPIVersion": "1.40",
+            "Module": "github.com/moby/moby/v2",
+            "ModuleVersion": "v2.0.0+unknown",
+            "Os": "linux"
+          },
+          "Name": "Engine",
+          "Version": "29.7.2"
+        },
+        {
+          "Details": {
+            "GitCommit": "aad11006b869517fcd3009450b6f82da282e1a9b"
+          },
+          "Name": "containerd",
+          "Version": "v2.3.3"
+        },
+        {
+          "Details": {
+            "GitCommit": "v1.4.3-0-gbb14dabe"
+          },
+          "Name": "runc",
+          "Version": "1.4.3"
+        },
+        {
+          "Details": {
+            "GitCommit": "de40ad0"
+          },
+          "Name": "docker-init",
+          "Version": "0.19.0"
+        }
+      ],
+      "GitCommit": "6a43e3d",
+      "GoVersion": "go1.26.5",
+      "KernelVersion": "7.0.12-linuxkit",
+      "MinAPIVersion": "1.40",
+      "Os": "linux",
+      "Platform": {
+        "Name": "Docker Desktop 4.88.1 (237512)"
+      },
+      "Version": "29.7.2"
+    },
+    "hardware": "hw.model: Mac16,5\nhw.memsize: 68719476736\nhw.ncpu: 16",
+    "image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+    "image_reference": "node:24-bookworm@sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+    "machine": "arm64",
+    "python": "3.14.7",
+    "release": "25.6.0",
+    "runtime_overrides": {},
+    "system": "Darwin"
+  },
+  "model": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+  "model_blobs": {
+    "sha256-2ff4caf9bbdc57827703b50471b7e4df7f26e306626d19e556c0c0beeabaeb13": {
+      "bytes": 37802973792,
+      "digest": "sha256:2ff4caf9bbdc57827703b50471b7e4df7f26e306626d19e556c0c0beeabaeb13"
+    },
+    "sha256-489d5e0a682060521694bf97aea6504cb30ab4286af8a7e8a3d73ed8a81907e2": {
+      "bytes": 902821664,
+      "digest": "sha256:489d5e0a682060521694bf97aea6504cb30ab4286af8a7e8a3d73ed8a81907e2"
+    },
+    "sha256-7339fa418c9ad3e8e12e74ad0fd26a9cc4be8703f9c110728a992b193be85cb2": {
+      "bytes": 11355,
+      "digest": "sha256:7339fa418c9ad3e8e12e74ad0fd26a9cc4be8703f9c110728a992b193be85cb2"
+    },
+    "sha256-9371364b27a52acac9d87f88bd93c9db1174d8d6ec57f6888925cdc1788871ff": {
+      "bytes": 65,
+      "digest": "sha256:9371364b27a52acac9d87f88bd93c9db1174d8d6ec57f6888925cdc1788871ff"
+    },
+    "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173": {
+      "bytes": 961,
+      "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+    },
+    "sha256-b2c35e0c36ae6030f935e3cd951827407e8c1184efa0ed6bfc25eb023e2bd939": {
+      "bytes": 189,
+      "digest": "sha256:b2c35e0c36ae6030f935e3cd951827407e8c1184efa0ed6bfc25eb023e2bd939"
+    }
+  },
+  "model_digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+  "runtime_binaries": {
+    "libggml-base.0.25.3.dylib": {
+      "bytes": 794416,
+      "digest": "sha256:d83acfd4a0a1ea936a117a51099df445997ace4045c80dd4f71caf83767995f9"
+    },
+    "libggml-base.0.dylib": {
+      "bytes": 794416,
+      "digest": "sha256:d83acfd4a0a1ea936a117a51099df445997ace4045c80dd4f71caf83767995f9"
+    },
+    "libggml-base.dylib": {
+      "bytes": 794416,
+      "digest": "sha256:d83acfd4a0a1ea936a117a51099df445997ace4045c80dd4f71caf83767995f9"
+    },
+    "libggml-blas.so": {
+      "bytes": 52560,
+      "digest": "sha256:db293ed51d46e27ff6273b67cf60a49109a7a9d3cbad659ddb1257644e131da9"
+    },
+    "libggml-cpu-alderlake.so": {
+      "bytes": 1616000,
+      "digest": "sha256:ec0a5cf1e57bd0d99bf6822815b386a0d47aa287e15780929cdd009f8b561426"
+    },
+    "libggml-cpu-cannonlake.so": {
+      "bytes": 1867808,
+      "digest": "sha256:8952ac3caf42816b5804d0f860d17bdd730ff478ec8b6609b9187fe236da7ad5"
+    },
+    "libggml-cpu-cascadelake.so": {
+      "bytes": 1852688,
+      "digest": "sha256:c3541594122a75054f9c8e33e8b897e5f853d82a508665bd9593080b905fb1d3"
+    },
+    "libggml-cpu-cooperlake.so": {
+      "bytes": 1856928,
+      "digest": "sha256:5c229fd0bf387001c0e3d19130e73136374d645f43089198c7a8026eba4ebf6e"
+    },
+    "libggml-cpu-haswell.so": {
+      "bytes": 1624256,
+      "digest": "sha256:d8487e211fa5967497e840644319a95b917ad7125817a3c7ea86d36289895ba4"
+    },
+    "libggml-cpu-icelake.so": {
+      "bytes": 1860944,
+      "digest": "sha256:8774cc27580e54f07ab7788d639b87f158fd36333c21fa6dfbf6601be112e8af"
+    },
+    "libggml-cpu-ivybridge.so": {
+      "bytes": 1439616,
+      "digest": "sha256:8defa8caf737cadd42bb6680e6ce4179c559c609a2808d91b37a982e64978310"
+    },
+    "libggml-cpu-piledriver.so": {
+      "bytes": 1447872,
+      "digest": "sha256:3672b53ddb45ba85ec4c9f1f74d382f9965338ff57775e827ec00afbecde5986"
+    },
+    "libggml-cpu-sandybridge.so": {
+      "bytes": 1422320,
+      "digest": "sha256:06d9cce45bf94bd556a54e307ef3fd0fd3b02c7f8b2be291a9cf90a64c340d82"
+    },
+    "libggml-cpu-sapphirerapids.so": {
+      "bytes": 2099808,
+      "digest": "sha256:9641124f104cb9ada66495de1375e83693150c59de961cb1519f98291a24b078"
+    },
+    "libggml-cpu-skylakex.so": {
+      "bytes": 1859552,
+      "digest": "sha256:334e9fb8fdfd989af2a0bc63f02a53c76f95f7ce5babb9639f3019f5e4c53a77"
+    },
+    "libggml-cpu-sse42.so": {
+      "bytes": 1056800,
+      "digest": "sha256:01c2acbb6945a68f9c7e60307043faa80c00c7d71bc1018c1efa744269664ef6"
+    },
+    "libggml-cpu-x64.so": {
+      "bytes": 1069184,
+      "digest": "sha256:6b23b991f993c1bf347e60f60c47539624aba6b4476003c559b425dfc1be2064"
+    },
+    "libggml-cpu-zen4.so": {
+      "bytes": 1861056,
+      "digest": "sha256:13fac164128df18b5bc94294b42469c9c43d3cc05ff36acfc1079aec865bbc75"
+    },
+    "libggml.0.25.3.dylib": {
+      "bytes": 57840,
+      "digest": "sha256:3ec24fe0893fedaac4f8a315cb9a74e844a54b2bb288f2b22d538daa45dd7700"
+    },
+    "libggml.0.dylib": {
+      "bytes": 57840,
+      "digest": "sha256:3ec24fe0893fedaac4f8a315cb9a74e844a54b2bb288f2b22d538daa45dd7700"
+    },
+    "libggml.dylib": {
+      "bytes": 57840,
+      "digest": "sha256:3ec24fe0893fedaac4f8a315cb9a74e844a54b2bb288f2b22d538daa45dd7700"
+    },
+    "libllama-common.0.5.0.dylib": {
+      "bytes": 5307616,
+      "digest": "sha256:0e77431ad20373a89e03a6ce17c9f8044be2255b08c3f38791ca7037bde94d08"
+    },
+    "libllama-common.0.dylib": {
+      "bytes": 5307616,
+      "digest": "sha256:0e77431ad20373a89e03a6ce17c9f8044be2255b08c3f38791ca7037bde94d08"
+    },
+    "libllama-common.dylib": {
+      "bytes": 5307616,
+      "digest": "sha256:0e77431ad20373a89e03a6ce17c9f8044be2255b08c3f38791ca7037bde94d08"
+    },
+    "libllama-quantize-impl.dylib": {
+      "bytes": 89984,
+      "digest": "sha256:11101a4a592a235e30c234693c2889efc194533d0eccec97fba41d558888b10b"
+    },
+    "libllama-server-impl.dylib": {
+      "bytes": 3470864,
+      "digest": "sha256:f9232201641253f7dc86cfaa14e3a6c39b7ad871a00265d74e5500d15230b5eb"
+    },
+    "libllama.0.5.0.dylib": {
+      "bytes": 3782192,
+      "digest": "sha256:0200c266e3121e6ea6b793421dd76f8c49a5c5d86fb6e4c0f4855fcea1c67cc2"
+    },
+    "libllama.0.dylib": {
+      "bytes": 3782192,
+      "digest": "sha256:0200c266e3121e6ea6b793421dd76f8c49a5c5d86fb6e4c0f4855fcea1c67cc2"
+    },
+    "libllama.dylib": {
+      "bytes": 3782192,
+      "digest": "sha256:0200c266e3121e6ea6b793421dd76f8c49a5c5d86fb6e4c0f4855fcea1c67cc2"
+    },
+    "libmtmd.0.5.0.dylib": {
+      "bytes": 1515408,
+      "digest": "sha256:47badeeffd4978085f7afc09eacd0bb113e64c1a958ebd0fa6326a18c9429944"
+    },
+    "libmtmd.0.dylib": {
+      "bytes": 1515408,
+      "digest": "sha256:47badeeffd4978085f7afc09eacd0bb113e64c1a958ebd0fa6326a18c9429944"
+    },
+    "libmtmd.dylib": {
+      "bytes": 1515408,
+      "digest": "sha256:47badeeffd4978085f7afc09eacd0bb113e64c1a958ebd0fa6326a18c9429944"
+    },
+    "llama-server": {
+      "bytes": 17993312,
+      "digest": "sha256:63c4ccecce2fda47f34bfc967ad40f23ae933d05d363e52bb9dcc7f67e54fbf2"
+    },
+    "ollama": {
+      "bytes": 52175344,
+      "digest": "sha256:09fffd3a94d72e3db1ad66bda77c5ae5f4f725ac5043e27664b58a0f13361719"
+    }
+  },
+  "schema": "myskills.local-runtime-identity.v2",
+  "service": {
+    "daemon_environment_attestation": "NOT_ESTABLISHED; startup log inspected, host/service trusted",
+    "details": {
+      "families": [
+        "qwen35moe",
+        "clip"
+      ],
+      "family": "qwen35moe",
+      "format": "gguf",
+      "parameter_size": "36.0B",
+      "parent_model": "",
+      "quantization_level": "Q8_0",
+      "runner": "llamacpp"
+    },
+    "endpoint": "http://127.0.0.1:11434/api/",
+    "pid": "4203",
+    "process": "Fri Oct  9 00:32:19 2026     /Applications/Ollama.app/Contents/Resources/ollama serve",
+    "routing": "literal loopback, proxies disabled, redirects denied, full local blob reference",
+    "show_digest": "sha256:277347f005e74b3203152b1a6ad444b9e80c096bbbb95c6a7b4c612506e00ee3",
+    "version": "0.40.2"
+  },
+  "trust_boundary": "Observed local service, not cryptographic model attestation or hostile-host protection"
+}

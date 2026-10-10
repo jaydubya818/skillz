@@ -1,0 +1,79 @@
+{
+  "schema": "myskills-checkpoint5-bundle-v1",
+  "codec": "xz-base64",
+  "bundle_digest": "sha256:9f43b9621efa23aa7fb17dcb6aec5029f6f0e8bb31cab0a15669d51883774d25",
+  "parts": [
+    {
+      "index": 0,
+      "body_digest": "sha256:392dd13ba1fa5c915e9055f5767a0ceab19f2fcbc2d5069a24ca7c22ff9d49f1",
+      "comment_id": 6090307889
+    },
+    {
+      "index": 1,
+      "body_digest": "sha256:33aa4c2785d60b0350ccef8ea67962f3c1f3f22275cd68258c4b7de8eb563c37",
+      "comment_id": 6090308264
+    },
+    {
+      "index": 2,
+      "body_digest": "sha256:4719c57bb25d4007307645cbc5a16257c5d30b8ea443dce64692e8a85f0a15f1",
+      "comment_id": 6090308619
+    },
+    {
+      "index": 3,
+      "body_digest": "sha256:6737051fd6e9668741e35b507beaff5f6ec8e29e97815d8875a37e04c47ad7ee",
+      "comment_id": 6090308937
+    },
+    {
+      "index": 4,
+      "body_digest": "sha256:d3ba1c9310edf72cfed9f3e4162e13436bfde46e035bc3eca090c44d05584310",
+      "comment_id": 6090309329
+    },
+    {
+      "index": 5,
+      "body_digest": "sha256:059e04f6b411137f73af28446efdb0859c64c7a44789b5a6c6fbebef86145611",
+      "comment_id": 6090309658
+    },
+    {
+      "index": 6,
+      "body_digest": "sha256:29cf394c9ca2001dff64cd35abaf7c49dff3b5b3dfcc4e1e39d425f5453d3f43",
+      "comment_id": 6090310036
+    },
+    {
+      "index": 7,
+      "body_digest": "sha256:f666dc152325fdc6e26bc5e000263babb5ebdf33e0f39301ee208b9e1049cebb",
+      "comment_id": 6090310452
+    },
+    {
+      "index": 8,
+      "body_digest": "sha256:b2e3ed5bd40c4862550b4443eee3f2476aab1d6648682ea95ff110bbaa3baa65",
+      "comment_id": 6090310823
+    },
+    {
+      "index": 9,
+      "body_digest": "sha256:e972314d07047455fdcfd376055a69e44e4f305b73d149ef3920a8dca3b4c2e8",
+      "comment_id": 6090311230
+    },
+    {
+      "index": 10,
+      "body_digest": "sha256:99fc10658f1b2069b94533d613a07d72f56a300d447ef7ff536eab4ed2e6b492",
+      "comment_id": 6090311637
+    },
+    {
+      "index": 11,
+      "body_digest": "sha256:f21f0f1d9fc541ef05a9d9a2748775dc208987c3e3e7a8e17f5d59f19937569c",
+      "comment_id": 6090311988
+    },
+    {
+      "index": 12,
+      "body_digest": "sha256:98f377d84807e8dba388df8930e1a788e7d42a552a39723bdfe4da1507cd003d",
+      "comment_id": 6090312349
+    },
+    {
+      "index": 13,
+      "body_digest": "sha256:08287108e00d6574cf75a11bcde9439699a4b3f144d635d93ed33741676af011",
+      "comment_id": 6090312722
+    }
+  ],
+  "evidence_kind": "SYNTHETIC_PARTIAL_BEHAVIOR_NOT_AN_EXECUTION_GRANT",
+  "collector_commit": "f7c3145b929417a92032309fe1e4ee9a363f3421"
+}

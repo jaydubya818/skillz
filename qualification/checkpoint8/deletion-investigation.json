@@ -1,0 +1,44 @@
+{
+  "attribution": "An iTerm login shell launched the observed removal. Which human, chat, automation or pasted instruction initiated it is NOT_ESTABLISHED.",
+  "confirmed_command": {
+    "command": "rm -rf /Users/jaywest/.codex/archived_sessions /Users/jaywest/.codex/visualizations",
+    "parent_pid": 3707,
+    "pid": 20124
+  },
+  "evidence_digest": "sha256:e1901ce27205b7d461ddadf13882918bfccb674bdb60d42557d806c42cb2256b",
+  "filesystem": "Tracked source and local evidence disappeared while rm traversed their shared visualization parent.",
+  "history_search": "No matching deletion found in available zsh history or configured automation TOMLs. Exact-path session search found only a reflected copy of this incident evidence, not an originating deletion call.",
+  "preserved_interruption_digest": "sha256:8107a0e0b75bfab7e64b11bbf6330bcdf2a145cfa16a67b0b6b3b7d75dc552a3",
+  "process_ancestry": [
+    {
+      "name": "rm",
+      "parent_pid": 3707,
+      "pid": 20124
+    },
+    {
+      "name": "zsh",
+      "parent_pid": 3700,
+      "pid": 3707
+    },
+    {
+      "name": "login",
+      "parent_pid": 3681,
+      "pid": 3700
+    },
+    {
+      "name": "iTermServer",
+      "parent_pid": 3573,
+      "pid": 3681
+    },
+    {
+      "name": "iTerm2",
+      "parent_pid": 1,
+      "pid": 3573
+    }
+  ],
+  "runtime": "Pinned Q8 blobs were also absent and daemon restarted; an unrelated Q4 pull was observed. A common cause for model loss and checkout deletion is NOT_ESTABLISHED.",
+  "schema": "myskills.deletion-investigation.v1",
+  "terminal_limitations": "This task has no app terminal session; computer-use access to iTerm was denied. No bypass attempted.",
+  "user_statement": "User did not intentionally authorize deletion as part of this checkpoint.",
+  "workstreams_or_automations_modified": false
+}

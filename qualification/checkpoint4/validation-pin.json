@@ -1,0 +1,39 @@
+{
+  "activation": "DISABLED",
+  "archive_bytes_verified": true,
+  "archive_digest": "sha256:99d5a892dd2f721ddf18269fe656ddf890a913f0e0039d55e335c1dd0983223b",
+  "artifact_id": 11647003636,
+  "artifact_name": "myskills-initial-qualification",
+  "artifact_url": "https://github.com/jaydubya818/skillz/actions/runs/37996305509/artifacts/11647003636",
+  "checkpoint_evidence_digest": "sha256:a8e811f250cf7466194261f97810cd34db5a06d5d8f3c11477e7777b49e9149e",
+  "execution_eligible": false,
+  "files": {
+    "checkpoint4/MissionControl.json": "sha256:8cd2566aa2f926937bbd28c6df861c7db8ad0e97355bad101a6be3e7fbb346d2",
+    "checkpoint4/MyApps.json": "sha256:12eea7660bd2f2df27c94f2fb31fa2d3b991cf575b7d157696aed7b4495a22ad",
+    "checkpoint4/MyEve-Sofie-subagents.json": "sha256:ce0dc48fe42d8f6afcc14e66794ec15fa5e538171cb1694293b407d9b02acdab",
+    "checkpoint4/MyFactory.json": "sha256:478864952641196147b2e704f6a1cea1672d7d4801fbfb3730bfcc12a54b18ef",
+    "checkpoint4/Role-Packs.json": "sha256:456e246790f4900868e401a8ea8c8f16c35273f2f697f11de128f55f04ac9b5c",
+    "checkpoint4/checkpoint.json": "sha256:a0035a437cb02b2de7df49238bf8b9335ee90bd99eccecd0a4527efa333c52ea",
+    "checkpoint4/matrix.json": "sha256:4c74dc41309d4cfd3885a6e3e2f25901a8e66935a86e34a44e21eb29c615f697"
+  },
+  "fresh_clone": {
+    "browser_checks": 21,
+    "catalog_skills": 92,
+    "model_calls": 0,
+    "portable_tests": 252,
+    "qualification_replay": "PASS",
+    "source": "canonical GitHub branch"
+  },
+  "hosted_ci": {
+    "conclusion": "success",
+    "headSha": "8072604fa8180ec85725ec786c80dcc21e4c87b1",
+    "status": "completed",
+    "url": "https://github.com/jaydubya818/skillz/actions/runs/37996305509"
+  },
+  "independent_source_review": "PASS scoped review; nonblocking exact counterexample response assertion implemented and replayed",
+  "local_fresh_hosted_bytes": "IDENTICAL",
+  "paid_model_operations": 0,
+  "recorder_tests": "LOCALLY_BLOCKED_FFMPEG_SANDBOX_PREEXISTING",
+  "schema": "myskills.checkpoint-validation.v4",
+  "source_commit": "8072604fa8180ec85725ec786c80dcc21e4c87b1"
+}

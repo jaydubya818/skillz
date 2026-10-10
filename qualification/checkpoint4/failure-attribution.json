@@ -1,0 +1,70 @@
+{
+  "causal_limit": "Adapter/harness/policy changed together; improvements are configuration-specific evidence, not proof that one change alone caused them.",
+  "environment": {
+    "Codex_native_system_skills": "Binary advertises bundled skills, but only pinned controller Skill text and authorized dynamic tools are supplied; native Skill discovery/install lifecycle NOT_QUALIFIED",
+    "Cursor_MyEve_MyFactory": "Native provider/infrastructure authorization remains closed",
+    "MissionControl": "Source path and local runtime differ from this tested combination",
+    "native_image_platform_mismatch": "Retained failed control; corrected explicitlinux/amd64 build"
+  },
+  "evaluation_policy": {
+    "frozen_verdicts": "Never overwritten; supplemental final-code checks do not prove producer workflow ordering",
+    "resolved": [
+      "Destination key-presence regression includes null/falsy values",
+      "Concurrent API duplicate race positive/negative control",
+      "Authorized missing-file read is a recoverable NOT_FOUND, not an authority grant"
+    ]
+  },
+  "evidence_digest": "sha256:2fab9b86f6d8f5d0a5b0d0ed07f4edb94cd7a2f0e80ec1a670fc79a67df2326f",
+  "harness": {
+    "resolved": [
+      "Bidirectional native RPC ID collision in4.0.0 fixed in4.0.1 with3-call native control",
+      "Builtin-name rebinding bypass rejected before dispatch",
+      "Provider wall deadlines and cancellation marked UNKNOWN",
+      "Cleanup failure halts batch",
+      "Pre-effect fsynced journals; existing journals cannot resume silently",
+      "Evidence/cache filesystem exemptions removed"
+    ],
+    "successor_policy": "fixture-policy/4.0.2 supports inert TDD docstrings and sqlite3.IntegrityError only in exception handlers; native workflow qualification of this successor NOT_RUN"
+  },
+  "independent_security_finding": {
+    "actual": {
+      "data": null,
+      "status": 200
+    },
+    "classification": [
+      "Model-output defect",
+      "Evaluator coverage gap"
+    ],
+    "correction": "Permanent missing-data evaluator regression with known-good control; original evidence retained",
+    "counterexample": {
+      "resource": {
+        "owner": "a"
+      },
+      "trusted_owner": "a"
+    },
+    "expected": {
+      "data": null,
+      "status": 403
+    },
+    "frozen_verdict": "PASS in both cases",
+    "independent_verdict": "FAIL in both cases"
+  },
+  "model_capability": "Concrete output/schema errors exist in retained evidence; model-vs-instruction-vs-decoder causal attribution remains limited",
+  "prior_17_failures": {
+    "analysis_file": "qualification/checkpoint3/failure-analysis.json",
+    "count": 17,
+    "digest": "sha256:7ddae2cfdac9e78f29cc9a3c8a8efd7cf26fafc25d4dc3690130d433ef1dd845",
+    "original_verdicts": "PRESERVED"
+  },
+  "schema": "myskills.failure-attribution.v4",
+  "skill_instruction_defects": "NOT_ESTABLISHED; no Skill edits or controlled Skill/model ablation",
+  "tool_adapter": {
+    "qualification_scope": "Finite synthetic controller tools only",
+    "resolved": [
+      "Exact native/dynamic schema validation",
+      "Separate tool status from command exit",
+      "Call identity and compare-and-write idempotency",
+      "Null destination presence fails before dispatch"
+    ]
+  }
+}

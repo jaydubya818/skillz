@@ -1,0 +1,285 @@
+{
+  "accepted_profile": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+  "consumer_repositories_modified": 0,
+  "consumers": {
+    "MissionControl": {
+      "activation": "DISABLED",
+      "consumer": "MissionControl",
+      "consumer_compatibility": "NOT_ESTABLISHED",
+      "consumer_source_reference": "sha256:4f5eec65029b3d1a5c8765add08728730a2f577a0742dcfcaf88230a2757b293",
+      "evidence_digest": "sha256:d5240250f91fb51fe10b88ec5c804ee59c713e2f896e030b88d933108f7e3516",
+      "exact_binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "predecessor": {
+            "digest": "sha256:a8a9f23514e4bb38a52e0c18db17a55e6ff0dc048ed67d3ea0ddb443a61c6a3e",
+            "policy_digest": "sha256:a4429cb3cfc598e855fd5ad2cb811dea97a1eff6821aaeb3021679e9747c799d",
+            "policy_version": "fixture-policy/5.0.0",
+            "version": "myskills-evaluator/5.0.0"
+          },
+          "version": "myskills-evaluator/5.0.1"
+        },
+        "harness": {
+          "digest": "sha256:5fa9be606b767cf280704669234cfd49a40d620c01c4908ae87aa99860a2c7d2",
+          "version": "codex-app-server/0.157.0+myskills-native-5.0.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+          "skill_id": "tdd",
+          "version": "0.0.0+legacy.5b84efae14381a18"
+        },
+        "task_class": {
+          "fixtures": {
+            "tdd--already-passes": "sha256:a83ee06d70e963addd2e7275d44b198d03d6e95e7d15a7fd8e76bc2bc5ea1ba5",
+            "tdd--background-process": "sha256:3a5c3252aefd68b2030abd4abc84313c71794cdd85d382acbc6c738a5bc3f159",
+            "tdd--broken-fixture": "sha256:d0c90c26d2f312d5e1fc453f421766f5da1ed51cc926760d8ff75f68ec15dcda",
+            "tdd--bypass-assertions": "sha256:6c9c7e653da0f23c484c49d9b94d957e0ba297e9db7ae6f4b3a1a6c269e0d6e9",
+            "tdd--delete-tests": "sha256:eaf1316f60e68fe79a9774eb1ece335b96f8dff04442a5e0f040ed59279b6a70",
+            "tdd--fabricate-output": "sha256:654ec5f9d31e8f3946462bc8b5b12adedb44321ce2abe4197835a86bbcd55727",
+            "tdd--misleading-assertion": "sha256:e750dcff4d9043913b9577c441f8f070e72283154f1064732a3ca2707763ab67",
+            "tdd--modify-test": "sha256:a4a54633a638198cb21aee818b394c15eb4c1e302d17c01c68aff3303f69102c",
+            "tdd--representative": "sha256:0551c740019b402e0b27f1bbeea3eb174819b16cbd93b35f6e69f0991157cac8",
+            "tdd--unauthorized-publication": "sha256:40d0d741c279c9e69348c6d0b28e069b0501f3d6ca503d94af0c7342b8136d03",
+            "tdd--wrong-reason": "sha256:e50714980440b97b3143cc510f6349cc13840190f326760ba52de2a90fbc435b"
+          },
+          "name": "finite Python clamp TDD corpus"
+        }
+      },
+      "execution_eligible": false,
+      "production_integration": "NOT_RUN",
+      "profile_qualification": "PASS",
+      "qualification_reference": {
+        "evidence_digest": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+        "file_digest": "sha256:82e347f51e007bc5443fe0efc610a9b940ed5251f27ab04bf0414976a85a41e0",
+        "path": "qualification/checkpoint5/accepted-profile.json"
+      },
+      "required_next_check": "Existing bridge task types do not provide this Python TDD execution profile.",
+      "role_pack_registration": "NOT_RUN"
+    },
+    "MyApps": {
+      "activation": "DISABLED",
+      "consumer": "MyApps",
+      "consumer_compatibility": "NOT_ESTABLISHED",
+      "consumer_source_reference": "sha256:4f5eec65029b3d1a5c8765add08728730a2f577a0742dcfcaf88230a2757b293",
+      "evidence_digest": "sha256:330f0179a5aeaba0df5275feb1e023600e6e67901e14f0649bea5be60ef59f9f",
+      "exact_binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "predecessor": {
+            "digest": "sha256:a8a9f23514e4bb38a52e0c18db17a55e6ff0dc048ed67d3ea0ddb443a61c6a3e",
+            "policy_digest": "sha256:a4429cb3cfc598e855fd5ad2cb811dea97a1eff6821aaeb3021679e9747c799d",
+            "policy_version": "fixture-policy/5.0.0",
+            "version": "myskills-evaluator/5.0.0"
+          },
+          "version": "myskills-evaluator/5.0.1"
+        },
+        "harness": {
+          "digest": "sha256:5fa9be606b767cf280704669234cfd49a40d620c01c4908ae87aa99860a2c7d2",
+          "version": "codex-app-server/0.157.0+myskills-native-5.0.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+          "skill_id": "tdd",
+          "version": "0.0.0+legacy.5b84efae14381a18"
+        },
+        "task_class": {
+          "fixtures": {
+            "tdd--already-passes": "sha256:a83ee06d70e963addd2e7275d44b198d03d6e95e7d15a7fd8e76bc2bc5ea1ba5",
+            "tdd--background-process": "sha256:3a5c3252aefd68b2030abd4abc84313c71794cdd85d382acbc6c738a5bc3f159",
+            "tdd--broken-fixture": "sha256:d0c90c26d2f312d5e1fc453f421766f5da1ed51cc926760d8ff75f68ec15dcda",
+            "tdd--bypass-assertions": "sha256:6c9c7e653da0f23c484c49d9b94d957e0ba297e9db7ae6f4b3a1a6c269e0d6e9",
+            "tdd--delete-tests": "sha256:eaf1316f60e68fe79a9774eb1ece335b96f8dff04442a5e0f040ed59279b6a70",
+            "tdd--fabricate-output": "sha256:654ec5f9d31e8f3946462bc8b5b12adedb44321ce2abe4197835a86bbcd55727",
+            "tdd--misleading-assertion": "sha256:e750dcff4d9043913b9577c441f8f070e72283154f1064732a3ca2707763ab67",
+            "tdd--modify-test": "sha256:a4a54633a638198cb21aee818b394c15eb4c1e302d17c01c68aff3303f69102c",
+            "tdd--representative": "sha256:0551c740019b402e0b27f1bbeea3eb174819b16cbd93b35f6e69f0991157cac8",
+            "tdd--unauthorized-publication": "sha256:40d0d741c279c9e69348c6d0b28e069b0501f3d6ca503d94af0c7342b8136d03",
+            "tdd--wrong-reason": "sha256:e50714980440b97b3143cc510f6349cc13840190f326760ba52de2a90fbc435b"
+          },
+          "name": "finite Python clamp TDD corpus"
+        }
+      },
+      "execution_eligible": false,
+      "production_integration": "NOT_RUN",
+      "profile_qualification": "PASS",
+      "qualification_reference": {
+        "evidence_digest": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+        "file_digest": "sha256:82e347f51e007bc5443fe0efc610a9b940ed5251f27ab04bf0414976a85a41e0",
+        "path": "qualification/checkpoint5/accepted-profile.json"
+      },
+      "required_next_check": "No consumer harness equivalence established; can consume this exact inactive evidence reference only.",
+      "role_pack_registration": "NOT_RUN"
+    },
+    "MyEve-Sofie-subagents": {
+      "activation": "DISABLED",
+      "consumer": "MyEve-Sofie-subagents",
+      "consumer_compatibility": "NOT_ESTABLISHED",
+      "consumer_source_reference": "sha256:4f5eec65029b3d1a5c8765add08728730a2f577a0742dcfcaf88230a2757b293",
+      "evidence_digest": "sha256:1690a0bb5596be669e0035ad2c93a529182f23efb7639df782bfbe972d76cc97",
+      "exact_binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "predecessor": {
+            "digest": "sha256:a8a9f23514e4bb38a52e0c18db17a55e6ff0dc048ed67d3ea0ddb443a61c6a3e",
+            "policy_digest": "sha256:a4429cb3cfc598e855fd5ad2cb811dea97a1eff6821aaeb3021679e9747c799d",
+            "policy_version": "fixture-policy/5.0.0",
+            "version": "myskills-evaluator/5.0.0"
+          },
+          "version": "myskills-evaluator/5.0.1"
+        },
+        "harness": {
+          "digest": "sha256:5fa9be606b767cf280704669234cfd49a40d620c01c4908ae87aa99860a2c7d2",
+          "version": "codex-app-server/0.157.0+myskills-native-5.0.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+          "skill_id": "tdd",
+          "version": "0.0.0+legacy.5b84efae14381a18"
+        },
+        "task_class": {
+          "fixtures": {
+            "tdd--already-passes": "sha256:a83ee06d70e963addd2e7275d44b198d03d6e95e7d15a7fd8e76bc2bc5ea1ba5",
+            "tdd--background-process": "sha256:3a5c3252aefd68b2030abd4abc84313c71794cdd85d382acbc6c738a5bc3f159",
+            "tdd--broken-fixture": "sha256:d0c90c26d2f312d5e1fc453f421766f5da1ed51cc926760d8ff75f68ec15dcda",
+            "tdd--bypass-assertions": "sha256:6c9c7e653da0f23c484c49d9b94d957e0ba297e9db7ae6f4b3a1a6c269e0d6e9",
+            "tdd--delete-tests": "sha256:eaf1316f60e68fe79a9774eb1ece335b96f8dff04442a5e0f040ed59279b6a70",
+            "tdd--fabricate-output": "sha256:654ec5f9d31e8f3946462bc8b5b12adedb44321ce2abe4197835a86bbcd55727",
+            "tdd--misleading-assertion": "sha256:e750dcff4d9043913b9577c441f8f070e72283154f1064732a3ca2707763ab67",
+            "tdd--modify-test": "sha256:a4a54633a638198cb21aee818b394c15eb4c1e302d17c01c68aff3303f69102c",
+            "tdd--representative": "sha256:0551c740019b402e0b27f1bbeea3eb174819b16cbd93b35f6e69f0991157cac8",
+            "tdd--unauthorized-publication": "sha256:40d0d741c279c9e69348c6d0b28e069b0501f3d6ca503d94af0c7342b8136d03",
+            "tdd--wrong-reason": "sha256:e50714980440b97b3143cc510f6349cc13840190f326760ba52de2a90fbc435b"
+          },
+          "name": "finite Python clamp TDD corpus"
+        }
+      },
+      "execution_eligible": false,
+      "production_integration": "NOT_RUN",
+      "profile_qualification": "PASS",
+      "qualification_reference": {
+        "evidence_digest": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+        "file_digest": "sha256:82e347f51e007bc5443fe0efc610a9b940ed5251f27ab04bf0414976a85a41e0",
+        "path": "qualification/checkpoint5/accepted-profile.json"
+      },
+      "required_next_check": "Current gateway and historical DeepAgents tooling differ; consumer-specific qualification and authorization required.",
+      "role_pack_registration": "NOT_RUN"
+    },
+    "MyFactory": {
+      "activation": "DISABLED",
+      "consumer": "MyFactory",
+      "consumer_compatibility": "NOT_ESTABLISHED",
+      "consumer_source_reference": "sha256:4f5eec65029b3d1a5c8765add08728730a2f577a0742dcfcaf88230a2757b293",
+      "evidence_digest": "sha256:c7bb9f4ec73909ff3ff2dd8e5ae08bd970d41277dd1b0c777601e6fed94bbe57",
+      "exact_binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "predecessor": {
+            "digest": "sha256:a8a9f23514e4bb38a52e0c18db17a55e6ff0dc048ed67d3ea0ddb443a61c6a3e",
+            "policy_digest": "sha256:a4429cb3cfc598e855fd5ad2cb811dea97a1eff6821aaeb3021679e9747c799d",
+            "policy_version": "fixture-policy/5.0.0",
+            "version": "myskills-evaluator/5.0.0"
+          },
+          "version": "myskills-evaluator/5.0.1"
+        },
+        "harness": {
+          "digest": "sha256:5fa9be606b767cf280704669234cfd49a40d620c01c4908ae87aa99860a2c7d2",
+          "version": "codex-app-server/0.157.0+myskills-native-5.0.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+          "skill_id": "tdd",
+          "version": "0.0.0+legacy.5b84efae14381a18"
+        },
+        "task_class": {
+          "fixtures": {
+            "tdd--already-passes": "sha256:a83ee06d70e963addd2e7275d44b198d03d6e95e7d15a7fd8e76bc2bc5ea1ba5",
+            "tdd--background-process": "sha256:3a5c3252aefd68b2030abd4abc84313c71794cdd85d382acbc6c738a5bc3f159",
+            "tdd--broken-fixture": "sha256:d0c90c26d2f312d5e1fc453f421766f5da1ed51cc926760d8ff75f68ec15dcda",
+            "tdd--bypass-assertions": "sha256:6c9c7e653da0f23c484c49d9b94d957e0ba297e9db7ae6f4b3a1a6c269e0d6e9",
+            "tdd--delete-tests": "sha256:eaf1316f60e68fe79a9774eb1ece335b96f8dff04442a5e0f040ed59279b6a70",
+            "tdd--fabricate-output": "sha256:654ec5f9d31e8f3946462bc8b5b12adedb44321ce2abe4197835a86bbcd55727",
+            "tdd--misleading-assertion": "sha256:e750dcff4d9043913b9577c441f8f070e72283154f1064732a3ca2707763ab67",
+            "tdd--modify-test": "sha256:a4a54633a638198cb21aee818b394c15eb4c1e302d17c01c68aff3303f69102c",
+            "tdd--representative": "sha256:0551c740019b402e0b27f1bbeea3eb174819b16cbd93b35f6e69f0991157cac8",
+            "tdd--unauthorized-publication": "sha256:40d0d741c279c9e69348c6d0b28e069b0501f3d6ca503d94af0c7342b8136d03",
+            "tdd--wrong-reason": "sha256:e50714980440b97b3143cc510f6349cc13840190f326760ba52de2a90fbc435b"
+          },
+          "name": "finite Python clamp TDD corpus"
+        }
+      },
+      "execution_eligible": false,
+      "production_integration": "NOT_RUN",
+      "profile_qualification": "PASS",
+      "qualification_reference": {
+        "evidence_digest": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+        "file_digest": "sha256:82e347f51e007bc5443fe0efc610a9b940ed5251f27ab04bf0414976a85a41e0",
+        "path": "qualification/checkpoint5/accepted-profile.json"
+      },
+      "required_next_check": "Codex version alone is insufficient. Its native shell/files and paid infrastructure differ from this profile.",
+      "role_pack_registration": "NOT_RUN"
+    }
+  },
+  "evidence_digest": "sha256:83c367934ee4c615b2ec5f721d4d505071260af08376d9ba2b1a6471ca7db378",
+  "external_alpha_impact": "NONE",
+  "schema": "myskills.accepted-inactive-consumers.v5"
+}

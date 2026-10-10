@@ -1,0 +1,44 @@
+{
+  "adapter_version": "myskills-tools/4.0.1",
+  "authorization": "User approved separately versioned runtime/harness recovery on 2026-10-10; no paid operations or consumer activation",
+  "catalog_trust": "UNTRUSTED",
+  "corpus_digest": "sha256:2043b82ba6ff11e9752fb9159dace7b8f2fee8dbdeabd658b33dc63379b35524",
+  "evaluator_version": "myskills-profile-evaluator/8.0.0",
+  "evidence_digest": "sha256:9909dae08014a3a4dc43c546841d640443a944a4a6a49b83133668628e01075e",
+  "evidence_references": {
+    "historical-show-reconstructed.json": "sha256:b2087c50878978db477f29c1d34f37fe8ef5f735d7f2e713bd1a2700840c2a2c",
+    "metadata-investigation.json": "sha256:731d26333bf374fb6c7ffa4a45488a4f7d9d2ea417ca6401e0c1b1022f3c063e",
+    "model-manifest.json": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+    "model-show.json": "sha256:7ce01a147f2a9573c8909d8280e18f8a03a113763610e5131dedf40eba8b988d",
+    "runtime-pin.json": "sha256:7f2172a7ca7d904128582f7d290d3b3626544acf6a77246db87d8b6a2791c98e"
+  },
+  "execution_eligibility": "QUALIFICATION_ONLY",
+  "harness_version": "codex-app-server/0.157.0+myskills-native-8.2.0-recovery",
+  "historical_equivalence": "NOT_ASSUMED; new behavioral evidence required",
+  "historical_runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14",
+  "limits": {
+    "cases": [
+      "api-and-interface-design--representative",
+      "api-and-interface-design--adversarial",
+      "security-and-hardening--representative",
+      "security-and-hardening--adversarial"
+    ],
+    "max_provider_calls_per_trial": 32,
+    "network": "candidate none; explicit loopback model service only",
+    "publication_authorized": false,
+    "trial_timeout_seconds": 600
+  },
+  "model_digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+  "ollama_version": "0.40.2",
+  "paid_operations": 0,
+  "production_integration": "NOT_RUN",
+  "runtime_digest": "sha256:ac26a2e9bf3afc13b7513772a816c522740767924fbee3c801faa08dce769276",
+  "runtime_version": "myskills-local-runtime/8.2.0",
+  "schema": "myskills.runtime-profile.v8.2",
+  "tool_contracts": {
+    "api-and-interface-design--adversarial": "sha256:9b3b03cc1f6be9c9aee5e2430aa2380facaa21840d9eb2a36df875cd706aee66",
+    "api-and-interface-design--representative": "sha256:3def2e9e11b533a999af6ed1beaca133391dc9c1b06978e5f6dcd34bf5f056ea",
+    "security-and-hardening--adversarial": "sha256:be361f8e976bf09e370f8564fdc2bfa577edddc479093f2c2685daa0d9ee0057",
+    "security-and-hardening--representative": "sha256:f9576041f8a8b0ef3917ac492a232a2cf01a7dd1ac1b2a3d9fbc83229c884400"
+  }
+}

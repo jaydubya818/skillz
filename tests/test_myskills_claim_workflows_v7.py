@@ -1,0 +1,179 @@
+from copy import deepcopy
+import json
+
+from myskills.digest import digest_object
+from qualification.v7.cases import CASES, SPECS
+from qualification.v7.evaluate import document_claims, authenticated_facts
+
+
+def document(skill):
+    spec = SPECS[skill]
+    return {'claims': [{'id': key, 'source': value['source'], 'source_digest': digest_object('source')}
+                       for key, value in spec['claims'].items()],
+            'test_call_id': 'actual-test', 'limitations': spec['limitations']}
+
+
+def test_document_requires_every_approved_claim_and_exact_source():
+    skill = 'api-and-interface-design'
+    value = document(skill)
+    files = {row['source']: 'source' for row in value['claims']}
+    assert document_claims(skill, value, files)
+    value['claims'].pop()
+    assert not document_claims(skill, value, files)
+
+
+def test_no_producer_proposition_or_pass_field():
+    skill = 'security-and-hardening'; value = document(skill)
+    files = {row['source']: 'source' for row in value['claims']}
+    value['claims'][0]['statement'] = 'Everything is secure'
+    assert not document_claims(skill, value, files)
+    value = document(skill); value['result'] = 'PASS'
+    assert not document_claims(skill, value, files)
+
+
+def test_changed_source_scope_or_duplicate_claim_fails():
+    skill = 'api-and-interface-design'; value = document(skill)
+    files = {row['source']: 'source' for row in value['claims']}
+    files['api.py'] = 'changed'
+    assert not document_claims(skill, value, files)
+    value['claims'][0]['source'] = '../owner-b/secret'
+    assert not document_claims(skill, value, files)
+    value = document(skill);value['claims'][1] = deepcopy(value['claims'][0])
+    assert not document_claims(skill, value, {p:'source' for p in files})
+
+
+def test_malformed_documents_fail_closed():
+    for value in [None, [], {}, {'claims':None}, {'claims':[None]}, {'claims':[],'limitations':[],'test_call_id':None}]:
+        assert not document_claims('api-and-interface-design',value,{})
+
+
+def test_receipt_requires_real_clean_completed_execution():
+    skill='api-and-interface-design'
+    facts={key:True for key in SPECS[skill]['claims']}
+    result={'exit_code':0,'stdout':json.dumps({'suite':skill,'facts':facts}), 'stderr':'',
+            'cleanup_confirmed':True,'unauthorized_changes':[]}
+    assert authenticated_facts(skill,result)==facts
+    for patch in [{'exit_code':None},{'cleanup_confirmed':False},{'unauthorized_changes':['outside']},
+                  {'stdout':'PASS'},{'stdout':result['stdout']+'\n'+result['stdout']},
+                  {'stdout':json.dumps({'suite':skill,'facts':{**facts,next(iter(facts)):1}})}]:
+        assert authenticated_facts(skill,{**result,**patch}) is None
+
+
+def test_completed_false_fact_remains_contradicted_evidence():
+    skill='api-and-interface-design';facts={key:True for key in SPECS[skill]['claims']}
+    facts['api.authentication']=False
+    result={'exit_code':1,'stdout':json.dumps({'suite':skill,'facts':facts}), 'stderr':'AssertionError',
+            'cleanup_confirmed':True,'unauthorized_changes':[]}
+    assert authenticated_facts(skill,result)==facts
+
+
+def test_native_capture_survives_evaluator_or_containment_failure(tmp_path):
+    from qualification.v7.probe import retain_assessment
+    from qualification.local_probe import ContainmentError
+    from qualification.checkpoint_four import unseal
+    for error in [ValueError('malformed candidate'),ContainmentError('cleanup unknown')]:
+        record={'generation':'COMPLETED','files':{'api.py':''},'entries':[],'finished':True}
+        def broken(fixture,observed):
+            saved=json.loads((tmp_path/'observation.json').read_text());unseal(saved)
+            assert saved['generation']=='COMPLETED' and saved['files']==record['files']
+            raise error
+        assert retain_assessment(tmp_path,record,{},broken)
+        saved=json.loads((tmp_path/'observation.json').read_text());unseal(saved)
+        assert saved['generation']=='COMPLETED' and saved['verification']['status']=='NOT_RUN'
+
+
+def test_probe_never_imports_candidate_gateway_into_trusted_parent():
+    import ast
+    from qualification.v7.checks import API,SECURITY
+    for script in [API,SECURITY]:
+        imports=[node.module for node in ast.walk(ast.parse(script)) if isinstance(node,ast.ImportFrom)]
+        assert not {'gateway','api','security'}.intersection(imports)
+
+
+def test_missing_transcript_is_only_representable_for_incomplete_capture(tmp_path):
+    import pytest
+    from myskills.manifest import ValidationError
+    from qualification.checkpoint_seven import transcript_digest
+    assert transcript_digest(tmp_path,{'generation':'NOT_RUN'}) is None
+    assert transcript_digest(tmp_path,{'generation':'UNKNOWN'}) is None
+    with pytest.raises(ValidationError):transcript_digest(tmp_path,{'generation':'COMPLETED'})
+
+
+def test_only_candidate_code_and_document_are_writable():
+    assert len(CASES)==4
+    for name,fixture in CASES.items():
+        assert 'gateway.py' not in fixture['writable']
+        assert 'legacy.py' not in fixture['writable']
+        assert 'claims-spec.json' not in fixture['writable']
+        assert len(fixture['writable'])==2
+        assert fixture['commands'].keys()=={'test','legacy'}
+        assert ('repository-notes.md' in fixture['files'])==name.endswith('--adversarial')
+
+
+def test_passing_execution_never_cancels_retained_counterevidence():
+    from qualification.checkpoint_seven import case_status
+    observed_failure={'source_digest':'bound-source','reason':'completed concurrency exception'}
+    assert case_status(True,'PASS','PASS',observed_failure)=='FAIL'
+    assert case_status(True,'PASS','PASS',None)=='PASS'
+    assert case_status(False,'PASS','PASS',None)=='PARTIAL'
+    assert case_status(True,'PASS','FAIL',None)=='FAIL'
+
+
+def test_legacy_difference_is_retained_before_exception_without_changing_result(tmp_path, monkeypatch):
+    import pytest
+    from qualification import replay_followup_diagnostics as diagnostics
+    from qualification.checkpoint_four import unseal
+    result={'status':'FAIL','stderr':'database is locked'}
+    original=lambda *args, **kwargs: result
+    monkeypatch.setattr(diagnostics.legacy,'evaluate',original)
+    monkeypatch.setattr(diagnostics,'file_digest',lambda path:'bound-source')
+    monkeypatch.setattr(diagnostics.subprocess,'check_output',lambda *args, **kwargs:'bound-revision')
+    output=tmp_path/'diagnostic'
+    def failing_report(root,retained):
+        observed=diagnostics.legacy.evaluate({'skill':'api'}, {'api.py':'source'}, [], {}, True)
+        assert observed is result
+        saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+        assert saved['observations'][0]['result']==result
+        raise ValueError('frozen evaluation differs')
+    monkeypatch.setattr(diagnostics.legacy,'report',failing_report)
+    with pytest.raises(ValueError,match='frozen evaluation differs'):
+        diagnostics.replay(tmp_path,tmp_path,output)
+    assert diagnostics.legacy.evaluate is original
+    saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+    assert saved['outcome']=='FAIL' and saved['qualification_credit'] is False
+
+
+def test_checkpoint_replay_retains_actual_tool_and_evaluator_results(tmp_path, monkeypatch):
+    import pytest
+    from qualification import replay_checkpoint7_diagnostics as diagnostics
+    from qualification.checkpoint_four import unseal
+    fixture={'files':{'source.txt':'source'},'writable':[],'commands':{}}
+    retained=tmp_path/'retained';(retained/'case').mkdir(parents=True)
+    (retained/'case/observation.json').write_text(json.dumps({'binding':{'fixture':'exact'}}))
+    output=tmp_path/'output';original_session=diagnostics.tools_replay.Session
+    run_result={'exit_code':1,'stderr':'counterexample'}
+    original_executor=lambda skill: lambda *args,**kwargs: run_result
+    monkeypatch.setattr(diagnostics.evaluator,'executor',original_executor)
+    monkeypatch.setattr(diagnostics.checkpoint,'executor',original_executor)
+    monkeypatch.setattr(diagnostics,'file_digest',lambda path:'bound-source')
+    monkeypatch.setattr(diagnostics.subprocess,'check_output',lambda *args,**kwargs:'bound-revision')
+    def fail_after_capture(*args):
+        expected=original_session('case',fixture,None).call('read','read_file',{'path':'source.txt'})
+        session=diagnostics.tools_replay.Session('case',fixture,None)
+        actual=session.call('read','read_file',{'path':'source.txt'})
+        assert actual==expected
+        captured=json.loads((output/'replay-journal/case/0-completed.json').read_text());unseal(captured)
+        assert captured['result']==actual and captured['binding']=={'fixture':'exact'}
+        for factory in [diagnostics.evaluator.executor,diagnostics.checkpoint.executor]:
+            assert factory('api')({'api.py':'source'},['check'],[]) is run_result
+        saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+        assert [r['result'] for r in saved['executions']]==[run_result,run_result]
+        raise ValueError('independent tool replay differs')
+    monkeypatch.setattr(diagnostics.checkpoint,'report',fail_after_capture)
+    with pytest.raises(ValueError,match='independent tool replay differs'):
+        diagnostics.replay(tmp_path,retained,tmp_path,output)
+    assert diagnostics.tools_replay.Session is original_session
+    assert diagnostics.evaluator.executor is original_executor
+    assert diagnostics.checkpoint.executor is original_executor
+    saved=json.loads((output/'diagnostics.json').read_text());unseal(saved)
+    assert saved['outcome']=='FAIL' and saved['qualification_credit'] is False

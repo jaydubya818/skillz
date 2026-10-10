@@ -1,0 +1,78 @@
+{
+  "acceptance_reproduction": "validate() reproduced the accepted record exactly from the candidate, pin and independently verified run metadata.",
+  "accepted_profile_digest": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+  "accepted_profile_file_digest": "sha256:82e347f51e007bc5443fe0efc610a9b940ed5251f27ab04bf0414976a85a41e0",
+  "candidate_evidence_digest": "sha256:b9b9e51c63ce03673f7519b72e981f359e1b9faa51c33164a694096fe475883a",
+  "compared_files": {
+    "MissionControl.json": "sha256:200c2afe213dade4645d79c6bb1521df426d3555898a631662fc5584347866e5",
+    "MyApps.json": "sha256:f2c82a43f6cceb3798a4a6e8f397b49893c5c2d8510b2bd34d3248b2524c6dc2",
+    "MyEve-Sofie-subagents.json": "sha256:bdae5b26b3106269396ec2eaa94cc31009ddbe0683b11ac40dc93f447a0b616a",
+    "MyFactory.json": "sha256:4abe15da55c2bca2aedc027c59d9fbeeba06e3468e1cdad748cf690b7386eb77",
+    "checkpoint.json": "sha256:4bc0b27dc56703a48b43d9aac6c4c837d45a3994d3f41d33edb180714819265b",
+    "matrix.json": "sha256:4299fbfe2625baf74096387b2ab174633111ed9d01ab9d82df245e154af68a5f",
+    "profile.json": "sha256:ab28c09f586784ab3c5fd799e08e1c9fc1aae684a3056342e9ac989760626b03"
+  },
+  "consumer_authority": "NONE",
+  "consumer_compatibility_digest": "sha256:83c367934ee4c615b2ec5f721d4d505071260af08376d9ba2b1a6471ca7db378",
+  "consumer_compatibility_file_digest": "sha256:3320fa469b4524918a5a0a8fdc6fcb9c16291434b387f32cca893dacc364be2a",
+  "evidence_digest": "sha256:4454e65af9a08eba89c2a5702ced3d8f6961d4ef0acf8d87b492e24315690558",
+  "export_agreement": "All seven local, fresh-clone and actual hosted-archive files are byte-identical and match the validation pin.",
+  "fresh_clone_verification": {
+    "browser_checks": {
+      "count": 21,
+      "log_digest": "sha256:7b37f0526e59a6558b9db26c54cc1ffd753fc0f89596c5609e877c1560c4498f",
+      "status": "PASS"
+    },
+    "catalog_failures": [],
+    "catalog_skills": 92,
+    "checkout": "myskills-checkpoint5-fresh",
+    "portable_tests": {
+      "count": 267,
+      "log_digest": "sha256:967e4b403ce0211e9f2999635e780cd5f2d73e1e697d0ab895d8aee4b50bc0ae",
+      "status": "PASS"
+    },
+    "replayed_checkpoint_digest": "sha256:b9b9e51c63ce03673f7519b72e981f359e1b9faa51c33164a694096fe475883a",
+    "source_commit": "586da31e5928ea04dfb114249afba06f916129a9",
+    "verification": "Read actual local logs, browser report, catalog receipt and replay report; verified checkout HEAD/status and log digests. Reviewer did not rerun the full suites.",
+    "working_tree": "CLEAN"
+  },
+  "hosted_verification": {
+    "archive_digest": "sha256:487e297724e25889dbcc006703f5b926d274a5294d7e3a1d35ccdbe893705b54",
+    "artifact_id": 11648880874,
+    "artifact_name": "myskills-initial-qualification",
+    "conclusion": "success",
+    "jobs": {
+      "myskills-browser": "success",
+      "myskills-qualification-replay": "success",
+      "package-contract": "success"
+    },
+    "repository": "jaydubya818/skillz",
+    "run_id": 37999875198,
+    "run_url": "https://github.com/jaydubya818/skillz/actions/runs/37999875198",
+    "source_commit": "586da31e5928ea04dfb114249afba06f916129a9",
+    "status": "completed",
+    "verification": "Reviewer independently queried GitHub run, jobs and artifact APIs. Authoritative artifact digest matched the actual retained ZIP; artifact run/head matched the accepted source."
+  },
+  "limitations": [
+    "PASS covers only the accepted finite tdd-python-clamp-offline-v1 profile and its recorded exact bindings.",
+    "No inference, Docker execution or full suite rerun was performed during this audit.",
+    "No consumer harness equivalence, role-pack registration, production execution or broad Skill trust is established.",
+    "Recorder tests remain blocked by FFmpeg/sandbox constraints and are not counted as passing."
+  ],
+  "new_qualified_profiles": 0,
+  "preservation": {
+    "catalog_qualification": "NOT_EVALUATED",
+    "consumer_activation": "DISABLED",
+    "consumer_execution": false,
+    "frozen_evaluator_results": "10 PASS / 1 FAIL",
+    "globally_trusted_skills": 0,
+    "successor_evaluator_results": "11 PASS"
+  },
+  "review_grants_execution": false,
+  "reviewer": "foundation_review independent collaboration agent",
+  "schema": "myskills.independent-acceptance-review.v5",
+  "scope": "Read-only independent audit of exact TDD acceptance, actual GitHub run/artifact metadata, fresh-clone logs and checkout, archive and seven export hashes, and inactive consumer references.",
+  "validation_pin_digest": "sha256:46916142d20143e1d5a9f7124477ba10ba99c812c9dc20784f424e6c321919d3",
+  "validation_pin_file_digest": "sha256:ffdd732efb1116d7315edb6d9376fad869b2e8ec55ee1988432498854abeef44",
+  "verdict": "PASS"
+}

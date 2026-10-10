@@ -1,0 +1,219 @@
+{
+  "consumer_execution": "DISABLED",
+  "consumer_repositories_modified": 0,
+  "evidence_digest": "sha256:4f5eec65029b3d1a5c8765add08728730a2f577a0742dcfcaf88230a2757b293",
+  "official_protocol_references": [
+    "https://developers.openai.com/codex/app-server",
+    "https://docs.ollama.com/integrations/codex",
+    "https://docs.cursor.com/cli/reference/permissions",
+    "https://cursor.com/docs/cli/overview"
+  ],
+  "paths": {
+    "Codex": {
+      "builtin_exception": "request_user_input advertised, all non-dynamic RPCs denied",
+      "collector_commit": "6cf855ed865c6e3137460babd515efad2ec6dea4",
+      "local_model_digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+      "native_skill_discovery": "NOT_RUN; exact Skill text supplied in controller packet",
+      "original_adapter": "4.0.0 RPC ID collision, interrupted; no behavioral credit",
+      "protocol": "app-server dynamic tools, Responses namespace schema",
+      "status": "NATIVE_TRIALS_COMPLETE_NO_APPROVED_TWO_CASE_PROFILE",
+      "successor_adapter": "myskills-tools/4.0.1",
+      "version": "0.157.0"
+    },
+    "Cursor": {
+      "adapter": "NOT_IMPLEMENTED; MCP response envelope alone is not a native execution qualification",
+      "protocol": "Native shell/file tools; installed CLI exposes auth/model/API key, no observed supported local-provider selection",
+      "status": "NOT_RUN_AUTHORIZATION_BOUNDARY",
+      "version": "2025.09.18-7ae6800"
+    },
+    "MissionControl": {
+      "canonical_commit": "5308727463ec737589bf8072ee9f5de0af1bba7a",
+      "local_model_route": "Different Ollama/model pin; host-process audit is not equivalent to OS isolation; no substitution",
+      "protocol": "Isolated bridge accepts render-markdown, synthetic-receipt and verify-document-bytes only",
+      "status": "NOT_COMPATIBLE_WITH_GENERAL_SKILL_EXECUTION"
+    },
+    "MyEve-DeepAgents": {
+      "canonical_commit": "2ef364024bc1cdd3e10ec28f3d340119c6f87d41",
+      "current_native_route": "Anthropic Gateway; paid provider boundary; NOT_RUN",
+      "historical_commit": "96ae446e1f0f69e57fa2b9a2b6c5de3b3b1b083d",
+      "historical_package": "deepagents@1.14.1",
+      "protocol": "Historical strict virtual file SDK; cancellation fences later writes but does not attest provider billing abort",
+      "status": "NOT_QUALIFIED_NOT_REGISTERED_IN_CURRENT_RELEASE"
+    },
+    "MyFactory": {
+      "canonical_commit": "030b1a51017f3159436b93817ed2d5bf6ae18288",
+      "difference": "Vercel Sandbox.create is infrastructure authority even with deterministic model relay; this isolated dynamic-tool controller is not that harness",
+      "native_cli": "Codex0.157.0",
+      "protocol": "createCodexAdapter with scrubbed private HOME, loopback Responses spend gateway, native shell/files retained",
+      "status": "NOT_RUN_INFRASTRUCTURE_AUTHORIZATION_BOUNDARY"
+    }
+  },
+  "schema": "myskills.native-compatibility.v4",
+  "schema_validation": "NOT_RUN",
+  "source_custody": "Read-only local source inspection; hashes and paths retained, no consumer source uploaded",
+  "source_records": [
+    {
+      "files": [
+        {
+          "bytes": 1828,
+          "path": "docs/setup/deepagent-harness.md",
+          "sha256": "9b35ebbd4eba07e4bd60d943389e8350b5be73ad0e8c718021b271ffa09d5abc"
+        },
+        {
+          "bytes": 18089,
+          "path": "apps/eve/lib/engineering/native-model.ts",
+          "sha256": "8c154a747d6abff9b39077f32b977babaf35169eb124bc2be6decafef4036ecb"
+        },
+        {
+          "bytes": 729,
+          "path": "apps/eve/lib/engineering/native-qualification.ts",
+          "sha256": "b0045e346ae0439565e3629952ee9e0b26c992d2b618c538dacc71c75da82289"
+        },
+        {
+          "bytes": 1302,
+          "path": "apps/eve/lib/engineering/native-input.ts",
+          "sha256": "78f665d05f649d2cce626187900adc6e16605ee7c0c4559047e191906c9b5712"
+        }
+      ],
+      "repository": "Myeve",
+      "source_commit": "2ef364024bc1cdd3e10ec28f3d340119c6f87d41",
+      "source_type": "canonical_main_verified_by_git_ls_remote"
+    },
+    {
+      "files": [
+        {
+          "bytes": 13525,
+          "path": "experiments/deepagents/provider.ts",
+          "sha256": "4e4cfe8d1d1a14faf13d3fc4f8a4b8c614f9e98382c84325b1238259799eee06"
+        },
+        {
+          "bytes": 515,
+          "path": "experiments/deepagents/package.json",
+          "sha256": "23d398a6f366d379b50f960629b8314fbf5aec9e36a794ad05eff103de64aa9b"
+        },
+        {
+          "bytes": 39902,
+          "path": "experiments/deepagents/package-lock.json",
+          "sha256": "11550f83623c280a89e19916e4aba17f7fd3062eed8c80b3686507a089260aa3"
+        },
+        {
+          "bytes": 11207,
+          "path": "apps/eve/lib/digital-worker/experimental-harness-boundary.ts",
+          "sha256": "cb8b16db8f826cc677ce4d5d280e0f4fdf1e10105ddc21f91e85d43ee940e340"
+        }
+      ],
+      "repository": "Myeve",
+      "source_commit": "96ae446e1f0f69e57fa2b9a2b6c5de3b3b1b083d",
+      "source_type": "historical_unqualified_deepagents_experiment"
+    },
+    {
+      "files": [
+        {
+          "bytes": 21484,
+          "path": "packages/agents/src/index.ts",
+          "sha256": "6880955b97a104db9564260b280bc012a6a95e77b2181a7597a2f1dea098c3f2"
+        },
+        {
+          "bytes": 19433,
+          "path": "packages/verification/src/index.ts",
+          "sha256": "70345fb107dafe795150ac9b70617ccdb92525177a3abd69c830ee02ea8df5b0"
+        },
+        {
+          "bytes": 6451,
+          "path": "apps/supervisor/src/local-execution-provider.ts",
+          "sha256": "c17cd911577d14c2d93cee57f139f3e0cf726111657260e36afc2d18341370f3"
+        },
+        {
+          "bytes": 1878,
+          "path": "apps/supervisor/src/execution-provider.ts",
+          "sha256": "60027acba1399b05ba2637dc7dab64e1be3ab68842167b7229d4cf43f9e4af3b"
+        },
+        {
+          "bytes": 5114,
+          "path": "apps/cloud-control/src/cloud-harness-executor.mjs",
+          "sha256": "e8fe035c05fbb66ba7fd44193c1c7424860632ba829e81939093493509cf4cfd"
+        },
+        {
+          "bytes": 6194,
+          "path": "apps/cloud-control/src/cloud-harness-phase.mjs",
+          "sha256": "933af1d3a4850618e9500b3377599b7307527a924149c64b06c6d30146c339ba"
+        },
+        {
+          "bytes": 3448,
+          "path": "apps/cloud-control/src/cloud-harness-worker.mjs",
+          "sha256": "1ccce72a0634fafb818946d9c3cb79872dfd2782a9888ab8f4143518e7484c48"
+        },
+        {
+          "bytes": 1156,
+          "path": "apps/cloud-control/src/cloud-harness-plan.mjs",
+          "sha256": "2a3815b4ccda8cf8c5515715a3dd29bd19c3ccd6c91f0c80cd92be275759f44e"
+        },
+        {
+          "bytes": 2825,
+          "path": "apps/cloud-control/src/cloud-harness-install.mjs",
+          "sha256": "ecc49b5ff24c703487c9183de771a4c98e923386e711c37194d85efce8a30deb"
+        },
+        {
+          "bytes": 5637,
+          "path": "apps/cloud-control/src/infrastructure-provider.mjs",
+          "sha256": "4135b2b10231f7760cc1d46f85f7d02178082895cc535bf467b1e271f53c4346"
+        },
+        {
+          "bytes": 2821,
+          "path": "apps/cloud-control/src/production-model-provider.mjs",
+          "sha256": "71fd48051b2847f672b3ceec1ed3e1a8402a29ff73707e015765d75c56d487c6"
+        }
+      ],
+      "repository": "MyFactory",
+      "source_commit": "030b1a51017f3159436b93817ed2d5bf6ae18288",
+      "source_type": "canonical_main_verified_by_git_ls_remote"
+    },
+    {
+      "files": [
+        {
+          "bytes": 31535,
+          "path": "apps/orchestration-server/src/deepseekHarnessExecutorAdapter.ts",
+          "sha256": "0aa5387a84c8cf23038d6d97bdfeded48915b79e17da4f4d908aff9dc9f83859"
+        },
+        {
+          "bytes": 17824,
+          "path": "apps/orchestration-server/src/isolatedInvocationAdapter.ts",
+          "sha256": "abe504ad5f4af05a4adb26a0a8df2758e0d94aec96c0bd5ea550355ec38a1067"
+        },
+        {
+          "bytes": 1571,
+          "path": "apps/orchestration-server/src/isolatedInvocationEntry.ts",
+          "sha256": "f043e5c63d521b8dc67c4d94ac7c68d1fd8734e16e3eecc05963ec0962ba7118"
+        },
+        {
+          "bytes": 6329,
+          "path": "apps/orchestration-server/src/factoryHarnessComposition.ts",
+          "sha256": "7ac501420275a8526d94a77e763abe781e63a0971972c6221163d5f1ab4ff49d"
+        },
+        {
+          "bytes": 1820,
+          "path": "apps/orchestration-server/src/loadIsolatedInvocationBackend.ts",
+          "sha256": "52f96e4885495ab6840bed991bd807f208d0f96f5772414e10369eb864aed7e0"
+        },
+        {
+          "bytes": 14767,
+          "path": "packages/workflow-engine/src/isolatedInvocation.ts",
+          "sha256": "cae98e96838391a4d6a7f3f134e97c048eb254316511be3a3e4f8af79d9ac909"
+        },
+        {
+          "bytes": 19623,
+          "path": "packages/workflow-engine/src/harnessManifests.ts",
+          "sha256": "4ec7828ca10d09fc45394cc7712ba610e73dd78dc6469ac4453c45ff3031edc0"
+        },
+        {
+          "bytes": 32992,
+          "path": "packages/workflow-engine/src/executorAdapter.ts",
+          "sha256": "f1dbef7b48d13b4610d9e89d4da22b7c2423c9e9478dd9a5630078a2f90c7f15"
+        }
+      ],
+      "repository": "MissionControl",
+      "source_commit": "5308727463ec737589bf8072ee9f5de0af1bba7a",
+      "source_type": "canonical_main_verified_by_git_ls_remote"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "bundle_digest": "sha256:c8dd3c4205b0cc7ba23099b58dccfb81b410b341647a9de7ca432704dcfc3039",
+  "codec": "xz-base64",
+  "collector_commit": "ae6a4449546e9c441326839654fc071101b7ea2f",
+  "evidence_kind": "SYNTHETIC_PARTIAL_BEHAVIOR_NOT_AN_EXECUTION_GRANT",
+  "parts": [
+    {
+      "body_digest": "sha256:0c593a4b6d3f500f86eb9e63d033cbbbcba02c5c8f4df99a2855fc90a2b2dccc",
+      "comment_id": 6092738110,
+      "index": 0,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092738110"
+    },
+    {
+      "body_digest": "sha256:4b79984634cbd60cc8ca037cd6d2439ac2e71d0261abffa07d27453d18e04ffa",
+      "comment_id": 6092738670,
+      "index": 1,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092738670"
+    },
+    {
+      "body_digest": "sha256:cf6fbed2408c94e79a25f8d00b2debe52b13cdbc8c0369e50f4b47cb308907a9",
+      "comment_id": 6092739135,
+      "index": 2,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092739135"
+    },
+    {
+      "body_digest": "sha256:b1312ab3d498dfa877b3d95f91226ea74f7543cc13d9659fd05ad99c59c856d1",
+      "comment_id": 6092739496,
+      "index": 3,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092739496"
+    },
+    {
+      "body_digest": "sha256:227ad527f106434bc2cc0ed0c0c17ee166c4e8ecad9b51ee2d4d7206774b9514",
+      "comment_id": 6092739949,
+      "index": 4,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092739949"
+    },
+    {
+      "body_digest": "sha256:de26dff5911c9967aecb86403487cd599e04bd250c7d9221bbc567340e9537e7",
+      "comment_id": 6092740417,
+      "index": 5,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092740417"
+    },
+    {
+      "body_digest": "sha256:812729f1c540f1a4339c27bef99acea05612c1cb9918c19e2c0abfdf514a15f4",
+      "comment_id": 6092740704,
+      "index": 6,
+      "url": "https://github.com/jaydubya818/skillz/pull/7#issuecomment-6092740704"
+    }
+  ],
+  "schema": "myskills-checkpoint7-followup-bundle-v1"
+}

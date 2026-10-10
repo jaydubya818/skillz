@@ -1,0 +1,26 @@
+{
+  "archive_digest": "sha256:d0873e0da859492df7fdb79aaa51831b4c0d614a65e461d7a38274119a49d37a",
+  "artifact_name": "myskills-initial-qualification",
+  "artifact_url": "https://github.com/jaydubya818/skillz/actions/runs/37980147393/artifacts/11640532417",
+  "consumer_schema_validation": "NOT_RUN",
+  "execution_eligible": false,
+  "files": {
+    "checkpoint2/missioncontrol.json": "sha256:0c1cbfe1d1757e28f16795a8fb49d935474c753a496509b6c1749de9498441af",
+    "checkpoint2/myapps.json": "sha256:6b5775f3af7245943a5d1805da5ea7f285d7be4581fcabdfad420c1c31f8c9f6",
+    "checkpoint2/skills/api-and-interface-design.json": "sha256:ffc2e5c2b0102b74495c13e7abadb10f03aaebeb70a94a5022b18c6f7b0181d8",
+    "checkpoint2/skills/ci-cd-and-automation.json": "sha256:50eeb7940088357678e9ccb4d6226360238ada7f5b7c7d6d5f4af5301387f226",
+    "checkpoint2/skills/create-verification-skill.json": "sha256:2f54205169f854d9ad3bcf7b1b8dde831cd978b86a0332dd10eb68dbe0db501d",
+    "checkpoint2/skills/deprecation-and-migration.json": "sha256:d394cbbcef9edf2e217d2fd6eab9b2523a50073054fe1bccd900dbbd0cfcf9e3",
+    "checkpoint2/skills/figure-it-out.json": "sha256:d4c72f02eeb909f2053d7abe4339831bd7558a13f84d48030f1868a367cb47dd",
+    "checkpoint2/skills/frontend-ui-engineering.json": "sha256:30b99e3b61abc74d59d2341647873b3735e3ea03e2660ae7614ea764a6c849c2",
+    "checkpoint2/skills/principle-sequence-verifiable-units.json": "sha256:4887f524306fe05bdaaa6bb79b1b083cae0fc3837a149b0d956612283f898e8a",
+    "checkpoint2/skills/security-and-hardening.json": "sha256:b4568e31de5ba5940d73ee78db297212264a79126882a7cfdedd5d80965960c8",
+    "checkpoint2/skills/tdd.json": "sha256:e88df51013fc80145caa5c084f42a055b213dc2e787b678c9c3f9517e39574b8",
+    "checkpoint2/skills/thermo-nuclear-code-quality-review.json": "sha256:976d8966acf09651138c38af4cf185ffcf183a510dc9a783fa11e749e0d6ea9c"
+  },
+  "ready_skills": [],
+  "retention": "Hosted artifacts expire. Restore the committed evidence pin and replay at source_commit to regenerate the consumer files. Digests below are exact file-byte digests.",
+  "run_url": "https://github.com/jaydubya818/skillz/actions/runs/37980147393",
+  "schema": "myskills.compatibility-artifact-pin.v1",
+  "source_commit": "ff58a34bbf128f8effcc10b838c98648ad3ffd81"
+}

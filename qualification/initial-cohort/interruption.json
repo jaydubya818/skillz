@@ -1,0 +1,16 @@
+{
+  "schema": "myskills.qualification-interruption.v1",
+  "date": "2026-10-09",
+  "attempt": "local-attempt-1",
+  "planned_requests": 20,
+  "verified_completed_requests": 0,
+  "generation_completion": "UNKNOWN",
+  "evidence_recoverability": "Runtime artifacts unavailable after environment resumed; implementation recovered from this task's recorded edits.",
+  "previous_service_version": "0.34.4",
+  "recovered_service_version": "0.40.2",
+  "model_digest": "655d273ede3adc056594f511c120d616d92bf4c4d5bcfe580f3cfa29abe8109d",
+  "restart_precondition": "No task containers and no loaded local model observed before a separate attempt.",
+  "qualification_credit": "NONE",
+  "paid_operations": 0,
+  "production_integration": "NOT_RUN"
+}

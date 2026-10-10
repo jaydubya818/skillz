@@ -1,0 +1,176 @@
+{
+  "classification": "Generated API connection configuration changes persistent journal mode on each request; bounded competing requests reproduce SQLITE_BUSY. Original Skill-instruction defect not established.",
+  "correction": "Remove per-request journal mode mutation; preserve configured mode and insert-first transaction; bound connection wait to one second. No retry loop or relaxed response assertion.",
+  "evidence_digest": "sha256:215d0b72b85df981cf8fb03a51fa67b275d8ace459440d4603481fdb743a8749",
+  "original_local_evidence": "Deleted by external cleanup. Prior tool-history observation remains historical; these are fresh captures, not reconstructed execution results.",
+  "prior_checkpoint": "c7c53a261552297d9398b00e822d7cfaf7c63fff",
+  "probes": [
+    {
+      "binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+          "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+          "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+          "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+          "version": "myskills-profile-evaluator/7.0.0"
+        },
+        "harness": {
+          "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+          "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+          "skill_id": "api-and-interface-design",
+          "version": "0.0.0+legacy.601c7b409edee7c7"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:66c9e008324bbfd7463c2300766db1dec809dc741ff5641a1b5709b70805da35",
+          "name": "api-and-interface-design--representative",
+          "schema_digest": "sha256:b241e2c93440443436c543801338ea87cedf1dc214b2b43c8171d36e3de66a8f"
+        }
+      },
+      "evidence_digest": "sha256:dda401b5315168826c549d56f66da10b0aa3bb3db3a9fd67b543fe629e2295fb",
+      "no_model_credit": true,
+      "probe_digest": "sha256:95414b58ad115c070a62cfb7a69fa41f5e1071a83cea08c23acb7c4e4e72156e",
+      "program": "\nimport json,pathlib,sqlite3,subprocess,sys,tempfile,time\nworker=r\"\"\"\nimport json,pathlib,sqlite3,sys\nreal_connect=sqlite3.connect\nstatements=[]\ndef connect(*args,**kwargs):\n c=real_connect(*args,**kwargs)\n def trace(statement):\n  statements.append(statement)\n  upper=statement.strip().upper()\n  if upper.startswith(('PRAGMA JOURNAL_MODE=', 'BEGIN', 'INSERT')):\n   pathlib.Path(sys.argv[2]).touch()\n c.set_trace_callback(trace)\n return c\nsqlite3.connect=connect\nfrom api import handle\ntry:\n value={'response':handle('a',{'key':'k','text':'one'},sys.argv[1]),'error':None}\nexcept Exception as error:\n value={'response':None,'error':{'class':type(error).__name__,'message':str(error),'sqlite_errorname':getattr(error,'sqlite_errorname',None)}}\nvalue['statements']=statements\nprint(json.dumps(value))\n\"\"\"\ndef locked_reader_case(mode):\n with tempfile.TemporaryDirectory() as temporary:\n  directory=pathlib.Path(temporary);db=str(directory/'state.db');marker=directory/'entered-sql'\n  with sqlite3.connect(db) as seed:\n   assert seed.execute('PRAGMA journal_mode='+mode).fetchone()[0]==mode.lower()\n   seed.execute('CREATE TABLE notes(owner TEXT,key TEXT,text TEXT,PRIMARY KEY(owner,key))')\n   seed.execute('INSERT INTO notes VALUES(?,?,?)',('legacy','keep','old'))\n  reader=sqlite3.connect(db)\n  child=None\n  try:\n   reader.execute('BEGIN');assert reader.execute('SELECT * FROM notes').fetchall()==[('legacy','keep','old')]\n   child=subprocess.Popen([sys.executable,'-c',worker,db,str(marker)],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)\n   deadline=time.monotonic()+3\n   while not marker.exists():\n    if child.poll() is not None or time.monotonic()>deadline:raise RuntimeError('candidate did not reach controlled SQL boundary')\n    time.sleep(.005)\n   # A real reader remains open across the candidate SQL operation. No SQL\n   # exception, result, timeout or dependency failure is injected by this probe.\n   time.sleep(.15)\n   reader.rollback()\n   stdout,stderr=child.communicate(timeout=3)\n   assert child.returncode==0 and not stderr,(child.returncode,stderr)\n   observed=json.loads(stdout)\n  finally:\n   reader.close()\n   if child is not None and child.poll() is None:\n    child.kill();child.communicate()\n  with sqlite3.connect(db) as verify:\n   rows=verify.execute('SELECT owner,key,text FROM notes ORDER BY owner,key').fetchall()\n   final_mode=verify.execute('PRAGMA journal_mode').fetchone()[0]\n  return {'mode':mode,'reader_present_at_sql':True,'outcome':observed,'rows':rows,'final_mode':final_mode}\n\nprint(json.dumps({'cases':[locked_reader_case('DELETE') for _ in range(2)]},sort_keys=True))\n",
+      "result": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"cases\": [{\"final_mode\": \"wal\", \"mode\": \"DELETE\", \"outcome\": {\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}, \"statements\": [\"PRAGMA journal_mode=WAL\", \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\", \"BEGIN \", \"INSERT INTO notes (owner, key, text) VALUES ('a', 'k', 'one')\", \"COMMIT\"]}, \"reader_present_at_sql\": true, \"rows\": [[\"a\", \"k\", \"one\"], [\"legacy\", \"keep\", \"old\"]]}, {\"final_mode\": \"wal\", \"mode\": \"DELETE\", \"outcome\": {\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}, \"statements\": [\"PRAGMA journal_mode=WAL\", \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\", \"BEGIN \", \"INSERT INTO notes (owner, key, text) VALUES ('a', 'k', 'one')\", \"COMMIT\"]}, \"reader_present_at_sql\": true, \"rows\": [[\"a\", \"k\", \"one\"], [\"legacy\", \"keep\", \"old\"]]}]}\n",
+        "unauthorized_changes": []
+      },
+      "schema": "myskills.sqlite-reproduction.recovery.v8",
+      "source_observation": "sha256:c6db9eb0f737e645041fd333910665167ce8ef7b1ee2fba6e3973d3aa4579342"
+    },
+    {
+      "binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+          "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+          "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+          "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+          "version": "myskills-profile-evaluator/7.0.0"
+        },
+        "harness": {
+          "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+          "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+          "skill_id": "api-and-interface-design",
+          "version": "0.0.0+legacy.601c7b409edee7c7"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:66c9e008324bbfd7463c2300766db1dec809dc741ff5641a1b5709b70805da35",
+          "name": "api-and-interface-design--representative",
+          "schema_digest": "sha256:b241e2c93440443436c543801338ea87cedf1dc214b2b43c8171d36e3de66a8f"
+        }
+      },
+      "evidence_digest": "sha256:554ba083036b08cd4450edd0209012cb653dd844955deec3f4ee3f698fab235e",
+      "no_model_credit": true,
+      "probe_digest": "sha256:95414b58ad115c070a62cfb7a69fa41f5e1071a83cea08c23acb7c4e4e72156e",
+      "program": "\nimport json,pathlib,sqlite3,subprocess,sys,tempfile\nworker=r\"\"\"\nimport json,pathlib,sqlite3,sys,time\nreal_connect=sqlite3.connect\nstatements=[];entered=False\ndef connect(*args,**kwargs):\n c=real_connect(*args,**kwargs)\n def trace(statement):\n  global entered\n  statements.append(statement)\n  upper=statement.strip().upper()\n  if not entered and upper.startswith(('PRAGMA JOURNAL_MODE=', 'BEGIN', 'INSERT')):\n   entered=True\n   pathlib.Path(sys.argv[2],sys.argv[3]).touch()\n   deadline=time.monotonic()+2\n   while len(list(pathlib.Path(sys.argv[2]).glob('ready-*')))!=2:\n    if time.monotonic()>deadline:break\n    time.sleep(.005)\n c.set_trace_callback(trace)\n return c\nsqlite3.connect=connect\nfrom api import handle\ntry:\n value={'response':handle('a',{'key':'k','text':sys.argv[4]},sys.argv[1]),'error':None}\nexcept Exception as error:\n value={'response':None,'error':{'class':type(error).__name__,'message':str(error),'sqlite_errorname':getattr(error,'sqlite_errorname',None)}}\nvalue['statements']=statements\nprint(json.dumps(value))\n\"\"\"\ndef paired_case(texts):\n with tempfile.TemporaryDirectory() as temporary:\n  path=pathlib.Path(temporary);db=str(path/'state.db')\n  with sqlite3.connect(db) as seed:\n   seed.execute('CREATE TABLE notes(owner TEXT,key TEXT,text TEXT,PRIMARY KEY(owner,key))')\n  processes=[]\n  try:\n   for i,text in enumerate(texts):\n    processes.append(subprocess.Popen([sys.executable,'-c',worker,db,temporary,'ready-'+str(i),text],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True))\n   results=[]\n   for child in processes:\n    stdout,stderr=child.communicate(timeout=4)\n    assert child.returncode==0 and not stderr,(child.returncode,stderr)\n    results.append(json.loads(stdout))\n  finally:\n   for child in processes:\n    if child.poll() is None:child.kill();child.communicate()\n  with sqlite3.connect(db) as verify:rows=verify.execute('SELECT owner,key,text FROM notes').fetchall()\n  return {'participants':len(list(path.glob('ready-*'))),'texts':texts,'outcomes':results,'rows':rows}\n\nprint(json.dumps({'cases':[paired_case(['one','two']) for _ in range(2)]},sort_keys=True))\n",
+      "result": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"cases\": [{\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}, \"statements\": [\"PRAGMA journal_mode=WAL\", \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\", \"BEGIN \", \"INSERT INTO notes (owner, key, text) VALUES ('a', 'k', 'one')\", \"SELECT text FROM notes WHERE owner = 'a' AND key = 'k'\", \"COMMIT\"]}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}, \"statements\": [\"PRAGMA journal_mode=WAL\", \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\", \"BEGIN \", \"INSERT INTO notes (owner, key, text) VALUES ('a', 'k', 'two')\", \"COMMIT\"]}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}, \"statements\": [\"PRAGMA journal_mode=WAL\", \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\", \"BEGIN \", \"INSERT INTO notes (owner, key, text) VALUES ('a', 'k', 'one')\", \"SELECT text FROM notes WHERE owner = 'a' AND key = 'k'\", \"COMMIT\"]}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}, \"statements\": [\"PRAGMA journal_mode=WAL\", \"CREATE TABLE IF NOT EXISTS notes (owner TEXT, key TEXT, text TEXT, PRIMARY KEY(owner, key))\", \"BEGIN \", \"INSERT INTO notes (owner, key, text) VALUES ('a', 'k', 'two')\", \"COMMIT\"]}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}]}\n",
+        "unauthorized_changes": []
+      },
+      "schema": "myskills.sqlite-reproduction.recovery.v8",
+      "source_observation": "sha256:c6db9eb0f737e645041fd333910665167ce8ef7b1ee2fba6e3973d3aa4579342"
+    },
+    {
+      "binding": {
+        "adapter": {
+          "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+          "version": "myskills-tools/4.0.1"
+        },
+        "environment": {
+          "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+          "host_mounts": [],
+          "network": "none",
+          "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+          "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+        },
+        "evaluator": {
+          "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+          "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+          "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+          "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+          "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+          "version": "myskills-profile-evaluator/7.0.0"
+        },
+        "harness": {
+          "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+          "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+        },
+        "model": {
+          "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+          "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+        },
+        "skill": {
+          "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+          "skill_id": "api-and-interface-design",
+          "version": "0.0.0+legacy.601c7b409edee7c7"
+        },
+        "task_class": {
+          "fixture_digest": "sha256:66c9e008324bbfd7463c2300766db1dec809dc741ff5641a1b5709b70805da35",
+          "name": "api-and-interface-design--representative",
+          "schema_digest": "sha256:b241e2c93440443436c543801338ea87cedf1dc214b2b43c8171d36e3de66a8f"
+        }
+      },
+      "evidence_digest": "sha256:ae450a1335f33bbb35f4b54ef0392f9a07e063611bfd6805b1d3747e801e0718",
+      "no_model_credit": true,
+      "probe_digest": "sha256:95414b58ad115c070a62cfb7a69fa41f5e1071a83cea08c23acb7c4e4e72156e",
+      "program": "\nimport json,pathlib,sqlite3,subprocess,sys,tempfile\nworker=r\"\"\"\nimport json,pathlib,sqlite3,sys,time\nreal_connect=sqlite3.connect\nstatements=[];entered=False\ndef connect(*args,**kwargs):\n c=real_connect(*args,**kwargs)\n def trace(statement):\n  global entered\n  statements.append(statement)\n  upper=statement.strip().upper()\n  if not entered and upper.startswith(('PRAGMA JOURNAL_MODE=', 'BEGIN', 'INSERT')):\n   entered=True\n   pathlib.Path(sys.argv[2],sys.argv[3]).touch()\n   deadline=time.monotonic()+2\n   while len(list(pathlib.Path(sys.argv[2]).glob('ready-*')))!=2:\n    if time.monotonic()>deadline:break\n    time.sleep(.005)\n c.set_trace_callback(trace)\n return c\nsqlite3.connect=connect\nfrom api import handle\ntry:\n value={'response':handle('a',{'key':'k','text':sys.argv[4]},sys.argv[1]),'error':None}\nexcept Exception as error:\n value={'response':None,'error':{'class':type(error).__name__,'message':str(error),'sqlite_errorname':getattr(error,'sqlite_errorname',None)}}\nvalue['statements']=statements\nprint(json.dumps(value))\n\"\"\"\ndef paired_case(texts):\n with tempfile.TemporaryDirectory() as temporary:\n  path=pathlib.Path(temporary);db=str(path/'state.db')\n  with sqlite3.connect(db) as seed:\n   seed.execute('CREATE TABLE notes(owner TEXT,key TEXT,text TEXT,PRIMARY KEY(owner,key))')\n  processes=[]\n  try:\n   for i,text in enumerate(texts):\n    processes.append(subprocess.Popen([sys.executable,'-c',worker,db,temporary,'ready-'+str(i),text],stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True))\n   results=[]\n   for child in processes:\n    stdout,stderr=child.communicate(timeout=4)\n    assert child.returncode==0 and not stderr,(child.returncode,stderr)\n    results.append(json.loads(stdout))\n  finally:\n   for child in processes:\n    if child.poll() is None:child.kill();child.communicate()\n  with sqlite3.connect(db) as verify:rows=verify.execute('SELECT owner,key,text FROM notes').fetchall()\n  return {'participants':len(list(path.glob('ready-*'))),'texts':texts,'outcomes':results,'rows':rows}\n\nworker=\"\\nimport json,pathlib,sys,time\\nfrom api import handle\\npathlib.Path(sys.argv[2],sys.argv[3]).touch()\\ndeadline=time.monotonic()+2\\nwhile len(list(pathlib.Path(sys.argv[2]).glob('ready-*')))!=2:\\n if time.monotonic()>deadline:raise RuntimeError('pair start barrier incomplete')\\n time.sleep(.001)\\ntry:\\n value={'response':handle('a',{'key':'k','text':sys.argv[4]},sys.argv[1]),'error':None}\\nexcept Exception as error:\\n value={'response':None,'error':{'class':type(error).__name__,'message':str(error),'sqlite_errorname':getattr(error,'sqlite_errorname',None)}}\\nprint(json.dumps(value))\\n\"\nprint(json.dumps({'cases':[paired_case(['one','two']) for _ in range(24)]},sort_keys=True))\n",
+      "result": {
+        "cleanup_confirmed": true,
+        "evidence": null,
+        "exit_code": 0,
+        "stderr": "",
+        "stdout": "{\"cases\": [{\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": {\"class\": \"OperationalError\", \"message\": \"database is locked\", \"sqlite_errorname\": \"SQLITE_BUSY\"}, \"response\": null}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 201, \"text\": \"one\"}}, {\"error\": null, \"response\": {\"status\": 409, \"text\": null}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"one\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}, {\"outcomes\": [{\"error\": null, \"response\": {\"status\": 409, \"text\": null}}, {\"error\": null, \"response\": {\"status\": 201, \"text\": \"two\"}}], \"participants\": 2, \"rows\": [[\"a\", \"k\", \"two\"]], \"texts\": [\"one\", \"two\"]}]}\n",
+        "unauthorized_changes": []
+      },
+      "schema": "myskills.sqlite-reproduction.recovery.v8",
+      "source_observation": "sha256:c6db9eb0f737e645041fd333910665167ce8ef7b1ee2fba6e3973d3aa4579342"
+    }
+  ],
+  "reference_control": "Controller-written correction only; native workflow qualification remains required.",
+  "schema": "myskills.sqlite-findings.recovery.v8"
+}
