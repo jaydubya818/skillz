@@ -90,6 +90,15 @@ def test_probe_never_imports_candidate_gateway_into_trusted_parent():
         assert not {'gateway','api','security'}.intersection(imports)
 
 
+def test_missing_transcript_is_only_representable_for_incomplete_capture(tmp_path):
+    import pytest
+    from myskills.manifest import ValidationError
+    from qualification.checkpoint_seven import transcript_digest
+    assert transcript_digest(tmp_path,{'generation':'NOT_RUN'}) is None
+    assert transcript_digest(tmp_path,{'generation':'UNKNOWN'}) is None
+    with pytest.raises(ValidationError):transcript_digest(tmp_path,{'generation':'COMPLETED'})
+
+
 def test_only_candidate_code_and_document_are_writable():
     assert len(CASES)==4
     for name,fixture in CASES.items():

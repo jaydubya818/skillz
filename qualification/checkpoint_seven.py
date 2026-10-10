@@ -20,6 +20,14 @@ from qualification.workflow_probe import normalized
 BASE='3c975f3df6cfd973d5d42b45c64565c1171dcdc8'
 
 
+def transcript_digest(directory,record):
+    path=directory/'native.jsonl'
+    if not path.exists():
+        require(record['generation']!='COMPLETED','completed capture lacks native transcript')
+        return None
+    return file_digest(path)
+
+
 def evaluator_controls(root):
     controls=json.loads((root/'qualification/checkpoint7/evaluator-counterexamples.json').read_text());unseal(controls)
     rows=[]
@@ -62,7 +70,7 @@ def report(root,retained,previous):
     required_sources={**ctx['harness'],**ctx['claim_verifier'],
                       'qualification/evaluator_successor_v5.py':ctx['historical_evaluator_digest']}
     require(all(review_pin['verifier_sources'].get(path)==digest for path,digest in required_sources.items()),'review omits qualification dependency')
-    require(all(path in review_pin['verifier_sources'] for path in ('qualification/checkpoint_seven.py','qualification/custody_v7.py','qualification/checkpoint7/evaluator-counterexamples.json')),'report review binding missing')
+    require(all(path in review_pin['verifier_sources'] for path in ('qualification/checkpoint_seven.py','qualification/checkpoint_six.py','qualification/custody_v7.py','qualification/checkpoint7/evaluator-counterexamples.json')),'report review binding missing')
     accepted_path='qualification/checkpoint5/accepted-profile.json'
     require((root/accepted_path).read_bytes()==subprocess.check_output(['git','show',BASE+':'+accepted_path],cwd=root),'historical TDD record changed')
     accepted=json.loads((root/accepted_path).read_text());unseal(accepted)
@@ -86,9 +94,10 @@ def report(root,retained,previous):
             require(evaluated==record['verification'],'independent profile evaluation differs')
         else:evaluated={'status':'NOT_RUN','reason':'incomplete batch; no credit'}
         opinion=review['cases'][name]
-        require(opinion['observation_digest']==record['evidence_digest'] and opinion['native_transcript_digest']==file_digest(directory/'native.jsonl'),'output review binding differs')
+        transcript=transcript_digest(directory,record)
+        require(opinion['observation_digest']==record['evidence_digest'] and opinion['native_transcript_digest']==transcript,'output review binding differs')
         status='PARTIAL' if not trial_complete else 'PASS' if evaluated['status']=='PASS' and opinion['status']=='PASS' else 'FAIL'
-        rows.append(seal({'binding':record['binding'],'observation_digest':record['evidence_digest'],'native_transcript_digest':file_digest(directory/'native.jsonl'),
+        rows.append(seal({'binding':record['binding'],'observation_digest':record['evidence_digest'],'native_transcript_digest':transcript,'generation':record['generation'],
                           'collector_commit':commit,'evaluation':evaluated,'output_review':opinion,'status':status,'execution_eligible':False}))
     profiles={}
     for skill in SNAPSHOTS['skills']:
