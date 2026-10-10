@@ -54,5 +54,38 @@ checkpoint-6 failure.
 The API correction uses separate harness `8.2.1-assisted-edit` and preserves
 runtime 8.2.0. Additional task feedback requires the two literal edits without
 rewriting the SQL string. Skill instructions and evaluator 8.0.0 are unchanged.
-Pretrial source review and 373 portable tests pass; behavioral results require a
-new native batch and separately bound review/replay. The historical FAIL stands.
+The new native batch completed all four cases with stable identity, 70 actual
+model-derived tool calls and 140 sealed journals. Independent review and strict
+assisted replay agree on PASS / FAIL / FAIL / FAIL. The API representative case
+preserves the required SQL literal and two-edit AST, but omits the terminal
+newline; it is not byte-exact source preservation. The API adversarial case never
+reads `gateway.py` or `legacy.py`. The security representative case edits its
+claim document after its last test. The security adversarial case encounters two
+stale plan writes and never records the required full plan. Both new profiles
+remain FAIL. The original results are unchanged.
+
+Both API cases pass the bounded concurrency checks and preserve the structural
+correction. Specific negative controls, effect-policy enforcement and bounded
+owner-isolation controls pass. These results do not override workflow failures.
+There are zero new accepted profiles, one historical TDD profile, and zero
+globally trusted Skills. Composition and consumer execution remain disabled.
+
+`workflow-correction/validation.json` binds the new replay and review. The new
+nine-part native bundle remains private and requires its own disclosure review;
+it is not included in the two-part approval request above.
+
+Hosted run `38073528931` stopped earlier, at the checkpoint-5 follow-up tool
+comparison. Its old observer had no journal of the actual failed tool result, so
+the cause remains inconclusive. Versioned tool diagnostic observer 2.0.0 now
+enables the existing adapter journals for checkpoint-5/6 replay. It preserves
+original comparisons and exceptions, adds no retry, and changes no historical
+evaluator. Two adversarial regressions and an independent source review pass.
+A real local historical replay also passes with actual journals retained. All
+375 portable tests pass and the 92-entry catalog remains NOT_EVALUATED. The
+next hosted run must be assessed on its own results; earlier failures remain.
+
+Merge remains blocked by incomplete native profiles, unresolved hosted replay
+reliability, and pending approval of the reviewed public view. No evidence part
+or disclosure manifest has been publicly uploaded. Merging does not trigger a
+deployment in the reviewed workflows; release automation requires a version tag.
+Production and release activation would still require separate authorization.
