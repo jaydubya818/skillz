@@ -1,0 +1,350 @@
+{
+  "acceptance": "Separate exact-source fresh-clone and hosted receipt required. Existing failed CI remains counterevidence even if later validation succeeds.",
+  "accepted_profiles_before_validation": 1,
+  "accepted_tdd_profile": "sha256:8693820e6cc24a76610f45ff2f8022eeb271ee321f678517bb1ca2847edc1731",
+  "assisted_report_digest": "sha256:2576edea3ef5cea171e0d5d19fe20ed6f93c8456bb7040fd229c587f5b0d9875",
+  "catalog_qualification": "NOT_EVALUATED",
+  "composition_missing_capabilities": [
+    "Repository Analysis",
+    "Implementation",
+    "Code Review",
+    "Independent Verification"
+  ],
+  "composition_reference": "sha256:fc9c4c432948e27b43488cb0e1b1983cdbd11d2d751b3c9fca300b60a51ae6d8",
+  "effects": "PASS",
+  "evidence_digest": "sha256:407d2ce4b373c27b4c5c31b9dea7f8424c3fba83a0c8617e12be081aba299362",
+  "execution_eligible": false,
+  "global_trust": "UNTRUSTED",
+  "initial_report_digest": "sha256:9526adeef94ea648e9254ee1239e290ce732358a1d4ce49644df75b9c0e04a7e",
+  "new_candidates_pending_validation": 1,
+  "owner_isolation": "PASS",
+  "profiles": {
+    "api-and-interface-design": {
+      "acceptance": "NOT_QUALIFIED",
+      "bindings": [
+        {
+          "adapter": {
+            "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+            "version": "myskills-tools/4.0.1"
+          },
+          "environment": {
+            "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+            "host_mounts": [],
+            "network": "none",
+            "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+            "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+          },
+          "evaluator": {
+            "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+            "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+            "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+            "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+            "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+            "version": "myskills-profile-evaluator/7.0.0"
+          },
+          "harness": {
+            "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+            "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+          },
+          "model": {
+            "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+            "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+          },
+          "skill": {
+            "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+            "skill_id": "api-and-interface-design",
+            "version": "0.0.0+legacy.601c7b409edee7c7"
+          },
+          "task_class": {
+            "fixture_digest": "sha256:66c9e008324bbfd7463c2300766db1dec809dc741ff5641a1b5709b70805da35",
+            "name": "api-and-interface-design--representative",
+            "schema_digest": "sha256:b241e2c93440443436c543801338ea87cedf1dc214b2b43c8171d36e3de66a8f"
+          }
+        },
+        {
+          "adapter": {
+            "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+            "version": "myskills-tools/4.0.1"
+          },
+          "environment": {
+            "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+            "host_mounts": [],
+            "network": "none",
+            "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+            "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+          },
+          "evaluator": {
+            "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+            "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+            "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+            "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+            "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+            "version": "myskills-profile-evaluator/7.0.0"
+          },
+          "harness": {
+            "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+            "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+          },
+          "model": {
+            "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+            "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+          },
+          "skill": {
+            "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+            "skill_id": "api-and-interface-design",
+            "version": "0.0.0+legacy.601c7b409edee7c7"
+          },
+          "task_class": {
+            "fixture_digest": "sha256:a5dab3d95afb18faf2b5d80eead34ab87b8e960fd18a17ee7d16d020dc3052dc",
+            "name": "api-and-interface-design--adversarial",
+            "schema_digest": "sha256:8b620207b5f978eb0122d6cf08466fdee74e76fbb7c483a633456e6772e77a78"
+          }
+        }
+      ],
+      "case_evidence": [
+        "sha256:9eb38ba2e1b36a65e2caa5298de5da469a7ac2860d91810beff0a2d6efa35cc4",
+        "sha256:be3035f7a865d6678a9925c0c3507ebdd240fedbbad4a25c758b61508ce5acc3"
+      ],
+      "evidence_digest": "sha256:9164c1bd7cf57cc83801dabecad5180c7cf4d64637a835ab38489b3ce7b77c8b",
+      "execution_eligible": false,
+      "global_trust": "UNTRUSTED",
+      "profile": "api-and-interface-design-review-assisted-offline-v1",
+      "reviewer_feedback_assistance": true,
+      "scope": "Exact representative and adversarial correction fixtures only; protected synthetic gateway integration, no real provider or released consumer qualification.",
+      "starting_native_bundle": "sha256:6687de94941201792001762f3d8311371e454fb72ea56a2857457f93a69b0bd4",
+      "status": "FAIL"
+    },
+    "security-and-hardening": {
+      "acceptance": "PENDING_FRESH_HOSTED_VALIDATION",
+      "bindings": [
+        {
+          "adapter": {
+            "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+            "version": "myskills-tools/4.0.1"
+          },
+          "environment": {
+            "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+            "host_mounts": [],
+            "network": "none",
+            "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+            "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+          },
+          "evaluator": {
+            "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+            "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+            "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+            "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+            "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+            "version": "myskills-profile-evaluator/7.0.0"
+          },
+          "harness": {
+            "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+            "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+          },
+          "model": {
+            "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+            "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+          },
+          "skill": {
+            "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+            "skill_id": "security-and-hardening",
+            "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+          },
+          "task_class": {
+            "fixture_digest": "sha256:4b9e951c1da403ff95ddffbdb5aeb4a593723e8ae5511849f4a1f864ace78d25",
+            "name": "security-and-hardening--representative",
+            "schema_digest": "sha256:6481df9d9460fd5c29ec90cfb520b0a575fcc770867d7f2a526fe276a1360e8f"
+          }
+        },
+        {
+          "adapter": {
+            "digest": "sha256:13dc11d84b5f8998077af07fab99b425007bc09c5a9a96b7f9297407350831bb",
+            "version": "myskills-tools/4.0.1"
+          },
+          "environment": {
+            "candidate_image": "sha256:5a750d3be5e5c80275f8c9a5367c3aed99c2875656590c8d0701c7ee687f5f0a",
+            "host_mounts": [],
+            "network": "none",
+            "planner_image": "sha256:4e19d0e9d9331129700d348fe06cc8aff0d254872aba4096c265007619c1bc60",
+            "runtime_digest": "sha256:9edd4313e400254d9a6c765c089010562a8db2eafa6e5c1771b69d79d02a5a14"
+          },
+          "evaluator": {
+            "checks_digest": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
+            "digest": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
+            "inherited_terminal_policy_digest": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
+            "inherited_terminal_policy_version": "myskills-evaluator/5.0.1",
+            "source_claims_digest": "sha256:503c3d0d978bfcd5550bf20dc2362660923212f6ec6754f731c9f0ce6f011dfd",
+            "version": "myskills-profile-evaluator/7.0.0"
+          },
+          "harness": {
+            "digest": "sha256:e6ebc5ba37d7b6d1f08ed7fab229a8a1394b308b3eef5e4f1600bd6b7ff579c9",
+            "version": "codex-app-server/0.157.0+myskills-native-7.1.0"
+          },
+          "model": {
+            "digest": "sha256:accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173",
+            "name": "sha256-accad778b53702521a72c6c21e5e22d1a9bea0b4da33d8894a0779c1079ec173"
+          },
+          "skill": {
+            "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+            "skill_id": "security-and-hardening",
+            "version": "0.0.0+legacy.c8b04e1b3e3842c4"
+          },
+          "task_class": {
+            "fixture_digest": "sha256:cfc8792404d854d46c1f12cc60387732b77cf73e95a4a1ee49beb5df8605fc8c",
+            "name": "security-and-hardening--adversarial",
+            "schema_digest": "sha256:c1619a3402997ab1b68293fb6b0a1dcbb7b888b1a49e3c60cd76325c25b4e10d"
+          }
+        }
+      ],
+      "case_evidence": [
+        "sha256:77a209592b187ac238e3e6257fd7b57b4798fd5c9e86c8ee575813306527f14e",
+        "sha256:1d1090dc82eb1965149bd075f3e4413f72107af4d7be09d01ae5483a6ed9d3e5"
+      ],
+      "evidence_digest": "sha256:53e2477ba1ecc67003a4e21ffd7d164c8ce3c1c378d54a95fb311ba8906d97bb",
+      "execution_eligible": false,
+      "global_trust": "UNTRUSTED",
+      "profile": "security-and-hardening-review-assisted-offline-v1",
+      "reviewer_feedback_assistance": true,
+      "scope": "Exact representative and adversarial correction fixtures only; protected synthetic gateway integration, no real provider or released consumer qualification.",
+      "starting_native_bundle": "sha256:6687de94941201792001762f3d8311371e454fb72ea56a2857457f93a69b0bd4",
+      "status": "PASS"
+    }
+  },
+  "reports": {
+    "checkpoint7": {
+      "MissionControl.json": "sha256:5e74037c09f596ab82e36df9e980c811fac16069a3b7c0ff17d6cd820e76ce43",
+      "MyApps.json": "sha256:f5dae26ad97404da5418b0341c9e4f6abd1701b7883ffafed715bb57911a0047",
+      "MyEve-Sofie-subagents.json": "sha256:02016740d2eed7d408898d005afa3e3dc424ddbc9f0c9c71acd4fdd8ffd41f9c",
+      "MyFactory.json": "sha256:56e432f0f815bf0f00a670fd8b8c6e8ddfc7bf1f23d5f0860f79493950da4333",
+      "checkpoint.json": "sha256:00be7edc2fb3958d4da98b6b54dd428ca7f13ac348d786ef0abaa38e793d26df",
+      "composition.json": "sha256:60ef28d3bc5103904c61ae8587eec5ec16678ea6e79443e1f7ce0bb6946963f6",
+      "matrix.json": "sha256:c04b0911b8d6756abe081ce8dda2d41a813d72c6d92c2fdd95b639e44ff373e3",
+      "profiles.json": "sha256:411113057a45743c216afb51a930d958ae6aab91f4e32b2b8d69fb8c42a77636"
+    },
+    "checkpoint7-followup": {
+      "MissionControl.json": "sha256:90a378091cc5f7c536b7a57469002481a8fea6d3217974070b585fa455bbd0e8",
+      "MyApps.json": "sha256:2f88b9314310e6043ea8bf1bc54bb6e68d3ef5a77b995365b9a289a3bc4c87a7",
+      "MyEve-Sofie-subagents.json": "sha256:f8f48c37ee19233c7baa928e0ba084a6d852f64dc19cfa350031b2a7528aecc3",
+      "MyFactory.json": "sha256:2f23df2648caa980eec87737c5bf90929c4c75168f94a11c5288013d9f162937",
+      "checkpoint.json": "sha256:79c2f67f05ba35fbd68e3a1af451d68bc51191b2a1e75b5bdc2ea4dcd94cf99c",
+      "composition.json": "sha256:60ef28d3bc5103904c61ae8587eec5ec16678ea6e79443e1f7ce0bb6946963f6",
+      "matrix.json": "sha256:b79ec3b8c6da1c8e5ec9ec907d5b16e77b55fb4c5cd0affc781c6a152f5378ea",
+      "profiles.json": "sha256:2b88c1441357611566d5509b214927f53327874c8c7f79b93e5dd578f374a7fc"
+    }
+  },
+  "schema": "myskills.checkpoint-result-index.v7",
+  "source_claims": {
+    "api-and-interface-design--adversarial": {
+      "claim_evidence": [
+        "sha256:81c8983f64e03257c81da65d70e5b23d3bf247c3136cc1234ded57c0af2e929f",
+        "sha256:5e1fe18f756502af0572db50dc41b60cb1b11762575fc2102a08c3f54512b844",
+        "sha256:d7ab140ce2b80ab47af0f9f68cf0c0513974e9cf4310f3753f0d2006256ee25d",
+        "sha256:9b160164b3c88fbddc7826ee5253c3a925a325de55b38c6746d52f6e5f315f63",
+        "sha256:816a6ba5d1db0453f294d7af8a7db18033fd9e38c6de72270ae780569da12f38",
+        "sha256:277830a16e67b5b59b2fd1f1859b348a7e577059a7605c87a18ed073cfcb7199",
+        "sha256:feed104b7b3ffeebb8fc7282f19ab077fde30633482a20114eb1a2601d636ff3",
+        "sha256:c9cfd660df03f0e45e2194f02829e43f9c42218d76eff40f7026db8996bed0a8",
+        "sha256:1927431af0bfeb82be9178a54107a6526cf27a05f0b0248f6091f9f5f8eb8626"
+      ],
+      "evidence_digest": "sha256:24283179fdf96c04e3b7fb21f811bb1003b67bb07596f6d5c517c530c8ba9781",
+      "missing": [],
+      "qualification_authority": false,
+      "required": [
+        "api.contract",
+        "api.schema",
+        "api.errors",
+        "api.authentication",
+        "api.authorization",
+        "api.concurrency",
+        "api.idempotency",
+        "api.coverage",
+        "api.compatibility"
+      ],
+      "result": "VERIFIED"
+    },
+    "api-and-interface-design--representative": {
+      "claim_evidence": [
+        "sha256:cfb4d59facf28735263f662a7f64440f3db8372cee02678cb039acdc9707ac42",
+        "sha256:fe899cd91efbc8f6dcbbfeffe0bbc11378f15ae36f8780e1ff8b5cd1ac97aea6",
+        "sha256:96b6adec704a4852fe436aa5d5acb7cf688f91b8ba00d6e5be0ca6cf9fc9d739",
+        "sha256:a37efdf555bccc5eef2ddae7d91921ada942798b4c427ea730e064ae9d540f17",
+        "sha256:62c13065fed0006b0dde4cb9c43fdf4d4156443a28a2b188e6f3455dc2ca1731",
+        "sha256:3d93839991cf0f6880f4531583300d259a759947049d7ab162000ff25b4c8ba0",
+        "sha256:fc17660749d8d5f6c28c5c873957ebb1a61e1f8307f1574d0f0bce8547054b5c",
+        "sha256:200ade9f8f5f92df6fe44d60efbb7403889fc161f12eceb98af19b7f1252e261",
+        "sha256:4aa51a349e578799b3e24c7127d5e6929f6584b999624c4287d6c6470a2252a6"
+      ],
+      "evidence_digest": "sha256:4a9e72a9610a6534e7a059209a195dd24ddf095909cb5afed6a9398623d5c8e9",
+      "missing": [],
+      "qualification_authority": false,
+      "required": [
+        "api.contract",
+        "api.schema",
+        "api.errors",
+        "api.authentication",
+        "api.authorization",
+        "api.concurrency",
+        "api.idempotency",
+        "api.coverage",
+        "api.compatibility"
+      ],
+      "result": "VERIFIED"
+    },
+    "security-and-hardening--adversarial": {
+      "claim_evidence": [
+        "sha256:d91ef1a38ed3945949375f71be00d9a0b56f0c142f592398925d058f32aaba75",
+        "sha256:a8f2e74be6db74303a99dcba66ef45152557cc77b7f70e98ad586dd0528e05a5",
+        "sha256:a9322f037cdc46321fd928d972bcc3ac719f3d93a79e8261dbf74a5c8010bea2",
+        "sha256:cfa57e568e4ea154ac26aad07f95c9c79bb8011ee1d34c3deb3e99a12f071937",
+        "sha256:1fc393d370d48983cb3a4524e26dd5a46fdd902aac26c8cc4986af66e4af119d",
+        "sha256:5388c0c53be55a32f58465163143eb0e2659faee3a85ef62a8595b11a8490db8",
+        "sha256:ff5ab982bde6205f917bb2fbd822e993e3945226f2ff1a74c976a105b3c5383a",
+        "sha256:15ec3919d9b08e92fb3cb59f251b2b2ff247969aa6b91c8c1d50fc1fa0d615cd",
+        "sha256:452e4c24a5969e143a5cf4b1fb920b73101f23c505177688244ca08ffb9da442"
+      ],
+      "evidence_digest": "sha256:b8c2853df42f8d88a39a64acce920f1c6bf6f8d328dd8dfb9ae4ae28ea337168",
+      "missing": [],
+      "qualification_authority": false,
+      "required": [
+        "security.threats",
+        "security.surface",
+        "security.controls",
+        "security.enforcement",
+        "security.negatives",
+        "security.credentials",
+        "security.resources",
+        "security.isolation",
+        "security.effects"
+      ],
+      "result": "VERIFIED"
+    },
+    "security-and-hardening--representative": {
+      "claim_evidence": [
+        "sha256:fae686cf702786af403f8ef2ac271eb017130b056198b31b880f25db96d9990b",
+        "sha256:56bf99ca17e84ab36f120f0c285bebb5372f9896e320c0f172d3702c5986c882",
+        "sha256:72504cb43fe74c5f2d1f6e77c8e77eba3277d9d7962bcf738c92686f2023af07",
+        "sha256:4c935eec30013bc381ded0f9273abd67de4544e36100637a6f0aaa88d7be50cf",
+        "sha256:2c7a33dc0262d819701815c8cbb9419867172ffd5f411b8c6fa53564763b4834",
+        "sha256:cfc152374f7d6ac6b6cb81c7b7bd7bae992be76f6e0ac482228d79372ffb9504",
+        "sha256:a0a4f1f22b5fceb4fda9a6e1ba0c046eed1a2cec2a26b00125a01068f544afa2",
+        "sha256:36b8dad54d576995f6002aaf963d1619f749ef29810de70db2f25c24f9e9c87b",
+        "sha256:479daac5db0186dbf42c73a086eb59c97f0ea40cf64c5a2738517df041ffaed8"
+      ],
+      "evidence_digest": "sha256:7cae117dd7364f558803a1c142cb2b627085be7924becf930a733dd3936fc30c",
+      "missing": [],
+      "qualification_authority": false,
+      "required": [
+        "security.threats",
+        "security.surface",
+        "security.controls",
+        "security.enforcement",
+        "security.negatives",
+        "security.credentials",
+        "security.resources",
+        "security.isolation",
+        "security.effects"
+      ],
+      "result": "VERIFIED"
+    }
+  }
+}

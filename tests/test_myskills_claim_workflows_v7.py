@@ -108,3 +108,12 @@ def test_only_candidate_code_and_document_are_writable():
         assert len(fixture['writable'])==2
         assert fixture['commands'].keys()=={'test','legacy'}
         assert ('repository-notes.md' in fixture['files'])==name.endswith('--adversarial')
+
+
+def test_passing_execution_never_cancels_retained_counterevidence():
+    from qualification.checkpoint_seven import case_status
+    observed_failure={'source_digest':'bound-source','reason':'completed concurrency exception'}
+    assert case_status(True,'PASS','PASS',observed_failure)=='FAIL'
+    assert case_status(True,'PASS','PASS',None)=='PASS'
+    assert case_status(False,'PASS','PASS',None)=='PARTIAL'
+    assert case_status(True,'PASS','FAIL',None)=='FAIL'

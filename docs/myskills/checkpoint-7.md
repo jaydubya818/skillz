@@ -60,3 +60,45 @@ and the sealed failed representative outputs as its starting artifacts. It
 keeps the same checks, permitted effects, adapter, model and profile evaluator.
 Any resulting candidate applies only to this reviewer-assisted correction task.
 It cannot establish unassisted generation or general-purpose Skill trust.
+
+The successor completed all four native turns with stable pinned runtime identity
+and confirmed cleanup. Its workflow evaluator observed PASS / FAIL / PASS / PASS
+(API representative/adversarial, then security representative/adversarial).
+The API adversarial case edited source before documenting its contract.
+
+Hosted run 38016597220 also retained an actual checkpoint-6 API concurrency
+failure: one concurrent request raised `sqlite3.OperationalError: database is
+locked` at `PRAGMA journal_mode=WAL`. The unchanged operation runs before the
+candidate's try/finally. The harness did not inject that exception. Removing a
+comment or changing later SQL whitespace does not fix this behavior. A separate
+passing race cannot cancel the failed execution. The exact hosted claim,
+source, test, source revision and artifact digest are committed in
+`qualification/checkpoint7/hosted-counterexample.json`. An explicit adverse
+evidence gate prevents either successor API observation from qualifying.
+
+Independent review distinguishes these generated-output and workflow failures
+from defects in the original Skill instructions; no Skill-body defect has been
+established. No additional model trial is planned for this checkpoint. Security
+acceptance still requires matching fresh-clone and hosted verification.
+
+Local independent replay yields API FAIL and security candidate PASS. Every
+security claim binds its actual source revision and successful tool execution;
+all 18 claim instances across its two cases independently verify. The exact
+profile is `security-and-hardening-review-assisted-offline-v1`, using harness
+7.1.0 and profile evaluator 7.0.0 with unchanged adapter 4.0.1 and inherited
+terminal policy 5.0.1. Model, images, task fixtures, evaluator and Skill digests
+are recorded in `qualification/checkpoint7/result-index.json`.
+
+`qualification/checkpoint7/consumer-compatibility.json` contains inactive exact
+references for MyEve/Sofie, MyFactory, MissionControl and MyApps. Their native
+compatibility is NOT_ESTABLISHED and execution is disabled. The five-stage
+composition is PARTIAL/NOT_RUN: Repository Analysis, Implementation, Code Review
+and Independent Verification lack eligible profiles. Existing TDD covers only
+its finite clamp corpus. No API/security profile substitutes for those children.
+
+The result index preserves candidates separately from acceptance. A final PR
+receipt must bind the exact source SHA, fresh-clone checks, hosted run/artifact,
+independent review and matching report bytes before a candidate is accepted.
+Recorder tests remain excluded from the portable suite because of the retained
+FFmpeg/sandbox limitation. Greptile remains DEFERRED; no new source disclosure
+was authorized. Paid provider operations are zero.

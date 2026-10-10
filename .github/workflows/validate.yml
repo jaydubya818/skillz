@@ -129,6 +129,12 @@ jobs:
         run: python -m qualification.custody_v7 --restore .artifacts/qualification/checkpoint7-retained
       - name: Independently verify checkpoint 7 claims, effects and preserved verifier failures
         run: python -m qualification.checkpoint_seven --retained .artifacts/qualification/checkpoint7-retained --previous .artifacts/qualification/checkpoint5-followup-retained --output .artifacts/qualification/checkpoint7
+      - name: Restore checkpoint 7 explicitly assisted native successor
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python -m qualification.custody_v7r1 --restore .artifacts/qualification/checkpoint7-followup-retained
+      - name: Independently verify assisted workflows and predecessor bindings
+        run: python -m qualification.checkpoint_seven --retained .artifacts/qualification/checkpoint7-followup-retained --previous .artifacts/qualification/checkpoint5-followup-retained --initial .artifacts/qualification/checkpoint7-retained --output .artifacts/qualification/checkpoint7-followup
       - uses: actions/upload-artifact@v4
         if: always()
         with:

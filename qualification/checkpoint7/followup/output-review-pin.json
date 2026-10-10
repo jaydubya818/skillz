@@ -1,14 +1,14 @@
 {
   "case_observations": {
-    "api-and-interface-design--adversarial": "sha256:ce17a3d13b67ab60bc67a295ea84fe2965f0a4c7656dd6795161619071260f33",
-    "api-and-interface-design--representative": "sha256:b7145155b09bee91140724ffc34193daea75e9d80b172816d00ce89eb6c149ee",
-    "security-and-hardening--adversarial": "sha256:1a4d8c53f2633be876eb903cd2840f3d51ac8e37cd398b66bc7cc5c3941800de",
-    "security-and-hardening--representative": "sha256:5926e7a94ec06173877f623db427a58f9a5d0be73981aed090db1a1349e8073b"
+    "api-and-interface-design--adversarial": "sha256:c9df3a503224f78890504fd0f6de9e02620b723c1abf535d0eb9bc0de0bd9333",
+    "api-and-interface-design--representative": "sha256:c6db9eb0f737e645041fd333910665167ce8ef7b1ee2fba6e3973d3aa4579342",
+    "security-and-hardening--adversarial": "sha256:55c975704b785bdb71c76bc49ed7a3ee0f505429b6f18e57ee5b71880266be28",
+    "security-and-hardening--representative": "sha256:a07668d4efd667a2ccb87864cca7abeae50a2d5d23e5ca37d2a5963b9144c46d"
   },
-  "collector_commit": "87621ebd7a08e25341c3ca17d2fd260ab5bf48fe",
-  "completion_digest": "sha256:1e8d8a5bad4174ac82bf7faa32f9675e2dbf441fd01d98d381271c26dc3c15f1",
-  "context_digest": "sha256:f68a4658e1eb557a5de9254d23a7193d439186d8b1ba1ad2de49c7e8f9d4155c",
-  "review_file_digest": "sha256:e616c357b5cf61a340ebe84e3d6a34e5c7355e62316e9c2d76eec5fda72a3ffa",
+  "collector_commit": "ae6a4449546e9c441326839654fc071101b7ea2f",
+  "completion_digest": "sha256:1a8aa1b72420b19d6cff655212cb4268013feefb8749e3af2a4a6364d09835ef",
+  "context_digest": "sha256:c374f55fe1b8ca865f3f395cdd7f3d7d9b6b508ac5f7e8d4b1864e22e2b68165",
+  "review_file_digest": "sha256:466fa2b61799d8ce4c171643be2f61e96a3e47adee08a501c0dab924900577f0",
   "schema": "myskills.output-review-pin.v7",
   "verifier_sources": {
     "myskills/__init__.py": "sha256:cd1e23a4ef23219bc4470275f3d1a4dc240537413fdab1f50fe3ee36f2b4d736",
@@ -33,6 +33,7 @@
     "qualification/behavior_v2.py": "sha256:857705194ccdd3aabc5903e68d5f6448bfad273c101db6967c4efd5565f89d98",
     "qualification/checkpoint5/profile-policy.json": "sha256:e020132e570cd7f6b494d1f7f29995d4539ca4471bf682729b3a7394048d2282",
     "qualification/checkpoint7/evaluator-counterexamples.json": "sha256:b383e964eb6d697919bc9f466df93546b484f0a443ec393caa963d5918f76f89",
+    "qualification/checkpoint7/followup/input-snapshots.json": "sha256:8fd2cd03092150d8f618e5f834d87d0117531bdde22a7000bcbdc8fb1828b81f",
     "qualification/checkpoint7/hosted-counterexample.json": "sha256:2ddf1778dc3d7138d2a41d175152257c42e77535357893538618c9acd91a1728",
     "qualification/checkpoint7/input-snapshots.json": "sha256:aa0cd7e1e07e3c55acc103f162c419e120bdd59ded16b729b46da528922ac7aa",
     "qualification/checkpoint_four.py": "sha256:9d2a72497803023f33aa5a5414b47e6c5b2b4cb3523643d21457a74c8a148ee5",
@@ -41,6 +42,7 @@
     "qualification/custody_v4.py": "sha256:eb88474c96b0af2e13c29786b83ee45db5fa0bc6bf1e1189b06c11710bf3c108",
     "qualification/custody_v5.py": "sha256:7e72d06aec018a570c6bbca0ff333423c0956c418b2f621a9f5b1121cc40c505",
     "qualification/custody_v7.py": "sha256:50ceec2db6c97d3304711fcb8289d35442641e331a7636c2aeefb08dd91a6043",
+    "qualification/custody_v7r1.py": "sha256:810bf2331bd506e27a4d6cbfff73ae60b068e37b4a454890d3ffb167b08e33f0",
     "qualification/evaluator_successor_v5.py": "sha256:95f78cb527090fee37858c046c650e4be393b26373f8d487bac61508bc9b1ba4",
     "qualification/local_probe.py": "sha256:40cadf9807926824a01adb8a9b242eb3e604faa40a2e588e43140dc05d68a2fb",
     "qualification/native_cases.py": "sha256:bc72722fff197a0249627f81982d47a5dfab6256aa7419f368a484686e6e81fa",
@@ -85,6 +87,9 @@
     "qualification/v7/checks.py": "sha256:7191bc847668c11baaab42e82aff41e58bcbdcda12f1acd31b2f3c1382790ce3",
     "qualification/v7/evaluate.py": "sha256:6935bdc3897bf92b70b7b02409e6323620cc7279a1c39e2e8712fdee4072926d",
     "qualification/v7/probe.py": "sha256:1bf52b38d7d5f25ec6e5c530085fd738c1ccb7a81b6c791b6ff125bc7e013206",
+    "qualification/v7r1/__init__.py": "sha256:33b54426cd0a3442d1728b0e38c2cd9ffced1b40f807a7978177d413da0cd70f",
+    "qualification/v7r1/cases.py": "sha256:97958de14822c3af0de5e904c2d1a0d7dde0fcd807c838f12792818d07f60014",
+    "qualification/v7r1/probe.py": "sha256:efdb3b658bdb11a21f35623c5c811ab8a614449f3b3b66d0cc05e5fe73e41b3a",
     "qualification/workflow_cases.py": "sha256:f741fe23a89d27de1735ea65d5b7e7216a00ec0d5e8395b3ca9a36928c1c7aed",
     "qualification/workflow_probe.py": "sha256:375490a83604d3f91932aca5d0b0b5ed5f662643d84c718e9e1cb03a17928aab",
     "qualification/workflow_validation.py": "sha256:6109f09f0c85f825a205b0142662a5696a84b308907c7931016bcfda69e323b2"

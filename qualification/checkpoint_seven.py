@@ -44,6 +44,11 @@ def evaluator_controls(root):
     return seal({'status':'PASS','fixture_digest':controls['evidence_digest'],'results':rows,'native_model_credit':False})
 
 
+def case_status(complete,evaluation,review,adverse):
+    if not complete:return 'PARTIAL'
+    return 'PASS' if evaluation=='PASS' and review=='PASS' and adverse is None else 'FAIL'
+
+
 def report(root,retained,previous,initial=None):
     from qualification.custody_v5 import bundle
     from qualification.custody_v7 import bundle as native_bundle
@@ -87,12 +92,14 @@ def report(root,retained,previous,initial=None):
     required_sources={**ctx['harness'],**ctx['claim_verifier'],
                       'qualification/evaluator_successor_v5.py':ctx['historical_evaluator_digest']}
     require(all(review_pin['verifier_sources'].get(path)==digest for path,digest in required_sources.items()),'review omits qualification dependency')
-    require(all(path in review_pin['verifier_sources'] for path in ('qualification/checkpoint_seven.py','qualification/checkpoint_six.py','qualification/custody_v5.py','qualification/custody_v7.py','qualification/checkpoint7/evaluator-counterexamples.json')),'report review binding missing')
+    require(all(path in review_pin['verifier_sources'] for path in ('qualification/checkpoint_seven.py','qualification/checkpoint_six.py','qualification/custody_v5.py','qualification/custody_v7.py','qualification/checkpoint7/evaluator-counterexamples.json','qualification/checkpoint7/hosted-counterexample.json')),'report review binding missing')
     if initial is not None:require('qualification/custody_v7r1.py' in review_pin['verifier_sources'],'successor custody source pin missing')
     accepted_path='qualification/checkpoint5/accepted-profile.json'
     for path in (accepted_path,'qualification/initial-cohort/plan.json','qualification/checkpoint5/consumer-compatibility.json'):
         require((root/path).read_bytes()==subprocess.check_output(['git','show',BASE+':'+path],cwd=root),'historical qualification or dependency graph changed')
     accepted=json.loads((root/accepted_path).read_text());unseal(accepted)
+    adverse=json.loads((root/'qualification/checkpoint7/hosted-counterexample.json').read_text());unseal(adverse)
+    require(adverse['result']=='CONTRADICTED' and adverse['qualification_credit'] is False,'invalid adverse evidence')
     rows=[]
     for name,fixture in cases.items():
         directory=retained/name;record=json.loads((directory/'observation.json').read_text());unseal(record)
@@ -115,10 +122,13 @@ def report(root,retained,previous,initial=None):
         opinion=review['cases'][name]
         transcript=transcript_digest(directory,record)
         require(opinion['observation_digest']==record['evidence_digest'] and opinion['native_transcript_digest']==transcript,'output review binding differs')
-        status='PARTIAL' if not trial_complete else 'PASS' if evaluated['status']=='PASS' and opinion['status']=='PASS' else 'FAIL'
+        counter=adverse['affected_observations'].get(record['evidence_digest'])
+        if counter:
+            require(counter['source_digest']==digest_object(record['files']['api.py']) and counter['binding_digest']==digest_object(record['binding']),'counterevidence source mismatch')
+        status=case_status(trial_complete,evaluated['status'],opinion['status'],counter)
         rows.append(seal({'binding':record['binding'],'observation_digest':record['evidence_digest'],'native_transcript_digest':transcript,'generation':record['generation'],
                           'collector_commit':commit,'evaluation':evaluated,'captured_verification':record.get('verification'),
-                          'batch_admission':'ADMITTED' if admitted else 'WITHHELD','output_review':opinion,'status':status,'execution_eligible':False}))
+                          'batch_admission':'ADMITTED' if admitted else 'WITHHELD','adverse_evidence':adverse['evidence_digest'] if counter else None,'output_review':opinion,'status':status,'execution_eligible':False}))
     profiles={}
     for skill in SNAPSHOTS['skills']:
         children=[r for r in rows if r['binding']['skill']['skill_id']==skill]
@@ -137,7 +147,7 @@ def report(root,retained,previous,initial=None):
                           'source_inspection_reference':old['consumer_source_reference'],'required_next_check':old['required_next_check'],
                           'consumer_repository_modified':False}) for name,old in prior['consumers'].items()}
     return seal({'schema':'myskills.checkpoint.v7','base_commit':BASE,'context_digest':digest_object(ctx),'completion':completion,
-                 'matrix':rows,'profiles':profiles,'composition':graph,'consumers':consumers,'controls':boundaries(),'evaluator_controls':evaluator_controls(root),
+                 'retained_hosted_counterexample':adverse,'matrix':rows,'profiles':profiles,'composition':graph,'consumers':consumers,'controls':boundaries(),'evaluator_controls':evaluator_controls(root),
                  'accepted_tdd_profile':accepted['evidence_digest'],'historical_tdd_changed':False,
                  'new_profile_candidates':sum(p['status']=='PASS' for p in profiles.values()),'accepted_behavioral_profiles':1,
                  'acceptance_rule':'New PASS candidates need a separate matching fresh-clone and hosted validation receipt before acceptance.',

@@ -1,0 +1,37 @@
+{
+  "api_profile": "FAIL",
+  "docker_calls": 0,
+  "evidence_digest": "sha256:6d7de737242fe312f30c3d227a82067f0685686b6bcd05b47c47dd9703efb759",
+  "focused_tests": 11,
+  "greptile": "DEFERRED",
+  "initial_output_reviews": [
+    "FAIL",
+    "FAIL",
+    "FAIL",
+    "FAIL"
+  ],
+  "model_calls": 0,
+  "original_skill_defect_established": false,
+  "reviewer": "/root/foundation_review",
+  "schema": "myskills.checkpoint-review.v7",
+  "scope": "Read-only implementation, custody, all eight native outputs, and supplemental adverse-evidence review; fresh/hosted validation separately required.",
+  "security_profile": "CANDIDATE_PENDING_VALIDATION",
+  "sources": {
+    "qualification/checkpoint7/followup/output-review-pin.json": "sha256:1850380865caabf824abd6eaaf5a3b18739edc910c1ab21544a2797d3aa859d8",
+    "qualification/checkpoint7/followup/output-review.json": "sha256:466fa2b61799d8ce4c171643be2f61e96a3e47adee08a501c0dab924900577f0",
+    "qualification/checkpoint7/hosted-counterexample.json": "sha256:2ddf1778dc3d7138d2a41d175152257c42e77535357893538618c9acd91a1728",
+    "qualification/checkpoint7/output-review-pin.json": "sha256:b543ce22275ce79bf02914a891727794b2d24afd7527ea9b7cd60cf6c4366d72",
+    "qualification/checkpoint7/output-review.json": "sha256:e616c357b5cf61a340ebe84e3d6a34e5c7355e62316e9c2d76eec5fda72a3ffa",
+    "qualification/checkpoint_seven.py": "sha256:35282d38204bbbf99e846d8a86cf72791150d95310d20df1ab4336b86b89b3d3",
+    "qualification/custody_v7.py": "sha256:50ceec2db6c97d3304711fcb8289d35442641e331a7636c2aeefb08dd91a6043",
+    "qualification/custody_v7r1.py": "sha256:810bf2331bd506e27a4d6cbfff73ae60b068e37b4a454890d3ffb167b08e33f0",
+    "tests/test_myskills_claim_workflows_v7.py": "sha256:9f6f38e6003ca9803ef117d60cb6f9ad0272992a17089db1fb02ba0612a9be33"
+  },
+  "status": "PASS",
+  "successor_output_reviews": [
+    "PASS",
+    "FAIL",
+    "PASS",
+    "PASS"
+  ]
+}
