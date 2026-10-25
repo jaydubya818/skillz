@@ -589,6 +589,11 @@ def main() -> int:
                 shutil.copy2(HARNESS_TOOLS_TEMPLATE, staged / "references" / "harness-tools.md")
             normalize_skill(staged, version=version, commit=commit)
 
+        portable_agents = stage / "skills" / "poteto-mode" / "references" / "agents"
+        portable_agents.mkdir(exist_ok=True)
+        for definition in staged_agents.glob("*.md"):
+            shutil.copy2(definition, portable_agents / definition.name)
+
         for legacy in legacy_destinations:
             shutil.rmtree(legacy)
         if AGENTS_DESTINATION.exists():

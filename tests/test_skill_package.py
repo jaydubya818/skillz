@@ -196,6 +196,9 @@ def test_claude_companion_agents_are_packaged_and_referenced_for_both_install_mo
     assert packaged == expected
     for name in expected:
         assert scalar_field(frontmatter(ROOT / "agents" / f"{name}.md"), "name") == name
+        assert (SKILLS / "poteto-mode" / "references" / "agents" / f"{name}.md").read_bytes() == (
+            ROOT / "agents" / f"{name}.md"
+        ).read_bytes()
 
     mode = (SKILLS / "poteto-mode" / "SKILL.md").read_text()
     plan = (SKILLS / "poteto-mode" / "playbooks" / "multi-phase-plan.md").read_text()

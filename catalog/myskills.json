@@ -6990,7 +6990,7 @@
       ],
       "dependencies": [],
       "description": "Use when non-trivial work should follow the smallest rigorous Jstack workflow.",
-      "digest": "sha256:9d89f3e9c4e9e07c2b60121f6314ed405c43c48cfab8cf5e644979629e0f7bd1",
+      "digest": "sha256:acde797eb053646ec06f6ea51a93b7570a851c03fe11a4c0003eef2f811d7441",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7080,7 +7080,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.3d4313da483964de",
+      "version": "0.0.0+legacy.11d599a071e537a6",
       "visibility": {
         "scope": "public",
         "subject": ""
