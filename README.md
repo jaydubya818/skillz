@@ -66,6 +66,12 @@ hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream
 Capture stays with the host's browser tools. Check for `--attach` in the
 installed `gh` help before publishing. Local formatting works without it.
 
+The refresh also fixes recorder startup when Linux refuses pidfds, preserves
+unrelated PR text when replacing visual evidence, and packages all four
+companion agents for plugin and portable installs. The original Cursor
+`statechart` and `ketchup-video` additions remain deferred. Their integration
+decisions are in the [source review](docs/UPSTREAM_REFRESH_2026-10-25.md#new-skill-selection).
+
 ## Why this repository exists
 
 Agent workflows become unreliable when each harness has a different copy,
@@ -134,6 +140,32 @@ python3 scripts/install_skills.py --all --replace
 
 Replacement moves the old directory to `<skill>.backup`, then `.backup-2`, and
 so on. An already-current copy is skipped, making repeated installs idempotent.
+
+### Upgrade an existing installation
+
+From a clean checkout on `main`, update the source and preview replacement of
+your installed copies:
+
+```bash
+git pull --ff-only origin main
+python3 scripts/install_skills.py --all --replace --dry-run
+```
+
+Review the destinations and backups, then apply the update:
+
+```bash
+python3 scripts/install_skills.py --all --replace
+```
+
+Use `--claude`, `--codex`, or `--cursor` instead of `--all` to update one
+runtime. For a project installation, add `--project /path/to/project` to both
+installer commands. Copy installs need the installer rerun. Existing symlinked
+skills follow changes in the checkout, provided it stays at the same path.
+Rerun the installer to add new skills or companion agents to either install type.
+
+Merging repository changes does not update installed copies or publish a
+release. Tagged source archives are published only by the separate `v*`
+release workflow.
 
 ## Runtime-specific installation
 
@@ -533,6 +565,7 @@ Review upstream changes first, then use a clean checkout:
 
 ```bash
 python3 scripts/vendor_builderio.py /path/to/BuilderIO-skills --replace
+python3 -m myskills catalog > catalog/myskills.json
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 git diff --check
 ```
@@ -577,14 +610,16 @@ clean upstream checkout and run:
 
 ```bash
 python3 scripts/vendor_jstack.py /path/to/pstack-claude --replace
-python3 -m pytest tests -q
+python3 -m myskills catalog > catalog/myskills.json
+python3 -m pytest tests -q --ignore=tests/test_evidence.py
 git diff --check
 ```
 
-The vendor tool verifies the source remote and pinned commit, reapplies
-frontmatter and Codex metadata, and checks every authority-hardening anchor. It
-stops if upstream moves an anchor or introduces conflicting metadata so safety
-changes cannot disappear silently.
+The vendor tool verifies the source remote and clean checkout, checks the
+reviewed inventory, and records the input revision. It stages frontmatter,
+Codex metadata, original-source regression tests, and authority-hardening
+changes before replacing the installed output. A changed anchor or conflicting
+metadata stops the refresh before those protections can disappear.
 
 After a refresh, review:
 
@@ -731,6 +766,11 @@ python3 skills/evidence-driven-testing/scripts/evidence.py doctor --json
 
 ## Validation
 
+The October 25 refresh passed 158 portable Python tests, 264 imported Bun
+script tests, and two targeted recorder regressions. GitHub's package and
+browser checks also passed. The [review report](docs/UPSTREAM_REFRESH_2026-10-25.md#validation-and-limits)
+records reproduction controls and installation checks.
+
 Install the single test dependency and run the portable suite:
 
 ```bash
@@ -739,6 +779,21 @@ python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
 python3 scripts/check_release.py v2.5.0
 git diff --check
+```
+
+After changing skill content or provenance, regenerate and validate the catalog
+before running those checks:
+
+```bash
+python3 -m myskills catalog > catalog/myskills.json
+python3 -m myskills validate
+```
+
+For changes to the imported orchestration or PR tools, run their local suite
+with Bun:
+
+```bash
+bun test skills/poteto-mode/scripts/check-plan.test.ts skills/poteto-mode/scripts/orch skills/poteto-mode/scripts/watch-pr
 ```
 
 Run the complete suite on a host with the native evidence dependencies:
@@ -770,6 +825,12 @@ request and push to `main`. A `v*` tag must match every package manifest before
 the release job publishes source archives and SHA-256 checksums. Native recorder
 coverage remains host-specific because desktop capture and FFmpeg filter
 availability vary.
+
+These package checks do not grant behavioral qualification. Catalog entries
+remain `UNTRUSTED` and `NOT_EVALUATED` until separately qualified. The refresh
+did not verify native recorder rendering or live media uploads. Rendering needs
+FFmpeg with the `ass` filter; GitHub attachments need an authenticated `gh`
+version that exposes `--attach`.
 
 ## Adding a skill
 
