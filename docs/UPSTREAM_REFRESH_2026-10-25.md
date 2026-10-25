@@ -131,6 +131,9 @@ Local results:
   8,000-byte discovery budget. Release metadata and whitespace checks pass.
 
 The host FFmpeg lacks the `ass` filter, so recorder rendering is not claimed.
+The first hosted browser run stopped at a stale assertion for 92 cards after
+correctly rendering 103. Its assertion now reads the canonical catalog instead
+of freezing the collection size in a second place.
 
 Regenerate the catalog after changing skill content:
 

@@ -1,6 +1,9 @@
 import assert from "node:assert/strict";
 import { spawn } from "node:child_process";
 import { mkdir, writeFile, readFile } from "node:fs/promises";
+const canonicalCatalog = JSON.parse(
+  await readFile(new URL("../catalog/myskills.json", import.meta.url), "utf8"),
+);
 const { chromium } = await import(
   process.env.MYSKILLS_PLAYWRIGHT_MODULE ||
     "../scripts/myskills-browser/node_modules/playwright/index.mjs"
@@ -67,7 +70,7 @@ try {
   await page.goto(url);
   await page.getByRole("heading", { level: 1 }).waitFor();
   await check("Discover shows actual catalog", async () =>
-    assert.equal(await page.locator(".card").count(), 92),
+    assert.equal(await page.locator(".card").count(), canonicalCatalog.skills.length),
   );
   await accessibility("Discover desktop");
   await page.screenshot({ path: `${output}/discover-desktop.png` });
