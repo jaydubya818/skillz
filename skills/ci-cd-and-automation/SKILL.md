@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Addy Osmani and Skillz contributors
   source: addyosmani/agent-skills
-  source-commit: 1401c8b8030e023baeebb31781a6653fe8e93026
+  source-commit: aeac41d4d005999432bb7312f7ff06383a91d59d
   adaptation: curated-rewrite
   owner: software-factory
   risk: high

@@ -5,8 +5,8 @@ license: MIT
 metadata:
   author: jstack-maintainers
   source: michael-denyer/pstack-claude
-  source-version: "0.9.30"
-  source-commit: 45f768349a6d7d7e71509fee3f5bccfad54b3bad
+  source-version: "0.9.102"
+  source-commit: 356c6e0f978df729eb16f227d795f34d221c5aad
   owner: software-factory
   risk: low
   capabilities: jstack,engineering-research

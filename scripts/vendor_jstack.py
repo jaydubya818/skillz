@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import shutil
 import subprocess
+import tempfile
 
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
@@ -16,7 +17,9 @@ DESTINATION = REPO_ROOT / "skills"
 AGENTS_DESTINATION = REPO_ROOT / "agents"
 MANIFEST = REPO_ROOT / "vendor" / "jstack.json"
 HARNESS_TOOLS_TEMPLATE = REPO_ROOT / "vendor" / "harness-tools.md"
-EXCLUDED = {"unslop": "the collection keeps its existing enhanced definition"}
+EXCLUDED = {
+    "unslop": "the collection keeps its existing enhanced definition",
+}
 LOCAL_NAME_BY_SOURCE = {"setup-pstack": "setup-jstack"}
 
 JSTACK_BRANDING_REPLACEMENTS = (
@@ -24,6 +27,7 @@ JSTACK_BRANDING_REPLACEMENTS = (
     ("pstack-models", "jstack-models"),
     ("pstack:poteto-agent", "software-factory-skills:poteto-agent"),
     ("pstack:comment-sicko", "software-factory-skills:comment-sicko"),
+    ("pstack:thermo-nuclear-", "software-factory-skills:thermo-nuclear-"),
     ("codex-tools.md", "harness-tools.md"),
     (
         "On Codex, read the [platform mapping]",
@@ -58,6 +62,16 @@ JSTACK_BRANDING_REPLACEMENTS = (
 )
 
 SHORT_DESCRIPTIONS = {
+    "benchmark-checklist": "Check that benchmark results measure real work",
+    "correct": "Prevent repeated repository mistakes",
+    "create-formal-verification-skill": "Create a scoped formal verification skill",
+    "in-your-own-words": "Restate the user's goal and problem",
+    "ketchup": "Catch up on progress and pending decisions",
+    "maintain-formal-verification-skill": "Refresh formal verification against code",
+    "poteto-help": "Explain the available Jstack workflows",
+    "sharpen": "Clarify a task's goal and approach",
+    "thermo-nuclear-review": "Audit a diff for security and correctness",
+    "thermos": "Combine correctness and maintainability reviews",
     "architect": "Design types and module boundaries before coding",
     "arena": "Compare parallel solutions and synthesize the best",
     "automate-me": "Turn recurring work preferences into a personal skill",
@@ -91,6 +105,9 @@ SHORT_DESCRIPTIONS = {
 }
 
 MEDIUM_RISK = {
+    "correct",
+    "create-formal-verification-skill",
+    "maintain-formal-verification-skill",
     "architect",
     "arena",
     "automate-me",
@@ -114,6 +131,17 @@ ACTIVATION_RE = re.compile(
 )
 
 DESCRIPTION_OVERRIDES = {
+    "benchmark-checklist": "Use when checking measured benchmark claims.",
+    "correct": "Use for /correct or requested fixes to repeated agent mistakes.",
+    "create-formal-verification-skill": "Use when creating a project-local formal verifier.",
+    "in-your-own-words": "Use when asked to restate the user's goal.",
+    "ketchup": "Use for /ketchup or a chat progress catch-up.",
+    "maintain-formal-verification-skill": "Use when refreshing a project's formal verification.",
+    "poteto-help": "Use for help choosing or using Jstack workflows.",
+    "principle-explain-the-number": "Apply when a measured result needs its limits explained.",
+    "sharpen": "Use for /sharpen to clarify a task before work.",
+    "thermo-nuclear-review": "Use for a deep security and correctness diff review.",
+    "thermos": "Use for combined correctness and code-quality reviews.",
     "architect": "Use when a non-trivial change needs types and module boundaries designed before code.",
     "arena": "Use when an important artifact needs independent solutions compared and synthesized.",
     "automate-me": "Use when the user wants working preferences captured in a reusable mode skill.",
@@ -170,9 +198,59 @@ DESCRIPTION_OVERRIDES = {
 }
 
 HARDENINGS = {
+    "sharpen": [
+        (
+            "Before starting, ask how a top expert would approach this task (their raw sources, their real methods, an outside check that the result is right), what the user is really after, and whether the task is over- or underspecified. Loosen constraints that don't serve the goal as readily as you add ones that do, and leave choices that are the user's to make open instead of deciding them. Fold in only what makes the work better, not bigger, but always keep one outside check that the result is right, without narrating the framing, then do the work.",
+            "I want a deeper version of this task, not a bigger one. Before rewriting it, do four things:\n\n1. Say what a top professional in this field would do here that I'm not asking for.\n2. Name the rawest material they would start from instead of what has already been digested for me.\n3. Name the specific methods and tools they would use.\n4. Say what, other than you or me, would show the result is right.\n\nThen rewrite my prompt to ask for exactly that.\n\nLeave choices that are mine to make open instead of deciding them.",
+        ),
+    ],
+    "poteto-mode/scripts/check-plan.mjs": [
+        ('.replace(/`[^`]*`/g, "`")', '.replace(/(?<!`)(`+)(?!`)(.*?)(?<!`)\\1(?!`)/g, "`")'),
+    ],
+    "poteto-mode/scripts/orch/store.ts": [
+        (
+            "  const row = local[0];",
+            '  const active = local.filter((row) => row.state === "OPEN");\n  const candidates = active.length > 0 ? active : local;\n  const row = candidates[0];',
+        ),
+        ("  if (local.length > 1) {", "  if (candidates.length > 1) {"),
+        ("${local.map((item) => `#${item.pr}`).join(\", \")}", "${candidates.map((item) => `#${item.pr}`).join(\", \")}"),
+    ],
+    "swarm": [
+        ("4. Pick the worker model", "3. Pick the worker model"),
+        ("5. Give each worker", "4. Give each worker"),
+        ("the step 4 model", "the step 3 model"),
+        ("with the table, issue one-liners", "with a result table, issue one-liners"),
+    ],
+    "poteto-help": [
+        (
+            "The local links point into the installed plugin, so give the user the file's public copy: `https://github.com/michael-denyer/pstack-claude/blob/main/plugins/pstack/` followed by its path relative to the plugin root.",
+            "The local links point into this installed collection. Cite the file you actually read, or its public copy under `https://github.com/jaydubya818/skillz/blob/main/skills/`. For installation, use this collection's [README](https://github.com/jaydubya818/skillz#choose-an-installation). This distribution installs skills and companion agents only. It installs no native routing hooks or extensions. Native pstack install and routing instructions below apply only to a separately installed upstream plugin, never to Skillz.",
+        ),
+    ],
+    "benchmark-checklist": [
+        ("core count with `nproc`", "core count with `getconf _NPROCESSORS_ONLN`"),
+    ],
+    "correct": [
+        (
+            "# Correct\n\n",
+            "# Correct\n\nRun this workflow when requested. A correction within another task does not authorize a repository-wide rewrite. Keep enforcement changes inside the agreed scope and propose unrelated mistake classes separately.\n\n",
+        ),
+    ],
+    "create-formal-verification-skill": [
+        (
+            "On Claude Code it lives at `.claude/skills/<area>/SKILL.md`.",
+            "Use `.claude/skills/<area>/SKILL.md` for Claude-only projects or `.agents/skills/<area>/SKILL.md` for shared Codex and Cursor discovery.",
+        ),
+    ],
+    "thermos": [
+        (
+            "Run the two thermo review passes as async background subagents in parallel, then synthesize their results.",
+            "Run the two thermo review passes with authorized native workers, then synthesize their results. For a Claude plugin, use the namespaced companion agents below; for a direct install, use their bare names under `.claude/agents/`. On other runtimes, use the runtime mapping and read their bundled definitions under `../poteto-mode/references/agents/`. If delegation is unavailable or not authorized, perform both passes sequentially and report that limitation.",
+        ),
+    ],
     "poteto-mode": [
         (
-            "These skills use Claude Code tool names (the `Skill` tool, the `Agent` tool, `AskUserQuestion`) and Claude model slugs (`claude-*`). On Claude Code they work as written. On Codex, read [`references/harness-tools.md`](references/harness-tools.md) for the Codex equivalent of a Claude tool, model, or skill named by these workflows. Other runtimes can discover the same Agent Skills tree, but they must use their own tool, model, and configuration equivalents. `harness-tools.md` is not a cross-runtime map.\n\n",
+            "These skills use Claude Code tool names (the `Skill` tool, the `Agent` tool, `AskUserQuestion`) and the Claude model names the `Agent` tool accepts, as each Models section lists them. On Claude Code they work as written. On Codex, read [`references/harness-tools.md`](references/harness-tools.md) for the Codex equivalent of a Claude tool, model, or skill named by these workflows. On Pi, read [`references/pi-tools.md`](references/pi-tools.md) instead. On GitHub Copilot, CLI or app, read [`references/copilot-tools.md`](references/copilot-tools.md) instead. On Muse, read [`references/muse-tools.md`](references/muse-tools.md) instead. Other runtimes can discover the same Agent Skills tree, but they must use their own tool, model, and configuration equivalents. No one of these mappings is a cross-runtime map.\n\n",
             "These skills use Claude Code tool names and Claude model slugs because that is the language of the upstream workflows. On Claude Code they work as written. On Codex, Cursor, or another runtime, read [`references/harness-tools.md`](references/harness-tools.md) and use the native equivalent for each tool, model, driver, transcript path, and companion agent.\n\n"
             "**Governance precedence.** When Mission Control governs the task, read and follow "
             "the **mission-control-delivery** skill first. Its execution contract controls authority, "
@@ -191,29 +269,29 @@ HARDENINGS = {
             "- Broken skill mid-task → record the failure and propose a focused fix. Implement or publish that fix only when it falls inside the authorized scope.",
         ),
         (
-            "**Use `subagent_type: \"software-factory-skills:poteto-agent\"` for any subagent you spawn inside a playbook step** (code-writing delegates, ad-hoc helpers). Plugin agents register under the plugin namespace; the bare name `poteto-agent` errors.",
+            "**Use `subagent_type: \"software-factory-skills:poteto-agent\"` for any subagent you spawn inside a playbook step** (code-writing delegates, ad-hoc helpers). Plugin agents register under the plugin namespace. The bare name `poteto-agent` errors.",
             "**Use `subagent_type: \"software-factory-skills:poteto-agent\"` for any subagent you spawn inside a playbook step when this collection is loaded as a plugin** (code-writing delegates, ad-hoc helpers). For a direct install, use the bare `poteto-agent` name installed under `.claude/agents/`.",
         ),
     ],
     "no-comments": [
         (
-            "1. Spawn an `Agent` with `subagent_type: \"software-factory-skills:comment-sicko\"`. Pass the scope. Do not restate its rules.",
-            "1. Spawn an `Agent` with `subagent_type: \"software-factory-skills:comment-sicko\"` when this collection is loaded as a plugin. For a direct install, use the bare `comment-sicko` name installed under `.claude/agents/`. Pass the scope. Do not restate its rules.",
+            "1. Spawn `Agent` with `subagent_type: \"software-factory-skills:comment-sicko\"`. Pass the scope.",
+            "1. Spawn `Agent` with `subagent_type: \"software-factory-skills:comment-sicko\"` when this collection is loaded as a plugin. For a direct install, use the bare `comment-sicko` name installed under `.claude/agents/`. Pass the scope.",
         ),
     ],
     "principle-never-block-on-the-human": [
         (
-            "The human supervises asynchronously. Agents must stay unblocked: make reasonable decisions, proceed, and let the human course-correct after the fact.",
+            "The human supervises asynchronously. Agents must stay unblocked. Make reasonable decisions, proceed, and let the human course-correct after the fact. Since code changes are reversible and reviewable, a wrong decision usually costs less than blocking.",
             "The human can supervise implementation asynchronously. Make reasonable low-risk decisions inside the authorized scope, then present the result for review.",
         ),
         (
-            "- **Proceed, then present.** Do the work, show the result. Don't ask \"should I do X?\" Do X, explain why.",
+            "- Proceed, then present. Do the work, show the result. Don't ask \"should I do X?\" Do X, explain why.",
             "- **Proceed, then present.** Handle reversible implementation details that do not change product intent, authority, cost, or external state. Show the result and explain why.",
         ),
         (
-            "- **Irreversible actions** (force-push, delete production data, send external messages) still require confirmation.\n"
-            "- **Reversible actions** (write code, edit notes, split tasks) should proceed without blocking.\n"
-            "- **Product direction** comes from the human; *execution* should not block.",
+            "- Irreversible actions (force-push, delete production data, send external messages) still require confirmation.\n"
+            "- Reversible actions (write code, edit notes, split tasks) should proceed without blocking.\n"
+            "- Product direction comes from the human. Execution should not block.",
             "- **Approval policy wins.** Mission Control contracts plus system, user, and repository instructions define what the agent may do.\n"
             "- **External writes need authority.** Messages, tickets, pull-request mutations, eval launches, publishing, merges, deploys, spending, and destructive cleanup do not become authorized merely because they are reversible.\n"
             "- **Product direction stays with the human.** Experiments can inform a decision; they do not make the decision.\n"
@@ -222,8 +300,8 @@ HARDENINGS = {
     ],
     "reflect": [
         (
-            "Backlog items file to whatever devex / backlog tracker your team uses automatically. Only the Accepted list waits for approval.",
-            "File Backlog items only when the task authorizes writes to the named devex or backlog tracker. Otherwise return them as proposed backlog entries. The Accepted list always waits for approval.",
+            "File each Backlog item to your team's devex or backlog tracker without waiting. Only the Accepted list waits for approval.",
+            "File Backlog items only when the task authorizes writes to the named devex or backlog tracker. Otherwise return them as proposed backlog entries. The Accepted list always waits for approval. Never edit a cached plugin under `plugins/cache/`. For a requested source-repository update, edit its canonical checkout. Otherwise show the proposed project or user skill destination and edit a copy only within the user's approved scope.",
         ),
     ],
     "automate-me": [
@@ -260,13 +338,13 @@ HARDENINGS = {
     ],
     "show-me-your-work": [
         (
-            "At the end of the run, before handing back, check the log told the truth. Read this run's transcript under Claude Code's per-project transcripts directory at `~/.claude/projects/<encoded-cwd>/`.",
-            "At the end of the run, before handing back, check the log told the truth. On Claude Code, read this run's transcript under its per-project transcript directory at `~/.claude/projects/<encoded-cwd>/`. On Codex or another harness, use its current-task history API or documented workspace-scoped transcript location.",
+            "At the end of the run, before handing back, check the log told the truth. Read this run's transcript under Claude Code's per-project transcripts directory at `${CLAUDE_CONFIG_DIR:-$HOME/.claude}/projects/<encoded-cwd>/`, which `node <plugin>/skills/reflect/scripts/claude-project-dir.mjs` prints.",
+            "At the end of the run, before handing back, check the log told the truth. On Claude Code, use `node <plugin>/skills/reflect/scripts/claude-project-dir.mjs` for this run's transcript directory. On Codex or another harness, use its current-task history API or documented workspace-scoped transcript location.",
         ),
     ],
     "poteto-mode/playbooks/opening-a-pr.md": [
         (
-            "**Worktree.** Work from a git worktree off main; subagents inherit it. Multiple `Agent` calls on the same branch each get their own worktree, or `git fetch && git reset --hard origin/<branch>` between them. Dirty branch with unrelated work: patch out, fresh worktree, apply. Snarled worktree: reset from main, redo minimally.",
+            "**Worktree.** Work from a git worktree off main. Subagents inherit it. Multiple `Agent` calls on the same branch each get their own worktree, or `git fetch && git reset --hard origin/<branch>` between them. Dirty branch with unrelated work: patch out, fresh worktree, apply. Snarled worktree: reset from main, redo minimally.",
             "**Authority.** Commit, push, or open a pull request only when the user's request or Mission Control execution contract authorizes that publication step. Otherwise stop with a verified local handoff.\n\n**Worktree.** Work from a git worktree off main; subagents inherit it. Give each writing agent its own branch and worktree. Never reset a shared or dirty worktree to coordinate agents. Leave unrelated work untouched and create a fresh worktree for the authorized change.",
         ),
     ],
@@ -278,12 +356,16 @@ HARDENINGS = {
     ],
     "poteto-mode/playbooks/worktree-cleanup.md": [
         (
-            "`scratch:N` is untracked throwaway, safe to drop, but name the files. Per Autonomy, clean and merged and not-in-use proceeds; `wip` and in-use pause.",
-            "`scratch:N` is untracked and may still be valuable, so name the files. Get explicit approval for every deletion target; `wip` and in-use always stay held back.",
+            "Per Autonomy, clean and merged and not-in-use proceeds. `wip`, `untracked`, `ignored`, `reflog`, locked, and in-use pause.",
+            "Get explicit approval for every deletion target. `wip`, `untracked`, `ignored`, `reflog`, locked, and in-use always stay held back until their contents are preserved and the user decides.",
         ),
         (
-            "Per path, `git worktree remove --force <path>`; if the dir survives on ignored build artifacts, `rm -rf` it, then `git worktree prune`.",
+            "Per path, `git worktree remove --force <path>`. If the dir survives on ignored build artifacts, `rm -rf` it, then `git worktree prune`.",
             "Per approved, explicit path, use `git worktree remove <path>` and let Git refuse unsafe removal. If ignored artifacts keep the directory in place, report the exact path and size for a separate cleanup decision; do not escalate to recursive deletion inside this playbook. Then run `git worktree prune`.",
+        ),
+        (
+            "so do not `rm -rf` around it.",
+            "so do not bypass its lock with recursive deletion.",
         ),
     ],
     "poteto-mode/playbooks/autonomous-run.md": [
@@ -459,10 +541,15 @@ def main() -> int:
     remote = git_value(source, "remote", "get-url", "origin")
     if "michael-denyer/pstack-claude" not in remote:
         raise SystemExit(f"unexpected source remote: {remote}")
+    if git_value(source, "status", "--porcelain"):
+        raise SystemExit("pstack-claude checkout must be clean")
 
     source_names = sorted(path.name for path in source_skills.iterdir() if (path / "SKILL.md").is_file())
     imported_sources = [name for name in source_names if name not in EXCLUDED]
     imported = [LOCAL_NAME_BY_SOURCE.get(name, name) for name in imported_sources]
+    expected = set(DESCRIPTION_OVERRIDES) - set(LOCAL_NAME_BY_SOURCE.values()) | set(LOCAL_NAME_BY_SOURCE)
+    if set(imported_sources) != expected:
+        raise SystemExit("Jstack skill inventory changed; review additions and removals before importing")
     conflicts = [name for name in imported if (DESTINATION / name).exists()]
     legacy_destinations = [
         DESTINATION / source_name
@@ -477,29 +564,46 @@ def main() -> int:
     if AGENTS_DESTINATION.exists() and not args.replace:
         raise SystemExit("companion agents already exist; rerun with --replace")
 
-    for legacy in legacy_destinations:
-        shutil.rmtree(legacy)
+    with tempfile.TemporaryDirectory(prefix="skillz-jstack-") as stage_name:
+        stage = Path(stage_name)
+        staged_agents = stage / "agents"
+        shutil.copytree(source_agents, staged_agents)
+        apply_jstack_branding(staged_agents)
+        for source_name, local_name in zip(imported_sources, imported, strict=True):
+            staged = stage / "skills" / local_name
+            shutil.copytree(source_skills / source_name, staged)
+            if local_name == "poteto-mode":
+                subprocess.run(
+                    ["git", "apply", "--check", str(REPO_ROOT / "vendor" / "cursor-pstack-tests.patch")],
+                    cwd=stage / "skills", check=True,
+                )
+                subprocess.run(
+                    ["git", "apply", str(REPO_ROOT / "vendor" / "cursor-pstack-tests.patch")],
+                    cwd=stage / "skills", check=True,
+                )
+            apply_jstack_branding(staged)
+            if local_name == "poteto-mode":
+                legacy_mapping = staged / "references" / "codex-tools.md"
+                if legacy_mapping.exists():
+                    legacy_mapping.unlink()
+                shutil.copy2(HARNESS_TOOLS_TEMPLATE, staged / "references" / "harness-tools.md")
+            normalize_skill(staged, version=version, commit=commit)
 
-    if AGENTS_DESTINATION.exists():
-        shutil.rmtree(AGENTS_DESTINATION)
-    shutil.copytree(source_agents, AGENTS_DESTINATION)
-    apply_jstack_branding(AGENTS_DESTINATION)
+        portable_agents = stage / "skills" / "poteto-mode" / "references" / "agents"
+        portable_agents.mkdir(exist_ok=True)
+        for definition in staged_agents.glob("*.md"):
+            shutil.copy2(definition, portable_agents / definition.name)
 
-    for source_name, local_name in zip(imported_sources, imported, strict=True):
-        destination = DESTINATION / local_name
-        if destination.exists():
-            shutil.rmtree(destination)
-        shutil.copytree(source_skills / source_name, destination)
-        apply_jstack_branding(destination)
-        if local_name == "poteto-mode":
-            legacy_mapping = destination / "references" / "codex-tools.md"
-            if legacy_mapping.exists():
-                legacy_mapping.unlink()
-            shutil.copy2(
-                HARNESS_TOOLS_TEMPLATE,
-                destination / "references" / "harness-tools.md",
-            )
-        normalize_skill(destination, version=version, commit=commit)
+        for legacy in legacy_destinations:
+            shutil.rmtree(legacy)
+        if AGENTS_DESTINATION.exists():
+            shutil.rmtree(AGENTS_DESTINATION)
+        shutil.copytree(staged_agents, AGENTS_DESTINATION)
+        for name in imported:
+            destination = DESTINATION / name
+            if destination.exists():
+                shutil.rmtree(destination)
+            shutil.copytree(stage / "skills" / name, destination)
 
     MANIFEST.parent.mkdir(exist_ok=True)
     MANIFEST.write_text(

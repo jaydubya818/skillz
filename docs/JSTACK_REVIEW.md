@@ -1,5 +1,9 @@
 # Jstack integration review
 
+The initial integration below is historical. The current import is 0.9.102
+with 64 skills. See the [October 25 refresh](UPSTREAM_REFRESH_2026-10-25.md)
+for the new selection, original Cursor follow-up, and validation.
+
 ## Decision
 
 Vendor the 53 unique skills from

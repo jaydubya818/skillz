@@ -1,0 +1,67 @@
+diff --git a/poteto-mode/scripts/check-plan.test.ts b/poteto-mode/scripts/check-plan.test.ts
+index fd966c2..cd1debf 100644
+--- a/poteto-mode/scripts/check-plan.test.ts
++++ b/poteto-mode/scripts/check-plan.test.ts
+@@ -94,3 +94,17 @@ test("rejects backtick info strings containing a backtick", () => {
+ 	const result = runPlan("```markdown `invalid`\n## Example only\n```\n", 1);
+ 	expect(result.stderr).toContain('"## Example only" after Close the program is not an appendix');
+ });
++
++test("ignores prose punctuation inside matching multi-backtick code spans", () => {
++	for (const count of [2, 3, 4]) {
++		const delimiter = "`".repeat(count);
++		runPlan(`Use ${delimiter}echo \`x\`: “quoted” — example${delimiter}.\n`, 0);
++	}
++});
++
++test("checks prose following a multi-backtick span and unmatched delimiters", () => {
++	const outside = runPlan("Use ``echo `x`: y``. Bad: prose.\n", 1);
++	expect(outside.stderr).toContain("mid-sentence colon");
++	const unmatched = runPlan("Use ``unclosed: bad` here.\n", 1);
++	expect(unmatched.stderr).toContain("mid-sentence colon");
++});
+diff --git a/poteto-mode/scripts/orch/orch.test.ts b/poteto-mode/scripts/orch/orch.test.ts
+index 2ef435d..be8edd5 100644
+--- a/poteto-mode/scripts/orch/orch.test.ts
++++ b/poteto-mode/scripts/orch/orch.test.ts
+@@ -573,6 +573,40 @@ describe("Store", () => {
+       });
+     });
+ 
++    it(`resolves a replacement ${forge} PR alongside closed branch history`, async () => {
++      for (const historicalState of ["closed", "merged"] as const) {
++        const { directory, store } = await initializedStore();
++        const stack = await makeGitStack(directory);
++        await withFakeForge({
++          directory, forge,
++          currentRows: forgeRows(forge, [
++            { number: 9, state: historicalState, head: "stack/open", base: "main" },
++            { number: 11, state: "open", head: "stack/open", base: "stack/closed" },
++          ]),
++          operation: async () => {
++            const frontier = await store.frontier.set({ repo: stack.repo, forge });
++            expect(frontier.prs.map((row) => row.pr)).toEqual([10, 13, 11, 14]);
++            expect(frontier.lowestUnmerged).toBe(11);
++          },
++        });
++      }
++    });
++
++    it(`still rejects multiple active ${forge} PRs on one branch`, async () => {
++      const { directory, store } = await initializedStore();
++      const stack = await makeGitStack(directory);
++      await withFakeForge({
++        directory, forge,
++        currentRows: forgeRows(forge, [
++          { number: 11, state: "open", head: "stack/open", base: "stack/closed" },
++          { number: 12, state: "open", head: "stack/open", base: "main" },
++        ]),
++        operation: async () => {
++          await expect(store.frontier.set({ repo: stack.repo, forge })).rejects.toThrow("multiple pull requests");
++        },
++      });
++    });
++
+     it(`rejects unparseable ${forge} output loudly`, async () => {
+       const { directory, store } = await initializedStore();
+       const stack = await makeGitStack(directory);

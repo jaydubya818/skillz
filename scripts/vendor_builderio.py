@@ -290,6 +290,7 @@ def package_shared_resources(source: Path) -> None:
     media = {
         "visual-plan": "visual-plan.png",
         "visual-recap": "visual-recap.gif",
+        "turn-into-app": "turn-into-app-before-after.png",
     }
     for name, filename in media.items():
         assets = DESTINATION / name / "assets"
@@ -297,18 +298,6 @@ def package_shared_resources(source: Path) -> None:
         shutil.copy2(source / "media" / filename, assets / filename)
         readme = DESTINATION / name / "README.md"
         replace_text(readme, [(f"../../media/{filename}", f"assets/{filename}")])
-
-    turn_into_app = DESTINATION / "turn-into-app" / "SKILL.md"
-    replace_text(
-        turn_into_app,
-        [
-            (
-                "[Agent-Native\napp configuration guide](/docs/agent-native-config)",
-                "[Agent-Native\napp configuration guide](https://www.agent-native.com/docs/agent-native-config/)",
-            )
-        ],
-    )
-
 
 def update_mcp_config(source: Path) -> None:
     upstream = json.loads((source / ".mcp.json").read_text())
@@ -385,6 +374,7 @@ def main() -> int:
                     "factory": "skills/factory/references/",
                     "visual-plan-media": "skills/visual-plan/assets/visual-plan.png",
                     "visual-recap-media": "skills/visual-recap/assets/visual-recap.gif",
+                    "turn-into-app-media": "skills/turn-into-app/assets/turn-into-app-before-after.png",
                     "dispatch-mcp": ".mcp.json",
                 },
                 "integration": [

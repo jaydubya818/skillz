@@ -10,6 +10,9 @@ apply one blanket license to every directory.
   [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude).
   The complete license and upstream notices are in
   [`skills/poteto-mode/references/licenses/`](skills/poteto-mode/references/licenses/).
+  This also includes the Cursor team-kit notice and the MIT notice for
+  `thermos`, its review skills, and their companion agents. The bundled
+  `NOTICE.md` identifies each original source.
 - `before-and-after` carries its PolyForm Shield 1.0.0 license in
   [`skills/before-and-after/LICENSE`](skills/before-and-after/LICENSE).
 - `greploop` and `greploop-apps` carry the MIT license in their skill

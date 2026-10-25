@@ -3,6 +3,7 @@ name: evidence-driven-testing
 description: Capture observable runtime proof with video, screenshots, or measured output. Use when a change needs evidence beyond test reports.
 compatibility: Requires Python 3 and FFmpeg for recording, or Node.js 20+ and Chromium for headless capture. Desktop capture also needs OS screen-recording access. Publishing evidence requires network access and authorized destination tooling.
 metadata:
+  source-commit: 69558ea1f5328da7b40ba171dfe2171f00ff4884
   author: michaelshimeles
   version: "1.3.0"
   owner: software-factory
@@ -67,7 +68,8 @@ Python 3 and FFmpeg.
   the recorder is killed hard or crashes, what was captured still probes and
   renders. `stop` remuxes or re-encodes it into a standard `evidence.mp4`.
 - **How stopping works**: on Linux the recorder is signalled through a pidfd.
-  On macOS and Windows `start` launches a small supervisor process that owns
+  On macOS and Windows, and on Linux when the kernel or a seccomp policy
+  refuses pidfds, `start` launches a small supervisor process that owns
   the ffmpeg child, and `stop` asks it (via `stop.request` in the session
   folder) to interrupt, then terminate, then kill; it writes
   `recorder-exit.json` when done. Nothing ever signals a bare PID, so a

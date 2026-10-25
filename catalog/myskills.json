@@ -97,26 +97,34 @@
     "before-and-after": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
+        "branch.push",
         "candidate.modify",
         "external_api.write",
         "network.request",
-        "secrets.use"
+        "owner_computer.use",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
       ],
       "executable_helpers": [
-        "scripts/adapters/0x0st.sh",
-        "scripts/adapters/blob.sh",
-        "scripts/adapters/gist.sh",
-        "scripts/capture.sh",
-        "scripts/upload-and-copy.sh"
+        "scripts/format.mjs"
       ],
       "external_hosts": [
-        "0x0.st",
         "cli.github.com",
-        "gist.github.com",
-        "gist.githubusercontent.com",
-        "localhost",
-        "your-blob-service.com"
+        "github.com"
       ],
+      "skill_reference_candidates": []
+    },
+    "benchmark-checklist": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
       "skill_reference_candidates": []
     },
     "blast-radius": {
@@ -165,6 +173,30 @@
       "executable_helpers": [],
       "external_hosts": [],
       "skill_reference_candidates": []
+    },
+    "correct": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "create-formal-verification-skill": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": [
+        "poteto-mode"
+      ]
     },
     "create-verification-skill": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
@@ -469,6 +501,13 @@
         "poteto-mode"
       ]
     },
+    "in-your-own-words": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
     "interrogate": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -476,6 +515,32 @@
         "candidate.modify",
         "repository.read",
         "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": [
+        "poteto-mode"
+      ]
+    },
+    "ketchup": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": [
+        "bro"
+      ]
+    },
+    "maintain-formal-verification-skill": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
         "tests.execute"
       ],
       "executable_helpers": [],
@@ -594,6 +659,54 @@
       "external_hosts": [],
       "skill_reference_candidates": []
     },
+    "poteto-help": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "external_api.write",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "github.com"
+      ],
+      "skill_reference_candidates": [
+        "architect",
+        "arena",
+        "automate-me",
+        "babysit",
+        "benchmark-checklist",
+        "blast-radius",
+        "bro",
+        "correct",
+        "create-formal-verification-skill",
+        "create-verification-skill",
+        "figure-it-out",
+        "how",
+        "in-your-own-words",
+        "interrogate",
+        "ketchup",
+        "maintain-formal-verification-skill",
+        "maintain-verification-skill",
+        "no-comments",
+        "poteto-mode",
+        "recall",
+        "reflect",
+        "setup-jstack",
+        "sharpen",
+        "show-me-your-work",
+        "swarm",
+        "tdd",
+        "teach",
+        "technical-writing",
+        "typescript-best-practices",
+        "unslop",
+        "why"
+      ]
+    },
     "poteto-mode": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -602,17 +715,18 @@
         "external_api.write",
         "network.request",
         "repository.read",
+        "secrets.use",
         "tests.execute"
       ],
       "executable_helpers": [
         "scripts/bootstrap.ts",
         "scripts/check-plan.mjs",
-        "scripts/orch/frontier.ts",
+        "scripts/check-plan.test.ts",
+        "scripts/check-playbooks.mjs",
         "scripts/orch/orch.test.ts",
         "scripts/orch/orch.ts",
-        "scripts/orch/status.ts",
         "scripts/orch/store.ts",
-        "scripts/orch/types.ts",
+        "scripts/resume.mjs",
         "scripts/watch-pr/cli.test.ts",
         "scripts/watch-pr/cli.ts",
         "scripts/watch-pr/deadline.ts",
@@ -620,27 +734,41 @@
         "scripts/watch-pr/github.test.ts",
         "scripts/watch-pr/github.ts",
         "scripts/watch-pr/integrity.test.ts",
+        "scripts/watch-pr/landing.ts",
+        "scripts/watch-pr/live-merge-safety.mjs",
         "scripts/watch-pr/policy.test.ts",
         "scripts/watch-pr/policy.ts",
         "scripts/watch-pr/render.ts",
+        "scripts/watch-pr/shipping-cli.test.ts",
+        "scripts/watch-pr/shipping-cli.ts",
+        "scripts/watch-pr/shipping.test-helper.ts",
+        "scripts/watch-pr/shipping.test.ts",
+        "scripts/watch-pr/shipping.ts",
         "scripts/watch-pr/transport.test.ts",
         "scripts/watch-pr/types.compile.ts",
         "scripts/watch-pr/types.ts",
-        "scripts/worktree-audit.sh"
+        "scripts/watch-pr/wrapper.test.ts",
+        "scripts/worktree-audit.mjs"
       ],
       "external_hosts": [
+        "cli.github.com",
         "code.claude.com",
+        "docs.github.com",
         "github.com"
       ],
       "skill_reference_candidates": [
         "playbooks",
-        "references"
+        "references",
+        "reflect",
+        "setup-jstack",
+        "why"
       ]
     },
     "principle-attack-the-premise": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
-        "candidate.modify"
+        "candidate.modify",
+        "tests.execute"
       ],
       "executable_helpers": [],
       "external_hosts": [],
@@ -679,7 +807,6 @@
     "principle-encode-lessons-in-structure": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
-        "repository.read",
         "tests.execute"
       ],
       "executable_helpers": [],
@@ -702,6 +829,19 @@
       "external_hosts": [],
       "skill_reference_candidates": []
     },
+    "principle-explain-the-number": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "network.request",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": [
+        "benchmark-checklist",
+        "principle-prove-it-works"
+      ]
+    },
     "principle-fix-root-causes": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -723,19 +863,14 @@
     },
     "principle-guard-the-context-window": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
-      "effect_candidates": [
-        "secrets.use"
-      ],
+      "effect_candidates": [],
       "executable_helpers": [],
       "external_hosts": [],
       "skill_reference_candidates": []
     },
     "principle-laziness-protocol": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
-      "effect_candidates": [
-        "repository.read",
-        "tests.execute"
-      ],
+      "effect_candidates": [],
       "executable_helpers": [],
       "external_hosts": [],
       "skill_reference_candidates": []
@@ -743,6 +878,7 @@
     "principle-make-operations-idempotent": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
+        "candidate.modify",
         "tests.execute"
       ],
       "executable_helpers": [],
@@ -840,9 +976,7 @@
     },
     "principle-subtract-before-you-add": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
-      "effect_candidates": [
-        "repository.read"
-      ],
+      "effect_candidates": [],
       "executable_helpers": [],
       "external_hosts": [],
       "skill_reference_candidates": []
@@ -861,10 +995,8 @@
     "principle-type-system-discipline": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
-        "branch.push",
         "candidate.modify",
-        "secrets.use",
-        "tests.execute"
+        "secrets.use"
       ],
       "executable_helpers": [],
       "external_hosts": [],
@@ -903,7 +1035,10 @@
       ],
       "executable_helpers": [],
       "external_hosts": [],
-      "skill_reference_candidates": []
+      "skill_reference_candidates": [
+        "poteto-mode",
+        "why"
+      ]
     },
     "reflect": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
@@ -916,6 +1051,7 @@
         "tests.execute"
       ],
       "executable_helpers": [
+        "scripts/claude-project-dir.mjs",
         "scripts/find-transcript.mjs"
       ],
       "external_hosts": [],
@@ -958,18 +1094,32 @@
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
         "candidate.modify",
-        "repository.read"
+        "repository.read",
+        "tests.execute"
       ],
-      "executable_helpers": [],
+      "executable_helpers": [
+        "scripts/check-sheet.sh",
+        "scripts/read-sheet.sh"
+      ],
       "external_hosts": [],
       "skill_reference_candidates": [
+        "create-formal-verification-skill",
+        "create-verification-skill",
         "poteto-mode"
       ]
+    },
+    "sharpen": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
     },
     "show-me-your-work": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
         "candidate.modify",
+        "network.request",
         "repository.read",
         "tests.execute"
       ],
@@ -977,7 +1127,9 @@
         "scripts/log.sh"
       ],
       "external_hosts": [],
-      "skill_reference_candidates": []
+      "skill_reference_candidates": [
+        "poteto-mode"
+      ]
     },
     "stay-within-limits": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
@@ -1045,6 +1197,28 @@
       "external_hosts": [],
       "skill_reference_candidates": []
     },
+    "thermo-nuclear-review": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "secrets.use"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "thermos": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": [
+        "poteto-mode"
+      ]
+    },
     "turn-into-app": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -1060,7 +1234,10 @@
       "executable_helpers": [],
       "external_hosts": [
         "...",
-        "mcp.builder.io",
+        "agent-native.com",
+        "dispatch.agent-native.com",
+        "localhost",
+        "sheets.googleapis.com",
         "www.agent-native.com"
       ],
       "skill_reference_candidates": []
@@ -1074,7 +1251,9 @@
       ],
       "executable_helpers": [],
       "external_hosts": [],
-      "skill_reference_candidates": []
+      "skill_reference_candidates": [
+        "poteto-mode"
+      ]
     },
     "unslop": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
@@ -1102,6 +1281,7 @@
       "external_hosts": [
         "127.0.0.1",
         "design.agent-native.com",
+        "github.com",
         "localhost"
       ],
       "skill_reference_candidates": []
@@ -1198,6 +1378,14 @@
   "overlap_candidates": [
     {
       "classification": "REVIEW_REQUIRED",
+      "lexical_similarity": 0.375,
+      "skills": [
+        "create-formal-verification-skill",
+        "maintain-formal-verification-skill"
+      ]
+    },
+    {
+      "classification": "REVIEW_REQUIRED",
       "lexical_similarity": 0.5,
       "skills": [
         "efficient-fable",
@@ -1210,6 +1398,14 @@
       "skills": [
         "factory-babysit-pr",
         "factory-ship"
+      ]
+    },
+    {
+      "classification": "REVIEW_REQUIRED",
+      "lexical_similarity": 0.375,
+      "skills": [
+        "maintain-formal-verification-skill",
+        "maintain-verification-skill"
       ]
     }
   ],
@@ -1226,7 +1422,7 @@
       ],
       "dependencies": [],
       "description": "Audit, monitor, compare, or repair another agent's session or PR when asked.",
-      "digest": "sha256:422016462a987bcf9e6cc764683d31dfe07c837b82ac949b1dd7b151a34c0dae",
+      "digest": "sha256:16b7efd657a3e81f4ab688805baf7889d9678946cfb67fe412416dca6bcbf384",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1281,7 +1477,7 @@
           "skills/agent-watchdog/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -1316,7 +1512,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.9d08295e0f3d620b",
+      "version": "0.0.0+legacy.74ae39f4d69c2a8d",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1333,7 +1529,7 @@
       ],
       "dependencies": [],
       "description": "Operate granted Agent-Native apps through Dispatch MCP; use for /an.",
-      "digest": "sha256:474ba825e495bef6a7a891d2ff5da476ec85f6273f7e24fc3dea42e5ed0ed43c",
+      "digest": "sha256:7f79365d3a9d354251d5eb7cd1026bf2cea6b0e398ee80536e2e115446367260",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1388,7 +1584,7 @@
           "skills/an/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -1423,7 +1619,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.2ece38741ed96c23",
+      "version": "0.0.0+legacy.8a65ba5daccf3cfd",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1440,7 +1636,7 @@
       ],
       "dependencies": [],
       "description": "Design API contracts, compatibility, and duplicate-safe mutations.",
-      "digest": "sha256:ec356bd4b7c94085d2c6e338fab80a666f3ac40b13efbfd5fd61b019476bd5de",
+      "digest": "sha256:6bee388815fdeba1b3e76ebd3b33d0d3f2f91e15afed829f16835ad921a26a41",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1495,7 +1691,7 @@
           "skills/api-and-interface-design/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -1530,7 +1726,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.601c7b409edee7c7",
+      "version": "0.0.0+legacy.98f678ea344ae5e1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1547,7 +1743,7 @@
       ],
       "dependencies": [],
       "description": "Use when a non-trivial change needs types and module boundaries designed before code.",
-      "digest": "sha256:cba2a9d746424d7243d5d28082c2491fb7a844c8de86fe213059d3f0f1e97e6f",
+      "digest": "sha256:7a74a02ee5acf21fa9625bdda3d9225f31cc4278f254dd1a9b635fcf25c78d8b",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1602,7 +1798,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -1637,7 +1833,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.6c2a5982f30f38e6",
+      "version": "0.0.0+legacy.011ff5f83134504a",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1654,7 +1850,7 @@
       ],
       "dependencies": [],
       "description": "Use when an important artifact needs independent solutions compared and synthesized.",
-      "digest": "sha256:7478c4a74b32b976beb381277bba07ce5e7ab02624b39fa81e77bec6ae7231c9",
+      "digest": "sha256:67809e576393cd083285e3855ccd9044389700025b69ce88136f7297c0501535",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1709,7 +1905,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -1744,7 +1940,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.929656ab4a96be26",
+      "version": "0.0.0+legacy.718f40fad3f5a233",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1761,7 +1957,7 @@
       ],
       "dependencies": [],
       "description": "Use when the user wants working preferences captured in a reusable mode skill.",
-      "digest": "sha256:0b6890bd6f5ea1a77a898f06e531a4135295dd85eda7117b0b0c88713d4b942d",
+      "digest": "sha256:8c50c9f0e836a726a7f74175043df851707d4f98a4c2d10b1e9656d819cd20f9",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1816,7 +2012,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -1851,7 +2047,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.fe68e28a908fce1f",
+      "version": "0.0.0+legacy.3ab86c57ba91599f",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1868,7 +2064,7 @@
       ],
       "dependencies": [],
       "description": "Use when an authorized pull request needs ongoing CI and review follow-through.",
-      "digest": "sha256:69ac09d6d8f620da9388c16907cbba634dfeb31b1fe4c956280f0d9b67165732",
+      "digest": "sha256:b29929741e55d146632d4757bd89aa2a4c6b876ad24c731370f1da6b9cdfecfa",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -1923,7 +2119,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -1958,7 +2154,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.c5ffbb3c57bc16a9",
+      "version": "0.0.0+legacy.0c86a3179b18faf1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -1971,11 +2167,11 @@
         "visual-evidence"
       ],
       "compatibility_requirements": [
-        "Requires Node.js for capture. Upload and PR integration require network access and authenticated provider tooling."
+        "Requires Node.js, agent-browser for capture, and authenticated gh with --attach support for publication."
       ],
       "dependencies": [],
-      "description": "Capture before/after screenshots of pages, elements, or images. Use when UI changes need visual comparison or pull-request evidence.",
-      "digest": "sha256:06cd32517a75953b221335d937c25deab566b7e148c850556641717d7cb686e7",
+      "description": "Use when attaching screenshots or recordings to a GitHub PR.",
+      "digest": "sha256:2470a0c61dd48141d3232c417a499b5b936afcdb0862063913c51657f7b15829",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2030,7 +2226,7 @@
           "skills/before-and-after/LICENSE"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "8306d34f459b6704e08e6adb5829fcddb0dc3557",
         "source": "https://github.com/vercel-labs/before-and-after"
       },
       "publisher": {
@@ -2065,7 +2261,114 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.0766d3dc7828470a",
+      "version": "0.0.0+legacy.63818639dd812ca8",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use when checking measured benchmark claims.",
+      "digest": "sha256:69bd44c345ab5685440113ad4d36c21de6efe66641011be81a2c1b0f6d07a9c8",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Benchmark checklist",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "benchmark-checklist",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.151953be4d768828",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2082,7 +2385,7 @@
       ],
       "dependencies": [],
       "description": "Use when a change needs downstream risks traced and its key safety assumption proved.",
-      "digest": "sha256:0073361186b2296f90c166f0e0a8a3304505af83df1477cbdf0048f52bc37fe6",
+      "digest": "sha256:57adfb02d4c07277375128514fb78564b2975ba50a97f2a52171b13b1e3047dc",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2137,7 +2440,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -2172,7 +2475,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.64ebbc5732963108",
+      "version": "0.0.0+legacy.de5bc4085e6e2353",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2189,7 +2492,7 @@
       ],
       "dependencies": [],
       "description": "Use when the previous technical answer needs a direct, jargon-free restatement.",
-      "digest": "sha256:223218ba36389822cb20f0e720fb7972370f22ebc4acf16aa9873dfe9083d4f6",
+      "digest": "sha256:af19f741d05ebed6e8b5ebf39b37ae2e01bb4200c3d93741610d68281939a5e7",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2244,7 +2547,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -2279,7 +2582,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.e0c68c3cfa82d1d9",
+      "version": "0.0.0+legacy.a2dbef02f32a84dc",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2296,7 +2599,7 @@
       ],
       "dependencies": [],
       "description": "Create or change CI/CD pipelines, quality gates, and delivery controls.",
-      "digest": "sha256:0a60dac88958d557596264a486d341d42fbc8ecad930e4d31833d6f2607af7cd",
+      "digest": "sha256:e2891f94cdeb9731f84814aeeb9791a4d35f86bbe64503646877ce0e2ec57b85",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2351,7 +2654,7 @@
           "skills/ci-cd-and-automation/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -2386,7 +2689,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.ab15eb66674646b6",
+      "version": "0.0.0+legacy.dcd7aa4fc3f64387",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2403,7 +2706,7 @@
       ],
       "dependencies": [],
       "description": "Separate orchestration from reusable mechanics while preserving transactions. Use when workflows duplicate operational logic.",
-      "digest": "sha256:d8ce840e82fecfadb1371bcbd1f8231c65c12ad7dbf14ffc11fb65f47cd4b161",
+      "digest": "sha256:846dcc47ee2a405d5fe7e975fe71f18ba33d6bd0c40488c32bcdcaef682644a0",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2458,7 +2761,7 @@
           "LICENSES.md"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "69558ea1f5328da7b40ba171dfe2171f00ff4884",
         "source": "https://github.com/michaelshimeles/skills"
       },
       "publisher": {
@@ -2493,7 +2796,221 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.bcd0b3d069718766",
+      "version": "0.0.0+legacy.5924f9df17f10a40",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use for /correct or requested fixes to repeated agent mistakes.",
+      "digest": "sha256:2d9bf00804a4b318331d79bdc23ea06a7aa664133e3659dd7492c92dd24e93aa",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Correct",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "correct",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.8bb6d83f864e25dd",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use when creating a project-local formal verifier.",
+      "digest": "sha256:a8f7e5996f0d0fe24767e960e6d034735a67f6288cb6c6fb8b050d9f264efc39",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Create formal verification skill",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "create-formal-verification-skill",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.45f4f3396f452e9a",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2510,7 +3027,7 @@
       ],
       "dependencies": [],
       "description": "Use when a repository needs a repeatable driver that proves real UI, CLI, or service behavior.",
-      "digest": "sha256:c304b42365e837e7c43cb3e4d86dc6ef1f9224bc29ed7a6958302b43e4fd3b6e",
+      "digest": "sha256:7beae935223871b63898b4f98a123ad1a979f22c4b0b6ba622ea2bf50784dbe7",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2565,7 +3082,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -2600,7 +3117,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.1804d845734388fd",
+      "version": "0.0.0+legacy.c4e1087797ee15e1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2617,7 +3134,7 @@
       ],
       "dependencies": [],
       "description": "Retire APIs or migrate consumers and persistent data across releases.",
-      "digest": "sha256:a3eb0511eaf01a7fdb3c45a08db477b025db1a3f18f7af1cd575227230539334",
+      "digest": "sha256:674912f5b6bcf475763c9cc420aa1a43ded511f7141efe1bb1850139f57becf1",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2672,7 +3189,7 @@
           "skills/deprecation-and-migration/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -2707,7 +3224,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.b07af6ae2f2353e5",
+      "version": "0.0.0+legacy.b1b4be51eb5687df",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2724,7 +3241,7 @@
       ],
       "dependencies": [],
       "description": "Use when code needs generated clutter removed and structure simplified without behavior changes.",
-      "digest": "sha256:a280f87e43fa068813ca9f1bffe6e86c57fd9021a391d091740cbc9bfc16b338",
+      "digest": "sha256:96c4f38e1cec108d2ce2b6baa2acbee58315f7088004a49c66bcc1094283c646",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2779,7 +3296,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -2814,7 +3331,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.25f00bbb5e8d8f64",
+      "version": "0.0.0+legacy.c77cf83a4565c8ca",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2831,7 +3348,7 @@
       ],
       "dependencies": [],
       "description": "Delegate bounded independent work while Claude Fable retains judgment.",
-      "digest": "sha256:a8339ca1ac3a3d8ae7b3bd0bcea1d3b0a4572ccf697eeb1ecdbc8893f82d7135",
+      "digest": "sha256:bc77e5a651fa1b82030536b0d63a2fbea4a2eb08a05f66e7bfe20e3072215633",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2886,7 +3403,7 @@
           "skills/efficient-fable/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -2921,7 +3438,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.bd8a2a290925b818",
+      "version": "0.0.0+legacy.9941a092419b11f7",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -2938,7 +3455,7 @@
       ],
       "dependencies": [],
       "description": "Delegate costly independent work while a frontier model retains judgment.",
-      "digest": "sha256:969d42315889ae65504191d9ea6a5807d967cf73543abb69db79851248d4cf06",
+      "digest": "sha256:ce88d61773873558a2c84bdcc5be97f66ffc74d8aaae8be0800e1a91fa80a735",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2993,7 +3510,7 @@
           "skills/efficient-frontier/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3028,7 +3545,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.9376b903651e7366",
+      "version": "0.0.0+legacy.88fda601ba0fad25",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3046,7 +3563,7 @@
       ],
       "dependencies": [],
       "description": "Capture observable runtime proof with video, screenshots, or measured output. Use when a change needs evidence beyond test reports.",
-      "digest": "sha256:554368057bc306226b66365ae0342fd969c49f2f000ffe9d77654731247bb5cf",
+      "digest": "sha256:33e3d1b769848c985889a65c140b86abe9a8f8e6102de4e90ad726f9adf71d10",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3101,7 +3618,7 @@
           "LICENSES.md"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "69558ea1f5328da7b40ba171dfe2171f00ff4884",
         "source": "https://github.com/michaelshimeles/skills"
       },
       "publisher": {
@@ -3137,7 +3654,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.9fadd3c274cfb365",
+      "version": "0.0.0+legacy.ebc338e906891a1b",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3154,7 +3671,7 @@
       ],
       "dependencies": [],
       "description": "Configure governed delivery sources, schedules, isolation, and action gates.",
-      "digest": "sha256:4dd9e1164fa89809337c6bf0856f36de3beb14a5501b45be3124ed268cbe9994",
+      "digest": "sha256:096271cfdba70072f0dc24d812ed9071ba50a07eec8d02f33bc0beb95b70a626",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3209,7 +3726,7 @@
           "skills/factory/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3244,7 +3761,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.eaa45c318671a93f",
+      "version": "0.0.0+legacy.cf73930284b7f6f3",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3261,7 +3778,7 @@
       ],
       "dependencies": [],
       "description": "Monitor one authorized PR with separate fix, publish, reply, and merge gates.",
-      "digest": "sha256:2dbdbb0a3b0698510206225b19a3c6d779e99cbcc8ad69dd9c96db1f7fbcf2a1",
+      "digest": "sha256:a2f8810754e7ca997732be4870dca25d9e7d4964fdddf2a87bc864524241627e",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3316,7 +3833,7 @@
           "skills/factory-babysit-pr/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3351,7 +3868,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d651eeef7d3dd340",
+      "version": "0.0.0+legacy.a4f585a6d01716ec",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3368,7 +3885,7 @@
       ],
       "dependencies": [],
       "description": "Triage configured product signals under separate fix, reply, and close policies.",
-      "digest": "sha256:8853136993b55bc7426fb0adbaf3f498e28664f2e2b315a6f0003af323be5b0f",
+      "digest": "sha256:f3d3d30eac006e1a24f512bea80f225dba00e2e8e692de85aeac5cdfa97cb5b1",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3423,7 +3940,7 @@
           "skills/factory-collect/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3458,7 +3975,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.ea39b7b49f98b2b0",
+      "version": "0.0.0+legacy.2206c09310461a61",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3475,7 +3992,7 @@
       ],
       "dependencies": [],
       "description": "Read-only summary of configured work needing human decisions.",
-      "digest": "sha256:e1986c66134565c2436cb5631b03eae5e34ecbe0e5341fa729829ff83bdae9ab",
+      "digest": "sha256:1f5e1df7d6b4de0a00f95bad9c306caf47985e68375a041c8485297afc5e3bd6",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3530,7 +4047,7 @@
           "skills/factory-human-digest/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3565,7 +4082,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.cb661875658f6696",
+      "version": "0.0.0+legacy.af515c7f366d4383",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3582,7 +4099,7 @@
       ],
       "dependencies": [],
       "description": "Audit signal history for recurring problems and systemic fixes.",
-      "digest": "sha256:4ca1c990351b48ea1685516b069e086a9cb8f056cd68f5f0558412d4a4963cac",
+      "digest": "sha256:9a45398e5ee27ac47bd9fb9e94f40fc706772403d3233498348a23dd8f125810",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3637,7 +4154,7 @@
           "skills/factory-lookback/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3672,7 +4189,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.37f7d0011068fea2",
+      "version": "0.0.0+legacy.d1fde87f63f27693",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3689,7 +4206,7 @@
       ],
       "dependencies": [],
       "description": "Resume eligible interrupted runs without repeating completed actions.",
-      "digest": "sha256:6d1894ee33807ff4a538fa577c2101aeedb1c6d5685a4656b41990b28a034a23",
+      "digest": "sha256:74063878ed84b67939fd22df626658a9101130cd84e80beccde9722cd076ae09",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3744,7 +4261,7 @@
           "skills/factory-recover/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3779,7 +4296,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.087fe6a055076f2c",
+      "version": "0.0.0+legacy.f7b032c9f6588bdd",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3796,7 +4313,7 @@
       ],
       "dependencies": [],
       "description": "Triage PR queues under separate reply, approval, and merge gates.",
-      "digest": "sha256:95d41d92c51049626f7a313dc2192af94e46b72d82431142ba21906c49efff1e",
+      "digest": "sha256:0a3abd092d6d50129599aad1d7dbcdc6a1645ca4aaf92d971b5bd20ab659b28f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3851,7 +4368,7 @@
           "skills/factory-review-prs/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3886,7 +4403,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d7e6f7b290751310",
+      "version": "0.0.0+legacy.0354b94e1c8837ae",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3903,7 +4420,7 @@
       ],
       "dependencies": [],
       "description": "Ship authorized work under separate publish, merge, deploy, and notification gates.",
-      "digest": "sha256:3f0d0fdaba0cb11ddb30e37717b69d90a81fda5ca2e177e785fc8d117c336a6f",
+      "digest": "sha256:49942b36d2d3de22af598a8a2b3e56fad943782b1d2d7b091330899412f754c9",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3958,7 +4475,7 @@
           "skills/factory-ship/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -3993,7 +4510,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.84cdda3942b92b7a",
+      "version": "0.0.0+legacy.f6b58f6b229406a4",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4010,7 +4527,7 @@
       ],
       "dependencies": [],
       "description": "Monitor authorized delivery tasks for verified stalls.",
-      "digest": "sha256:9953a5331d39ed7a4d590436bdae9e82cbb5814e8794dd8917c534f958b88a2c",
+      "digest": "sha256:6e06ef3fa75e9137bda7a09b7c3129033f52c4c4ebe47ae5e7220ba65104beb5",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4065,7 +4582,7 @@
           "skills/factory-watchdog/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -4100,7 +4617,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.e015aa1239cbe1bb",
+      "version": "0.0.0+legacy.81e6f47764030be6",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4117,7 +4634,7 @@
       ],
       "dependencies": [],
       "description": "Use when novel or multi-phase work needs an auditable workflow and no narrower playbook fits.",
-      "digest": "sha256:4ae03a0e8505569422ec3ce567da64525bf2990aa8f76472888cde69c4bcf3b9",
+      "digest": "sha256:991d035877de32cda1b71ae692dc75ff5f85c1a20a305d9cd301728ca7f0b6ea",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4172,7 +4689,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -4207,7 +4724,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.2ca55612e7d46cb3",
+      "version": "0.0.0+legacy.c5de884991c5d0f4",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4224,7 +4741,7 @@
       ],
       "dependencies": [],
       "description": "Use when failing pull-request checks need a root-cause fix and a verified rerun.",
-      "digest": "sha256:ed17332f4f0bd63f7620ac8e43d6ef94529823e6e4114f2ebcddeec43a08cbd7",
+      "digest": "sha256:7ba1d831fe6bb001ccdc1e995b1438e2d31efb1a25e7c81127170b74511d5d69",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4279,7 +4796,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -4314,7 +4831,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.3d5348ee8d3280fb",
+      "version": "0.0.0+legacy.d67b1c82e710d350",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4331,7 +4848,7 @@
       ],
       "dependencies": [],
       "description": "Use when a branch needs conflicts resolved and the merged result verified.",
-      "digest": "sha256:c831e1a3211dfb88df596336fc9497aa08f7aac72ac4b45e01d7bb3011390e6b",
+      "digest": "sha256:a99ec5282dfa1173e4397997cbf584cbd0eb8dbf100ad85184a14cbef3f1e93e",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4386,7 +4903,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -4421,7 +4938,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.87000f3484fb73b0",
+      "version": "0.0.0+legacy.442761fd9bc21bf6",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4438,7 +4955,7 @@
       ],
       "dependencies": [],
       "description": "Build complete, accessible UI flows with explicit states and browser checks.",
-      "digest": "sha256:06aac26298fe247d03bd0d4a6661251397fc6174d732593258d9c1632fc00b74",
+      "digest": "sha256:e30ae48671adca1fe58c4146f22540e540df6a03ccbdd949f23ca3f199b87980",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4493,7 +5010,7 @@
           "skills/frontend-ui-engineering/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -4528,7 +5045,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d42fc3ccc63549a1",
+      "version": "0.0.0+legacy.79e49cfccf81f289",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4545,7 +5062,7 @@
       ],
       "dependencies": [],
       "description": "Use when pull-request feedback needs to be fetched and summarized for action.",
-      "digest": "sha256:ac88e4bc4dc785a53371a3256395109515c551559f689d29c7e84a7d8d9e22e8",
+      "digest": "sha256:80a810b1a857e091f30c5c87f4166c1b4cdf6ef00d63ccb918111f3db5d2fb6f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4600,7 +5117,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -4635,7 +5152,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.139dc9fde9ab9b59",
+      "version": "0.0.0+legacy.cdb7a85eebe10c51",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4652,7 +5169,7 @@
       ],
       "dependencies": [],
       "description": "Run bounded Greptile review-and-fix cycles on a PR, MR, or shelved change. Use when Greptile is an explicit delivery gate.",
-      "digest": "sha256:640a1518ac354ee766d61bc52169edc5c6e3a3701ce443aae8b37c3079ca7c6f",
+      "digest": "sha256:8d7232c4bc90517b25dcb8276dd5dd2a7840587d41571347d875f8e4867a9c49",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4707,7 +5224,7 @@
           "skills/greploop/LICENSE"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "941290ad67b4de2a143dfc80e15b2773ed4855d0",
         "source": "https://github.com/greptileai/skills"
       },
       "publisher": {
@@ -4742,7 +5259,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.837d640d4de3337e",
+      "version": "0.0.0+legacy.cf99e8553db1e67b",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4759,7 +5276,7 @@
       ],
       "dependencies": [],
       "description": "Run greploop through @greptile-apps when the normal trigger rejects a large PR. Use only with the companion greploop skill.",
-      "digest": "sha256:ca85cc7b155a5595fa11c65aeb2b2563f224907557b312003a29cff59e9d78c1",
+      "digest": "sha256:a1858e7d586d9561d313f776c4373e2d245ebe846ccdf6b958aca2bffcd1a3ab",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4814,7 +5331,7 @@
           "skills/greploop-apps/LICENSE"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "941290ad67b4de2a143dfc80e15b2773ed4855d0",
         "source": "https://github.com/greptileai/skills"
       },
       "publisher": {
@@ -4849,7 +5366,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.4074879f81357366",
+      "version": "0.0.0+legacy.6e150ffd683a48cf",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4866,7 +5383,7 @@
       ],
       "dependencies": [],
       "description": "Use for runtime, ownership, layering, code-walkthrough, and placement questions.",
-      "digest": "sha256:ee12fc6e998ec4f0f2606ec24f84fc6c2ecab5e8e764920a0e4c8b6f3886003b",
+      "digest": "sha256:5aa2f7a37be92f4777ef60cabfcc85183f44264707cab723c5af40812638db1a",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -4921,7 +5438,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -4956,7 +5473,114 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.289ed5ddb5e514f3",
+      "version": "0.0.0+legacy.2fe9d92928cbe66b",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use when asked to restate the user's goal.",
+      "digest": "sha256:cf20f5a2677ffc7fb233c27e9a2c87274766ef6e3238066c6c3cbf972d8dd645",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "In your own words",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "in-your-own-words",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.bc89bc9b564d57d1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -4973,7 +5597,7 @@
       ],
       "dependencies": [],
       "description": "Use when a change's assumptions, evidence, or design need adversarial review.",
-      "digest": "sha256:d997d92d1e37d221d7cd34d3216ca693623f39c959634f48c0d0b1cb4953dfa6",
+      "digest": "sha256:4578e07d895ad56e9dda40dcd820473a591b6fbd3d42890fd42e605652989aab",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5028,7 +5652,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -5063,7 +5687,221 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.989e5d6321eb5e9c",
+      "version": "0.0.0+legacy.9f67317d89c31d71",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use for /ketchup or a chat progress catch-up.",
+      "digest": "sha256:9fd8b1c99b563a4311ccbd1507580088d72fd72068182b416a6e333010dfe5e8",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Ketchup",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "ketchup",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.dade78131a365c16",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use when refreshing a project's formal verification.",
+      "digest": "sha256:448939844bf4f707cbf1d280cdec93850a91f9506f65d0153f8ef2e00b87355a",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Maintain formal verification skill",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "maintain-formal-verification-skill",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.eb76cbbc37ef7fd7",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5080,7 +5918,7 @@
       ],
       "dependencies": [],
       "description": "Use when a project's verification driver or feature map may be stale.",
-      "digest": "sha256:02418ed2d29edb4d03d3c9c5aedce7634a61bd683ed2210b0a6afd4ee89e2470",
+      "digest": "sha256:b8dc2980b8273a8f7fb696803540a07360fa88bae7a375a5ede5032d86fb8a8b",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5135,7 +5973,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -5170,7 +6008,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.3351f83b21170008",
+      "version": "0.0.0+legacy.c240ff7f3fc2b062",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5187,7 +6025,7 @@
       ],
       "dependencies": [],
       "description": "Use when a correct pull request needs clearer history, description, or reviewer guidance.",
-      "digest": "sha256:465d7701e3fd4429d510aac408c94703078a371708595d96cd71e069a9a940ad",
+      "digest": "sha256:84edff85b4785b6813a81218a0b10d26e6205489dc243952e77ad63195c78760",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5242,7 +6080,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -5277,7 +6115,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.abf3600c33e1e07e",
+      "version": "0.0.0+legacy.88b488330a48ffb1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5403,7 +6241,7 @@
       ],
       "dependencies": [],
       "description": "Create or use a task-owned Git worktree for repository edits. Use for features, fixes, or documentation changes; skip read-only work.",
-      "digest": "sha256:596a9517d759695a3649ee2db3785d63ddc98de7f0cd78067b0b61635c3b6745",
+      "digest": "sha256:dbd11b564a01004fdeead91800079620f446fa37c849e15368021bc5449aea49",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5458,7 +6296,7 @@
           "LICENSES.md"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "69558ea1f5328da7b40ba171dfe2171f00ff4884",
         "source": "https://github.com/michaelshimeles/skills"
       },
       "publisher": {
@@ -5493,7 +6331,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.8254dfa3f134f061",
+      "version": "0.0.0+legacy.d475643f0466db59",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5510,7 +6348,7 @@
       ],
       "dependencies": [],
       "description": "Use when code comments need structural review, root-cause fixes, and constraint encoding.",
-      "digest": "sha256:9dc2f4bffcf3f2aafceb5b23f3175e6999fc52e7f169f6129146668dc6be7b9c",
+      "digest": "sha256:f63d854d9d02d00da8b58307f094f6ad8960cae2eb218320ac594a01b53dea9c",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5565,7 +6403,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -5600,7 +6438,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.9d67e51e7d3ee3d6",
+      "version": "0.0.0+legacy.61f49a3ab2f16983",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5617,7 +6455,7 @@
       ],
       "dependencies": [],
       "description": "Add or review logs, metrics, traces, and actionable alerts.",
-      "digest": "sha256:c2fe0ebd8f577169d39583dd05830cb771fa4d535a458dba877a19572a89ec18",
+      "digest": "sha256:3fe6d1cf2f120bf359b3296dbc45006832c96931a91793089a5f9ee12c2fa670",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5672,7 +6510,7 @@
           "skills/observability-and-instrumentation/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -5707,7 +6545,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.0cde1b3b77d288af",
+      "version": "0.0.0+legacy.dec24ee30d96d327",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5724,7 +6562,7 @@
       ],
       "dependencies": [],
       "description": "Investigate slow paths and optimize measured bottlenecks.",
-      "digest": "sha256:ee8e2ee506b3e9fed2db7a197fb8277cf124bb5c8b5daf102655429ecb92b2b1",
+      "digest": "sha256:f4dd4bbce7d03b628dfeca0ec56b487f43d780d478d549a562cc33d7f9ad33a3",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5779,7 +6617,7 @@
           "skills/performance-optimization/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -5814,7 +6652,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.e4463d7267ff24f7",
+      "version": "0.0.0+legacy.d35b53f589456c0d",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5831,7 +6669,7 @@
       ],
       "dependencies": [],
       "description": "Compare, judge, or combine competing plans into one executable path.",
-      "digest": "sha256:909b3713041dcd8fea686412ec3ee1ebaf5af116c36519543592ab4e32219215",
+      "digest": "sha256:3aaec545ff0e950caa227761040f463d860e3d4c45e5059a607bf3a1516a1bb3",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5886,7 +6724,7 @@
           "skills/plan-arbiter/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -5921,7 +6759,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.43ca7c51ae5f58fc",
+      "version": "0.0.0+legacy.16caf6f6049ca5aa",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5938,7 +6776,7 @@
       ],
       "dependencies": [],
       "description": "Proceed through routine ambiguity when autonomous progress is requested.",
-      "digest": "sha256:88c6efa57352c2acf3831d962776f23c7062843b057fc1479c72ae2465c8d7c0",
+      "digest": "sha256:401148c5f3a4bb1bc2425604504bdaf3a3f2668171b0cffb304c1deae5d9a37f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -5993,7 +6831,7 @@
           "skills/plow-ahead/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -6028,7 +6866,114 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.f42c9e1a3b7c1eea",
+      "version": "0.0.0+legacy.d7ac1e8a716e7b5e",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use for help choosing or using Jstack workflows.",
+      "digest": "sha256:55517d0c3453e796aca40a3ef2125e0e509cb0e1177ea53af173491c1ade8462",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Poteto help",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "poteto-help",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.e3d555518823cb7a",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6045,7 +6990,7 @@
       ],
       "dependencies": [],
       "description": "Use when non-trivial work should follow the smallest rigorous Jstack workflow.",
-      "digest": "sha256:efd9a9630da893d8b96fbc268881b74a5fdde8ff9d8d165ff8c32d83eda181bb",
+      "digest": "sha256:acde797eb053646ec06f6ea51a93b7570a851c03fe11a4c0003eef2f811d7441",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6100,7 +7045,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6135,7 +7080,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.c21763edac5b0a30",
+      "version": "0.0.0+legacy.11d599a071e537a6",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6152,7 +7097,7 @@
       ],
       "dependencies": [],
       "description": "Apply when repeated fixes fail and a shared assumption may be wrong.",
-      "digest": "sha256:443ca1b5d66c1cb97bd271621d77407ca2a2aca6fa897436bed309d3b39e827a",
+      "digest": "sha256:a30ae8a20bd0aeb7204ace46cafee30d6a81fcaee073b5c0d6834dee0ae4b409",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6207,7 +7152,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6242,7 +7187,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.20324965fd0ddcf0",
+      "version": "0.0.0+legacy.8a1e40264724847e",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6259,7 +7204,7 @@
       ],
       "dependencies": [],
       "description": "Apply when validation or adapters leak from external boundaries into core logic.",
-      "digest": "sha256:589db60a4ef43871787515da716258af74551f2c630101c7a244148dd77178b9",
+      "digest": "sha256:62058ec092b6d9d23fe8c38ac53b38cec98b62ca39c3856dd09d28b7619b7233",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6314,7 +7259,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6349,7 +7294,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.c937a7513093f6f8",
+      "version": "0.0.0+legacy.24477147f64716fb",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6366,7 +7311,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a rerunnable script, codemod, generator, or check makes work auditable.",
-      "digest": "sha256:04b433cfc8b2d6a4d2e3b486f646563250e77c6aab67fd8b08dade8344f9ed3a",
+      "digest": "sha256:b1936fc837cb3e14700207067f64434506e51ea14a93da29455f68497c2241ea",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6421,7 +7366,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6456,7 +7401,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.09a84bfeb8edcaeb",
+      "version": "0.0.0+legacy.6b733ad1287208a6",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6473,7 +7418,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a repeated instruction should become enforceable in tests, lint, metadata, or tools.",
-      "digest": "sha256:866a1d3801d18777d1498fd4022578dda7822b21c1d9a598677d808b09dc4c97",
+      "digest": "sha256:227fb76a8d55e6fa4fca1dc23c79a552675ec3da74c49d4c58a1abfa72d982f1",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6528,7 +7473,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6563,7 +7508,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.94a9b644b7352fef",
+      "version": "0.0.0+legacy.862151bfab6e07ed",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6580,7 +7525,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a novel design needs concrete candidates compared before selection.",
-      "digest": "sha256:1e83991cc74f118df974684383ab3e1f2188992efc6228c6e4534e394d585f82",
+      "digest": "sha256:0fb01518d91150784ba012afb0ec04941ad548020d80652b4a5ccd313f52cd25",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6635,7 +7580,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6670,7 +7615,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.8767b88275d08b0d",
+      "version": "0.0.0+legacy.e2f353bdd10d2cd1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6687,7 +7632,7 @@
       ],
       "dependencies": [],
       "description": "Apply when scope threatens a polished, clear, and trustworthy user experience.",
-      "digest": "sha256:e90477dc54a6834d2f20be06c50d0a1c52912548632beacfd0e591984b025d36",
+      "digest": "sha256:0a3e24fb5d38a40b62cde70c6cd3d70d89535c67d0134ed96dc24471a5718c49",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6742,7 +7687,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6777,7 +7722,114 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.7ef81d9f96fe3044",
+      "version": "0.0.0+legacy.b1a9a23749b15921",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-principle",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Apply when a measured result needs its limits explained.",
+      "digest": "sha256:eaa537d80a4d6f1452abbff9739a4c6226685245856310e9c54e2bb01f758c1e",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Principle explain the number",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "principle-explain-the-number",
+      "tags": [
+        "engineering-principle",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.8358b1e0d901932e",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6794,7 +7846,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a workaround would hide a defect that can be reproduced and traced.",
-      "digest": "sha256:0858789b982edd31c750ae3e1d53e3d782eda5ce7b8ba4333a712382376b5310",
+      "digest": "sha256:1974a43937fa7f5fc97fa20d12912455905147fc93f60d63071536a102f10048",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6849,7 +7901,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6884,7 +7936,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.ddfaac5ae42d9a4a",
+      "version": "0.0.0+legacy.df6f11be949a646c",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6901,7 +7953,7 @@
       ],
       "dependencies": [],
       "description": "Apply when core types, data structures, or shared-state boundaries will shape the system.",
-      "digest": "sha256:e53c878380207d35cc6e320cb67ac0b5380a77ab18ce2cc0f65402733803d677",
+      "digest": "sha256:1f43a22375d5f931871f33f05a312174f5938c4e589abbe418c0c0639fdd6cbb",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6956,7 +8008,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -6991,7 +8043,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.0f69fd0b92af9f59",
+      "version": "0.0.0+legacy.8f61b88ee30624bd",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7008,7 +8060,7 @@
       ],
       "dependencies": [],
       "description": "Apply when large files, logs, or broad exploration threaten reasoning focus.",
-      "digest": "sha256:b123f88dcd1e07f7627e7deb7fc958618721c67595294a6528dfde86973674cf",
+      "digest": "sha256:d29a6358804ea8939ebb67189ab0c7586e3a41cc5021fab22660b22b2bff9cf7",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7063,7 +8115,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7098,7 +8150,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.a8509753dc246e77",
+      "version": "0.0.0+legacy.667cf02df91fab6e",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7115,7 +8167,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a refactor is adding wrappers or abstractions instead of simplifying.",
-      "digest": "sha256:b633a9707196655e5f2a2fd411dcb3edd2024317880271f43a99ce3749cf724a",
+      "digest": "sha256:cb14e8a71fc937b8b4859fc2175a9108297f7304698fbaa699d2535f07c6f7e3",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7170,7 +8222,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7205,7 +8257,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d686f488c932488e",
+      "version": "0.0.0+legacy.46f25151e744e62c",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7222,7 +8274,7 @@
       ],
       "dependencies": [],
       "description": "Apply when an operation must tolerate retries after partial completion.",
-      "digest": "sha256:7f94727daa3715db7e1752545f17b293cff74b9ba22ce6b2b2e3ba3d20a50cf7",
+      "digest": "sha256:90be9a50a632a9dab429b8ae2d0614ef91c4c65840c3fa155ae3d7cb5ddaf97c",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7277,7 +8329,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7312,7 +8364,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.76e3d75199eb74c2",
+      "version": "0.0.0+legacy.3da80b26f0e5729e",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7329,7 +8381,7 @@
       ],
       "dependencies": [],
       "description": "Apply when replacing an internal API without leaving ambiguous dual paths.",
-      "digest": "sha256:b77c0f2808b07849249dfb960480695a102ea42a30f0fa05b8fcfa87bee34b64",
+      "digest": "sha256:ab1b16ce18d17504d1e7a5ec79ce0dec78395f394dced985ecb88566576c7f5a",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7384,7 +8436,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7419,7 +8471,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.6a58061c07d556cf",
+      "version": "0.0.0+legacy.b37e4612c4d1c14e",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7436,7 +8488,7 @@
       ],
       "dependencies": [],
       "description": "Apply when layers, wrappers, or hidden state make simple behavior hard to follow.",
-      "digest": "sha256:a575fc896ddbf713f558316401b6f2a2cd9a1092832d5ca7a5ff590e9c7c7b2d",
+      "digest": "sha256:22c1659890ebd8461cab78709717a6c181cc6ed2c195a92d61f262e094e1cf3d",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7491,7 +8543,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7526,7 +8578,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.57c4328c345c732b",
+      "version": "0.0.0+legacy.b0cca589b4855be3",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7543,7 +8595,7 @@
       ],
       "dependencies": [],
       "description": "Apply when repeated state conditionals reveal a missing domain model.",
-      "digest": "sha256:874b53d04a84c69fe554d4f8155f61228127eaaeb248822ff4041b4e0534fa82",
+      "digest": "sha256:ad02b18a85d2f66159954cb27274d549171f5f4be289aa236f9693f1628fb32d",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7598,7 +8650,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7633,7 +8685,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.5c2ff543bcd300b9",
+      "version": "0.0.0+legacy.8514255a6b7f5630",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7650,7 +8702,7 @@
       ],
       "dependencies": [],
       "description": "Apply when safe reversible implementation details can proceed inside scope.",
-      "digest": "sha256:644c3e4e9e5a5ac469152609f0d17e7c3f07cefba2dbb82305a81e3badfd50de",
+      "digest": "sha256:e3630ea4fc3d9640c4ed683472e49d358f468b0306cfcab457d9aeb0bbef72a8",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7705,7 +8757,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7740,7 +8792,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.efaa054f602b70ea",
+      "version": "0.0.0+legacy.c9b25e85d0a794d1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7757,7 +8809,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a bounded rewrite should converge without throwaway compatibility layers.",
-      "digest": "sha256:b983bcd4b4ca3bbf2d92fec44330eb80479134e627e4aa2192f0d7bb95e3b253",
+      "digest": "sha256:31ec1e11a073de4527f538e93f6f7f00d695a0692b0e6eb9073071c2ba5801fd",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7812,7 +8864,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7847,7 +8899,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.ead27fb2ed000579",
+      "version": "0.0.0+legacy.02b5005bc70b619a",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7864,7 +8916,7 @@
       ],
       "dependencies": [],
       "description": "Apply when the actual candidate and observable result still need verification.",
-      "digest": "sha256:8d5ada68597e1d6fc45e49a448a517920ba20436a5289508ac20b32fb22718f9",
+      "digest": "sha256:93c5d707d857fe6647fb57abf4b2b042733c6721c6f31e7c9b7d34de44327e89",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -7919,7 +8971,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -7954,7 +9006,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.15bfd8a170b0f9d9",
+      "version": "0.0.0+legacy.0b8b96cf60586cd3",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7971,7 +9023,7 @@
       ],
       "dependencies": [],
       "description": "Apply when a requirement breaks a foundational assumption and needs coherent redesign.",
-      "digest": "sha256:690b7534e1b0d8825224396f121d666dd6bbb880269ac8aa51b1f2d097ff98d2",
+      "digest": "sha256:5468e14514f3db7a1aa39634cb7414ce3aff2f145e8f3f56e61e1fe3299ce2db",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8026,7 +9078,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8061,7 +9113,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.dda3b97c7a833a06",
+      "version": "0.0.0+legacy.c8dd0ae8e29977c3",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8078,7 +9130,7 @@
       ],
       "dependencies": [],
       "description": "Apply when concurrent actors share mutable files, branches, keys, or objects.",
-      "digest": "sha256:826ba9c73d1f8e291bd359ab1e25d1ce013f0debce0ebe5ef5c44dde1a4df612",
+      "digest": "sha256:aa2e211b1976788526b0dc6ef5ecc6005bd9ee14283312a80b19158736d632db",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8133,7 +9185,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8168,7 +9220,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.aeb2d0745067034c",
+      "version": "0.0.0+legacy.e2421cf48771ad5c",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8185,7 +9237,7 @@
       ],
       "dependencies": [],
       "description": "Apply when multi-step work must end each ordered unit in a verified state.",
-      "digest": "sha256:0dc1b511a906312a46d5965c08362d2ed36801f4d3028068b454cd71f0bb9472",
+      "digest": "sha256:34f94d1f48adcdc3ad205062418cd0fc26c6bcaccef5eb82b566ed47cccc1e5b",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8240,7 +9292,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8275,7 +9327,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.01657a6e8d0b26d7",
+      "version": "0.0.0+legacy.1e4e72026fd0e9ef",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8292,7 +9344,7 @@
       ],
       "dependencies": [],
       "description": "Apply when new work would otherwise build on dead or redundant structure.",
-      "digest": "sha256:a9bcf9e28411e73ec31b91b9b41ddeba4c61ef628d4791533b0455c7ee0d6978",
+      "digest": "sha256:59185c201e6e59d6ad1586db266c3c15fff34c56fcf0e1921324f3c2c69995eb",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8347,7 +9399,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8382,7 +9434,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.3a194fff6acf23b7",
+      "version": "0.0.0+legacy.bbbcd1760dec0aff",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8399,7 +9451,7 @@
       ],
       "dependencies": [],
       "description": "Apply when tests mirror internals instead of asserting observable outcomes.",
-      "digest": "sha256:f181b130baa35cc02a3aebae7a413824c651ac41f1b1d7698ade584f88be8421",
+      "digest": "sha256:843277765b53f3e3c2f39a618f0f7130d7f423c1cc3ae04cb4114391505413a9",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8454,7 +9506,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8489,7 +9541,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.a84a381b653f3a2a",
+      "version": "0.0.0+legacy.f457a59758d06be4",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8506,7 +9558,7 @@
       ],
       "dependencies": [],
       "description": "Apply when typed APIs or schemas should make invalid states unrepresentable.",
-      "digest": "sha256:9ec03db9d628b883e85b67123f740923593acfac397286af89a46dcb0fe86567",
+      "digest": "sha256:f612f3ff4575ecfd0cf44f6bc303977b3cf953186833eceef328aa41a79955b4",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8561,7 +9613,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8596,7 +9648,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.b134a425a3eec78d",
+      "version": "0.0.0+legacy.d62cd38cdeb0cdad",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8613,7 +9665,7 @@
       ],
       "dependencies": [],
       "description": "Use a red, yellow, or green status line for compact agent completion reports.",
-      "digest": "sha256:2b85ddb7105152177ee5c5d13229f471acb202f42a504fc0232e5a668de56b76",
+      "digest": "sha256:1202c3571c3bce6fa0b1be1bf13fb48fe0b5719f3e832201fe5c629bb5c9fc92",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8668,7 +9720,7 @@
           "skills/quick-recap/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -8703,7 +9755,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.34badd56d0a24cd0",
+      "version": "0.0.0+legacy.60813a89526e6209",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8720,7 +9772,7 @@
       ],
       "dependencies": [],
       "description": "Read primary docs for external APIs, packages, or high-stakes behavior.",
-      "digest": "sha256:2b583cb2c1e7e648bdc0e472b8fd843f4a65f63624b12b3ed964296c21cacb60",
+      "digest": "sha256:51cac45985267696c7642e6e8b0d6735a201ccea9a80f18f5f8fbeb7d24f4b5b",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8775,7 +9827,7 @@
           "skills/read-the-damn-docs/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -8810,7 +9862,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.dc0cb7e6d8dde98e",
+      "version": "0.0.0+legacy.7cb690ceb18e5344",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8827,7 +9879,7 @@
       ],
       "dependencies": [],
       "description": "Use when resuming work or reconstructing project context from workspace-scoped history.",
-      "digest": "sha256:59487335de5913c04b5e947feb9529c1d3cc85b1c8490bd89876e1416316c6dd",
+      "digest": "sha256:1394a9ce089d72ef7db27bc7fc1a04794f2fc86e84cd0729224da72b132e1276",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8882,7 +9934,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -8917,7 +9969,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.670f4e4eb04da7cb",
+      "version": "0.0.0+legacy.6e7e1f54c0c38c9f",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8934,7 +9986,7 @@
       ],
       "dependencies": [],
       "description": "Use when approved session lessons should become durable workflow improvements.",
-      "digest": "sha256:5f4c66836ed303700d2e74d647e3103837d2a8de5ccea6aa3d3edd74fad03ffa",
+      "digest": "sha256:9ef25d52851bb4a2300e00077f9196d4aafd5d304a81be6b92bc43e2f23b525f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8989,7 +10041,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9024,7 +10076,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.00631c45a4134386",
+      "version": "0.0.0+legacy.c91d3f49a3677625",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9041,7 +10093,7 @@
       ],
       "dependencies": [],
       "description": "Retrieve local Clips Rewind context for something the user recently saw or said.",
-      "digest": "sha256:54ddd497d35be35b4aad135d59991837d9215657a3910c2ecf05bc9282f6bd94",
+      "digest": "sha256:1dfc512d9891597555ea0938ed4147b385161d7d42cc0c03670eaf7ce17954bd",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9096,7 +10148,7 @@
           "skills/rewind/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -9131,7 +10183,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.6c54b399167b9390",
+      "version": "0.0.0+legacy.d9f3326edaf7ef0a",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9148,7 +10200,7 @@
       ],
       "dependencies": [],
       "description": "Review security or harden sensitive trust boundaries with abuse-case tests.",
-      "digest": "sha256:a7ee94a3d151971c6187bc73605d507cc2c534263bb6d4f57b34579fadcb9d14",
+      "digest": "sha256:f2666731c56173fa003248f1647e536edf32088b8fc517d08cf03b332758c469",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9203,7 +10255,7 @@
           "skills/security-and-hardening/LICENSE"
         ],
         "reference": "vendor/addyosmani.json",
-        "revision": "1401c8b8030e023baeebb31781a6653fe8e93026",
+        "revision": "aeac41d4d005999432bb7312f7ff06383a91d59d",
         "source": "https://github.com/addyosmani/agent-skills"
       },
       "publisher": {
@@ -9238,7 +10290,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.c8b04e1b3e3842c4",
+      "version": "0.0.0+legacy.e591434ec5e39b58",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9255,7 +10307,7 @@
       ],
       "dependencies": [],
       "description": "Use when the user wants to configure Jstack's per-role Claude models.",
-      "digest": "sha256:6afc282ff62a9489046d975e575816fd583c4e3726986d4447367a005d08fd4d",
+      "digest": "sha256:4b12f134edf5734749c67cd1a02218ee5b2e31c604a28cb27fe3abd14377219d",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9310,7 +10362,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9345,7 +10397,114 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.97aee9cdcfe11256",
+      "version": "0.0.0+legacy.4ba3217973b78f28",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use for /sharpen to clarify a task before work.",
+      "digest": "sha256:351c0f9422a33bd2b249d28e9f574b1c0cd2eaf3735adeca9ccf9df166c4cc4d",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Sharpen",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "sharpen",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.2b976b07b7664bec",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9362,7 +10521,7 @@
       ],
       "dependencies": [],
       "description": "Use when long-running work needs an auditable decision and evidence log.",
-      "digest": "sha256:6b917721aeb0954cae700758f5f22b186b94b32f15f97f148e3c0df58bca619a",
+      "digest": "sha256:a6333c337d33d2d1a756b5bf16439af7dc591f6f6440f305570037b51c8f84f8",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9417,7 +10576,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9452,7 +10611,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.2ee141e50556ad0c",
+      "version": "0.0.0+legacy.b6ecfb9f52f1803f",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9469,7 +10628,7 @@
       ],
       "dependencies": [],
       "description": "Check host usage limits between bounded waves of long-running work.",
-      "digest": "sha256:a44f3775b6d2f6c4b5af498ed654f65b7af487abab23272c9c0e7a2183ae09ef",
+      "digest": "sha256:db176b8dbbe3b3e6fa5b080c155d10fd6003c01bde98c6433fe9cc826327ac45",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9524,7 +10683,7 @@
           "skills/stay-within-limits/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -9559,7 +10718,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.0b8ca0132a899c63",
+      "version": "0.0.0+legacy.fd593bc06ad479e4",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9576,7 +10735,7 @@
       ],
       "dependencies": [],
       "description": "Use when authorized independent workers can run without shared mutable state.",
-      "digest": "sha256:7b31a6c3b4f18ff1744d24ba55d3f60e99627f976f2250a8536aabd68bf0fb23",
+      "digest": "sha256:b74791a4dc8a684ac454647503efeccb00bfadd749bee22a7fa63ae924f6e360",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9631,7 +10790,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9666,7 +10825,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d635ef12f3e40bcc",
+      "version": "0.0.0+legacy.50504ce53dbd281f",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9683,7 +10842,7 @@
       ],
       "dependencies": [],
       "description": "Use when TDD is requested or a bug has a cheap, direct regression target.",
-      "digest": "sha256:d90220bcbe48815559fe900bbce84f962aa2a8a4d69c019e0d714af6e3f971b8",
+      "digest": "sha256:c0d81640e01faa2de7a365589c93968375c5e3b233c0894d9841aa229a60346f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9738,7 +10897,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9773,7 +10932,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.5b84efae14381a18",
+      "version": "0.0.0+legacy.d8d40fc8462b1c72",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9790,7 +10949,7 @@
       ],
       "dependencies": [],
       "description": "Use when runtime behavior and design rationale should become one clear mental model.",
-      "digest": "sha256:ec0bc95a1bdabb44bc5df057de1b6976379c21f6a3809c568336ac4dd405d6a4",
+      "digest": "sha256:3d3c3eb6ef4893bb0b64d64162bc24f3322a3eac7b2004bd975e4c4a67420faa",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9845,7 +11004,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9880,7 +11039,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d114ec2872adeb39",
+      "version": "0.0.0+legacy.ca8facda06f8983e",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9897,7 +11056,7 @@
       ],
       "dependencies": [],
       "description": "Use when docs, RFCs, READMEs, PRs, or commits need structured and direct prose.",
-      "digest": "sha256:39f9c40b01d396a91152cfddd1e4d91ff369b584e9be53b4b2b4d609ab80ddfd",
+      "digest": "sha256:43157b6a72c804abac76004a89cdab7b6310e7a647118447156fcbfa2cc9a597",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -9952,7 +11111,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -9987,7 +11146,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d057e9c0f85f1a84",
+      "version": "0.0.0+legacy.08855d8d23d416eb",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10004,7 +11163,7 @@
       ],
       "dependencies": [],
       "description": "Use when the user requests an intentionally strict maintainability review.",
-      "digest": "sha256:b42c6224fcfcaaeb386f74f6a5135ff60db8e17b7040aa9dd83333a84491a306",
+      "digest": "sha256:09bc4d542d215ac7efe73b4ab166bc84d21ee948715fc0ee4cd80e1eb8b454a7",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10059,7 +11218,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -10094,7 +11253,221 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.17a01f3b48a6f98d",
+      "version": "0.0.0+legacy.34e6808e09f059bc",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use for a deep security and correctness diff review.",
+      "digest": "sha256:570df414090017bb3a2bfcc41bd8c99ce126ae6fda9564cd1d2027d87aaaf534",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Thermo nuclear review",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "thermo-nuclear-review",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.604459a3b5fe550d",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Use for combined correctness and code-quality reviews.",
+      "digest": "sha256:b13b8f334df9522df211703620234ea00c27956e0a866b87ce2c55a45338a849",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Thermos",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "LICENSES.md"
+        ],
+        "reference": "vendor/jstack.json",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
+        "source": "https://github.com/michael-denyer/pstack-claude"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "thermos",
+      "tags": [
+        "engineering-workflow",
+        "jstack"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.ab324adaae38c8f9",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10111,7 +11484,7 @@
       ],
       "dependencies": [],
       "description": "Build a verified Agent-Native app from a workflow, skill, or visible artifact.",
-      "digest": "sha256:ca5cad38c42fcffebece8993fabb8c45948ba7e322504f647c17ca8b4c06c062",
+      "digest": "sha256:f93118675771ecb451721ad6be5e6caffc22f46a260b976f6287a2159b9ab792",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10166,7 +11539,7 @@
           "skills/turn-into-app/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -10201,7 +11574,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.38aa46c310f3dd5d",
+      "version": "0.0.0+legacy.510d95ca14f35419",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10218,7 +11591,7 @@
       ],
       "dependencies": [],
       "description": "Use when TypeScript needs focused type-safety, API, or error-handling guidance.",
-      "digest": "sha256:a9e812fe1f1e75a455687f3163236fea17dd1e9aa2d37c967d3db6d165798ca1",
+      "digest": "sha256:2908832c75d3758a31d6d15745d9f6aff37ac35afa6235fa714b9fda35ce0e22",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10273,7 +11646,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -10308,7 +11681,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.639aa2e99ca124d4",
+      "version": "0.0.0+legacy.2a6ddf0a65a2af73",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10325,7 +11698,7 @@
       ],
       "dependencies": [],
       "description": "Remove filler and generic AI phrasing from human-facing text. Use before sending or committing prose you edited.",
-      "digest": "sha256:5baeb967d1d46b0c3b33dfa656aedd9092ea9def2a97ea814f22b2deb4c2b472",
+      "digest": "sha256:49a7d7d408eb228cfa89599a56f476c7de5604ff3d376cb4f21ae4e385825850",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10380,7 +11753,7 @@
           "skills/unslop/LICENSE"
         ],
         "reference": "LICENSES.md",
-        "revision": "SEE_GIT_HISTORY",
+        "revision": "99b609a72323b70204eab407c622f436e858e112",
         "source": "https://github.com/cursor/plugins/tree/main/pstack"
       },
       "publisher": {
@@ -10415,7 +11788,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.27cf3e3667e11c17",
+      "version": "0.0.0+legacy.50953d2eaad3ddfe",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10432,7 +11805,7 @@
       ],
       "dependencies": [],
       "description": "Edit or review a running local app through Agent-Native Design.",
-      "digest": "sha256:6f6e7d2ca80d541eb1a7397c83d0e272c2184d024093bfd6b90f27db3f64804e",
+      "digest": "sha256:d036c1c8fb29461a2c5abfd8a7160814ba51d7eca135790e3ebff7cd5401a254",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10487,7 +11860,7 @@
           "skills/visual-edit/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -10522,7 +11895,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.26914710fa6dccdd",
+      "version": "0.0.0+legacy.6f8fcf208a0278e6",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10539,7 +11912,7 @@
       ],
       "dependencies": [],
       "description": "Create an interactive Agent-Native plan for visual review.",
-      "digest": "sha256:beb094414a2ed422a19445c368960fade6b020d5d4657b9ccf79699e82037163",
+      "digest": "sha256:2517625351ab17b4244f7f3f1a9207f53437f21198b3a9773845569e650945d2",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10594,7 +11967,7 @@
           "skills/visual-plan/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -10629,7 +12002,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.9a494661a00ad82b",
+      "version": "0.0.0+legacy.55e9d2ca19738476",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10646,7 +12019,7 @@
       ],
       "dependencies": [],
       "description": "Create an Agent-Native visual recap from a substantial code change.",
-      "digest": "sha256:88e392365ba6d5a18358939d775f2115331ea129dec0481f0339465d43b8008a",
+      "digest": "sha256:1fe0e7dc90baddb9d1526579fa1914233459caab4104cbfc169daa6adc688331",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10701,7 +12074,7 @@
           "skills/visual-recap/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -10736,7 +12109,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.b9b3665300fb4f59",
+      "version": "0.0.0+legacy.c39c818f59d20de2",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10753,7 +12126,7 @@
       ],
       "dependencies": [],
       "description": "Operate a web app through its page MCP tools; use for /webmcp.",
-      "digest": "sha256:5eeb5303ef8e4cc0a5134fce9ebefabae4257aa157b2392e3bd0b461683a5e4c",
+      "digest": "sha256:d7046e216b30b49f563164db3909edb272e75dc225979376817667014c2c8c38",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10808,7 +12181,7 @@
           "skills/webmcp/LICENSE"
         ],
         "reference": "vendor/builderio.json",
-        "revision": "fd8f20a879b507cf09feba08663a1edf7a949353",
+        "revision": "fecf1ffac18165d165bef520b5c6bd49553c7968",
         "source": "https://github.com/BuilderIO/skills"
       },
       "publisher": {
@@ -10843,7 +12216,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.8929d2b8db1ae78c",
+      "version": "0.0.0+legacy.c91af0ffdfe83320",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10860,7 +12233,7 @@
       ],
       "dependencies": [],
       "description": "Use when authored work needs a concise summary for a concrete time window.",
-      "digest": "sha256:3147428fdbf9086bbc71d39b4bf2d66838705523470217f6029eddcec2beb7a6",
+      "digest": "sha256:fee562ee26f13a23a6e9a88dbaf79c86e6575af2b3b99c369538ef1ab5c545e4",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -10915,7 +12288,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -10950,7 +12323,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.95d90aeb4ee1a525",
+      "version": "0.0.0+legacy.9a3e5ffd0c270563",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -10967,7 +12340,7 @@
       ],
       "dependencies": [],
       "description": "Use when design rationale must be recovered from source history and available records.",
-      "digest": "sha256:5b2db79825492c2e97003812d045275303b25586499c380c9e695904132f84c6",
+      "digest": "sha256:e23c0be49bacc030f496d18cc315dc14aedfb73c3195c79ceff08fa22b7e9c4b",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -11022,7 +12395,7 @@
           "LICENSES.md"
         ],
         "reference": "vendor/jstack.json",
-        "revision": "45f768349a6d7d7e71509fee3f5bccfad54b3bad",
+        "revision": "356c6e0f978df729eb16f227d795f34d221c5aad",
         "source": "https://github.com/michael-denyer/pstack-claude"
       },
       "publisher": {
@@ -11057,7 +12430,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.07af1d88d1d898c6",
+      "version": "0.0.0+legacy.a69e17cc54d412ba",
       "visibility": {
         "scope": "public",
         "subject": ""

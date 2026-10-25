@@ -24,11 +24,11 @@ API contracts, CI/CD, migrations, UI quality, observability, performance, and
 security. The [selection review](docs/ADDYOSMANI_REVIEW.md) accounts for all 25
 upstream skills and explains the corrections and overlap decisions.
 
-This repository packages 92 skills behind one canonical `skills/` tree:
+This repository packages 103 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
-- 30 Jstack workflows for planning, implementation, review, and operations
-- 23 Jstack engineering principles
+- 40 Jstack workflows for planning, implementation, review, and operations
+- 24 Jstack engineering principles
 - 24 Builder.io and Agent-Native workflows
 - 7 adapted Addy Osmani production engineering workflows
 
@@ -40,6 +40,37 @@ governance metadata stays inside the standard `metadata` map.
 
 This is a mixed-source collection. Read [Licensing and attribution](LICENSES.md)
 before redistributing an individual skill.
+
+The [October 25 upstream review](docs/UPSTREAM_REFRESH_2026-10-25.md) records
+the seven checked source repositories, current revisions, all 11 new Jstack
+skills, retained local fixes, and deferred original-source additions. Source
+hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream-review.json).
+
+## New in 2.5.0
+
+| Skill | Purpose |
+| --- | --- |
+| [`benchmark-checklist`](skills/benchmark-checklist/SKILL.md) | Check that a measured performance claim represents correct, completed work. |
+| [`principle-explain-the-number`](skills/principle-explain-the-number/SKILL.md) | Explain the limits and evidence behind a measured result. |
+| [`correct`](skills/correct/SKILL.md) | Turn recurring, evidenced agent mistakes into scoped enforcement. |
+| [`create-formal-verification-skill`](skills/create-formal-verification-skill/SKILL.md) | Create a reproducible, bounded formal check tied to real code. |
+| [`maintain-formal-verification-skill`](skills/maintain-formal-verification-skill/SKILL.md) | Distinguish a stale verification model from a product bug. |
+| [`in-your-own-words`](skills/in-your-own-words/SKILL.md) | Restate the user's goal before acting. |
+| [`ketchup`](skills/ketchup/SKILL.md) | Explain progress and decisions waiting on the user. |
+| [`poteto-help`](skills/poteto-help/SKILL.md) | Find the applicable installed workflow and its instructions. |
+| [`sharpen`](skills/sharpen/SKILL.md) | Refine a task prompt around primary evidence and an outside check. |
+| [`thermo-nuclear-review`](skills/thermo-nuclear-review/SKILL.md) | Audit changed code for correctness and security problems. |
+| [`thermos`](skills/thermos/SKILL.md) | Combine correctness and maintainability review passes. |
+
+`before-and-after` now formats existing media and uses GitHub attachments.
+Capture stays with the host's browser tools. Check for `--attach` in the
+installed `gh` help before publishing. Local formatting works without it.
+
+The refresh also fixes recorder startup when Linux refuses pidfds, preserves
+unrelated PR text when replacing visual evidence, and packages all four
+companion agents for plugin and portable installs. The original Cursor
+`statechart` and `ketchup-video` additions remain deferred. Their integration
+decisions are in the [source review](docs/UPSTREAM_REFRESH_2026-10-25.md#new-skill-selection).
 
 ## Why this repository exists
 
@@ -71,7 +102,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 92 skills. Descriptions are the routing layer; the selected
+Do not preload all 103 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -109,6 +140,32 @@ python3 scripts/install_skills.py --all --replace
 
 Replacement moves the old directory to `<skill>.backup`, then `.backup-2`, and
 so on. An already-current copy is skipped, making repeated installs idempotent.
+
+### Upgrade an existing installation
+
+From a clean checkout on `main`, update the source and preview replacement of
+your installed copies:
+
+```bash
+git pull --ff-only origin main
+python3 scripts/install_skills.py --all --replace --dry-run
+```
+
+Review the destinations and backups, then apply the update:
+
+```bash
+python3 scripts/install_skills.py --all --replace
+```
+
+Use `--claude`, `--codex`, or `--cursor` instead of `--all` to update one
+runtime. For a project installation, add `--project /path/to/project` to both
+installer commands. Copy installs need the installer rerun. Existing symlinked
+skills follow changes in the checkout, provided it stays at the same path.
+Rerun the installer to add new skills or companion agents to either install type.
+
+Merging repository changes does not update installed copies or publish a
+release. Tagged source archives are published only by the separate `v*`
+release workflow.
 
 ## Runtime-specific installation
 
@@ -228,7 +285,7 @@ python3 scripts/install_skills.py \
 
 Project installs target `.claude/skills/` for Claude Code. Codex and Cursor
 share `.agents/skills/`, so `--all` writes that tree once. Claude installs also
-place the two companion agents in `.claude/agents/`. Copy mode is portable.
+place the four companion agents in `.claude/agents/`. Copy mode is portable.
 Symlink mode lets an active checkout feed each runtime without duplicate edits.
 
 ## Mission Control integration
@@ -303,7 +360,7 @@ propose an action that requires approval in the current task.
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
-| [`before-and-after`](skills/before-and-after/SKILL.md) | Medium | Capture two URLs or images and produce a PR-ready visual comparison. Use for screenshots, visual diffs, and UI change evidence. |
+| [`before-and-after`](skills/before-and-after/SKILL.md) | Medium | Format existing screenshots and recordings, then attach authorized visual evidence to a GitHub PR. Browser capture uses the host's browser tools. |
 | [`code-structure`](skills/code-structure/SKILL.md) | Low | Place orchestration in actions and reusable mechanics in focused services while preserving existing transaction boundaries. Use when operational logic is duplicated or a feature shares mechanics with another flow. |
 | [`evidence-driven-testing`](skills/evidence-driven-testing/SKILL.md) | Medium | Record observable proof of runtime behavior with annotated video, screenshots, or measured output pairs. Use when a change needs evidence beyond a test report. |
 | [`greploop`](skills/greploop/SKILL.md) | Medium | Run bounded Greptile review-and-fix cycles while rejecting stale checks and summaries. Use when Greptile review is an explicit delivery gate. |
@@ -474,7 +531,7 @@ requires loading the whole collection or starting the full lifecycle.
 
 The collection imports 24 skills from
 [`BuilderIO/skills`](https://github.com/BuilderIO/skills) at commit
-[`fd8f20a879b507cf09feba08663a1edf7a949353`](https://github.com/BuilderIO/skills/commit/fd8f20a879b507cf09feba08663a1edf7a949353).
+[`fecf1ffac18165d165bef520b5c6bd49553c7968`](https://github.com/BuilderIO/skills/commit/fecf1ffac18165d165bef520b5c6bd49553c7968).
 Builder.io released the source under the MIT license. Every imported directory
 includes that license notice so direct and portable installs retain it.
 
@@ -508,6 +565,7 @@ Review upstream changes first, then use a clean checkout:
 
 ```bash
 python3 scripts/vendor_builderio.py /path/to/BuilderIO-skills --replace
+python3 -m myskills catalog > catalog/myskills.json
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 git diff --check
 ```
@@ -518,15 +576,15 @@ Agent-Native sources before changing the expected set.
 
 ## Jstack provenance and hardening
 
-The collection imports 53 unique skills from
+The collection imports 64 unique skills from
 [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-v0.9.30 at commit
-[`45f768349a6d7d7e71509fee3f5bccfad54b3bad`](https://github.com/michael-denyer/pstack-claude/commit/45f768349a6d7d7e71509fee3f5bccfad54b3bad).
+v0.9.102 at commit
+[`356c6e0f978df729eb16f227d795f34d221c5aad`](https://github.com/michael-denyer/pstack-claude/commit/356c6e0f978df729eb16f227d795f34d221c5aad).
 Its duplicate `unslop` is excluded because this collection keeps the existing
 enhanced definition as the canonical skill.
 
 [`vendor/jstack.json`](vendor/jstack.json) records the exact source, revision,
-53 imported names, and exclusion. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
+64 imported names, and exclusion. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
 rebuilds the import instead of relying on an undocumented manual copy.
 
 The integration preserves the upstream design-first, evidence-driven methods while
@@ -552,14 +610,16 @@ clean upstream checkout and run:
 
 ```bash
 python3 scripts/vendor_jstack.py /path/to/pstack-claude --replace
-python3 -m pytest tests -q
+python3 -m myskills catalog > catalog/myskills.json
+python3 -m pytest tests -q --ignore=tests/test_evidence.py
 git diff --check
 ```
 
-The vendor tool verifies the source remote and pinned commit, reapplies
-frontmatter and Codex metadata, and checks every authority-hardening anchor. It
-stops if upstream moves an anchor or introduces conflicting metadata so safety
-changes cannot disappear silently.
+The vendor tool verifies the source remote and clean checkout, checks the
+reviewed inventory, and records the input revision. It stages frontmatter,
+Codex metadata, original-source regression tests, and authority-hardening
+changes before replacing the installed output. A changed anchor or conflicting
+metadata stops the refresh before those protections can disappear.
 
 After a refresh, review:
 
@@ -692,7 +752,7 @@ Most skills are Markdown-only. Individual workflows may need additional tools:
 | GitHub pull-request workflows | Authenticated `gh` CLI |
 | GitLab workflows | Authenticated `glab` CLI |
 | Perforce workflows | Configured `p4` CLI |
-| Visual comparison uploads | `@vercel/before-and-after`, `agent-browser`, and an authorized upload destination |
+| Visual comparison attachments | Node.js, existing media, and authenticated `gh` whose PR edit help lists `--attach` |
 | Parallel skills | A harness that exposes and authorizes independent agents or workers |
 | Agent-Native Dispatch | MCP client support plus an authenticated, explicitly granted Dispatch connection |
 | Agent-Native visual workflows | Plan or Design connector, or the documented local-files/browser path |
@@ -706,14 +766,34 @@ python3 skills/evidence-driven-testing/scripts/evidence.py doctor --json
 
 ## Validation
 
+The October 25 refresh passed 158 portable Python tests, 264 imported Bun
+script tests, and two targeted recorder regressions. GitHub's package and
+browser checks also passed. The [review report](docs/UPSTREAM_REFRESH_2026-10-25.md#validation-and-limits)
+records reproduction controls and installation checks.
+
 Install the single test dependency and run the portable suite:
 
 ```bash
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.4.0
+python3 scripts/check_release.py v2.5.0
 git diff --check
+```
+
+After changing skill content or provenance, regenerate and validate the catalog
+before running those checks:
+
+```bash
+python3 -m myskills catalog > catalog/myskills.json
+python3 -m myskills validate
+```
+
+For changes to the imported orchestration or PR tools, run their local suite
+with Bun:
+
+```bash
+bun test skills/poteto-mode/scripts/check-plan.test.ts skills/poteto-mode/scripts/orch skills/poteto-mode/scripts/watch-pr
 ```
 
 Run the complete suite on a host with the native evidence dependencies:
@@ -724,7 +804,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 92 canonical skill directories
+- exactly 103 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
@@ -745,6 +825,12 @@ request and push to `main`. A `v*` tag must match every package manifest before
 the release job publishes source archives and SHA-256 checksums. Native recorder
 coverage remains host-specific because desktop capture and FFmpeg filter
 availability vary.
+
+These package checks do not grant behavioral qualification. Catalog entries
+remain `UNTRUSTED` and `NOT_EVALUATED` until separately qualified. The refresh
+did not verify native recorder rendering or live media uploads. Rendering needs
+FFmpeg with the `ass` filter; GitHub attachments need an authenticated `gh`
+version that exposes `--attach`.
 
 ## Adding a skill
 
