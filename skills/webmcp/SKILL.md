@@ -6,7 +6,7 @@ compatibility: "Requires a built-in browser with native WebMCP support or a page
 metadata:
   author: Builder.io
   source: BuilderIO/skills
-  source-commit: fd8f20a879b507cf09feba08663a1edf7a949353
+  source-commit: fecf1ffac18165d165bef520b5c6bd49553c7968
   owner: software-factory
   risk: high
   capabilities: builderio,browser-page-tools

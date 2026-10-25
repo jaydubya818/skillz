@@ -1,5 +1,10 @@
 # Builder.io skills integration review
 
+The initial integration below is historical. The current revision is
+`fecf1ffac18165d165bef520b5c6bd49553c7968`. See the
+[October 25 refresh](UPSTREAM_REFRESH_2026-10-25.md) for changed visual
+workflows, packaged resources, and validation.
+
 ## Review scope
 
 This review covers the 24 skills imported from

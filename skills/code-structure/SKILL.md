@@ -2,6 +2,7 @@
 name: code-structure
 description: Separate orchestration from reusable mechanics while preserving transactions. Use when workflows duplicate operational logic.
 metadata:
+  source-commit: 69558ea1f5328da7b40ba171dfe2171f00ff4884
   author: michaelshimeles
   version: "2.0.0"
   owner: software-factory

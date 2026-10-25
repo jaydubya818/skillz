@@ -39,13 +39,14 @@ only the skills that match the current task; never preload the full collection.
 
 Ship-beat notes:
 
-- `/before-and-after` drives the `@vercel/before-and-after` CLI. `--markdown`
-  uploads the pair and prints a PR-ready table; it also accepts existing
-  PNGs, so evidence gathered while developing can be reused as-is.
+- `/before-and-after` formats existing media with its bundled `format.mjs`.
+  Browser capture belongs to `agent-browser` or the runtime's native UI tools.
+  Publication needs authenticated `gh` with `--attach` support. Check the
+  installed command's help first, preserve the PR body, and verify the result.
 - In containers/VMs where Chrome fails with "No usable sandbox", set
   `AGENT_BROWSER_ARGS="--no-sandbox"` for the capture command.
-- The default upload host (0x0.st) is public — fine for ordinary UI shots;
-  pass `--upload-url` for anything sensitive.
+- Publish evidence only to a destination authorized by the task. If attachment
+  support is unavailable, deliver local files and state the publication gap.
 
 ## Writing for humans
 

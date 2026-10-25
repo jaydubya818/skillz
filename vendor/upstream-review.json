@@ -1,0 +1,227 @@
+{
+  "schema": "skillz-upstream-review/v1",
+  "reviewed_on": "2026-10-25",
+  "sources": [
+    {
+      "repo": "BuilderIO/skills",
+      "commit": "fecf1ffac18165d165bef520b5c6bd49553c7968",
+      "latest": "2026-10-22T04:01:25Z chore: update Agent Native exported skills (#104)",
+      "source_sha256": {
+        "skills/agent-watchdog/SKILL.md": "c0b5d64438de697b3f581e8e6007ee6adace3694e142bb22863dbb8510db3136",
+        "skills/an/SKILL.md": "584e834c308ae89b7f2105eff098ac51cfd238bb844369748ac69ed1caccb86f",
+        "skills/efficient-fable/SKILL.md": "88323da64a6ac7cd63ff40b4c798b7bb994de599ff48ee5db56bb2bf9123e675",
+        "skills/efficient-frontier/SKILL.md": "d3bb746c5ec17c0a36be9f87ea2cd33eb93bb91e6ef1cdf17943ccebe9ac7d6b",
+        "skills/factory/SKILL.md": "869cf2f14d0468337b65cb8b703ef6e8d6e9b30a4339c5e033b94d60f15a869e",
+        "skills/factory-babysit-pr/SKILL.md": "d34a0922e844baf346258f5d39244dfcf8090a3adbee8956e7d00d129829b0a0",
+        "skills/factory-collect/SKILL.md": "564f0bff13192d2151e1a02a88ad6665d945cafa389cf4dd973b242d7f841571",
+        "skills/factory-human-digest/SKILL.md": "3f665cecdb0883017fae2bc58da343c83c68594b4cd0afe255caaf210173c29f",
+        "skills/factory-lookback/SKILL.md": "e6828a28328b13cd8076b38613f5f705f9ee56e0396085453cabdd47fc046889",
+        "skills/factory-recover/SKILL.md": "3df2d20682eabd5e7c2fd70afa8bdfac9fc72c74c9c8d1ef01439279873ba91b",
+        "skills/factory-review-prs/SKILL.md": "9ddf8ed8fa549a02368b633ec2453ea551d8d3447ee01b9b3083fee1d93f8bd1",
+        "skills/factory-ship/SKILL.md": "181e7cdd1570fc56af85c87b5d02f510f8f99bc2205516d53fe3b45a9fb6f2fb",
+        "skills/factory-watchdog/SKILL.md": "fa56664ae10e7b52fe7bf48c9c53fa6ad9a4c235e4ed4efe4ce5de7a7e4e9a0d",
+        "skills/plan-arbiter/SKILL.md": "6b5aef47d42bcefa194395f5cf7e2cf225aa3d1f898efc34d07ab47ffa0411be",
+        "skills/plow-ahead/SKILL.md": "d8034ed3f9d720524bd08ce1d98783da7d18f9ad324527bf692cb35b6ad90a03",
+        "skills/quick-recap/SKILL.md": "99cc768cd2ae40a75cf7bafc2be9495cf4ee7cc977dd6c752794df0f82a9a51c",
+        "skills/read-the-damn-docs/SKILL.md": "f4550c1112090e5f08f7d63354c1416e4ca3969910ea535faf7946e459c0740d",
+        "skills/rewind/SKILL.md": "a87cab49e7e2c4e03c2321279026c2aa8f5a0aaaa82d0a80cd76bcb836494128",
+        "skills/stay-within-limits/SKILL.md": "efd8de7b047c885ea6bede15df72cd41c554e86ec6ffc027d44caf4cf9e796f1",
+        "skills/turn-into-app/SKILL.md": "5647825376740f5171076aab3a572e265d7fb8fa48a7abb7a408157f4781331a",
+        "skills/visual-edit/SKILL.md": "cea46ea074fe5ecd8b844119bcc28ddeaab62a1e6c8be5ea6f0e29fdb8c203e0",
+        "skills/visual-plan/SKILL.md": "f7b25aba534e02bbf354860e4ebcb986f8d34fa9790ffed1b9fe284a5ff9ee63",
+        "skills/visual-recap/SKILL.md": "1f8072b4e83930cc8b62687ed1b72eb21d5e966588f1102db82dd8e54ae9a0ed",
+        "skills/webmcp/SKILL.md": "beede6e04a1165d9f66304f09d2d68a6fcd54279e9e3e1d0fbd0c8ffe4066576"
+      },
+      "license_files": {
+        "LICENSE": "d50194829dc398b96028624dba48eb20c7a51e49d4a20aedf3f8dc24773f4d45"
+      }
+    },
+    {
+      "repo": "michael-denyer/pstack-claude",
+      "commit": "356c6e0f978df729eb16f227d795f34d221c5aad",
+      "latest": "2026-10-23T00:11:56+01:00 Keep angle-bracket destinations in the skill link validator, release 0.9.102 (#307)",
+      "source_sha256": {},
+      "license_files": {
+        "LICENSE": "5b1faca8cef6b7433b49c812c5e9e04bb1eb73b67171d67729983e0b46b9bb78",
+        "LICENSE-cursor-team-kit": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
+        "LICENSE-thermos": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
+        "NOTICE-skills.md": "232a21a3bf88991185e6837270cba41cd83646c3998f91942c823fecc4440b4d",
+        "NOTICE.md": "b00cdef06d5205324e4284cd822a6e459ae865b93bf53944fedc669c674c871f"
+      }
+    },
+    {
+      "repo": "addyosmani/agent-skills",
+      "commit": "aeac41d4d005999432bb7312f7ff06383a91d59d",
+      "latest": "2026-10-13T16:21:06-04:00 chore(release): bump plugin manifests to 0.6.13",
+      "source_sha256": {
+        "skills/api-and-interface-design/SKILL.md": "e83d34f52ff12dd8a7c5134cd7e8140ea4541ec65e204f8a1e4cd366e30c4192",
+        "skills/browser-testing-with-devtools/SKILL.md": "4e3aacd6a380cd25bc6c2d67fdd1c926a9b22535b8a62109ecd33cefd909e3d9",
+        "skills/ci-cd-and-automation/SKILL.md": "a6ed8ed56456b01ff8314c44eefc69897d9905ae4e06bb2b7036286efb79b5f0",
+        "skills/code-review-and-quality/SKILL.md": "2db1e850379f255fd3091ef278cde24cd6c7d2ba23e360cc52ea522c40d4396e",
+        "skills/code-simplification/SKILL.md": "f0c5ed754057eb0c1e027e2587f59de816651feb5e837242296c43ea21cf621d",
+        "skills/constraint-driven-development/SKILL.md": "06479d4305f286d23cfb99f5dc85695896785269664e1f6a8d800e3b71e70c10",
+        "skills/context-engineering/SKILL.md": "8b736cb9e55b82b265ab6ff78349c0e826e8a6df550deddf665b7fb3ff858b63",
+        "skills/debugging-and-error-recovery/SKILL.md": "21f3960f5d7ae2cc95c40896545004dbbcbbd752ea65fc2d53962554d4174220",
+        "skills/deprecation-and-migration/SKILL.md": "6a624f942e09c69863a4219b9bd5d56975026b67b0c70bc83385ffd2120b6142",
+        "skills/documentation-and-adrs/SKILL.md": "b60d503925bbaacee7fd63935db70b9ced5b2514ff5a56a672130e01b9690bc5",
+        "skills/doubt-driven-development/SKILL.md": "6fa1fcd8420c28daf7e53c5b08b0f20b907911efd2a6d9bce0b9740da20a4008",
+        "skills/frontend-ui-engineering/SKILL.md": "29a3e53d57c0a128831a20730ae874a8c4fda40c001fcdc15f8e9ad4b5f72f1b",
+        "skills/git-workflow-and-versioning/SKILL.md": "b7465d187935c52546d39fdc7bd6ac36d94eda25a9500ef8c18b767d2eb116ea",
+        "skills/idea-refine/SKILL.md": "21ef828e3a2144245b67f840cc3805f761e98c9acce9a96670b7cd7441353463",
+        "skills/incremental-implementation/SKILL.md": "df66536610071727feae1ca95f3c391c248ad828041750ccd3699cce763aa00b",
+        "skills/interview-me/SKILL.md": "ace4b675999bb504593d572e0f73f3d7e803ad6fddf318445598c82c11939db2",
+        "skills/observability-and-instrumentation/SKILL.md": "e7fcb0820306d46268de9594d676ad98e35040858926c412b7000faa52a61f87",
+        "skills/performance-optimization/SKILL.md": "bd36a30e55a5f84329a6977eba5e1ab7654146e71eaba88e34337d4ee020460f",
+        "skills/planning-and-task-breakdown/SKILL.md": "ed0f90cc5951ddd4bcab7f871f64efec93a49af9279ef93bc470da77ad8da3f7",
+        "skills/security-and-hardening/SKILL.md": "2e3fc60eed5aba97fe416f3f3c9317fdb014a682925ec70a733c3ff99e4b9858",
+        "skills/shipping-and-launch/SKILL.md": "726f3e546369db289160b8d42195590f00b6432887e17bf19070dcc9a347fe39",
+        "skills/source-driven-development/SKILL.md": "c59faf851377f0eeda45306398d16eb96d77ab1c2fd3e1a7fb58e9a0af33c1e9",
+        "skills/spec-driven-development/SKILL.md": "c4b97ce3d7f24be0e67fd612c7595f65504872e3a9f8d338d098b2363fdb66ef",
+        "skills/test-driven-development/SKILL.md": "a3aa6ba95638497025577469eda10ed17918698209615aeafbc26f131bf2469d",
+        "skills/using-agent-skills/SKILL.md": "30787ef2c77bf1a4729fffed0f6523ba6fcbe81bdc436b36371b78c21394d3c3"
+      },
+      "license_files": {
+        "LICENSE": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7"
+      }
+    },
+    {
+      "repo": "vercel-labs/before-and-after",
+      "commit": "8306d34f459b6704e08e6adb5829fcddb0dc3557",
+      "latest": "2026-09-02T17:10:45-04:00 fix: install skill from main (#10)",
+      "source_sha256": {
+        "LICENSE": "e328fb0674dec4c1640fa17dbdb6834324dd53ec9ea43439e13e01e8b2598847",
+        "skill/SKILL.md": "324c12c490fbf13d098c2204487d75302e8aa55b578986019ac1c02d5c3e0d1c",
+        "skill/scripts/format.mjs": "573f4c0e66e4d7010fdcd928dcca10915460a17e4df489d443be0812477dba59"
+      },
+      "license_files": {
+        "LICENSE": "e328fb0674dec4c1640fa17dbdb6834324dd53ec9ea43439e13e01e8b2598847"
+      }
+    },
+    {
+      "repo": "greptileai/skills",
+      "commit": "941290ad67b4de2a143dfc80e15b2773ed4855d0",
+      "latest": "2026-10-22T15:43:48-07:00 Fix Codex listing subtitle, support and privacy URLs (#33)",
+      "source_sha256": {
+        "skills/check-pr/SKILL.md": "34eb01152ce5c99a162a14aa9a43ee227e4c5bf3e767e87a15ba3e43ba2737ee",
+        "skills/cli-review/SKILL.md": "56a93ea9d5dae275a0652b150fb56a619c898d4e44b9a933c6726af66bdc78af",
+        "skills/greploop/SKILL.md": "b83aeac608497980c8371735b997a642aa05947ca76202d29bd9891bcbda28d1"
+      },
+      "license_files": {
+        "LICENSE": "b5005f09527f9533812a206cefe6ff5f71e5cdc0ae644750a3b1c71901c89ddd"
+      }
+    },
+    {
+      "repo": "cursor/plugins",
+      "commit": "99b609a72323b70204eab407c622f436e858e112",
+      "latest": "2026-10-24T18:49:37-07:00 Merge pull request #810 from cursor/eliu/tailscale-skill-1.0.3",
+      "source_sha256": {
+        "pstack/skills/architect/SKILL.md": "31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac",
+        "pstack/skills/arena/SKILL.md": "ed72f6c132b1ce3974d949581d0adc5dade424fe20793ac3b4c4fae22ecb9354",
+        "pstack/skills/automate-me/SKILL.md": "30b35f3628c4fd8c11af0ada06d14cdc3b28901810caca2480f627d4d21acfbe",
+        "pstack/skills/benchmark-checklist/SKILL.md": "ba109e96c8f6c1c391baccf19e5d11e14370df7b3f2605e1572cd565a6c0fca0",
+        "pstack/skills/blast-radius/SKILL.md": "2e10745b97f5862323dcda3b29ca60d56b5c3c98e37020085d26b48efbe0a436",
+        "pstack/skills/bro/SKILL.md": "aa329d0ceeeecb6822a7174ad76bb07a7826a3c52ceb6a588dec4138815084bb",
+        "pstack/skills/correct/SKILL.md": "e347045d00c967a0b831ef883cc6ac79d21329aa10b5968637df95de7febf0ba",
+        "pstack/skills/create-formal-verification-skill/SKILL.md": "5e489d938620883502c27c9c2f32143ae7aa8c0543088dad996b2c815d2acc52",
+        "pstack/skills/create-verification-skill/SKILL.md": "d353973547bf8ad8977eca645f4cd4feaed0d32f4b43d1448f906b0a76c4d694",
+        "pstack/skills/figure-it-out/SKILL.md": "bdb23cdbd82a1e6af094b495691c832a6f7f3ab9706ba9edbeb664ef51a726e1",
+        "pstack/skills/how/SKILL.md": "08a00079bb15b4258874ac3ff62d4ca7e94350ffedb521d0fd296dc9dd21904e",
+        "pstack/skills/in-your-own-words/SKILL.md": "fa8ba74e27d7be371dc270ec78bbf816411477d0dfab185356c861ac8dd413ad",
+        "pstack/skills/interrogate/SKILL.md": "a16dfe179005abc22a4651b82f25b0c8ab953284276efe4e6dc341958fb63647",
+        "pstack/skills/ketchup/SKILL.md": "f2923ffd14f6fc778f75a47aaed1f317fb5fd00b5701ca769d6446c74106dead",
+        "pstack/skills/ketchup-video/SKILL.md": "74f1b9e61f8479e2be5b91a4f53136f6ad8e144fd950c9848de6aa1cdbb7645c",
+        "pstack/skills/maintain-formal-verification-skill/SKILL.md": "0c96f54293542d3818b68754562b338073958781a9684454611dca37592e2d2c",
+        "pstack/skills/maintain-verification-skill/SKILL.md": "515c0eaa054b3f6be1b1fb06f2c2f173c80fddb58bbcac57576f89c479bc68e8",
+        "pstack/skills/make-bot-ui/SKILL.md": "ad19d0bc6764287ec08c2521701974e7dac941f72e4d0fe81a24f4614494586f",
+        "pstack/skills/no-comments/SKILL.md": "078ecfe224eafbb017f6476870612838bf6dbe38c0b697e12f0c887d0313f17e",
+        "pstack/skills/poteto-help/SKILL.md": "587793b0f9959dbea7d5d009b8a6513795380d7150dd478a6cb05e604058e315",
+        "pstack/skills/poteto-mode/SKILL.md": "2755f102e7a6d0496b429d1031a22fb353e1f3d523543367caeaae5c4ed6f544",
+        "pstack/skills/poteto-mode/scripts/check-plan.mjs": "e3d4e9ca638c6fb4a2b52c434c17c7af30da4fdd44605ccfe9906f82fe37b555",
+        "pstack/skills/poteto-mode/scripts/check-plan.test.ts": "848d321f2b76299d1b2d7bb46c929dbaebef08ca4ba8669dbe09d1d5c86f96e2",
+        "pstack/skills/poteto-mode/scripts/orch/orch.test.ts": "c15bbcc17700acb812722bf3330e2b2ee2838407636cdb86784cdd9bb8ee93f3",
+        "pstack/skills/poteto-mode/scripts/orch/store.ts": "bf0ed29c44093ee3b333aa10b138612f773c81eda73df7dc5337c59713f35a97",
+        "pstack/skills/principle-attack-the-premise/SKILL.md": "6a932884daad4aa189e9b5d1665226bbc75621d4d2a398fd4003bebd382f4599",
+        "pstack/skills/principle-boundary-discipline/SKILL.md": "62ac2862c2caa22dd14531f51c9c6bb445ceb198ca98a687e25b4d47c1f10a28",
+        "pstack/skills/principle-build-the-lever/SKILL.md": "3434b0ad0c640c6f1d7960be7a8986c3bcdc14e26060360dec29903df60074ff",
+        "pstack/skills/principle-encode-lessons-in-structure/SKILL.md": "228963799189f481827d6f28065f278bc2008ffa37030b1234cbd5814d36b9e9",
+        "pstack/skills/principle-exhaust-the-design-space/SKILL.md": "2de83d99f93f60ec6313455b0bc9aa9f0bfb93dd59f414f403691322db00d4db",
+        "pstack/skills/principle-experience-first/SKILL.md": "58903529d733b1c1a7c9ccf127d45ef3c7d0d9f0b81164a4dc6b80efe6f2912b",
+        "pstack/skills/principle-explain-the-number/SKILL.md": "cd5a25f9e7cf023627ccb470dc5faa97542f29b4319496a32b839a8e1e988047",
+        "pstack/skills/principle-fix-root-causes/SKILL.md": "8df3c8c3fe57eb0055a5c8efab8ab144557fdf301da70b1cdc77a3a3ef3f3052",
+        "pstack/skills/principle-foundational-thinking/SKILL.md": "864b827e8199d946ce58beca0f89c4ed4099ed6e426fb698a3aaa45de2a9eea2",
+        "pstack/skills/principle-guard-the-context-window/SKILL.md": "af0b9dd70b43628ce4a59a4d332e9d9ad055084e460f430e7a757495c627e81a",
+        "pstack/skills/principle-laziness-protocol/SKILL.md": "1be6e7a435f26a75a76eb848b9c3d611b9977d0f5822361753244da25ca3ca45",
+        "pstack/skills/principle-make-operations-idempotent/SKILL.md": "7aa9327cf1f1aa057e95d47a0a78bd88a8f9d556b608866fee939d455a53a019",
+        "pstack/skills/principle-migrate-callers-then-delete-legacy-apis/SKILL.md": "580ad9bb1a0994ecb924321ba49efc38a2f85c64e22c76fb133f57a78272a2e6",
+        "pstack/skills/principle-minimize-reader-load/SKILL.md": "1ea2b7fef2391cae5844c4efdbd59031f775e8a52d06b7495d707229a200dcca",
+        "pstack/skills/principle-model-the-domain/SKILL.md": "52c0d85e0c3827c41c18299b642657d7b47eaf77b7b31609e42e0df42b84c75f",
+        "pstack/skills/principle-never-block-on-the-human/SKILL.md": "05030a7a083c337676f793881b4e93cd218e8f1dd676529f56e6ac1d3efb8d1f",
+        "pstack/skills/principle-outcome-oriented-execution/SKILL.md": "10eb91633aa570355ba4bb37088fcade2b22e498df7a58edc749e65bc5a78e2d",
+        "pstack/skills/principle-prove-it-works/SKILL.md": "ec79a15025bac8d33d62011c54f3b612733fd2a024e623b531b3637aa75070e2",
+        "pstack/skills/principle-redesign-from-first-principles/SKILL.md": "170e0a658783e43fee8ec5a8c2422a4abb8f69cef621dd1819a95910b8207034",
+        "pstack/skills/principle-separate-before-serializing-shared-state/SKILL.md": "05294b40448e927c5da1c7b6f5c6b9fed3744637e3833d2d948b9154a9dd00bb",
+        "pstack/skills/principle-sequence-verifiable-units/SKILL.md": "2ccbbacc56ace5afdfb8670cef19d7bd009fb2a0033b9a741cbdf2b6baf72187",
+        "pstack/skills/principle-subtract-before-you-add/SKILL.md": "8c93bb9d1a7f38e2ef37655d93f0e790fa59903105af3d500cc8a663ebe45f3f",
+        "pstack/skills/principle-test-behavior-not-implementation/SKILL.md": "f7223698623b6a26fea49c751e466b38e6691b1f32ce841d3983e7ffbe2b74a6",
+        "pstack/skills/principle-type-system-discipline/SKILL.md": "5cdaf79785e3c12b2592b9469ee8c272143eb86ab7a18d8382197cea5fd30106",
+        "pstack/skills/recall/SKILL.md": "b0ceb996259c3404532f61e4b010df4e3d80d7ddbed85b3c302895723eb62a89",
+        "pstack/skills/reflect/SKILL.md": "9648df23cabaae99b78ed59cd93b6f35ebbf02105d228e3d0b5c3a3b3419d753",
+        "pstack/skills/setup-pstack/SKILL.md": "b45512f6ca5e96e81681984683b7472bfe892581da3a89a73cca4159438f29ed",
+        "pstack/skills/sharpen/SKILL.md": "563dfc460c605d311e650726288e2f1cbd61eab817db178d6e7e29643e07e7a2",
+        "pstack/skills/show-me-your-work/SKILL.md": "920a8217cbb62f92a2222fb81fc9eab17ecd554a0277e444a95a927195139bd1",
+        "pstack/skills/statechart/SKILL.md": "b1c544782b1527ba09e63311e4faa4c277c86aa33b0506590f8082b7b4bea505",
+        "pstack/skills/swarm/SKILL.md": "fea6bfbbf21e067a4e2d2ebab034bc3af508118e9df1abc9d2ba040d58a6df3a",
+        "pstack/skills/tdd/SKILL.md": "eeb868e2dfebee528d730a67d7b17498fac4bb85dec2e38bc5c5176aca4d5d2f",
+        "pstack/skills/teach/SKILL.md": "bd286e5a6290673be2cd28aef7af2ec7f1fb138e6bce156ea657368c7e7fc8a4",
+        "pstack/skills/technical-writing/SKILL.md": "61fe9c424a798ebf36ad94941f87be049cb8827bdf86d21474a0dde37b513c43",
+        "pstack/skills/typescript-best-practices/SKILL.md": "ec1dac086d3708e5940d45d250c30a37dd953b4e3cb2ca0692f5851d7a039e27",
+        "pstack/skills/unslop/SKILL.md": "ccab208e315ce05e2fab8eeee2f7879f1289b5c6844840b2d307adf31c79144f",
+        "pstack/skills/why/SKILL.md": "144d42e7712723d763e607bc0a969e5f1cdf83ec7228519d87677cc534571bed"
+      },
+      "license_files": {}
+    },
+    {
+      "repo": "michaelshimeles/skills",
+      "commit": "69558ea1f5328da7b40ba171dfe2171f00ff4884",
+      "latest": "2026-10-18T21:49:38-04:00 Fix pidfd fallback in evidence recording and remove broken before-and-after helpers (#17)",
+      "source_sha256": {
+        "before-and-after/SKILL.md": "df52809f5ac11adbdeae6b94394df14c8babacfc4dbe1fb1684bb474838b9bfa",
+        "code-structure/SKILL.md": "aa2e0e88c3b3714898236d5f65e4102e21b43747de99ae503dfc15102aae6ba4",
+        "evidence-driven-testing/SKILL.md": "c5800269a6abb10d6da63b468e6112082dea3b9b38077b9e1f32fa8151e3752c",
+        "evidence-driven-testing/scripts/evidence.py": "bbcc59585035128d62c11bc02f34a4bbe703c3bf404d46d182846c819ca61550",
+        "greploop/SKILL.md": "bc30e6ee1a4da6107c699311f4d500090394b8445ae06f07f556a9cff7dd346b",
+        "greploop-apps/SKILL.md": "b2c2b3fde78bd2eaa50e46736ac24537958a077d240400708aa7e4d233cd0af1",
+        "new-feature/SKILL.md": "6d658d5a49f542b1514de847a80c38bd96a8865250d7875ef2d8689a93e3f793",
+        "tests/test_evidence.py": "d93b2adf2aec8e2190a02b5a67b95882dc5c9761bd363a142f47db9eeb3c69fc"
+      },
+      "license_files": {}
+    }
+  ],
+  "original_cursor_followup": {
+    "base_commit": "7b353f78f6ec193bdbe48ed8059444eb09b6878e",
+    "reviewed_commit": "99b609a72323b70204eab407c622f436e858e112",
+    "carried_changes": [
+      "multi-backtick plan validation and regression tests",
+      "prefer an active PR over closed or merged branch history, retaining fork checks",
+      "updated sharpen prompt, cached-plugin protection, swarm numbering"
+    ],
+    "already_covered": [
+      "fork-safe stack discovery through full head repository identity",
+      "bounded PR watcher deadlines"
+    ],
+    "deferred_new_skills": {
+      "statechart": "Not yet ported; first use downloads about 305 MB of Java/TLC. Keep a separate reviewed, opt-in integration.",
+      "ketchup-video": "Additional rendering workflow; text and existing media catch-up remain available through ketchup."
+    }
+  },
+  "core_decisions": {
+    "before-and-after": "Current formatter and GitHub attachments workflow; portable script paths, explicit publication scope and gh capability checks. Removed obsolete capture and Gist helpers. Local formatter fix preserves every byte outside an existing marked block; reproduced against upstream and covered by a regression test.",
+    "evidence-driven-testing": "Exact upstream executable with pidfd capability fallback and upstream regression tests; local scoped workflow preserved.",
+    "greploop": "Reviewed current upstream polling and summary changes; retained stronger local revision/freshness helper and limits.",
+    "greploop-apps": "Reviewed original core wrapper; retained local alternate-trigger entrypoint.",
+    "new-feature": "Reviewed original core skill; retained task-owned isolation and overlap checks.",
+    "code-structure": "Reviewed original core skill; retained local architecture boundaries.",
+    "unslop": "Current original Cursor body with existing portable automatic activation metadata.",
+    "mission-control-delivery": "Local original; no external upstream overwrite."
+  }
+}

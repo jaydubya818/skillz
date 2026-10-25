@@ -24,11 +24,11 @@ API contracts, CI/CD, migrations, UI quality, observability, performance, and
 security. The [selection review](docs/ADDYOSMANI_REVIEW.md) accounts for all 25
 upstream skills and explains the corrections and overlap decisions.
 
-This repository packages 92 skills behind one canonical `skills/` tree:
+This repository packages 103 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
-- 30 Jstack workflows for planning, implementation, review, and operations
-- 23 Jstack engineering principles
+- 40 Jstack workflows for planning, implementation, review, and operations
+- 24 Jstack engineering principles
 - 24 Builder.io and Agent-Native workflows
 - 7 adapted Addy Osmani production engineering workflows
 
@@ -40,6 +40,31 @@ governance metadata stays inside the standard `metadata` map.
 
 This is a mixed-source collection. Read [Licensing and attribution](LICENSES.md)
 before redistributing an individual skill.
+
+The [October 25 upstream review](docs/UPSTREAM_REFRESH_2026-10-25.md) records
+the seven checked source repositories, current revisions, all 11 new Jstack
+skills, retained local fixes, and deferred original-source additions. Source
+hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream-review.json).
+
+## New in 2.5.0
+
+| Skill | Purpose |
+| --- | --- |
+| [`benchmark-checklist`](skills/benchmark-checklist/SKILL.md) | Check that a measured performance claim represents correct, completed work. |
+| [`principle-explain-the-number`](skills/principle-explain-the-number/SKILL.md) | Explain the limits and evidence behind a measured result. |
+| [`correct`](skills/correct/SKILL.md) | Turn recurring, evidenced agent mistakes into scoped enforcement. |
+| [`create-formal-verification-skill`](skills/create-formal-verification-skill/SKILL.md) | Create a reproducible, bounded formal check tied to real code. |
+| [`maintain-formal-verification-skill`](skills/maintain-formal-verification-skill/SKILL.md) | Distinguish a stale verification model from a product bug. |
+| [`in-your-own-words`](skills/in-your-own-words/SKILL.md) | Restate the user's goal before acting. |
+| [`ketchup`](skills/ketchup/SKILL.md) | Explain progress and decisions waiting on the user. |
+| [`poteto-help`](skills/poteto-help/SKILL.md) | Find the applicable installed workflow and its instructions. |
+| [`sharpen`](skills/sharpen/SKILL.md) | Refine a task prompt around primary evidence and an outside check. |
+| [`thermo-nuclear-review`](skills/thermo-nuclear-review/SKILL.md) | Audit changed code for correctness and security problems. |
+| [`thermos`](skills/thermos/SKILL.md) | Combine correctness and maintainability review passes. |
+
+`before-and-after` now formats existing media and uses GitHub attachments.
+Capture stays with the host's browser tools. Check for `--attach` in the
+installed `gh` help before publishing. Local formatting works without it.
 
 ## Why this repository exists
 
@@ -71,7 +96,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 92 skills. Descriptions are the routing layer; the selected
+Do not preload all 103 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -228,7 +253,7 @@ python3 scripts/install_skills.py \
 
 Project installs target `.claude/skills/` for Claude Code. Codex and Cursor
 share `.agents/skills/`, so `--all` writes that tree once. Claude installs also
-place the two companion agents in `.claude/agents/`. Copy mode is portable.
+place the four companion agents in `.claude/agents/`. Copy mode is portable.
 Symlink mode lets an active checkout feed each runtime without duplicate edits.
 
 ## Mission Control integration
@@ -303,7 +328,7 @@ propose an action that requires approval in the current task.
 
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
-| [`before-and-after`](skills/before-and-after/SKILL.md) | Medium | Capture two URLs or images and produce a PR-ready visual comparison. Use for screenshots, visual diffs, and UI change evidence. |
+| [`before-and-after`](skills/before-and-after/SKILL.md) | Medium | Format existing screenshots and recordings, then attach authorized visual evidence to a GitHub PR. Browser capture uses the host's browser tools. |
 | [`code-structure`](skills/code-structure/SKILL.md) | Low | Place orchestration in actions and reusable mechanics in focused services while preserving existing transaction boundaries. Use when operational logic is duplicated or a feature shares mechanics with another flow. |
 | [`evidence-driven-testing`](skills/evidence-driven-testing/SKILL.md) | Medium | Record observable proof of runtime behavior with annotated video, screenshots, or measured output pairs. Use when a change needs evidence beyond a test report. |
 | [`greploop`](skills/greploop/SKILL.md) | Medium | Run bounded Greptile review-and-fix cycles while rejecting stale checks and summaries. Use when Greptile review is an explicit delivery gate. |
@@ -474,7 +499,7 @@ requires loading the whole collection or starting the full lifecycle.
 
 The collection imports 24 skills from
 [`BuilderIO/skills`](https://github.com/BuilderIO/skills) at commit
-[`fd8f20a879b507cf09feba08663a1edf7a949353`](https://github.com/BuilderIO/skills/commit/fd8f20a879b507cf09feba08663a1edf7a949353).
+[`fecf1ffac18165d165bef520b5c6bd49553c7968`](https://github.com/BuilderIO/skills/commit/fecf1ffac18165d165bef520b5c6bd49553c7968).
 Builder.io released the source under the MIT license. Every imported directory
 includes that license notice so direct and portable installs retain it.
 
@@ -518,15 +543,15 @@ Agent-Native sources before changing the expected set.
 
 ## Jstack provenance and hardening
 
-The collection imports 53 unique skills from
+The collection imports 64 unique skills from
 [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-v0.9.30 at commit
-[`45f768349a6d7d7e71509fee3f5bccfad54b3bad`](https://github.com/michael-denyer/pstack-claude/commit/45f768349a6d7d7e71509fee3f5bccfad54b3bad).
+v0.9.102 at commit
+[`356c6e0f978df729eb16f227d795f34d221c5aad`](https://github.com/michael-denyer/pstack-claude/commit/356c6e0f978df729eb16f227d795f34d221c5aad).
 Its duplicate `unslop` is excluded because this collection keeps the existing
 enhanced definition as the canonical skill.
 
 [`vendor/jstack.json`](vendor/jstack.json) records the exact source, revision,
-53 imported names, and exclusion. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
+64 imported names, and exclusion. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
 rebuilds the import instead of relying on an undocumented manual copy.
 
 The integration preserves the upstream design-first, evidence-driven methods while
@@ -692,7 +717,7 @@ Most skills are Markdown-only. Individual workflows may need additional tools:
 | GitHub pull-request workflows | Authenticated `gh` CLI |
 | GitLab workflows | Authenticated `glab` CLI |
 | Perforce workflows | Configured `p4` CLI |
-| Visual comparison uploads | `@vercel/before-and-after`, `agent-browser`, and an authorized upload destination |
+| Visual comparison attachments | Node.js, existing media, and authenticated `gh` whose PR edit help lists `--attach` |
 | Parallel skills | A harness that exposes and authorizes independent agents or workers |
 | Agent-Native Dispatch | MCP client support plus an authenticated, explicitly granted Dispatch connection |
 | Agent-Native visual workflows | Plan or Design connector, or the documented local-files/browser path |
@@ -712,7 +737,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.4.0
+python3 scripts/check_release.py v2.5.0
 git diff --check
 ```
 
@@ -724,7 +749,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 92 canonical skill directories
+- exactly 103 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill

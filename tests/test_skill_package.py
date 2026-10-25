@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).parents[1]
 SKILLS = ROOT / "skills"
-RELEASE_VERSION = "2.4.0"
+RELEASE_VERSION = "2.5.0"
 CORE_SKILLS = {
     "before-and-after",
     "code-structure",
@@ -191,7 +191,7 @@ def test_cross_harness_mapping_replaces_the_codex_only_map():
 
 def test_claude_companion_agents_are_packaged_and_referenced_for_both_install_modes():
     plugin_name = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())["name"]
-    expected = {"comment-sicko", "poteto-agent"}
+    expected = {"comment-sicko", "poteto-agent", "thermo-nuclear-review-subagent", "thermo-nuclear-code-quality-review-subagent"}
     packaged = {path.stem for path in (ROOT / "agents").glob("*.md")}
     assert packaged == expected
     for name in expected:
@@ -209,9 +209,9 @@ def test_claude_companion_agents_are_packaged_and_referenced_for_both_install_mo
 
 def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():
     vendor = json.loads((ROOT / "vendor" / "jstack.json").read_text())
-    assert vendor["version"] == "0.9.30"
-    assert vendor["commit"] == "45f768349a6d7d7e71509fee3f5bccfad54b3bad"
-    assert len(vendor["imported"]) == 53
+    assert vendor["version"] == "0.9.102"
+    assert vendor["commit"] == "356c6e0f978df729eb16f227d795f34d221c5aad"
+    assert len(vendor["imported"]) == 64
     assert "setup-jstack" in vendor["imported"]
     assert "setup-pstack" not in vendor["imported"]
     assert not (ROOT / "vendor" / "pstack.json").exists()
@@ -259,7 +259,7 @@ def test_jstack_credits_original_pstack_authorship():
 def test_builderio_vendor_is_pinned_attributed_and_portable():
     vendor = json.loads((ROOT / "vendor" / "builderio.json").read_text())
     assert vendor["upstream"] == "https://github.com/BuilderIO/skills"
-    assert vendor["commit"] == "fd8f20a879b507cf09feba08663a1edf7a949353"
+    assert vendor["commit"] == "fecf1ffac18165d165bef520b5c6bd49553c7968"
     assert vendor["license"] == "MIT"
     assert len(vendor["imported"]) == 24
     assert set(vendor["imported"]).isdisjoint(CORE_SKILLS)

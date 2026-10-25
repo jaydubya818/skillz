@@ -1,7 +1,7 @@
 {
   "schema": "vendored-agent-skills/v1",
   "upstream": "https://github.com/BuilderIO/skills",
-  "commit": "fd8f20a879b507cf09feba08663a1edf7a949353",
+  "commit": "fecf1ffac18165d165bef520b5c6bd49553c7968",
   "license": "MIT",
   "copyright": "Copyright (c) 2026 Builder.io",
   "imported": [
@@ -34,6 +34,7 @@
     "factory": "skills/factory/references/",
     "visual-plan-media": "skills/visual-plan/assets/visual-plan.png",
     "visual-recap-media": "skills/visual-recap/assets/visual-recap.gif",
+    "turn-into-app-media": "skills/turn-into-app/assets/turn-into-app-before-after.png",
     "dispatch-mcp": ".mcp.json"
   },
   "integration": [
