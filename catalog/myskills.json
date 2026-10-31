@@ -1,6 +1,17 @@
 {
   "failures": [],
   "inventory_signals": {
+    "adr-verbatim": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
     "agent-watchdog": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -197,6 +208,21 @@
       "skill_reference_candidates": [
         "poteto-mode"
       ]
+    },
+    "create-readonly-db-role": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "www.postgresql.org"
+      ],
+      "skill_reference_candidates": []
     },
     "create-verification-skill": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
@@ -488,6 +514,18 @@
       "skill_reference_candidates": [
         "greploop"
       ]
+    },
+    "handoff": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
     },
     "how": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
@@ -1002,6 +1040,20 @@
       "external_hosts": [],
       "skill_reference_candidates": []
     },
+    "prompt-for-others": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "external_api.write",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
     "quick-recap": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -1074,6 +1126,16 @@
         "github.com",
         "www.agent-native.com"
       ],
+      "skill_reference_candidates": []
+    },
+    "risky-changes": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "external_api.write",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
       "skill_reference_candidates": []
     },
     "security-and-hardening": {
@@ -1378,6 +1440,14 @@
   "overlap_candidates": [
     {
       "classification": "REVIEW_REQUIRED",
+      "lexical_similarity": 0.357,
+      "skills": [
+        "agent-watchdog",
+        "handoff"
+      ]
+    },
+    {
+      "classification": "REVIEW_REQUIRED",
       "lexical_similarity": 0.375,
       "skills": [
         "create-formal-verification-skill",
@@ -1411,6 +1481,113 @@
   ],
   "schema": "myskills.catalog.v1",
   "skills": [
+    {
+      "aliases": [],
+      "categories": [
+        "davidondrej",
+        "decision-records"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Record approved decisions as concise architecture decision records.",
+      "digest": "sha256:76b2dfebfb17195e00903ca6b4b52fba77b8025023b9910b6198d200ae907058",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Adr verbatim",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/adr-verbatim/LICENSE"
+        ],
+        "reference": "vendor/davidondrej.json",
+        "revision": "8e90e9d634983e76e66154e6b36a11d735fd19da",
+        "source": "https://github.com/davidondrej/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "adr-verbatim",
+      "tags": [
+        "davidondrej",
+        "decision-records"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.a161c864fc38a54a",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
     {
       "aliases": [],
       "categories": [
@@ -2705,8 +2882,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Separate orchestration from reusable mechanics while preserving transactions. Use when workflows duplicate operational logic.",
-      "digest": "sha256:846dcc47ee2a405d5fe7e975fe71f18ba33d6bd0c40488c32bcdcaef682644a0",
+      "description": "Separate orchestration from shared mechanics while preserving transactions.",
+      "digest": "sha256:27b5ed07dd187d53b92de76d9e87a4c6a781d12e4e30a0720378a8ab0c122a89",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -2796,7 +2973,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.5924f9df17f10a40",
+      "version": "0.0.0+legacy.be06263f7f03f787",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3011,6 +3188,113 @@
         "independent-review"
       ],
       "version": "0.0.0+legacy.45f4f3396f452e9a",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "davidondrej",
+        "readonly-database-access"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Prepare least-privilege PostgreSQL agent access when requested.",
+      "digest": "sha256:a0923e6bc8b68750f8bab0efc947596b325e31e3ad1577cfaf3afb9676f45d3c",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Create readonly db role",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/create-readonly-db-role/LICENSE"
+        ],
+        "reference": "vendor/davidondrej.json",
+        "revision": "8e90e9d634983e76e66154e6b36a11d735fd19da",
+        "source": "https://github.com/davidondrej/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "create-readonly-db-role",
+      "tags": [
+        "davidondrej",
+        "readonly-database-access"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.a8146ee64dd95678",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3562,8 +3846,8 @@
         "Requires Python 3 and FFmpeg for recording, or Node.js 20+ and Chromium for headless capture. Desktop capture also needs OS screen-recording access. Publishing evidence requires network access and authorized destination tooling."
       ],
       "dependencies": [],
-      "description": "Capture observable runtime proof with video, screenshots, or measured output. Use when a change needs evidence beyond test reports.",
-      "digest": "sha256:33e3d1b769848c985889a65c140b86abe9a8f8e6102de4e90ad726f9adf71d10",
+      "description": "Capture runtime evidence with video, screenshots, or measured output.",
+      "digest": "sha256:1168524af0bf8e658e27de794344f79047b31552a1e4d6cc3d724cabdf460637",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3654,7 +3938,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.ebc338e906891a1b",
+      "version": "0.0.0+legacy.1be2545ab277dd93",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -5375,6 +5659,113 @@
     {
       "aliases": [],
       "categories": [
+        "davidondrej",
+        "session-handoff"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Write verified session context when asked to hand work to another agent.",
+      "digest": "sha256:4c5552dd72f7147794523d2eb6bf3eda434f6037753829fccbcbea4bc364e36a",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Handoff",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/handoff/LICENSE"
+        ],
+        "reference": "vendor/davidondrej.json",
+        "revision": "8e90e9d634983e76e66154e6b36a11d735fd19da",
+        "source": "https://github.com/davidondrej/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "handoff",
+      "tags": [
+        "davidondrej",
+        "session-handoff"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.50e6db33f4686e57",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
         "engineering-research",
         "jstack"
       ],
@@ -6132,8 +6523,8 @@
         "Works in Claude Code, Codex, and Agent Skills-compatible harnesses. Mission Control mutations require separately installed integration skills or tools and explicit task authority."
       ],
       "dependencies": [],
-      "description": "Preserve Mission-to-release lineage, evidence, and authority boundaries. Use when Mission Control or a similar software factory governs the work.",
-      "digest": "sha256:ee36d67f57478d7811bb300e27afee13a974c59ddcf51ae0ff32eae66ba1c16e",
+      "description": "Preserve evidence and authority when Mission Control governs delivery.",
+      "digest": "sha256:0b96f5750f5ef19c967ab549b9f527d282b7af5a2cc11d8483328c8e86f7fbf7",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6224,7 +6615,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d039928c1b7ceb1f",
+      "version": "0.0.0+legacy.7c790feb7fbadda1",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6240,8 +6631,8 @@
         "Requires Git. Pull-request overlap checks also require authenticated repository-host tooling such as gh or glab."
       ],
       "dependencies": [],
-      "description": "Create or use a task-owned Git worktree for repository edits. Use for features, fixes, or documentation changes; skip read-only work.",
-      "digest": "sha256:dbd11b564a01004fdeead91800079620f446fa37c849e15368021bc5449aea49",
+      "description": "Isolate repository edits in a task-owned Git worktree. Skip read-only work.",
+      "digest": "sha256:b87616cb101bf2de7ad3e48e8f1cf16000c321f6fcd945b4a8531cfe5b484262",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6331,7 +6722,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d475643f0466db59",
+      "version": "0.0.0+legacy.0c4e5a561d6b3014",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -9657,6 +10048,113 @@
     {
       "aliases": [],
       "categories": [
+        "davidondrej",
+        "teammate-instructions"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Write a verified setup or fix prompt for a teammate's agent on request.",
+      "digest": "sha256:fa102448d3215a73bc4de75eabe248d83a8bde3a70310b34cc8a69d4d9e9d82a",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Prompt for others",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/prompt-for-others/LICENSE"
+        ],
+        "reference": "vendor/davidondrej.json",
+        "revision": "8e90e9d634983e76e66154e6b36a11d735fd19da",
+        "source": "https://github.com/davidondrej/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "prompt-for-others",
+      "tags": [
+        "davidondrej",
+        "teammate-instructions"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.512fa76c09160175",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
         "builderio",
         "status-reporting"
       ],
@@ -10184,6 +10682,113 @@
         "independent-review"
       ],
       "version": "0.0.0+legacy.d9f3326edaf7ef0a",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "davidondrej",
+        "product-assumption-validation"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Validate assumptions behind changes to billing, API data, or defaults.",
+      "digest": "sha256:44d7d6a3619f8ed5c22c7de46794e4fa738a76b9afb9ddb30f3ce9d4ab4bddae",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Risky changes",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/risky-changes/LICENSE"
+        ],
+        "reference": "vendor/davidondrej.json",
+        "revision": "8e90e9d634983e76e66154e6b36a11d735fd19da",
+        "source": "https://github.com/davidondrej/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "risky-changes",
+      "tags": [
+        "davidondrej",
+        "product-assumption-validation"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.2d8a11703ccb8003",
       "visibility": {
         "scope": "public",
         "subject": ""

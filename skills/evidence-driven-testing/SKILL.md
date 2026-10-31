@@ -1,6 +1,6 @@
 ---
 name: evidence-driven-testing
-description: Capture observable runtime proof with video, screenshots, or measured output. Use when a change needs evidence beyond test reports.
+description: Capture runtime evidence with video, screenshots, or measured output.
 compatibility: Requires Python 3 and FFmpeg for recording, or Node.js 20+ and Chromium for headless capture. Desktop capture also needs OS screen-recording access. Publishing evidence requires network access and authorized destination tooling.
 metadata:
   source-commit: 69558ea1f5328da7b40ba171dfe2171f00ff4884

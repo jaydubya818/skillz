@@ -1,0 +1,454 @@
+{
+  "schema": "vendored-agent-skills/v1",
+  "upstream": "https://github.com/davidondrej/skills",
+  "commit": "8e90e9d634983e76e66154e6b36a11d735fd19da",
+  "reviewed_on": "2026-10-31",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 David Ondrej",
+  "integration_mode": "curated-rewrite",
+  "imported": [
+    "adr-verbatim",
+    "create-readonly-db-role",
+    "handoff",
+    "prompt-for-others",
+    "risky-changes"
+  ],
+  "source_paths": {
+    "bb-cli": "skills/agent-orchestration/bb-cli/SKILL.md",
+    "bb-plugins": "skills/agent-orchestration/bb-plugins/SKILL.md",
+    "cmux": "skills/agent-orchestration/cmux/SKILL.md",
+    "codex-subagent": "skills/agent-orchestration/codex-subagent/SKILL.md",
+    "fable-review": "skills/agent-orchestration/fable-review/SKILL.md",
+    "fable-safe-prompt": "skills/agent-orchestration/fable-safe-prompt/SKILL.md",
+    "git-worktree": "skills/agent-orchestration/git-worktree/SKILL.md",
+    "goal-loop": "skills/agent-orchestration/goal-loop/SKILL.md",
+    "gpt-review": "skills/agent-orchestration/gpt-review/SKILL.md",
+    "handoff": "skills/agent-orchestration/handoff/SKILL.md",
+    "herdr": "skills/agent-orchestration/herdr/SKILL.md",
+    "kimi-review": "skills/agent-orchestration/kimi-review/SKILL.md",
+    "larp-detector": "skills/agent-orchestration/larp-detector/SKILL.md",
+    "muse-review": "skills/agent-orchestration/muse-review/SKILL.md",
+    "nagent": "skills/agent-orchestration/nagent/SKILL.md",
+    "new-grok-bot": "skills/agent-orchestration/new-grok-bot/SKILL.md",
+    "reset-cursor-acp": "skills/agent-orchestration/reset-cursor-acp/SKILL.md",
+    "self-archive": "skills/agent-orchestration/self-archive/SKILL.md",
+    "total-review": "skills/agent-orchestration/total-review/SKILL.md",
+    "anti-sleep": "skills/ops-and-setup/anti-sleep/SKILL.md",
+    "boat": "skills/ops-and-setup/boat/SKILL.md",
+    "create-readonly-db-role": "skills/ops-and-setup/create-readonly-db-role/SKILL.md",
+    "cua-driver": "skills/ops-and-setup/cua-driver/SKILL.md",
+    "github-outside-sandbox": "skills/ops-and-setup/github-outside-sandbox/SKILL.md",
+    "global-agent-guardrails": "skills/ops-and-setup/global-agent-guardrails/SKILL.md",
+    "openrouter": "skills/ops-and-setup/openrouter/SKILL.md",
+    "persistent-localhost": "skills/ops-and-setup/persistent-localhost/SKILL.md",
+    "prompt-for-others": "skills/ops-and-setup/prompt-for-others/SKILL.md",
+    "rename-process": "skills/ops-and-setup/rename-process/SKILL.md",
+    "repo-sync": "skills/ops-and-setup/repo-sync/SKILL.md",
+    "risky-changes": "skills/ops-and-setup/risky-changes/SKILL.md",
+    "setup-help": "skills/ops-and-setup/setup-help/SKILL.md",
+    "browser-harness": "skills/research-and-web/browser-harness/SKILL.md",
+    "browser-use": "skills/research-and-web/browser-use/SKILL.md",
+    "deep-research": "skills/research-and-web/deep-research/SKILL.md",
+    "deep-scrape": "skills/research-and-web/deep-scrape/SKILL.md",
+    "deepapi": "skills/research-and-web/deepapi/SKILL.md",
+    "domain-checker": "skills/research-and-web/domain-checker/SKILL.md",
+    "fireflies-transcript": "skills/research-and-web/fireflies-transcript/SKILL.md",
+    "online-shopping": "skills/research-and-web/online-shopping/SKILL.md",
+    "varied-search": "skills/research-and-web/varied-search/SKILL.md",
+    "who-is-this": "skills/research-and-web/who-is-this/SKILL.md",
+    "distribute-skill-to-all-agents": "skills/skill-authoring/distribute-skill-to-all-agents/SKILL.md",
+    "effective-agent-skills": "skills/skill-authoring/effective-agent-skills/SKILL.md",
+    "push-skills": "skills/skill-authoring/push-skills/SKILL.md",
+    "4x4": "skills/thinking-and-docs/4x4/SKILL.md",
+    "adr-verbatim": "skills/thinking-and-docs/adr-verbatim/SKILL.md",
+    "ask-then-build": "skills/thinking-and-docs/ask-then-build/SKILL.md",
+    "before-building": "skills/thinking-and-docs/before-building/SKILL.md",
+    "better-prompt": "skills/thinking-and-docs/better-prompt/SKILL.md",
+    "decisions": "skills/thinking-and-docs/decisions/SKILL.md",
+    "designs": "skills/thinking-and-docs/designs/SKILL.md",
+    "file-tree": "skills/thinking-and-docs/file-tree/SKILL.md",
+    "image-prompt": "skills/thinking-and-docs/image-prompt/SKILL.md",
+    "keep-track": "skills/thinking-and-docs/keep-track/SKILL.md",
+    "read-all-adrs": "skills/thinking-and-docs/read-all-adrs/SKILL.md",
+    "remind": "skills/thinking-and-docs/remind/SKILL.md",
+    "rename": "skills/thinking-and-docs/rename/SKILL.md",
+    "save-idea": "skills/thinking-and-docs/save-idea/SKILL.md",
+    "signal-from-expert": "skills/thinking-and-docs/signal-from-expert/SKILL.md",
+    "stop-overthinking": "skills/thinking-and-docs/stop-overthinking/SKILL.md",
+    "teach": "skills/thinking-and-docs/teach/SKILL.md"
+  },
+  "excluded": {
+    "4x4": {
+      "reason": "Rigid sixteen-question interview overlaps existing scoped planning.",
+      "alternatives": [
+        "figure-it-out"
+      ]
+    },
+    "anti-sleep": {
+      "reason": "Already available in the user's installed skills; macOS utility outside this repo's delivery gaps.",
+      "alternatives": []
+    },
+    "ask-then-build": {
+      "reason": "Existing investigation and planning already produce implementation briefs.",
+      "alternatives": [
+        "figure-it-out",
+        "architect"
+      ]
+    },
+    "bb-cli": {
+      "reason": "Platform-specific BB runtime management; use the host's supported app tools.",
+      "alternatives": []
+    },
+    "bb-plugins": {
+      "reason": "BB plugin authoring is outside the current Jstack and SellerFi delivery needs.",
+      "alternatives": []
+    },
+    "before-building": {
+      "reason": "Gut-only advice that forbids reading context conflicts with evidence-based planning.",
+      "alternatives": [
+        "figure-it-out"
+      ]
+    },
+    "better-prompt": {
+      "reason": "Existing prompt refinement covers this capability.",
+      "alternatives": [
+        "sharpen"
+      ]
+    },
+    "boat": {
+      "reason": "Separate paid sandbox platform; no established Boat requirement.",
+      "alternatives": []
+    },
+    "browser-harness": {
+      "reason": "Additional browser runtime and service lifecycle; existing browser tools cover current needs.",
+      "alternatives": [
+        "evidence-driven-testing"
+      ]
+    },
+    "browser-use": {
+      "reason": "Alternative browser stack with local or paid remote setup; defer until needed.",
+      "alternatives": [
+        "evidence-driven-testing"
+      ]
+    },
+    "cmux": {
+      "reason": "Optional terminal product integration; no current cmux requirement.",
+      "alternatives": []
+    },
+    "codex-subagent": {
+      "reason": "Existing orchestration covers delegation; avoid another fixed-model launcher.",
+      "alternatives": [
+        "swarm",
+        "agent-watchdog"
+      ]
+    },
+    "cua-driver": {
+      "reason": "Additional desktop automation stack; use existing host UI tools.",
+      "alternatives": [
+        "evidence-driven-testing"
+      ]
+    },
+    "decisions": {
+      "reason": "Existing assumption review covers unresolved choices.",
+      "alternatives": [
+        "interrogate"
+      ]
+    },
+    "deep-research": {
+      "reason": "Requires DeepAPI and a sibling research prompt skill; existing research tools are available.",
+      "alternatives": [
+        "read-the-damn-docs"
+      ]
+    },
+    "deep-scrape": {
+      "reason": "Paid dossier service and external data handling need a dedicated requirement.",
+      "alternatives": []
+    },
+    "deepapi": {
+      "reason": "Forces all research through another paid service and adds unrelated write capabilities.",
+      "alternatives": []
+    },
+    "designs": {
+      "reason": "A fixed image count is a prompt preference; existing visual design workflows cover the task.",
+      "alternatives": [
+        "visual-plan",
+        "visual-edit"
+      ]
+    },
+    "distribute-skill-to-all-agents": {
+      "reason": "The repository already has a conflict-safe portable installer; avoid blanket global synchronization.",
+      "alternatives": []
+    },
+    "domain-checker": {
+      "reason": "Useful standalone utility, but domain naming is not a current SellerFi/Jstack gap.",
+      "alternatives": []
+    },
+    "effective-agent-skills": {
+      "reason": "The installed skill-creator already covers authoring and validation.",
+      "alternatives": [
+        "automate-me"
+      ]
+    },
+    "fable-review": {
+      "reason": "Existing reviews cover this task without a fixed Cloudroom model route.",
+      "alternatives": [
+        "thermos"
+      ]
+    },
+    "fable-safe-prompt": {
+      "reason": "Refusal-oriented prompt rewriting is outside the delivery collection's needs.",
+      "alternatives": []
+    },
+    "file-tree": {
+      "reason": "A simple formatting request does not need another discoverable skill.",
+      "alternatives": []
+    },
+    "fireflies-transcript": {
+      "reason": "Needs a Fireflies account and meeting access; no current integration requirement.",
+      "alternatives": []
+    },
+    "git-worktree": {
+      "reason": "Duplicate task isolation with Cloudroom-specific routing.",
+      "alternatives": [
+        "new-feature"
+      ]
+    },
+    "github-outside-sandbox": {
+      "reason": "Sandbox escalation belongs to the host's permission workflow.",
+      "alternatives": [
+        "new-feature"
+      ]
+    },
+    "global-agent-guardrails": {
+      "reason": "Machine-wide agent hook configuration requires a separate installation task.",
+      "alternatives": []
+    },
+    "goal-loop": {
+      "reason": "Existing factory and scoped automation workflows cover ongoing work.",
+      "alternatives": [
+        "factory",
+        "stay-within-limits"
+      ]
+    },
+    "gpt-review": {
+      "reason": "Duplicate review workflow with mandatory provider, model, and effort.",
+      "alternatives": [
+        "thermos"
+      ]
+    },
+    "herdr": {
+      "reason": "Optional terminal orchestrator; no established Herdr dependency.",
+      "alternatives": [
+        "swarm"
+      ]
+    },
+    "image-prompt": {
+      "reason": "Image prompt generation is already available in the host's image tools; fixed format is unnecessary.",
+      "alternatives": []
+    },
+    "keep-track": {
+      "reason": "Existing task plans and status summaries track remaining decisions.",
+      "alternatives": [
+        "ketchup"
+      ]
+    },
+    "kimi-review": {
+      "reason": "Duplicate review with multiple paid routing fallbacks and a fixed model.",
+      "alternatives": [
+        "thermos"
+      ]
+    },
+    "larp-detector": {
+      "reason": "Contributor-motive speculation is not a reliable review criterion; check evidence and impact.",
+      "alternatives": [
+        "thermo-nuclear-review",
+        "principle-attack-the-premise"
+      ]
+    },
+    "muse-review": {
+      "reason": "Duplicate review tied to a specific provider and model.",
+      "alternatives": [
+        "thermos"
+      ]
+    },
+    "nagent": {
+      "reason": "BB thread creation and model defaults are host-specific.",
+      "alternatives": [
+        "swarm"
+      ]
+    },
+    "new-grok-bot": {
+      "reason": "Separate bot product and deployment workflow; no current requirement.",
+      "alternatives": []
+    },
+    "online-shopping": {
+      "reason": "Consumer shopping workflow outside the engineering collection.",
+      "alternatives": []
+    },
+    "openrouter": {
+      "reason": "Provider integration should be added when a project actually uses OpenRouter.",
+      "alternatives": [
+        "read-the-damn-docs"
+      ]
+    },
+    "persistent-localhost": {
+      "reason": "Persistent macOS service and port-management changes need a specific operational requirement.",
+      "alternatives": []
+    },
+    "push-skills": {
+      "reason": "Personal private-to-public mirror pipeline and global instructions are not this repo's publishing contract.",
+      "alternatives": [
+        "make-pr-easy-to-review"
+      ]
+    },
+    "read-all-adrs": {
+      "reason": "Unconditional full-corpus loading conflicts with selective context use.",
+      "alternatives": [
+        "why",
+        "principle-guard-the-context-window"
+      ]
+    },
+    "remind": {
+      "reason": "Existing concise status and recap workflows cover this.",
+      "alternatives": [
+        "quick-recap",
+        "ketchup"
+      ]
+    },
+    "rename": {
+      "reason": "Cloudroom-specific thread naming; use the current host's rename tool.",
+      "alternatives": []
+    },
+    "rename-process": {
+      "reason": "Cross-machine repository and service moves are outside this import's needs.",
+      "alternatives": []
+    },
+    "repo-sync": {
+      "reason": "Background automatic commits and pushes conflict with task-owned review branches.",
+      "alternatives": [
+        "new-feature",
+        "make-pr-easy-to-review"
+      ]
+    },
+    "reset-cursor-acp": {
+      "reason": "Host-specific recovery, including an all-agent kill option; do not bundle globally.",
+      "alternatives": []
+    },
+    "save-idea": {
+      "reason": "Hardcoded ideas repository, content taxonomy, and automatic publication do not fit this collection.",
+      "alternatives": []
+    },
+    "self-archive": {
+      "reason": "Cloudroom-specific lifecycle action; use the current host's archive tool.",
+      "alternatives": []
+    },
+    "setup-help": {
+      "reason": "Conversational formatting preference; not a missing engineering workflow.",
+      "alternatives": []
+    },
+    "signal-from-expert": {
+      "reason": "DeepAPI dependency and full-source archival add scope and permissions beyond current needs.",
+      "alternatives": []
+    },
+    "stop-overthinking": {
+      "reason": "A communication preference overlaps existing practical decision principles.",
+      "alternatives": [
+        "principle-laziness-protocol"
+      ]
+    },
+    "teach": {
+      "reason": "Name collision with the existing Jstack teaching workflow.",
+      "alternatives": [
+        "teach"
+      ]
+    },
+    "total-review": {
+      "reason": "Five mandatory reviewers in full-permission mode add cost and weaken isolation.",
+      "alternatives": [
+        "thermos",
+        "plan-arbiter"
+      ]
+    },
+    "varied-search": {
+      "reason": "Fixed quotas of DeepAPI searches add cost without a task-specific evidence need.",
+      "alternatives": []
+    },
+    "who-is-this": {
+      "reason": "DeepAPI people profiling is outside the delivery scope.",
+      "alternatives": []
+    }
+  },
+  "source_sha256": {
+    "LICENSE": "1bd321a3b9cfa8d4af2105e20edd69d830df0b28e83a1b0255558f888e493981",
+    "skills/agent-orchestration/bb-cli/SKILL.md": "ce194029318b49f499f63b8e68c66ad1664288fb713281b19b5a8b89b713940d",
+    "skills/agent-orchestration/bb-plugins/SKILL.md": "70eff09b88ffd029ff0f134d879fa0f6a39f5afbd5dae4c14fed7272257ff0d2",
+    "skills/agent-orchestration/cmux/SKILL.md": "57dae426aabc7bf7a1501996b41ef7bf192c9312ec53106eb40c08d9a7a1256c",
+    "skills/agent-orchestration/codex-subagent/SKILL.md": "4774beda28dec0d648fc7f9bffd81287747ddd0c1dc70165240ef1042fbc78c5",
+    "skills/agent-orchestration/fable-review/SKILL.md": "fd4d52571464e70f5db32b07aa0a4c1c1b392be328b24c08e97f047bc2c743a4",
+    "skills/agent-orchestration/fable-safe-prompt/SKILL.md": "70c601fd9157f09304f3175cdd163045e3d11db8977b77c6ebd0e070d6a28a9c",
+    "skills/agent-orchestration/git-worktree/SKILL.md": "db85509c9258cde2bec673a24f79e3d0284feba6c5dd937140696191ae115300",
+    "skills/agent-orchestration/goal-loop/SKILL.md": "2e6120ad119e90aecb95dff7b561f0781d7ae41818c444985160faa2ded220de",
+    "skills/agent-orchestration/gpt-review/SKILL.md": "e9ecdae1f9c47397f5d0fe62b3e0d02bc4c2d8b06aef1e3b75b748a297edffe0",
+    "skills/agent-orchestration/handoff/SKILL.md": "fd82044e86b91a8d4dfdc2ac9550430f8ddde0c3d0da9acc59326402697f8690",
+    "skills/agent-orchestration/herdr/SKILL.md": "c8c535fae32c969045ce6e3bb526f2dee61e911c5bb634bbdb629f08e3c70699",
+    "skills/agent-orchestration/kimi-review/SKILL.md": "9d93cc470ca68df8c3838b448f30e0aee77231bf46482bcb08693bf954a94b3e",
+    "skills/agent-orchestration/larp-detector/SKILL.md": "668262bc03ab81c41ae47da6184bd5bddaa452891969b4c758305e4fd40c3292",
+    "skills/agent-orchestration/muse-review/SKILL.md": "4f14ed58e756ab2ea13265f36e7e3c27a9f5f578eae5952b81ba2284edeb9167",
+    "skills/agent-orchestration/nagent/SKILL.md": "bb0ca14c305f19739e08e44143d861cca40dcf78d8aabce52b23cc3ac88b025a",
+    "skills/agent-orchestration/new-grok-bot/SKILL.md": "197ecc754c644f96b2ebfea17123e3a8e1b2a660c3101f53c5361e58a3f2bad8",
+    "skills/agent-orchestration/reset-cursor-acp/SKILL.md": "36eff04455b7cc6b9e19826892369046d5c72491259e1586c4730ea30f8aa490",
+    "skills/agent-orchestration/self-archive/SKILL.md": "d38411a982ab5147b7a7223f8d65b49b493b600a79f2a0464cadb1c0f61515f2",
+    "skills/agent-orchestration/total-review/SKILL.md": "011098d03fc8bc9cacbc0ba2e620b6105c47b56613fb5b3ba692829deebea4cf",
+    "skills/ops-and-setup/anti-sleep/SKILL.md": "b5f8bda0a4a6a1fc1c1e84f151e6b64826da2524593444716eec7ed909a989f0",
+    "skills/ops-and-setup/boat/SKILL.md": "fbe7969049c923904f2e427e0f78174a66268b35c12463e6a8ade67fc21c44ba",
+    "skills/ops-and-setup/create-readonly-db-role/SKILL.md": "f05de1728a5b2a3d9466eb70ddff2c647ead71fada85fa66f040184c791602c0",
+    "skills/ops-and-setup/cua-driver/SKILL.md": "0fdff8550306b9b6171d64a501293e4d80bcde7db0f019dac5127dc27eec8fb0",
+    "skills/ops-and-setup/github-outside-sandbox/SKILL.md": "6c2998193728a64bd5ede9076a015c928d1f91ae903ab95379452ee4a835c37f",
+    "skills/ops-and-setup/global-agent-guardrails/SKILL.md": "82b1d277723d972d07521ece2e893e308ac0e2e0011d3e3b0ea5051a1db9b93e",
+    "skills/ops-and-setup/openrouter/SKILL.md": "fd8d38483bc256137ab17caca68e7deb44c33237eb3f983dc063afa0ef8ee320",
+    "skills/ops-and-setup/persistent-localhost/SKILL.md": "bc6e550d20b4867ffd392ac0fd3776481ad7c859933156d91461c11f126488c8",
+    "skills/ops-and-setup/prompt-for-others/SKILL.md": "ee0191b81397fad76dad05e95393820c23ce90a284e69f6d0707df803543ddae",
+    "skills/ops-and-setup/rename-process/SKILL.md": "4834a4e6a48c866b1f2135ec28b08bedb747ef635287ca0c9fd61b4ecccbc1b7",
+    "skills/ops-and-setup/repo-sync/SKILL.md": "96d3674c6587d11c39405f7c15c4d3b1f49fe901dad35b425ef14cf9a538c1a3",
+    "skills/ops-and-setup/risky-changes/SKILL.md": "bdb459b6c7430d8580b3461f18fb8ffd4a9fe88bbb6b2c6211c1463ddca2a9a8",
+    "skills/ops-and-setup/setup-help/SKILL.md": "7e94fc532625600674b2bf7c3039bfb11bd40295fce493b68c58ec3a026cc203",
+    "skills/research-and-web/browser-harness/SKILL.md": "ab0ed9c1d81537312012b81cdbd26b7b8cdf8cc22ce75f671dd827bc5b4e3a20",
+    "skills/research-and-web/browser-use/SKILL.md": "58d07219a900116242ce948253bf1d6ebd84d9a5b0743e3e1e5609f0f8296a51",
+    "skills/research-and-web/deep-research/SKILL.md": "88292aef3bef8eeec0eabb4ad0193760d4ffa425daa3d364f8b4699dfefe4e9f",
+    "skills/research-and-web/deep-scrape/SKILL.md": "e7bc0d9c50ebf063ce02f7407053e96a8f9440dc494e79d9b93222ee68ac1e6d",
+    "skills/research-and-web/deepapi/SKILL.md": "dd8579ab736fbba455479a2d48f6cd71483fe6d3dadbcff13397081e22b76a23",
+    "skills/research-and-web/domain-checker/SKILL.md": "ca23a3747f7dc9106bcf534ba32a25bcececa3d29e0a5b8743c92d91fb3a2c29",
+    "skills/research-and-web/fireflies-transcript/SKILL.md": "43b6a775941b37e46a9c6530137c94150c537e2c0029fa31216e031305f81f3e",
+    "skills/research-and-web/online-shopping/SKILL.md": "4e89a89af9d2aee581129030312a9ef90dd889f22ecb6f9bc4ce53b213540028",
+    "skills/research-and-web/varied-search/SKILL.md": "d4e9b5111b44b5d2d18f9abb5e2489d1525d04d35ad84f174da0e1f9ecfd2fdf",
+    "skills/research-and-web/who-is-this/SKILL.md": "e4ae44bef96114b75fa3e960f8356d1df42cf31793eb66263720ddd583f2e416",
+    "skills/skill-authoring/distribute-skill-to-all-agents/SKILL.md": "279e5bcb8251054838580f103ec4a41a7be4d66860fa02b6f73d83057d46a4e6",
+    "skills/skill-authoring/effective-agent-skills/SKILL.md": "16545d0124875443925ddd9a46861073f575b4c49214d7d2d1071aae0aa9db08",
+    "skills/skill-authoring/push-skills/SKILL.md": "9eacf360a3e70b44d452f8ce4cab3af459846991f1f69b93fcd34b251e5f3aae",
+    "skills/thinking-and-docs/4x4/SKILL.md": "66c48195707ac2d88bf13e1aec71f7cee39daa827a2aeff87b6294770f347144",
+    "skills/thinking-and-docs/adr-verbatim/SKILL.md": "a3bd3f30d9ced5739bdb36b11eff172a20ae59c653f6df1906241d4373a72ec3",
+    "skills/thinking-and-docs/ask-then-build/SKILL.md": "f3d8b16fb3995021a57ab2f0f2f64f90f3da435a97e83ec370b7ca09acf1af7f",
+    "skills/thinking-and-docs/before-building/SKILL.md": "311dc762c6bdf92911ffb0c25eaeeaa739194096d623a8407c00022b2377d780",
+    "skills/thinking-and-docs/better-prompt/SKILL.md": "2c40a34a0fedb068f707842f0e41ea1accddcdbbfd62e7092b9292ccf77ba84f",
+    "skills/thinking-and-docs/decisions/SKILL.md": "14f18b4cb52af22e77bb0cd140f377d1113e4eef392a0f6c369b6505c38f663b",
+    "skills/thinking-and-docs/designs/SKILL.md": "6083313aa115ddeb56b1235d9809abf8bc84c3c6c44441d42b6ce7dd6a3c0579",
+    "skills/thinking-and-docs/file-tree/SKILL.md": "cb6ff82c45d8db63773e9c281ec139d282aed5409179b549be4dc7671304a17a",
+    "skills/thinking-and-docs/image-prompt/SKILL.md": "bed2db59a1e4cb608cf119cf9d86a34352fb3415b477380fa3964edee335354c",
+    "skills/thinking-and-docs/keep-track/SKILL.md": "dcb61217b47e350cf9a437aedecabb1e36417eaebd8010207707e06b1de6f933",
+    "skills/thinking-and-docs/read-all-adrs/SKILL.md": "b72e7f7400270513c52b0990c31834b89d14b76b40497813a7f675e508dd6634",
+    "skills/thinking-and-docs/remind/SKILL.md": "9d9f3d25ed6deb2201a4d2f55e10887a2edecc2e92539653454651f6bd8207ff",
+    "skills/thinking-and-docs/rename/SKILL.md": "78079a00442e9bdc9cbe9c23aa392eb3f47e77e4e256e9fb66e845cf50d6a679",
+    "skills/thinking-and-docs/save-idea/SKILL.md": "00c0ca7575382fd67e8c7d850e23a919bb9a8d69d893b75b26145372b118dd31",
+    "skills/thinking-and-docs/signal-from-expert/SKILL.md": "35005c2070a23bbe8466027ff7f51a71c0688d72d58cd2116bfdfba2defcddbe",
+    "skills/thinking-and-docs/stop-overthinking/SKILL.md": "af2b12af6efd9c4b5aca49490d9e6fd6bfaf95ac8b82ab3dbd119bea2ae6397c",
+    "skills/thinking-and-docs/teach/SKILL.md": "ee1bb44d4f45ee66d9257ffc5d1cb2ddc244ca6f58da6c30abd8e6b7fdbb89ac"
+  },
+  "integration": [
+    "Five standalone adaptations; no upstream scripts, hooks, or global instructions imported",
+    "Preserved source revision, complete MIT notices, and existing Codex explicit-invocation policies",
+    "Replaced broad database grants and RLS bypass examples with least-privilege preparation and fixture verification",
+    "Removed fixed case counts, mandatory waits, personal paths, and automatic external actions",
+    "Shortened four core descriptions without changing their workflow bodies; discovery budget remains 8000 bytes",
+    "Manual source review required for updates; no automatic overwrite"
+  ]
+}
