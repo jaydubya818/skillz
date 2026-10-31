@@ -24,13 +24,20 @@ API contracts, CI/CD, migrations, UI quality, observability, performance, and
 security. The [selection review](docs/ADDYOSMANI_REVIEW.md) accounts for all 25
 upstream skills and explains the corrections and overlap decisions.
 
-This repository packages 103 skills behind one canonical `skills/` tree:
+Five focused workflows from
+[`davidondrej/skills`](https://github.com/davidondrej/skills) add session handoffs,
+decision records, product assumption checks, read-only database access planning,
+and verified instructions for teammates. The
+[selection review](docs/DAVIDONDREJ_REVIEW.md) accounts for all 62 upstream skills.
+
+This repository packages 108 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
 - 40 Jstack workflows for planning, implementation, review, and operations
 - 24 Jstack engineering principles
 - 24 Builder.io and Agent-Native workflows
 - 7 adapted Addy Osmani production engineering workflows
+- 5 adapted David Ondrej continuity, decision, and access workflows
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code,
@@ -46,7 +53,23 @@ the seven checked source repositories, current revisions, all 11 new Jstack
 skills, retained local fixes, and deferred original-source additions. Source
 hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream-review.json).
 
-## New in 2.5.0
+## New in 2.6.0
+
+| Skill | Purpose |
+| --- | --- |
+| [`handoff`](skills/handoff/SKILL.md) | Save verified context for another agent to continue a task. |
+| [`adr-verbatim`](skills/adr-verbatim/SKILL.md) | Record approved decisions without adding requirements. |
+| [`risky-changes`](skills/risky-changes/SKILL.md) | Check assumptions behind billing, API data, and default changes. |
+| [`create-readonly-db-role`](skills/create-readonly-db-role/SKILL.md) | Prepare scoped PostgreSQL access and verify effective privileges. |
+| [`prompt-for-others`](skills/prompt-for-others/SKILL.md) | Turn a verified fix into instructions for a teammate's agent. |
+
+These are standalone adaptations with pinned provenance and complete MIT
+notices. The database workflow requires explicitly approved access and keeps
+row-level security. The import adds no external services or executable helpers.
+Codex keeps explicit invocation for `handoff`, `create-readonly-db-role`, and
+`prompt-for-others`; the other two use normal task-based discovery.
+
+## Added in 2.5.0
 
 | Skill | Purpose |
 | --- | --- |
@@ -102,7 +125,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 103 skills. Descriptions are the routing layer; the selected
+Do not preload all 108 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -766,6 +789,13 @@ python3 skills/evidence-driven-testing/scripts/evidence.py doctor --json
 
 ## Validation
 
+The David Ondrej integration passed 164 portable Python tests, all five new
+skill frontmatter checks, source hash verification, catalog validation, and
+release metadata checks. The
+[review report](docs/DAVIDONDREJ_REVIEW.md#validation-and-limits) records the
+full-suite recorder failures caused by this host's missing dependencies and
+sandbox restrictions.
+
 The October 25 refresh passed 158 portable Python tests, 264 imported Bun
 script tests, and two targeted recorder regressions. GitHub's package and
 browser checks also passed. The [review report](docs/UPSTREAM_REFRESH_2026-10-25.md#validation-and-limits)
@@ -777,7 +807,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.5.0
+python3 scripts/check_release.py v2.6.0
 git diff --check
 ```
 
@@ -804,7 +834,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 103 canonical skill directories
+- exactly 108 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
@@ -812,7 +842,8 @@ The tests verify:
 - the Claude marketplace entry and the tagged-release version gate
 - packaged companion agents and valid plugin or direct-install routing
 - local Markdown links
-- pinned Jstack, Builder.io, and Addy Osmani provenance and license retention
+- pinned Jstack, Builder.io, Addy Osmani, and David Ondrej provenance and license retention
+- standalone installation and source inventory checks for the David Ondrej adaptations
 - isolated installation of every Addy adaptation with all local references
 - Claude, Codex, Cursor, and custom-runtime installer destinations
 - conflict refusal, backups, dry runs, copy mode, symlink mode, deduplication, and idempotency
