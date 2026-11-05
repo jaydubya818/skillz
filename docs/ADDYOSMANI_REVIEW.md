@@ -1,9 +1,9 @@
 # Addy Osmani skills integration review
 
 The initial integration below is historical. The source was reviewed through
-`aeac41d4d005999432bb7312f7ff06383a91d59d` on October 25. The changed upstream
-examples are absent from these curated rewrites, so the existing corrections
-remain. See the [refresh review](UPSTREAM_REFRESH_2026-10-25.md).
+`301b02b12bff98e4688e6984af6556802322bbde` on November 5. The curated rewrites
+retain their corrections and incorporate applicable CI, UI, and review guidance.
+See the [refresh review](UPSTREAM_REFRESH_2026-11-05.md).
 
 ## Scope and selection
 

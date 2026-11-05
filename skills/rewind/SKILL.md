@@ -6,7 +6,7 @@ compatibility: "Requires macOS, Clips Desktop with Rewind enabled, and the local
 metadata:
   author: Builder.io
   source: BuilderIO/skills
-  source-commit: fecf1ffac18165d165bef520b5c6bd49553c7968
+  source-commit: f4f10b8d513476c24bd995ceac5294bcdd6ee15c
   owner: software-factory
   risk: high
   capabilities: builderio,local-screen-memory

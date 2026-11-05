@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).parents[1]
 SKILLS = ROOT / "skills"
-RELEASE_VERSION = "2.6.0"
+RELEASE_VERSION = "2.7.0"
 CORE_SKILLS = {
     "before-and-after",
     "code-structure",
@@ -28,7 +28,9 @@ def expected_skills() -> set[str]:
     assert jstack["schema"] == "vendored-agent-skills/v1"
     assert builderio["schema"] == "vendored-agent-skills/v1"
     assert jstack["excluded"] == {
-        "unslop": "the collection keeps its existing enhanced definition"
+        "unslop": "the collection keeps its existing enhanced definition",
+        "statechart": "deferred: optional TLA+ visualization toolchain needs separate qualification",
+        "ketchup-video": "deferred: video recap depends on host media and presentation tooling",
     }
     assert addyosmani["schema"] == "vendored-agent-skills/v1"
     assert davidondrej["schema"] == "vendored-agent-skills/v1"
@@ -215,8 +217,8 @@ def test_claude_companion_agents_are_packaged_and_referenced_for_both_install_mo
 
 def test_jstack_vendor_is_pinned_attributed_branded_and_hardened():
     vendor = json.loads((ROOT / "vendor" / "jstack.json").read_text())
-    assert vendor["version"] == "0.9.102"
-    assert vendor["commit"] == "356c6e0f978df729eb16f227d795f34d221c5aad"
+    assert vendor["version"] == "0.9.130"
+    assert vendor["commit"] == "d88063f3355a5ecff0e6dbb890a11bab4b08bc2e"
     assert len(vendor["imported"]) == 64
     assert "setup-jstack" in vendor["imported"]
     assert "setup-pstack" not in vendor["imported"]
@@ -265,9 +267,9 @@ def test_jstack_credits_original_pstack_authorship():
 def test_builderio_vendor_is_pinned_attributed_and_portable():
     vendor = json.loads((ROOT / "vendor" / "builderio.json").read_text())
     assert vendor["upstream"] == "https://github.com/BuilderIO/skills"
-    assert vendor["commit"] == "fecf1ffac18165d165bef520b5c6bd49553c7968"
+    assert vendor["commit"] == "f4f10b8d513476c24bd995ceac5294bcdd6ee15c"
     assert vendor["license"] == "MIT"
-    assert len(vendor["imported"]) == 24
+    assert len(vendor["imported"]) == 25
     assert set(vendor["imported"]).isdisjoint(CORE_SKILLS)
     for name in vendor["imported"]:
         skill = SKILLS / name
@@ -298,3 +300,32 @@ def test_builderio_dispatch_connector_is_explicit_and_scoped():
             }
         }
     }
+
+
+def test_efficient_orchestration_retains_explicit_invocation_across_runtimes():
+    names = {"efficient-orchestrator", "efficient-frontier", "efficient-fable"}
+    for name in names:
+        skill = SKILLS / name
+        assert scalar_field(frontmatter(skill / "SKILL.md"), "disable-model-invocation") == "true"
+        metadata = (skill / "agents" / "openai.yaml").read_text()
+        assert re.search(r"^policy:\n  allow_implicit_invocation: false$", metadata, re.MULTILINE)
+    assert "efficient-orchestrator" in expected_skills()
+
+
+def test_upstream_review_covers_every_recorded_source_at_the_imported_revisions():
+    review = json.loads((ROOT / "vendor" / "upstream-review.json").read_text())
+    assert review["reviewed_on"] == "2026-11-05"
+    sources = {source["repo"]: source for source in review["sources"]}
+    assert len(sources) == len(review["sources"]) == 8
+    for name in ("jstack", "builderio", "addyosmani", "davidondrej"):
+        vendor = json.loads((ROOT / "vendor" / f"{name}.json").read_text())
+        source = sources[vendor["upstream"].removeprefix("https://github.com/")]
+        assert source["commit"] == vendor["commit"]
+        assert source["source_sha256"]
+        assert source["license_files"]
+    for source in sources.values():
+        assert re.fullmatch(r"[0-9a-f]{40}", source["commit"])
+        assert source["decision"]
+        assert source["source_sha256"]
+        for digest in [*source["source_sha256"].values(), *source["license_files"].values()]:
+            assert re.fullmatch(r"[0-9a-f]{64}", digest)

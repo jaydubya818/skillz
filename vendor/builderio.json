@@ -1,7 +1,7 @@
 {
   "schema": "vendored-agent-skills/v1",
   "upstream": "https://github.com/BuilderIO/skills",
-  "commit": "fecf1ffac18165d165bef520b5c6bd49553c7968",
+  "commit": "f4f10b8d513476c24bd995ceac5294bcdd6ee15c",
   "license": "MIT",
   "copyright": "Copyright (c) 2026 Builder.io",
   "imported": [
@@ -9,6 +9,7 @@
     "an",
     "efficient-fable",
     "efficient-frontier",
+    "efficient-orchestrator",
     "factory",
     "factory-babysit-pr",
     "factory-collect",

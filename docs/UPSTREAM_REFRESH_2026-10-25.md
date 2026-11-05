@@ -66,7 +66,7 @@ separately from the port's release number.
   against editing cached plugins. Adapt destinations to the requested canonical
   source or project/user scope instead of assuming a Cursor-only installation.
 - Keep original-source regression additions in
-  [cursor-pstack-tests.patch](../vendor/cursor-pstack-tests.patch). The Jstack
+  [cursor-pstack-tests.patch at the reviewed commit](https://github.com/jaydubya818/skillz/blob/b5e133db5daefc97680eabc071da854b0b1230d7/vendor/cursor-pstack-tests.patch). The Jstack
   generator applies them before replacing any installed output.
 
 The Jstack importer now rejects dirty sources and inventory drift and stages

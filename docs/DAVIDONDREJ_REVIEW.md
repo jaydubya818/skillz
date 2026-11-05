@@ -1,5 +1,9 @@
 # David Ondrej skills integration review
 
+The initial review below is historical. On November 5, all 62 skill entrypoints
+were unchanged at `8aa01cf45110ae378bdf5c319cd41ac8fdbdf448`.
+The [refresh review](UPSTREAM_REFRESH_2026-11-05.md) records the receipt update.
+
 Reviewed on October 31, 2026, against
 [davidondrej/skills at 8e90e9d](https://github.com/davidondrej/skills/tree/8e90e9d634983e76e66154e6b36a11d735fd19da).
 

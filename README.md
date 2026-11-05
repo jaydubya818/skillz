@@ -13,7 +13,7 @@ created by Lauren Tan and released under the MIT license. This repository is a
 cross-runtime port. The Jstack name identifies this repository's integration
 and safety work. It does not replace pstack's authorship.
 
-The collection also includes a reviewed, pinned import of 24 skills from
+The collection also includes a reviewed, pinned import of 25 skills from
 [`BuilderIO/skills`](https://github.com/BuilderIO/skills). They cover agent
 review, model orchestration, Agent-Native apps, visual planning and editing,
 WebMCP, and experimental software-factory workflows.
@@ -30,12 +30,12 @@ decision records, product assumption checks, read-only database access planning,
 and verified instructions for teammates. The
 [selection review](docs/DAVIDONDREJ_REVIEW.md) accounts for all 62 upstream skills.
 
-This repository packages 108 skills behind one canonical `skills/` tree:
+This repository packages 109 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
 - 40 Jstack workflows for planning, implementation, review, and operations
 - 24 Jstack engineering principles
-- 24 Builder.io and Agent-Native workflows
+- 25 Builder.io and Agent-Native workflows
 - 7 adapted Addy Osmani production engineering workflows
 - 5 adapted David Ondrej continuity, decision, and access workflows
 
@@ -53,7 +53,24 @@ the seven checked source repositories, current revisions, all 11 new Jstack
 skills, retained local fixes, and deferred original-source additions. Source
 hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream-review.json).
 
-## New in 2.6.0
+## New in 2.7.0
+
+The [November 5 source review](docs/UPSTREAM_REFRESH_2026-11-05.md) checks all
+eight recorded upstream repositories and records their exact revisions.
+Jstack advances to port 0.9.130, including fresh-install PR command fixes,
+worktree audit improvements, and evidence-based review guidance. The obsolete
+scripted orchestration engine is removed.
+
+[`efficient-orchestrator`](skills/efficient-orchestrator/SKILL.md) consolidates
+the two existing delegation workflows. It and its `efficient-fable` and
+`efficient-frontier` aliases require explicit invocation. Agent-Native app
+creation now preserves an existing hosting choice and unfinished work.
+
+The refresh also rejects unsupported unquoted YAML in catalog metadata and
+strengthens the curated CI, UI, security, and crash-testing guidance. Existing
+authority boundaries and license notices remain in place.
+
+## Added in 2.6.0
 
 | Skill | Purpose |
 | --- | --- |
@@ -125,7 +142,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 108 skills. Descriptions are the routing layer; the selected
+Do not preload all 109 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -397,8 +414,9 @@ propose an action that requires approval in the current task.
 | Skill | Risk | Purpose and activation |
 | --- | --- | --- |
 | [`agent-watchdog`](skills/agent-watchdog/SKILL.md) | Medium | Monitor or independently audit another agent's session, branch, PR, or transcript. It defaults to audit-only when repair authority is unclear. |
-| [`efficient-fable`](skills/efficient-fable/SKILL.md) | Low | Keep planning and final judgment with Claude Fable while cheaper agents handle bounded, independent work. |
-| [`efficient-frontier`](skills/efficient-frontier/SKILL.md) | Low | Apply the same bounded delegation pattern to any high-cost frontier model. |
+| [`efficient-orchestrator`](skills/efficient-orchestrator/SKILL.md) | Low | On explicit invocation, keep judgment with the main model and delegate bounded work. |
+| [`efficient-fable`](skills/efficient-fable/SKILL.md) | Low | Explicit alias for `efficient-orchestrator`. |
+| [`efficient-frontier`](skills/efficient-frontier/SKILL.md) | Low | Explicit alias for `efficient-orchestrator`. |
 | [`plan-arbiter`](skills/plan-arbiter/SKILL.md) | Low | Compare competing plans against the real task and codebase, then return one executable recommendation. |
 | [`plow-ahead`](skills/plow-ahead/SKILL.md) | Medium | Continue through routine ambiguity with stated, reversible assumptions while preserving authority and safety stop conditions. |
 | [`quick-recap`](skills/quick-recap/SKILL.md) | Medium | Add or follow a compact red, yellow, or green final status-line convention. |
@@ -552,9 +570,9 @@ requires loading the whole collection or starting the full lifecycle.
 
 ## Builder.io provenance and portability
 
-The collection imports 24 skills from
+The collection imports 25 skills from
 [`BuilderIO/skills`](https://github.com/BuilderIO/skills) at commit
-[`fecf1ffac18165d165bef520b5c6bd49553c7968`](https://github.com/BuilderIO/skills/commit/fecf1ffac18165d165bef520b5c6bd49553c7968).
+[`f4f10b8d513476c24bd995ceac5294bcdd6ee15c`](https://github.com/BuilderIO/skills/commit/f4f10b8d513476c24bd995ceac5294bcdd6ee15c).
 Builder.io released the source under the MIT license. Every imported directory
 includes that license notice so direct and portable installs retain it.
 
@@ -601,13 +619,13 @@ Agent-Native sources before changing the expected set.
 
 The collection imports 64 unique skills from
 [`michael-denyer/pstack-claude`](https://github.com/michael-denyer/pstack-claude)
-v0.9.102 at commit
-[`356c6e0f978df729eb16f227d795f34d221c5aad`](https://github.com/michael-denyer/pstack-claude/commit/356c6e0f978df729eb16f227d795f34d221c5aad).
+v0.9.130 at commit
+[`d88063f3355a5ecff0e6dbb890a11bab4b08bc2e`](https://github.com/michael-denyer/pstack-claude/commit/d88063f3355a5ecff0e6dbb890a11bab4b08bc2e).
 Its duplicate `unslop` is excluded because this collection keeps the existing
 enhanced definition as the canonical skill.
 
 [`vendor/jstack.json`](vendor/jstack.json) records the exact source, revision,
-64 imported names, and exclusion. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
+64 imported names, and exclusions. [`scripts/vendor_jstack.py`](scripts/vendor_jstack.py)
 rebuilds the import instead of relying on an undocumented manual copy.
 
 The integration preserves the upstream design-first, evidence-driven methods while
@@ -789,6 +807,12 @@ python3 skills/evidence-driven-testing/scripts/evidence.py doctor --json
 
 ## Validation
 
+The November 5 refresh passed 181 portable Python tests and 223 imported Bun
+tests. Both generators reproduce the reviewed tree. A fresh project install
+contains 109 shared skills, 109 Claude skills, and four companion agents.
+The [source review](docs/UPSTREAM_REFRESH_2026-11-05.md#validation) records
+regression controls, source hashes, and the recorder environment limitation.
+
 The David Ondrej integration passed 164 portable Python tests, all five new
 skill frontmatter checks, source hash verification, catalog validation, and
 release metadata checks. The
@@ -807,7 +831,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.6.0
+python3 scripts/check_release.py v2.7.0
 git diff --check
 ```
 
@@ -823,7 +847,7 @@ For changes to the imported orchestration or PR tools, run their local suite
 with Bun:
 
 ```bash
-bun test skills/poteto-mode/scripts/check-plan.test.ts skills/poteto-mode/scripts/orch skills/poteto-mode/scripts/watch-pr
+bun test skills/poteto-mode/scripts/check-plan.test.ts skills/poteto-mode/scripts/watch-pr
 ```
 
 Run the complete suite on a host with the native evidence dependencies:
@@ -834,7 +858,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 108 canonical skill directories
+- exactly 109 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill

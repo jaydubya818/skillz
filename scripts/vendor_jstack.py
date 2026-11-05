@@ -19,6 +19,8 @@ MANIFEST = REPO_ROOT / "vendor" / "jstack.json"
 HARNESS_TOOLS_TEMPLATE = REPO_ROOT / "vendor" / "harness-tools.md"
 EXCLUDED = {
     "unslop": "the collection keeps its existing enhanced definition",
+    "statechart": "deferred: optional TLA+ visualization toolchain needs separate qualification",
+    "ketchup-video": "deferred: video recap depends on host media and presentation tooling",
 }
 LOCAL_NAME_BY_SOURCE = {"setup-pstack": "setup-jstack"}
 
@@ -198,30 +200,15 @@ DESCRIPTION_OVERRIDES = {
 }
 
 HARDENINGS = {
-    "sharpen": [
-        (
-            "Before starting, ask how a top expert would approach this task (their raw sources, their real methods, an outside check that the result is right), what the user is really after, and whether the task is over- or underspecified. Loosen constraints that don't serve the goal as readily as you add ones that do, and leave choices that are the user's to make open instead of deciding them. Fold in only what makes the work better, not bigger, but always keep one outside check that the result is right, without narrating the framing, then do the work.",
-            "I want a deeper version of this task, not a bigger one. Before rewriting it, do four things:\n\n1. Say what a top professional in this field would do here that I'm not asking for.\n2. Name the rawest material they would start from instead of what has already been digested for me.\n3. Name the specific methods and tools they would use.\n4. Say what, other than you or me, would show the result is right.\n\nThen rewrite my prompt to ask for exactly that.\n\nLeave choices that are mine to make open instead of deciding them.",
-        ),
-    ],
-    "poteto-mode/scripts/check-plan.mjs": [
-        ('.replace(/`[^`]*`/g, "`")', '.replace(/(?<!`)(`+)(?!`)(.*?)(?<!`)\\1(?!`)/g, "`")'),
-    ],
-    "poteto-mode/scripts/orch/store.ts": [
-        (
-            "  const row = local[0];",
-            '  const active = local.filter((row) => row.state === "OPEN");\n  const candidates = active.length > 0 ? active : local;\n  const row = candidates[0];',
-        ),
-        ("  if (local.length > 1) {", "  if (candidates.length > 1) {"),
-        ("${local.map((item) => `#${item.pr}`).join(\", \")}", "${candidates.map((item) => `#${item.pr}`).join(\", \")}"),
-    ],
-    "swarm": [
-        ("4. Pick the worker model", "3. Pick the worker model"),
-        ("5. Give each worker", "4. Give each worker"),
-        ("the step 4 model", "the step 3 model"),
-        ("with the table, issue one-liners", "with a result table, issue one-liners"),
-    ],
     "poteto-help": [
+        (
+            "| Catch up like `/ketchup`, in a short subtitled video of slides, with the waiting calls as text under it | [`/ketchup-video`](../ketchup-video/SKILL.md) |",
+            "| Optional upstream video recap, not bundled in Skillz | [`/ketchup-video`](https://github.com/michael-denyer/pstack-claude/tree/main/plugins/pstack/skills/ketchup-video) |",
+        ),
+        (
+            "| Show a PM or designer what the user sees as a chart checked by a TLA+ model, with the shortest path to each state that breaks a rule | [`/statechart`](../statechart/SKILL.md) |",
+            "| Optional upstream TLA+ visualization, not bundled in Skillz | [`/statechart`](https://github.com/michael-denyer/pstack-claude/tree/main/plugins/pstack/skills/statechart) |",
+        ),
         (
             "The local links point into the installed plugin, so give the user the file's public copy: `https://github.com/michael-denyer/pstack-claude/blob/main/plugins/pstack/` followed by its path relative to the plugin root.",
             "The local links point into this installed collection. Cite the file you actually read, or its public copy under `https://github.com/jaydubya818/skillz/blob/main/skills/`. For installation, use this collection's [README](https://github.com/jaydubya818/skillz#choose-an-installation). This distribution installs skills and companion agents only. It installs no native routing hooks or extensions. Native pstack install and routing instructions below apply only to a separately installed upstream plugin, never to Skillz.",
@@ -238,6 +225,10 @@ HARDENINGS = {
     ],
     "create-formal-verification-skill": [
         (
+            "If the check is a TLA+ model, tell the next agent to read every result with the pstack [`/statechart`](../statechart/SKILL.md) skill. It shows each invariant violation the checker finds as its shortest path in plain words. When the check passes, `/statechart` draws a chart of how the system moves between states. Refer to `/statechart` by name. Its commands, options, and file paths change between releases and machines, so copy none of them into the generated skill or its scripts.",
+            "For a TLA+ model, preserve the checker verdict and counterexample with the verification evidence. The optional upstream [statechart workflow](https://github.com/michael-denyer/pstack-claude/tree/main/plugins/pstack/skills/statechart) is not bundled or required by this distribution. Use it only if separately installed and appropriate for the task.",
+        ),
+        (
             "On Claude Code it lives at `.claude/skills/<area>/SKILL.md`.",
             "Use `.claude/skills/<area>/SKILL.md` for Claude-only projects or `.agents/skills/<area>/SKILL.md` for shared Codex and Cursor discovery.",
         ),
@@ -250,7 +241,7 @@ HARDENINGS = {
     ],
     "poteto-mode": [
         (
-            "These skills use Claude Code tool names (the `Skill` tool, the `Agent` tool, `AskUserQuestion`) and the Claude model names the `Agent` tool accepts, as each Models section lists them. On Claude Code they work as written. On Codex, read [`references/harness-tools.md`](references/harness-tools.md) for the Codex equivalent of a Claude tool, model, or skill named by these workflows. On Pi, read [`references/pi-tools.md`](references/pi-tools.md) instead. On GitHub Copilot, CLI or app, read [`references/copilot-tools.md`](references/copilot-tools.md) instead. On Muse, read [`references/muse-tools.md`](references/muse-tools.md) instead. Other runtimes can discover the same Agent Skills tree, but they must use their own tool, model, and configuration equivalents. No one of these mappings is a cross-runtime map.\n\n",
+            "These skills use Claude Code tool names (the `Skill` tool, the `Agent` tool, `AskUserQuestion`) and the Claude model names the `Agent` tool accepts, as each Models section lists them. On Claude Code they work as written. On Codex, read [`references/harness-tools.md`](references/harness-tools.md) for the Codex equivalent of a Claude tool, model, or skill named by these workflows. On Pi, read [`references/pi-tools.md`](references/pi-tools.md) instead. On GitHub Copilot, CLI or app, read [`references/copilot-tools.md`](references/copilot-tools.md) instead. On Muse, read [`references/muse-tools.md`](references/muse-tools.md) instead. On MiniMax Code, read [`references/minimax-tools.md`](references/minimax-tools.md) instead. On Antigravity, read [`references/agy-tools.md`](references/agy-tools.md) instead. On OMP, read [`references/omp-tools.md`](references/omp-tools.md) instead. On Kimi Code CLI, read [`references/kimi-tools.md`](references/kimi-tools.md) instead. On Grok Build, read [`references/grok.md`](references/grok.md) instead. On OpenCode 2, read [`references/opencode-tools.md`](references/opencode-tools.md) instead. Other runtimes can discover the same Agent Skills tree, but they must use their own tool, model, and configuration equivalents. No one of these mappings is a cross-runtime map.\n\n",
             "These skills use Claude Code tool names and Claude model slugs because that is the language of the upstream workflows. On Claude Code they work as written. On Codex, Cursor, or another runtime, read [`references/harness-tools.md`](references/harness-tools.md) and use the native equivalent for each tool, model, driver, transcript path, and companion agent.\n\n"
             "**Governance precedence.** When Mission Control governs the task, read and follow "
             "the **mission-control-delivery** skill first. Its execution contract controls authority, "
@@ -299,6 +290,10 @@ HARDENINGS = {
         ),
     ],
     "reflect": [
+        (
+            "Never edit a skill under `plugins/cache/`. Before approval, show its destination, `.claude/skills/<skill>/` or `${CLAUDE_CONFIG_DIR:-$HOME/.claude}/skills/<skill>/`. After approval, copy the skill folder there and edit the copy. Never open a PR or push.",
+            "Preserve the source-repository workflow when the user requested a repository update. For a personal installation, show the intended destination and preserve the original cached skill. Publication follows existing task authority and repository instructions.",
+        ),
         (
             "File each Backlog item to your team's devex or backlog tracker without waiting. Only the Accepted list waits for approval.",
             "File Backlog items only when the task authorizes writes to the named devex or backlog tracker. Otherwise return them as proposed backlog entries. The Accepted list always waits for approval. Never edit a cached plugin under `plugins/cache/`. For a requested source-repository update, edit its canonical checkout. Otherwise show the proposed project or user skill destination and edit a copy only within the user's approved scope.",
@@ -572,15 +567,6 @@ def main() -> int:
         for source_name, local_name in zip(imported_sources, imported, strict=True):
             staged = stage / "skills" / local_name
             shutil.copytree(source_skills / source_name, staged)
-            if local_name == "poteto-mode":
-                subprocess.run(
-                    ["git", "apply", "--check", str(REPO_ROOT / "vendor" / "cursor-pstack-tests.patch")],
-                    cwd=stage / "skills", check=True,
-                )
-                subprocess.run(
-                    ["git", "apply", str(REPO_ROOT / "vendor" / "cursor-pstack-tests.patch")],
-                    cwd=stage / "skills", check=True,
-                )
             apply_jstack_branding(staged)
             if local_name == "poteto-mode":
                 legacy_mapping = staged / "references" / "codex-tools.md"

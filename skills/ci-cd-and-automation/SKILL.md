@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Addy Osmani and Skillz contributors
   source: addyosmani/agent-skills
-  source-commit: aeac41d4d005999432bb7312f7ff06383a91d59d
+  source-commit: 301b02b12bff98e4688e6984af6556802322bbde
   adaptation: curated-rewrite
   owner: software-factory
   risk: high
@@ -30,6 +30,8 @@ not require redesigning the pipeline.
 3. Use the authoritative lockfile and supported frozen-install mechanism.
    Key caches by relevant platform, runtime, and dependency inputs. Cache hits
    do not replace integrity checks or authorization.
+   Cache the package manager's supported download store rather than treating
+   restored installed dependencies as a frozen-install substitute.
 4. Give jobs bounded timeouts. Preserve useful failure output and test reports
    without uploading credentials or private fixtures. Triage flaky tests rather
    than silently skipping them or retrying until a green result appears.
@@ -73,7 +75,10 @@ already present in the task without asking for it again.
 
 Validate configuration and execute relevant jobs on the exact candidate. Check
 failure propagation, fork behavior, permissions, artifact identity, and skipped
-job semantics. Rehearse delivery and recovery only in an authorized environment.
+job semantics. Prove each new quality gate with a known violation and a clean
+control. A scanner's successful exit or generated report does not necessarily
+enforce the agreed severity threshold; scanner errors must fail the gate too.
+Rehearse delivery and recovery only in an authorized environment.
 Report which paths ran, which were inspected, and which remain untested.
 
 Reference: [GitHub Actions secure use](https://docs.github.com/en/actions/reference/security/secure-use).
