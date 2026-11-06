@@ -38,6 +38,12 @@ apply one blanket license to every directory.
   David Ondrej, under the MIT license. Skillz contributors adapted the workflows
   as documented in [`docs/DAVIDONDREJ_REVIEW.md`](docs/DAVIDONDREJ_REVIEW.md).
   Each directory retains the complete upstream MIT notice.
+- The three adaptations recorded in
+  [`vendor/mattpocock.json`](vendor/mattpocock.json) derive from
+  [`mattpocock/skills`](https://github.com/mattpocock/skills), copyright 2026
+  Matt Pocock, under the MIT license. Each adapted directory retains the
+  complete upstream MIT notice. Selection and changes are documented in the
+  [November 6 review](docs/LAUREN_MATT_REVIEW_2026-11-06.md).
 - Skills originating in
   [`michaelshimeles/skills`](https://github.com/michaelshimeles/skills) retain
   their source history and any license included with the source skill.

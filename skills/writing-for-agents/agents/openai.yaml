@@ -1,0 +1,4 @@
+interface:
+  display_name: "Write instructions for agents"
+  short_description: "Write clear and scoped agent instructions"
+  default_prompt: "Use $writing-for-agents to improve these instructions, triggers, completion criteria, and authority boundaries."

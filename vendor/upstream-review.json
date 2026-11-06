@@ -1,6 +1,6 @@
 {
   "schema": "skillz-upstream-review/v1",
-  "reviewed_on": "2026-11-05",
+  "reviewed_on": "2026-11-06",
   "sources": [
     {
       "repo": "BuilderIO/skills",
@@ -37,14 +37,15 @@
       },
       "license_files": {
         "LICENSE": "d50194829dc398b96028624dba48eb20c7a51e49d4a20aedf3f8dc24773f4d45"
-      }
+      },
+      "reviewed_on": "2026-11-05"
     },
     {
       "repo": "michael-denyer/pstack-claude",
       "previous_commit": "356c6e0f978df729eb16f227d795f34d221c5aad",
       "commit": "d88063f3355a5ecff0e6dbb890a11bab4b08bc2e",
       "latest": "2026-11-05T13:52:49Z Correct Grok subagent rows against Grok's subagent guide (#410)",
-      "decision": "Updated 64 skills from port 0.9.130; retained local hardening; deferred statechart and ketchup-video.",
+      "decision": "Updated 64 skills from port 0.9.130; retained local hardening; deferred statechart and ketchup-video. Rechecked November 6: upstream HEAD is unchanged.",
       "source_sha256": {
         "plugins/pstack/skills/architect/SKILL.md": "a99382bc2912101370dffb11dbd6d0771b019131016678e26be6d094bbb29232",
         "plugins/pstack/skills/arena/SKILL.md": "34a4996db637e2172beeb4e6953cf20caad6c7f5586bc2db6a514c45f1ff3c1c",
@@ -120,7 +121,8 @@
         "LICENSE-thermos": "702f5f331b56aff0e33d8c7826df5202559f894145eb70355c6477b55b5bb8a0",
         "NOTICE-skills.md": "232a21a3bf88991185e6837270cba41cd83646c3998f91942c823fecc4440b4d",
         "NOTICE.md": "af48c0a58e4872de2369081e11c4faadb0cdf3090f6fc23499cb86c092730c12"
-      }
+      },
+      "reviewed_on": "2026-11-06"
     },
     {
       "repo": "addyosmani/agent-skills",
@@ -157,7 +159,8 @@
       },
       "license_files": {
         "LICENSE": "6f202f8bd568cd730dbb2b0d1f8e243bc74c2fa1f64dbce9b2c7ea08bd5c9fd7"
-      }
+      },
+      "reviewed_on": "2026-11-05"
     },
     {
       "repo": "vercel-labs/before-and-after",
@@ -171,7 +174,8 @@
       },
       "license_files": {
         "LICENSE": "e328fb0674dec4c1640fa17dbdb6834324dd53ec9ea43439e13e01e8b2598847"
-      }
+      },
+      "reviewed_on": "2026-11-05"
     },
     {
       "repo": "greptileai/skills",
@@ -186,14 +190,15 @@
       },
       "license_files": {
         "LICENSE": "b5005f09527f9533812a206cefe6ff5f71e5cdc0ae644750a3b1c71901c89ddd"
-      }
+      },
+      "reviewed_on": "2026-11-05"
     },
     {
       "repo": "cursor/plugins",
       "previous_commit": "99b609a72323b70204eab407c622f436e858e112",
       "commit": "2776ddd2355d6d6c8747d3964600f28daf62f049",
       "latest": "2026-11-05T03:14:58-08:00 Merge pull request #1181 from cursor/liam-ilan/tesla",
-      "decision": "Reviewed original pstack changes against the port; retained newer port fixes and the independent unslop definition.",
+      "decision": "Reviewed original pstack changes against the port; retained newer port fixes and the independent unslop definition. Rechecked November 6: upstream HEAD is unchanged.",
       "source_sha256": {
         "pstack/skills/architect/SKILL.md": "31f8e97a52bfa5432edd61f68ade2a8632ef0bacbc2d2a6802d7a0e6821944ac",
         "pstack/skills/arena/SKILL.md": "d0adeca6c9b19d43d90ed8f0484f0ddd362f05006d628b8f4cc6c9b55fa4d2b3",
@@ -256,7 +261,8 @@
       },
       "license_files": {
         "pstack/LICENSE": "bc957ca6bee02792566a1a028d105e02e247c6e77cf057061674273da77b200e"
-      }
+      },
+      "reviewed_on": "2026-11-06"
     },
     {
       "repo": "michaelshimeles/skills",
@@ -276,7 +282,8 @@
         "unslop/SKILL.md": "c861ee8c94debe24e28fe3f7d567883ed95ad9741fb8a4227fe217db8667fa78"
       },
       "license_files": {},
-      "canonical_repo": "michaelshimeles/rstack"
+      "canonical_repo": "michaelshimeles/rstack",
+      "reviewed_on": "2026-11-05"
     },
     {
       "repo": "davidondrej/skills",
@@ -350,7 +357,72 @@
       },
       "license_files": {
         "LICENSE": "1bd321a3b9cfa8d4af2105e20edd69d830df0b28e83a1b0255558f888e493981"
+      },
+      "reviewed_on": "2026-11-05"
+    },
+    {
+      "repo": "mattpocock/skills",
+      "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+      "reviewed_on": "2026-11-06",
+      "latest": "2026-10-31T14:23:30Z software-factory: glossary skill for designing a factory (#1316)",
+      "decision": "First reviewed import: three standalone adaptations selected from 39 source skills; all other choices recorded in vendor/mattpocock.json.",
+      "source_sha256": {
+        "skills/engineering/ask-matt/SKILL.md": "1371f5ce005de0992a44b137748bfb960a56948aa9871b405fe9d90b24332e3c",
+        "skills/engineering/code-review/SKILL.md": "9c921a8d88138a41401d8897ca1bb852088ab1b7b605cdd04edc13e3e8aab6dd",
+        "skills/engineering/codebase-design/SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+        "skills/engineering/diagnosing-bugs/SKILL.md": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+        "skills/engineering/diagnosing-bugs/agents/openai.yaml": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+        "skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503",
+        "skills/engineering/domain-modeling/ADR-FORMAT.md": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+        "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+        "skills/engineering/domain-modeling/SKILL.md": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+        "skills/engineering/domain-modeling/agents/openai.yaml": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b",
+        "skills/engineering/grill-with-docs/SKILL.md": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+        "skills/engineering/implement-spec/SKILL.md": "1993a473cec40ac85d081c112cdffdc63ec3267c2e412055ad09e013a2f623d1",
+        "skills/engineering/implement/SKILL.md": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d",
+        "skills/engineering/improve-codebase-architecture/SKILL.md": "35b03a3db61e0f5aa333ea59b54963e45a3d2ace6649b2ef4f9576603e2582a6",
+        "skills/engineering/pr/SKILL.md": "ab63f1cf78647389edcd386c9427c5dfca27ed2836930c24773ffee834c19bcd",
+        "skills/engineering/prototype/SKILL.md": "714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3",
+        "skills/engineering/research/SKILL.md": "1f629e18ab899412683bc6a1c4efb4339999e27c2fdac328f26ee10a8c031d33",
+        "skills/engineering/retro/SKILL.md": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+        "skills/engineering/setup-matt-pocock-skills/SKILL.md": "b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed",
+        "skills/engineering/tdd/SKILL.md": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+        "skills/engineering/to-spec/SKILL.md": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+        "skills/engineering/to-tickets/SKILL.md": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+        "skills/engineering/triage/SKILL.md": "917b0baf74be583e74f110857ed45df2766617f75c00baf61fd136d7af515edf",
+        "skills/engineering/wayfinder/SKILL.md": "0c9fa96791aebf3b7d654cf35c6aadde97d81f57c17b07d13b27c14d9c46561f",
+        "skills/engineering/wizard/SKILL.md": "bdf31d48211ea559878f95a4f344aeabf8d85897488ba564382bab0b000daac1",
+        "skills/in-progress/chief-of-staff/SKILL.md": "f4c1d6533edece6b275155911cb627154a6b13e2bc19934f77330f3afdd07987",
+        "skills/in-progress/claude-handoff/SKILL.md": "79357a18425d66d4c24048bedf83dceb79d3bba356f38014950f764a7fab4026",
+        "skills/in-progress/loop-me/SKILL.md": "e44d1cc3e760fb86ac42964c2a5f1fcac511715db50fb375f3f7be814de1eaa7",
+        "skills/in-progress/setup-ts-deep-modules/SKILL.md": "29acca66ac99d4532e2a6f0370d8125d7cba1e87c9ac66573203c75189d3e6c7",
+        "skills/in-progress/software-factory/SKILL.md": "645ab761b6cca61a480072b1b510eb05fe0fe5cde2ce0495b6fc234311692253",
+        "skills/in-progress/writing-beats/SKILL.md": "a96abafa2372eede8267d770138b322d6125da8adaa7ccf0a5e08e4ee13ee71e",
+        "skills/in-progress/writing-fragments/SKILL.md": "298b0edd23df229183630de592ed8aa4289233560f2040691f6eb77caeaad4ea",
+        "skills/in-progress/writing-shape/SKILL.md": "f5e6c57bdd85178ace4a260c92f46da6b64ddee18215b461d875739c68976f72",
+        "skills/misc/git-guardrails-claude-code/SKILL.md": "69b291d655626a01602b998a1836fcb93c058ede68dfafddfd71e87f17074764",
+        "skills/misc/migrate-to-shoehorn/SKILL.md": "de4da4c11d924fac79c924b2ee3d2db4a5cb98386eb490a599119463d036ae72",
+        "skills/misc/scaffold-exercises/SKILL.md": "75f5c9d771606fb9762f16522efc954df11c324f87148d8ff069bce166257de9",
+        "skills/misc/setup-pre-commit/SKILL.md": "c9819d7f1e3b198064edc1faa3154224ed67395e9f07f5d3cea4b67cf0a11a98",
+        "skills/productivity/grill-me/SKILL.md": "caaf8b8de1684f96e26b28f3c29189db5c89cce4b73e1c93d86164f66ef88637",
+        "skills/productivity/grilling/SKILL.md": "a146842ed93ca43d833550fa9adf02e58cb63c83fea9d4b4522995b82242d4e2",
+        "skills/productivity/handoff/SKILL.md": "4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3",
+        "skills/productivity/teach/SKILL.md": "550482c2d674b085c9043b87bfdc14a8f2ec453c736119e7fcbb1e9332bffeba",
+        "skills/productivity/to-questionnaire/SKILL.md": "b5eb929842ee0e93d867c5e906d183d350f2f2d149eaeaa86967d94d8eda1d3b",
+        "skills/productivity/wait-what/SKILL.md": "d961bb37defd975c539427edb8f450cdbccdcdd552e213c1ece46676a7970905",
+        "skills/productivity/writing-for-agents/SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+        "skills/productivity/writing-for-agents/SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+        "skills/productivity/writing-for-agents/agents/openai.yaml": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b"
+      },
+      "license_files": {
+        "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
       }
     }
+  ],
+  "previous_full_review_on": "2026-11-05",
+  "review_scope": [
+    "cursor/plugins",
+    "michael-denyer/pstack-claude",
+    "mattpocock/skills"
   ]
 }

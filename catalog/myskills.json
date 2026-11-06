@@ -272,6 +272,27 @@
       "external_hosts": [],
       "skill_reference_candidates": []
     },
+    "diagnosing-bugs": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "domain-modeling": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
     "efficient-fable": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [],
@@ -850,9 +871,7 @@
     },
     "principle-encode-lessons-in-structure": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
-      "effect_candidates": [
-        "tests.execute"
-      ],
+      "effect_candidates": [],
       "executable_helpers": [],
       "external_hosts": [],
       "skill_reference_candidates": []
@@ -1442,6 +1461,16 @@
       "skill_reference_candidates": [
         "poteto-mode"
       ]
+    },
+    "writing-for-agents": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
     }
   },
   "overlap_candidates": [
@@ -3317,8 +3346,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Use when a repository needs a repeatable driver that proves real UI, CLI, or service behavior.",
-      "digest": "sha256:d4c8cfe9f830223110777a8f7f397d20ddb08a9278976e5954bbbf302af11580",
+      "description": "Use for a repeatable UI, CLI, or service verification driver.",
+      "digest": "sha256:a0f16e6f9b7729f0337b129cc541a3838f9ecab82974a10aed112fd387bdd7ca",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3408,7 +3437,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.5a9fed82eb1f3ea7",
+      "version": "0.0.0+legacy.ea96f0696f2f8478",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -3623,6 +3652,220 @@
         "independent-review"
       ],
       "version": "0.0.0+legacy.9830de2e93da1ba1",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "bug-diagnosis",
+        "mattpocock"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Diagnose hard bugs with a reproducible feedback loop.",
+      "digest": "sha256:589ad6cb06ca42ae7b0984c1e4b3ea5aff399eaf18218154106b363f737cbf81",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Diagnosing bugs",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/diagnosing-bugs/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "diagnosing-bugs",
+      "tags": [
+        "bug-diagnosis",
+        "mattpocock"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.375e0c9607c767d8",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "domain-vocabulary",
+        "mattpocock"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Define business terms, domain rules, and bounded contexts.",
+      "digest": "sha256:cd75355e602f81edac95a42d99569f51523fe3e843ab129aebddb571159fd8ea",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Domain modeling",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/domain-modeling/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "domain-modeling",
+      "tags": [
+        "domain-vocabulary",
+        "mattpocock"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.e11b93bbcb11eb09",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6529,8 +6772,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Use when a correct pull request needs clearer history, description, or reviewer guidance.",
-      "digest": "sha256:9267e5613928479d5829ae13392ad7d9dafc3fc11b7dbc78328bbaf80e51bf1f",
+      "description": "Use for clearer history and review guidance on a correct PR.",
+      "digest": "sha256:a233fd6735fd807cbab822c7573d530d2b6f5c5ebc1a386fc9403823e6bd0a59",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6620,7 +6863,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.bed99b85646a5824",
+      "version": "0.0.0+legacy.62c2f4ea325164bd",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6852,8 +7095,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Use when code comments need structural review, root-cause fixes, and constraint encoding.",
-      "digest": "sha256:fe97246151123a9b101b1fde8502c75ccf5260ccd7f712dfa7ee08b6e4497976",
+      "description": "Use for code-comment review and constraint encoding.",
+      "digest": "sha256:295c2bfd350a0a579301e93172f55e725e11168e70eb3faa918929498163ab8d",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6943,7 +7186,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.e7fedba0536476cb",
+      "version": "0.0.0+legacy.454aab148cc89146",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7922,8 +8165,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Apply when a repeated instruction should become enforceable in tests, lint, metadata, or tools.",
-      "digest": "sha256:b01b1f0de855be4f94382cad3a6ae4bfc25026e7297719e0dab548d6a193a1e9",
+      "description": "Apply when recurring rules need enforceable checks.",
+      "digest": "sha256:347ab05989aeca5bc616b40b2cf308b74ed642822a472984c5c092838c73de2f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8013,7 +8256,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d337bfc635e30b56",
+      "version": "0.0.0+legacy.a8f40c279102a7d0",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8029,8 +8272,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Apply when a novel design needs concrete candidates compared before selection.",
-      "digest": "sha256:1f36823e172c0153cd6197241a3a0df5169a98a3a7baf4c9e682feebb9b3ef35",
+      "description": "Apply when novel designs need alternatives compared.",
+      "digest": "sha256:7ce9f48443ebcfd254e66ebc62fb528ae6b39fcab49285480907e50fe9abc53a",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8120,7 +8363,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.f152851f0aa010e3",
+      "version": "0.0.0+legacy.d49ba7f3cf9ebdb2",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -13150,6 +13393,113 @@
         "independent-review"
       ],
       "version": "0.0.0+legacy.89ed8d5d0d16ee34",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [
+        "agent-instructions",
+        "mattpocock"
+      ],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Write or review agent instructions and skill documents.",
+      "digest": "sha256:e73b0761f9ae51ee30b787b2d9cc78ad2eb4a819ad888ccf8d29415dc48002c0",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Writing for agents",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "adapted",
+        "license": "MIT",
+        "license_references": [
+          "skills/writing-for-agents/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "writing-for-agents",
+      "tags": [
+        "agent-instructions",
+        "mattpocock"
+      ],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.643f5b0f7c3f1a67",
       "visibility": {
         "scope": "public",
         "subject": ""

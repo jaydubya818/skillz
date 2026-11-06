@@ -1,0 +1,323 @@
+{
+  "schema": "vendored-agent-skills/v1",
+  "upstream": "https://github.com/mattpocock/skills",
+  "commit": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+  "reviewed_on": "2026-11-06",
+  "license": "MIT",
+  "copyright": "Copyright (c) 2026 Matt Pocock",
+  "integration_mode": "curated-rewrite",
+  "imported": [
+    "diagnosing-bugs",
+    "domain-modeling",
+    "writing-for-agents"
+  ],
+  "source_paths": {
+    "ask-matt": "skills/engineering/ask-matt/SKILL.md",
+    "code-review": "skills/engineering/code-review/SKILL.md",
+    "codebase-design": "skills/engineering/codebase-design/SKILL.md",
+    "diagnosing-bugs": "skills/engineering/diagnosing-bugs/SKILL.md",
+    "domain-modeling": "skills/engineering/domain-modeling/SKILL.md",
+    "grill-with-docs": "skills/engineering/grill-with-docs/SKILL.md",
+    "implement-spec": "skills/engineering/implement-spec/SKILL.md",
+    "implement": "skills/engineering/implement/SKILL.md",
+    "improve-codebase-architecture": "skills/engineering/improve-codebase-architecture/SKILL.md",
+    "pr": "skills/engineering/pr/SKILL.md",
+    "prototype": "skills/engineering/prototype/SKILL.md",
+    "research": "skills/engineering/research/SKILL.md",
+    "retro": "skills/engineering/retro/SKILL.md",
+    "setup-matt-pocock-skills": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+    "tdd": "skills/engineering/tdd/SKILL.md",
+    "to-spec": "skills/engineering/to-spec/SKILL.md",
+    "to-tickets": "skills/engineering/to-tickets/SKILL.md",
+    "triage": "skills/engineering/triage/SKILL.md",
+    "wayfinder": "skills/engineering/wayfinder/SKILL.md",
+    "wizard": "skills/engineering/wizard/SKILL.md",
+    "chief-of-staff": "skills/in-progress/chief-of-staff/SKILL.md",
+    "claude-handoff": "skills/in-progress/claude-handoff/SKILL.md",
+    "loop-me": "skills/in-progress/loop-me/SKILL.md",
+    "setup-ts-deep-modules": "skills/in-progress/setup-ts-deep-modules/SKILL.md",
+    "software-factory": "skills/in-progress/software-factory/SKILL.md",
+    "writing-beats": "skills/in-progress/writing-beats/SKILL.md",
+    "writing-fragments": "skills/in-progress/writing-fragments/SKILL.md",
+    "writing-shape": "skills/in-progress/writing-shape/SKILL.md",
+    "git-guardrails-claude-code": "skills/misc/git-guardrails-claude-code/SKILL.md",
+    "migrate-to-shoehorn": "skills/misc/migrate-to-shoehorn/SKILL.md",
+    "scaffold-exercises": "skills/misc/scaffold-exercises/SKILL.md",
+    "setup-pre-commit": "skills/misc/setup-pre-commit/SKILL.md",
+    "grill-me": "skills/productivity/grill-me/SKILL.md",
+    "grilling": "skills/productivity/grilling/SKILL.md",
+    "handoff": "skills/productivity/handoff/SKILL.md",
+    "teach": "skills/productivity/teach/SKILL.md",
+    "to-questionnaire": "skills/productivity/to-questionnaire/SKILL.md",
+    "wait-what": "skills/productivity/wait-what/SKILL.md",
+    "writing-for-agents": "skills/productivity/writing-for-agents/SKILL.md"
+  },
+  "excluded": {
+    "ask-matt": {
+      "reason": "Source-specific router; Skillz already routes its own collection.",
+      "alternatives": [
+        "poteto-help"
+      ]
+    },
+    "chief-of-staff": {
+      "reason": "In-progress long-running orchestration and wiki conventions are not needed by the selected workflows.",
+      "alternatives": [
+        "factory",
+        "swarm"
+      ]
+    },
+    "claude-handoff": {
+      "reason": "Automatic background-agent launch and a Claude-specific CLI overlap the existing handoff.",
+      "alternatives": [
+        "handoff"
+      ]
+    },
+    "code-review": {
+      "reason": "Overlaps the existing correctness and maintainability review workflows.",
+      "alternatives": [
+        "thermos"
+      ]
+    },
+    "codebase-design": {
+      "reason": "Deep-module design overlaps existing architecture and boundary guidance.",
+      "alternatives": [
+        "architect",
+        "code-structure"
+      ]
+    },
+    "git-guardrails-claude-code": {
+      "reason": "Agent hook installation and global/project configuration need a separate explicit setup task.",
+      "alternatives": []
+    },
+    "grill-me": {
+      "reason": "Interview alias duplicates the existing scoped planning route.",
+      "alternatives": [
+        "figure-it-out"
+      ]
+    },
+    "grill-with-docs": {
+      "reason": "Interview alias and documentation side effects overlap scoped planning and the selected domain workflow.",
+      "alternatives": [
+        "figure-it-out",
+        "domain-modeling"
+      ]
+    },
+    "grilling": {
+      "reason": "An additional relentless interview protocol is unnecessary alongside existing product decision rules.",
+      "alternatives": [
+        "figure-it-out"
+      ]
+    },
+    "handoff": {
+      "reason": "Name collision with the verified continuity workflow already imported.",
+      "alternatives": [
+        "handoff"
+      ]
+    },
+    "implement": {
+      "reason": "Implementation router overlaps the current delivery workflow.",
+      "alternatives": [
+        "poteto-mode"
+      ]
+    },
+    "implement-spec": {
+      "reason": "Adds a parallel spec/ticket lifecycle and tracker configuration requirement.",
+      "alternatives": [
+        "poteto-mode"
+      ]
+    },
+    "improve-codebase-architecture": {
+      "reason": "Architecture scanning and alternatives already have focused workflows.",
+      "alternatives": [
+        "architect",
+        "principle-exhaust-the-design-space"
+      ]
+    },
+    "loop-me": {
+      "reason": "In-progress workflow design overlaps configured factory planning.",
+      "alternatives": [
+        "factory"
+      ]
+    },
+    "migrate-to-shoehorn": {
+      "reason": "A specific testing dependency migration is not currently required.",
+      "alternatives": []
+    },
+    "pr": {
+      "reason": "PR-body guidance already lives in the writing and reviewability workflows.",
+      "alternatives": [
+        "technical-writing",
+        "make-pr-easy-to-review"
+      ]
+    },
+    "prototype": {
+      "reason": "Existing prototype playbook and visual planning cover bounded experiments.",
+      "alternatives": [
+        "poteto-mode",
+        "visual-plan"
+      ]
+    },
+    "research": {
+      "reason": "Primary-source research is already covered; do not add mandatory background delegation.",
+      "alternatives": [
+        "read-the-damn-docs"
+      ]
+    },
+    "retro": {
+      "reason": "Session learning and enforcement are already covered.",
+      "alternatives": [
+        "reflect",
+        "correct"
+      ]
+    },
+    "scaffold-exercises": {
+      "reason": "Course scaffolding and its CLI/commit conventions are outside SellerFi delivery.",
+      "alternatives": []
+    },
+    "setup-matt-pocock-skills": {
+      "reason": "A second repository setup and tracker convention is unnecessary for the standalone adaptations.",
+      "alternatives": []
+    },
+    "setup-pre-commit": {
+      "reason": "Imposes Husky and Prettier; existing CI guidance follows each project's actual toolchain.",
+      "alternatives": [
+        "ci-cd-and-automation"
+      ]
+    },
+    "setup-ts-deep-modules": {
+      "reason": "In-progress enforcement imposes a TypeScript layout and dependency-cruiser setup; defer to a project request.",
+      "alternatives": [
+        "code-structure"
+      ]
+    },
+    "software-factory": {
+      "reason": "In-progress glossary tied to a distinct factory design; retain the current governed factory workflows.",
+      "alternatives": [
+        "factory",
+        "mission-control-delivery"
+      ]
+    },
+    "tdd": {
+      "reason": "Name collision with the current Jstack test-first workflow.",
+      "alternatives": [
+        "tdd"
+      ]
+    },
+    "teach": {
+      "reason": "Name collision with the current Jstack teaching workflow; do not replace it.",
+      "alternatives": [
+        "teach"
+      ]
+    },
+    "to-questionnaire": {
+      "reason": "Useful for a named stakeholder discovery task, but no such task is currently needed.",
+      "alternatives": []
+    },
+    "to-spec": {
+      "reason": "Tracker publication, extensive user-story templates, and a second spec lifecycle need a specific project request.",
+      "alternatives": [
+        "figure-it-out",
+        "architect"
+      ]
+    },
+    "to-tickets": {
+      "reason": "Tracker writes and mandatory ticket conventions add another planning lifecycle.",
+      "alternatives": [
+        "principle-sequence-verifiable-units"
+      ]
+    },
+    "triage": {
+      "reason": "Configured product intake and PR triage already exist; label changes and comments require separate authority.",
+      "alternatives": [
+        "factory-collect",
+        "factory-review-prs"
+      ]
+    },
+    "wait-what": {
+      "reason": "Plain-language restatement overlaps the existing explanation workflow.",
+      "alternatives": [
+        "bro"
+      ]
+    },
+    "wayfinder": {
+      "reason": "A persistent issue-based decision map is more process than the current V1 needs.",
+      "alternatives": [
+        "figure-it-out",
+        "show-me-your-work"
+      ]
+    },
+    "wizard": {
+      "reason": "Interactive shell wizards for human-only infrastructure steps need an actual setup task and script validation.",
+      "alternatives": []
+    },
+    "writing-beats": {
+      "reason": "In-progress article composition is outside the engineering collection.",
+      "alternatives": []
+    },
+    "writing-fragments": {
+      "reason": "In-progress creative writing capture is outside the engineering collection.",
+      "alternatives": []
+    },
+    "writing-shape": {
+      "reason": "In-progress article structure workflow is outside the engineering collection.",
+      "alternatives": []
+    }
+  },
+  "source_sha256": {
+    "LICENSE": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
+    "skills/engineering/ask-matt/SKILL.md": "1371f5ce005de0992a44b137748bfb960a56948aa9871b405fe9d90b24332e3c",
+    "skills/engineering/code-review/SKILL.md": "9c921a8d88138a41401d8897ca1bb852088ab1b7b605cdd04edc13e3e8aab6dd",
+    "skills/engineering/codebase-design/SKILL.md": "2c20617f87ec8af6a434859f381b2f061a69b530444e74eb39e78bb016a6d1e2",
+    "skills/engineering/diagnosing-bugs/SKILL.md": "849198df88cdb65fd0d97236604c1fca7ff2f22d2f705f9724a800d0266b118d",
+    "skills/engineering/diagnosing-bugs/agents/openai.yaml": "3e430dbe4334a87597488c060cb3dc3786bb00c9182877d6f5ec41f62490e90b",
+    "skills/engineering/diagnosing-bugs/scripts/hitl-loop.template.sh": "35103539fc36873eea36074769ad454f9379d6fc8b2dc0e26ce987fd3bfe5503",
+    "skills/engineering/domain-modeling/ADR-FORMAT.md": "944c92aa790e8fbdc9199640b170979abb8a34ba8d0fe18c2a01a63bce140ca0",
+    "skills/engineering/domain-modeling/GLOSSARY-FORMAT.md": "21dcc40cdec8e151a829b98ab1517c1867bc444e3665134a98c6983411996801",
+    "skills/engineering/domain-modeling/SKILL.md": "7b925d7b1e341a2eeae33ad68a8a8c0ab889a38ddd22a7598e4c240e5a7556a3",
+    "skills/engineering/domain-modeling/agents/openai.yaml": "f6bf2aa996c6e6f53fdd0708e18a0d16a56aed8322cca59fedbe3c0d2c75f06b",
+    "skills/engineering/grill-with-docs/SKILL.md": "7de372c13488f1ee96cc11cd8907b56b6809cc93eef776eeddd37de6b6cbe3fe",
+    "skills/engineering/implement-spec/SKILL.md": "1993a473cec40ac85d081c112cdffdc63ec3267c2e412055ad09e013a2f623d1",
+    "skills/engineering/implement/SKILL.md": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d",
+    "skills/engineering/improve-codebase-architecture/SKILL.md": "35b03a3db61e0f5aa333ea59b54963e45a3d2ace6649b2ef4f9576603e2582a6",
+    "skills/engineering/pr/SKILL.md": "ab63f1cf78647389edcd386c9427c5dfca27ed2836930c24773ffee834c19bcd",
+    "skills/engineering/prototype/SKILL.md": "714de632d116bb73f65cdb5a882db15b9369a6713b9a47c0fad827848f0bfbe3",
+    "skills/engineering/research/SKILL.md": "1f629e18ab899412683bc6a1c4efb4339999e27c2fdac328f26ee10a8c031d33",
+    "skills/engineering/retro/SKILL.md": "33fbc28568e3146f20fd908b12998bc0ab30aa4f4c87288199a40793efa94696",
+    "skills/engineering/setup-matt-pocock-skills/SKILL.md": "b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed",
+    "skills/engineering/tdd/SKILL.md": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0",
+    "skills/engineering/to-spec/SKILL.md": "43ad9cf318e5e7d3d1fa360253a37021796dc87a0c2e595ad262661a10f85088",
+    "skills/engineering/to-tickets/SKILL.md": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995",
+    "skills/engineering/triage/SKILL.md": "917b0baf74be583e74f110857ed45df2766617f75c00baf61fd136d7af515edf",
+    "skills/engineering/wayfinder/SKILL.md": "0c9fa96791aebf3b7d654cf35c6aadde97d81f57c17b07d13b27c14d9c46561f",
+    "skills/engineering/wizard/SKILL.md": "bdf31d48211ea559878f95a4f344aeabf8d85897488ba564382bab0b000daac1",
+    "skills/in-progress/chief-of-staff/SKILL.md": "f4c1d6533edece6b275155911cb627154a6b13e2bc19934f77330f3afdd07987",
+    "skills/in-progress/claude-handoff/SKILL.md": "79357a18425d66d4c24048bedf83dceb79d3bba356f38014950f764a7fab4026",
+    "skills/in-progress/loop-me/SKILL.md": "e44d1cc3e760fb86ac42964c2a5f1fcac511715db50fb375f3f7be814de1eaa7",
+    "skills/in-progress/setup-ts-deep-modules/SKILL.md": "29acca66ac99d4532e2a6f0370d8125d7cba1e87c9ac66573203c75189d3e6c7",
+    "skills/in-progress/software-factory/SKILL.md": "645ab761b6cca61a480072b1b510eb05fe0fe5cde2ce0495b6fc234311692253",
+    "skills/in-progress/writing-beats/SKILL.md": "a96abafa2372eede8267d770138b322d6125da8adaa7ccf0a5e08e4ee13ee71e",
+    "skills/in-progress/writing-fragments/SKILL.md": "298b0edd23df229183630de592ed8aa4289233560f2040691f6eb77caeaad4ea",
+    "skills/in-progress/writing-shape/SKILL.md": "f5e6c57bdd85178ace4a260c92f46da6b64ddee18215b461d875739c68976f72",
+    "skills/misc/git-guardrails-claude-code/SKILL.md": "69b291d655626a01602b998a1836fcb93c058ede68dfafddfd71e87f17074764",
+    "skills/misc/migrate-to-shoehorn/SKILL.md": "de4da4c11d924fac79c924b2ee3d2db4a5cb98386eb490a599119463d036ae72",
+    "skills/misc/scaffold-exercises/SKILL.md": "75f5c9d771606fb9762f16522efc954df11c324f87148d8ff069bce166257de9",
+    "skills/misc/setup-pre-commit/SKILL.md": "c9819d7f1e3b198064edc1faa3154224ed67395e9f07f5d3cea4b67cf0a11a98",
+    "skills/productivity/grill-me/SKILL.md": "caaf8b8de1684f96e26b28f3c29189db5c89cce4b73e1c93d86164f66ef88637",
+    "skills/productivity/grilling/SKILL.md": "a146842ed93ca43d833550fa9adf02e58cb63c83fea9d4b4522995b82242d4e2",
+    "skills/productivity/handoff/SKILL.md": "4cbb043950dad2ffd3662ff1a5a0b51ae676004b5cae10e3787e8ee7a4ee69d3",
+    "skills/productivity/teach/SKILL.md": "550482c2d674b085c9043b87bfdc14a8f2ec453c736119e7fcbb1e9332bffeba",
+    "skills/productivity/to-questionnaire/SKILL.md": "b5eb929842ee0e93d867c5e906d183d350f2f2d149eaeaa86967d94d8eda1d3b",
+    "skills/productivity/wait-what/SKILL.md": "d961bb37defd975c539427edb8f450cdbccdcdd552e213c1ece46676a7970905",
+    "skills/productivity/writing-for-agents/SKILL-MECHANICS.md": "c768e6307c7c10728c401c213f2c4ba71c542127eeb7ad2956aabd15a0fa0059",
+    "skills/productivity/writing-for-agents/SKILL.md": "551adca942227b44192edba88acd4e8db911f0121ce58ad16944ccf6a896a74a",
+    "skills/productivity/writing-for-agents/agents/openai.yaml": "eacb24b2a618cfb81dacb0416f4fdd75ddf3a8060f8ddb99aae1b1e301907e4b"
+  },
+  "integration": [
+    "Three standalone adaptations with no upstream helpers, hooks, or setup requirements",
+    "Preserved MIT notices, source revision, and normal automatic discovery",
+    "Existing glossary and ADR conventions take precedence over a fixed source layout",
+    "Diagnosis preserves a concrete failure signal without rigid hypothesis counts or production probes",
+    "Agent-instruction guidance preserves user authority, explicit safety limits, and client-specific invocation policy",
+    "Five Jstack discovery descriptions shortened without changing workflow bodies or raising the 8000-byte budget"
+  ]
+}

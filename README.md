@@ -30,7 +30,13 @@ decision records, product assumption checks, read-only database access planning,
 and verified instructions for teammates. The
 [selection review](docs/DAVIDONDREJ_REVIEW.md) accounts for all 62 upstream skills.
 
-This repository packages 109 skills behind one canonical `skills/` tree:
+Three standalone adaptations from
+[`mattpocock/skills`](https://github.com/mattpocock/skills) add business domain
+modeling, systematic bug diagnosis, and instruction writing for agents. The
+[selection review](docs/LAUREN_MATT_REVIEW_2026-11-06.md) accounts for all
+39 Matt skills and confirms Lauren's upstream revisions are current.
+
+This repository packages 112 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
 - 40 Jstack workflows for planning, implementation, review, and operations
@@ -38,6 +44,7 @@ This repository packages 109 skills behind one canonical `skills/` tree:
 - 25 Builder.io and Agent-Native workflows
 - 7 adapted Addy Osmani production engineering workflows
 - 5 adapted David Ondrej continuity, decision, and access workflows
+- 3 adapted Matt Pocock domain, diagnosis, and instruction workflows
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code,
@@ -53,7 +60,20 @@ the seven checked source repositories, current revisions, all 11 new Jstack
 skills, retained local fixes, and deferred original-source additions. Source
 hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream-review.json).
 
-## New in 2.7.0
+## New in 2.8.0
+
+| Skill | Purpose |
+| --- | --- |
+| [`domain-modeling`](skills/domain-modeling/SKILL.md) | Resolve business terminology, rules, and context boundaries. |
+| [`diagnosing-bugs`](skills/diagnosing-bugs/SKILL.md) | Build a failure signal, test causes, and verify a scoped correction. |
+| [`writing-for-agents`](skills/writing-for-agents/SKILL.md) | Write instruction documents with clear triggers, results, and authority limits. |
+
+These are self-contained adaptations with MIT notices and pinned provenance.
+They preserve existing documentation conventions and require no upstream
+setup skill, helper scripts, or new service. Lauren's original pstack and the
+Jstack port were checked on November 6 and remain at the revisions in 2.7.0.
+
+## Added in 2.7.0
 
 The [November 5 source review](docs/UPSTREAM_REFRESH_2026-11-05.md) checks all
 eight recorded upstream repositories and records their exact revisions.
@@ -142,7 +162,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 109 skills. Descriptions are the routing layer; the selected
+Do not preload all 112 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -807,6 +827,12 @@ python3 skills/evidence-driven-testing/scripts/evidence.py doctor --json
 
 ## Validation
 
+The November 6 Matt integration passed 185 portable Python tests, all three new
+skill validators, source-hash checks, catalog validation, and release checks.
+A fresh project install contains 112 shared skills, 112 Claude skills, and four
+companion agents. The [review](docs/LAUREN_MATT_REVIEW_2026-11-06.md#verification-and-limits)
+records the unchanged recorder environment failures and the upstream comparison.
+
 The November 5 refresh passed 181 portable Python tests and 223 imported Bun
 tests. Both generators reproduce the reviewed tree. A fresh project install
 contains 109 shared skills, 109 Claude skills, and four companion agents.
@@ -831,7 +857,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.7.0
+python3 scripts/check_release.py v2.8.0
 git diff --check
 ```
 
@@ -858,7 +884,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 109 canonical skill directories
+- exactly 112 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
@@ -868,6 +894,7 @@ The tests verify:
 - local Markdown links
 - pinned Jstack, Builder.io, Addy Osmani, and David Ondrej provenance and license retention
 - standalone installation and source inventory checks for the David Ondrej adaptations
+- standalone installation, license retention, and source inventory checks for the Matt Pocock adaptations
 - isolated installation of every Addy adaptation with all local references
 - Claude, Codex, Cursor, and custom-runtime installer destinations
 - conflict refusal, backups, dry runs, copy mode, symlink mode, deduplication, and idempotency

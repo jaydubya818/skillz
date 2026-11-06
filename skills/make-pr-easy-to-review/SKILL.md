@@ -1,6 +1,6 @@
 ---
 name: make-pr-easy-to-review
-description: "Use when a correct pull request needs clearer history, description, or reviewer guidance."
+description: "Use for clearer history and review guidance on a correct PR."
 license: MIT
 metadata:
   author: jstack-maintainers

@@ -7,7 +7,7 @@ import sys
 
 ROOT = Path(__file__).parents[1]
 SKILLS = ROOT / "skills"
-RELEASE_VERSION = "2.7.0"
+RELEASE_VERSION = "2.8.0"
 CORE_SKILLS = {
     "before-and-after",
     "code-structure",
@@ -25,6 +25,7 @@ def expected_skills() -> set[str]:
     builderio = json.loads((ROOT / "vendor" / "builderio.json").read_text())
     addyosmani = json.loads((ROOT / "vendor" / "addyosmani.json").read_text())
     davidondrej = json.loads((ROOT / "vendor" / "davidondrej.json").read_text())
+    mattpocock = json.loads((ROOT / "vendor" / "mattpocock.json").read_text())
     assert jstack["schema"] == "vendored-agent-skills/v1"
     assert builderio["schema"] == "vendored-agent-skills/v1"
     assert jstack["excluded"] == {
@@ -34,12 +35,14 @@ def expected_skills() -> set[str]:
     }
     assert addyosmani["schema"] == "vendored-agent-skills/v1"
     assert davidondrej["schema"] == "vendored-agent-skills/v1"
+    assert mattpocock["schema"] == "vendored-agent-skills/v1"
     return (
         CORE_SKILLS
         | set(jstack["imported"])
         | set(builderio["imported"])
         | set(addyosmani["imported"])
         | set(davidondrej["imported"])
+        | set(mattpocock["imported"])
     )
 
 
@@ -314,10 +317,10 @@ def test_efficient_orchestration_retains_explicit_invocation_across_runtimes():
 
 def test_upstream_review_covers_every_recorded_source_at_the_imported_revisions():
     review = json.loads((ROOT / "vendor" / "upstream-review.json").read_text())
-    assert review["reviewed_on"] == "2026-11-05"
+    assert review["reviewed_on"] == "2026-11-06"
     sources = {source["repo"]: source for source in review["sources"]}
-    assert len(sources) == len(review["sources"]) == 8
-    for name in ("jstack", "builderio", "addyosmani", "davidondrej"):
+    assert len(sources) == len(review["sources"]) == 9
+    for name in ("jstack", "builderio", "addyosmani", "davidondrej", "mattpocock"):
         vendor = json.loads((ROOT / "vendor" / f"{name}.json").read_text())
         source = sources[vendor["upstream"].removeprefix("https://github.com/")]
         assert source["commit"] == vendor["commit"]
