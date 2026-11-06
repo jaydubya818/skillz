@@ -1,6 +1,6 @@
 ---
 name: create-verification-skill
-description: "Use when a repository needs a repeatable driver that proves real UI, CLI, or service behavior."
+description: "Use for a repeatable UI, CLI, or service verification driver."
 license: MIT
 metadata:
   author: jstack-maintainers

@@ -1,6 +1,6 @@
 ---
 name: principle-exhaust-the-design-space
-description: "Apply when a novel design needs concrete candidates compared before selection."
+description: "Apply when novel designs need alternatives compared."
 license: MIT
 metadata:
   author: jstack-maintainers

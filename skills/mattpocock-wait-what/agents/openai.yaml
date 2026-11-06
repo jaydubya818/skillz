@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Wait What"
+  short_description: "Restate the previous explanation in plain language."
+  default_prompt: "Use $mattpocock-wait-what for this task."
+policy:
+  allow_implicit_invocation: false

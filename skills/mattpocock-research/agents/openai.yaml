@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Research"
+  short_description: "Research cited primary sources."
+  default_prompt: "Use $mattpocock-research for this task."

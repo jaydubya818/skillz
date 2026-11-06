@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Chief Of Staff"
+  short_description: "Coordinate a long-running goal and a dated project wiki."
+  default_prompt: "Use $mattpocock-chief-of-staff for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: PR"
+  short_description: "Write PR bodies with evidence."
+  default_prompt: "Use $mattpocock-pr for this task."

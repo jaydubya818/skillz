@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Wizard"
+  short_description: "Script human-only setup steps."
+  default_prompt: "Use $mattpocock-wizard for this task."

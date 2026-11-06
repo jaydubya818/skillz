@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: TDD"
+  short_description: "Build with red-green-refactor."
+  default_prompt: "Use $mattpocock-tdd for this task."

@@ -1,6 +1,6 @@
 ---
 name: principle-encode-lessons-in-structure
-description: "Apply when a repeated instruction should become enforceable in tests, lint, metadata, or tools."
+description: "Apply when recurring rules need enforceable checks."
 license: MIT
 metadata:
   author: jstack-maintainers

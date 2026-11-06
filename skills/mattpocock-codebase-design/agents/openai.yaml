@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Codebase Design"
+  short_description: "Design deep, testable modules."
+  default_prompt: "Use $mattpocock-codebase-design for this task."
