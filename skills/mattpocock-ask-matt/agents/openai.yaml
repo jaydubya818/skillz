@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Ask Matt"
+  short_description: "Choose a Matt Pocock skill or workflow."
+  default_prompt: "Use $mattpocock-ask-matt for this task."
+policy:
+  allow_implicit_invocation: false

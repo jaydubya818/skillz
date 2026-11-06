@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Setup Pre-Commit"
+  short_description: "Set up Husky and lint-staged."
+  default_prompt: "Use $mattpocock-setup-pre-commit for this task."

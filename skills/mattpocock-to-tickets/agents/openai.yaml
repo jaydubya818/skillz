@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: To Tickets"
+  short_description: "Split a spec into verifiable tickets with blocking edges."
+  default_prompt: "Use $mattpocock-to-tickets for this task."
+policy:
+  allow_implicit_invocation: false

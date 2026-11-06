@@ -1,4 +1,0 @@
-interface:
-  display_name: "Business domain modeling"
-  short_description: "Define clear business terms and boundaries"
-  default_prompt: "Use $domain-modeling to resolve the business vocabulary, rules, and context boundaries for this work."

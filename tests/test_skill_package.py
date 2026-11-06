@@ -109,13 +109,16 @@ def test_skill_frontmatter_uses_portable_fields_and_codex_metadata():
 
 
 def test_skill_descriptions_fit_the_codex_discovery_budget():
-    descriptions = [
-        description_value(frontmatter(SKILLS / name / "SKILL.md"))
-        for name in expected_skills()
-    ]
-    byte_lengths = [len(description.encode("utf-8")) for description in descriptions]
-    assert all(length <= 220 for length in byte_lengths)
-    assert sum(byte_lengths) <= 8000
+    automatic_bytes = 0
+    for name in expected_skills():
+        description = description_value(frontmatter(SKILLS / name / "SKILL.md"))
+        length = len(description.encode("utf-8"))
+        assert length <= 220
+        ui = (SKILLS / name / "agents/openai.yaml").read_text()
+        # Explicit-only skills remain in the package, outside automatic discovery.
+        if "allow_implicit_invocation: false" not in ui:
+            automatic_bytes += length
+    assert automatic_bytes <= 8000
 
 
 def test_local_markdown_links_resolve():

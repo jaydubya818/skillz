@@ -1,152 +1,150 @@
 # Lauren and Matt upstream review
 
-Checked on November 6, 2026. This review follows the merged 2.7.0 source
-refresh. It checks Lauren Tan's original pstack, its Jstack distribution port,
-and Matt Pocock's skills. Matt was referenced in earlier comparison notes but
-had no distribution manifest in Skillz; this is the first reviewed import.
+Checked on November 6, 2026, after the merged 2.7.0 source refresh.
+The user requested Matt's complete collection with distinct names.
 
 ## Source state
 
 | Source | Latest checked revision | Result |
 | --- | --- | --- |
-| [Lauren's original pstack](https://github.com/cursor/plugins/tree/main/pstack) | `2776ddd2355d6d6c8747d3964600f28daf62f049` | Unchanged from the revision reviewed in PR #10. |
-| [Jstack port](https://github.com/michael-denyer/pstack-claude) | `d88063f3355a5ecff0e6dbb890a11bab4b08bc2e`, 0.9.130 | Already current in the merged 2.7.0 import. |
-| [Matt Pocock](https://github.com/mattpocock/skills) | `4ae2317ddb22b046e26455e4f9c9b3aaaf62212d` | Review all 39 source entrypoints; adapt three and record the other 36 decisions. |
+| [Lauren's original pstack](https://github.com/cursor/plugins/tree/main/pstack) | `2776ddd2355d6d6c8747d3964600f28daf62f049` | Unchanged from PR #10. |
+| [Jstack port](https://github.com/michael-denyer/pstack-claude) | `d88063f3355a5ecff0e6dbb890a11bab4b08bc2e`, 0.9.130 | Already current in 2.7.0. |
+| [Matt Pocock](https://github.com/mattpocock/skills) | `4ae2317ddb22b046e26455e4f9c9b3aaaf62212d` | All 39 skills and their supporting resources imported. |
 
 The [aggregate receipts](../vendor/upstream-review.json) identify this review's
 three-source scope. Other sources retain their November 5 check dates.
-The [Matt manifest](../vendor/mattpocock.json) records every source path,
-decisions, source hashes, and the complete MIT license hash. The source is
-copyright 2026 Matt Pocock.
+The [Matt manifest](../vendor/mattpocock.json) records source paths, local names,
+source and output hashes, invocation policies, and experimental status. Each
+skill retains the complete MIT notice, copyright 2026 Matt Pocock.
 
-## Selection
+## Complete inventory
 
-The collection already covers architecture, code review, planning, handoffs,
-TDD, and governed delivery. Avoid duplicate routers or new tracker conventions
-unless an actual project needs them.
+All 39 names use the `mattpocock-` prefix, including names without an existing
+collision. Existing `tdd`, `handoff`, `teach`, factory, and review workflows keep
+their names and behavior. The initial three unprefixed Matt adaptations in this
+PR are replaced by the complete namespaced ports.
 
-| Upstream skill | Decision and reason |
-| --- | --- |
-| `ask-matt` | Defer. Source-specific router; Skillz already routes its own collection. Start with `poteto-help`. |
-| `chief-of-staff` | Defer. In-progress long-running orchestration and wiki conventions are not needed by the selected workflows. Start with `factory`, `swarm`. |
-| `claude-handoff` | Defer. Automatic background-agent launch and a Claude-specific CLI overlap the existing handoff. Start with `handoff`. |
-| `code-review` | Defer. Overlaps the existing correctness and maintainability review workflows. Start with `thermos`. |
-| `codebase-design` | Defer. Deep-module design overlaps existing architecture and boundary guidance. Start with `architect`, `code-structure`. |
-| `diagnosing-bugs` | Adapt. A concrete diagnosis loop beyond the existing testing and root-cause principles. |
-| `domain-modeling` | Adapt. Business vocabulary and context modeling beyond the existing code-structure principle. |
-| `git-guardrails-claude-code` | Defer. Agent hook installation and global/project configuration need a separate explicit setup task. |
-| `grill-me` | Defer. Interview alias duplicates the existing scoped planning route. Start with `figure-it-out`. |
-| `grill-with-docs` | Defer. Interview alias and documentation side effects overlap scoped planning and the selected domain workflow. Start with `figure-it-out`, `domain-modeling`. |
-| `grilling` | Defer. An additional relentless interview protocol is unnecessary alongside existing product decision rules. Start with `figure-it-out`. |
-| `handoff` | Defer. Name collision with the verified continuity workflow already imported. Start with `handoff`. |
-| `implement` | Defer. Implementation router overlaps the current delivery workflow. Start with `poteto-mode`. |
-| `implement-spec` | Defer. Adds a parallel spec/ticket lifecycle and tracker configuration requirement. Start with `poteto-mode`. |
-| `improve-codebase-architecture` | Defer. Architecture scanning and alternatives already have focused workflows. Start with `architect`, `principle-exhaust-the-design-space`. |
-| `loop-me` | Defer. In-progress workflow design overlaps configured factory planning. Start with `factory`. |
-| `migrate-to-shoehorn` | Defer. A specific testing dependency migration is not currently required. |
-| `pr` | Defer. PR-body guidance already lives in the writing and reviewability workflows. Start with `technical-writing`, `make-pr-easy-to-review`. |
-| `prototype` | Defer. Existing prototype playbook and visual planning cover bounded experiments. Start with `poteto-mode`, `visual-plan`. |
-| `research` | Defer. Primary-source research is already covered; do not add mandatory background delegation. Start with `read-the-damn-docs`. |
-| `retro` | Defer. Session learning and enforcement are already covered. Start with `reflect`, `correct`. |
-| `scaffold-exercises` | Defer. Course scaffolding and its CLI/commit conventions are outside SellerFi delivery. |
-| `setup-matt-pocock-skills` | Defer. A second repository setup and tracker convention is unnecessary for the standalone adaptations. |
-| `setup-pre-commit` | Defer. Imposes Husky and Prettier; existing CI guidance follows each project's actual toolchain. Start with `ci-cd-and-automation`. |
-| `setup-ts-deep-modules` | Defer. In-progress enforcement imposes a TypeScript layout and dependency-cruiser setup; defer to a project request. Start with `code-structure`. |
-| `software-factory` | Defer. In-progress glossary tied to a distinct factory design; retain the current governed factory workflows. Start with `factory`, `mission-control-delivery`. |
-| `tdd` | Defer. Name collision with the current Jstack test-first workflow. Start with `tdd`. |
-| `teach` | Defer. Name collision with the current Jstack teaching workflow; do not replace it. Start with `teach`. |
-| `to-questionnaire` | Defer. Useful for a named stakeholder discovery task, but no such task is currently needed. |
-| `to-spec` | Defer. Tracker publication, extensive user-story templates, and a second spec lifecycle need a specific project request. Start with `figure-it-out`, `architect`. |
-| `to-tickets` | Defer. Tracker writes and mandatory ticket conventions add another planning lifecycle. Start with `principle-sequence-verifiable-units`. |
-| `triage` | Defer. Configured product intake and PR triage already exist; label changes and comments require separate authority. Start with `factory-collect`, `factory-review-prs`. |
-| `wait-what` | Defer. Plain-language restatement overlaps the existing explanation workflow. Start with `bro`. |
-| `wayfinder` | Defer. A persistent issue-based decision map is more process than the current V1 needs. Start with `figure-it-out`, `show-me-your-work`. |
-| `wizard` | Defer. Interactive shell wizards for human-only infrastructure steps need an actual setup task and script validation. |
-| `writing-beats` | Defer. In-progress article composition is outside the engineering collection. |
-| `writing-for-agents` | Adapt. Portable instruction authoring beyond general technical prose. |
-| `writing-fragments` | Defer. In-progress creative writing capture is outside the engineering collection. |
-| `writing-shape` | Defer. In-progress article structure workflow is outside the engineering collection. |
+| Upstream name | Local skill | Source group | Invocation and status |
+| --- | --- | --- | --- |
+| `ask-matt` | [`mattpocock-ask-matt`](../skills/mattpocock-ask-matt/SKILL.md) | engineering | Explicit only |
+| `chief-of-staff` | [`mattpocock-chief-of-staff`](../skills/mattpocock-chief-of-staff/SKILL.md) | in-progress | Explicit only; in progress |
+| `claude-handoff` | [`mattpocock-claude-handoff`](../skills/mattpocock-claude-handoff/SKILL.md) | in-progress | Explicit only; in progress |
+| `code-review` | [`mattpocock-code-review`](../skills/mattpocock-code-review/SKILL.md) | engineering | Automatic discovery |
+| `codebase-design` | [`mattpocock-codebase-design`](../skills/mattpocock-codebase-design/SKILL.md) | engineering | Automatic discovery |
+| `diagnosing-bugs` | [`mattpocock-diagnosing-bugs`](../skills/mattpocock-diagnosing-bugs/SKILL.md) | engineering | Automatic discovery |
+| `domain-modeling` | [`mattpocock-domain-modeling`](../skills/mattpocock-domain-modeling/SKILL.md) | engineering | Automatic discovery |
+| `git-guardrails-claude-code` | [`mattpocock-git-guardrails-claude-code`](../skills/mattpocock-git-guardrails-claude-code/SKILL.md) | misc | Automatic discovery |
+| `grill-me` | [`mattpocock-grill-me`](../skills/mattpocock-grill-me/SKILL.md) | productivity | Explicit only |
+| `grill-with-docs` | [`mattpocock-grill-with-docs`](../skills/mattpocock-grill-with-docs/SKILL.md) | engineering | Explicit only |
+| `grilling` | [`mattpocock-grilling`](../skills/mattpocock-grilling/SKILL.md) | productivity | Automatic discovery |
+| `handoff` | [`mattpocock-handoff`](../skills/mattpocock-handoff/SKILL.md) | productivity | Explicit only |
+| `implement` | [`mattpocock-implement`](../skills/mattpocock-implement/SKILL.md) | engineering | Explicit only |
+| `implement-spec` | [`mattpocock-implement-spec`](../skills/mattpocock-implement-spec/SKILL.md) | engineering | Explicit only |
+| `improve-codebase-architecture` | [`mattpocock-improve-codebase-architecture`](../skills/mattpocock-improve-codebase-architecture/SKILL.md) | engineering | Explicit only |
+| `loop-me` | [`mattpocock-loop-me`](../skills/mattpocock-loop-me/SKILL.md) | in-progress | Explicit only; in progress |
+| `migrate-to-shoehorn` | [`mattpocock-migrate-to-shoehorn`](../skills/mattpocock-migrate-to-shoehorn/SKILL.md) | misc | Automatic discovery |
+| `pr` | [`mattpocock-pr`](../skills/mattpocock-pr/SKILL.md) | engineering | Automatic discovery |
+| `prototype` | [`mattpocock-prototype`](../skills/mattpocock-prototype/SKILL.md) | engineering | Automatic discovery |
+| `research` | [`mattpocock-research`](../skills/mattpocock-research/SKILL.md) | engineering | Automatic discovery |
+| `retro` | [`mattpocock-retro`](../skills/mattpocock-retro/SKILL.md) | engineering | Explicit only |
+| `scaffold-exercises` | [`mattpocock-scaffold-exercises`](../skills/mattpocock-scaffold-exercises/SKILL.md) | misc | Automatic discovery |
+| `setup-matt-pocock-skills` | [`mattpocock-setup-matt-pocock-skills`](../skills/mattpocock-setup-matt-pocock-skills/SKILL.md) | engineering | Explicit only |
+| `setup-pre-commit` | [`mattpocock-setup-pre-commit`](../skills/mattpocock-setup-pre-commit/SKILL.md) | misc | Automatic discovery |
+| `setup-ts-deep-modules` | [`mattpocock-setup-ts-deep-modules`](../skills/mattpocock-setup-ts-deep-modules/SKILL.md) | in-progress | Explicit only; in progress |
+| `software-factory` | [`mattpocock-software-factory`](../skills/mattpocock-software-factory/SKILL.md) | in-progress | Explicit only; in progress |
+| `tdd` | [`mattpocock-tdd`](../skills/mattpocock-tdd/SKILL.md) | engineering | Automatic discovery |
+| `teach` | [`mattpocock-teach`](../skills/mattpocock-teach/SKILL.md) | productivity | Explicit only |
+| `to-questionnaire` | [`mattpocock-to-questionnaire`](../skills/mattpocock-to-questionnaire/SKILL.md) | productivity | Explicit only |
+| `to-spec` | [`mattpocock-to-spec`](../skills/mattpocock-to-spec/SKILL.md) | engineering | Explicit only |
+| `to-tickets` | [`mattpocock-to-tickets`](../skills/mattpocock-to-tickets/SKILL.md) | engineering | Explicit only |
+| `triage` | [`mattpocock-triage`](../skills/mattpocock-triage/SKILL.md) | engineering | Explicit only |
+| `wait-what` | [`mattpocock-wait-what`](../skills/mattpocock-wait-what/SKILL.md) | productivity | Explicit only |
+| `wayfinder` | [`mattpocock-wayfinder`](../skills/mattpocock-wayfinder/SKILL.md) | engineering | Explicit only |
+| `wizard` | [`mattpocock-wizard`](../skills/mattpocock-wizard/SKILL.md) | engineering | Automatic discovery |
+| `writing-beats` | [`mattpocock-writing-beats`](../skills/mattpocock-writing-beats/SKILL.md) | in-progress | Explicit only; in progress |
+| `writing-for-agents` | [`mattpocock-writing-for-agents`](../skills/mattpocock-writing-for-agents/SKILL.md) | productivity | Automatic discovery |
+| `writing-fragments` | [`mattpocock-writing-fragments`](../skills/mattpocock-writing-fragments/SKILL.md) | in-progress | Explicit only; in progress |
+| `writing-shape` | [`mattpocock-writing-shape`](../skills/mattpocock-writing-shape/SKILL.md) | in-progress | Explicit only; in progress |
 
-Alternatives identify an existing starting point, not identical behavior.
-In-progress source workflows remain upstream. Deferred helpers were not
-executed or comprehensively security-audited.
+## Integration changes
 
-## Adaptations
+- Namespaced command references, skill-loader arguments, and UI prompts route
+  to Matt's versions. UI display names identify Matt Pocock.
+- All supporting templates, references, shell scripts, and the dependency-cruiser
+  config are included. Project-output example links render as paths rather than
+  broken package links. Skill frontmatter is normalized for portable parsing.
+  A wizard prompt variable uses braces to resolve ShellCheck SC1087.
+- Preserved all 24 explicit-only policies, including adding the missing Codex
+  UI metadata for the source's explicit-only software-factory skill. The other
+  15 workflows retain automatic discovery. Installing files runs no setup.
+- Added host tool mappings and a sequential fallback when delegation is not
+  available or permitted. User scope and repository rules govern tracker writes,
+  publishing, cleanup, configuration, schedules, and messages.
+- Marked all eight source `in-progress` workflows as experimental. Their presence
+  does not qualify them for unattended use. Claude hook and background-agent
+  workflows remain Claude-specific.
+- Added targeted notes for isolated prototypes, bounded debugging probes, real
+  crash and transaction boundaries, approved domain decisions, credential
+  destinations, existing hook/config preservation, and development-only fixtures.
+- Replaced the instruction-authoring mechanics reference with client-specific
+  invocation guidance. Existing safety prohibitions remain valid; normal
+  automatic discovery remains the default when authoring a new skill.
 
-The three adaptations work independently and retain the full MIT notice.
-They use normal discovery, as their source entrypoints and UI metadata do.
-No source helper, hook, setup configuration, tracker write, or service
-dependency is imported.
+Matt's engineering flows may need tracker and domain conventions. Run
+`mattpocock-setup-matt-pocock-skills` only for a requested configuration task;
+reuse an existing compatible setup. Hook matching is a best-effort convenience,
+not a shell security boundary. The wizard's Stripe stage is an authoring example
+that must be replaced. Do not run templates as a collection installer.
 
-- `domain-modeling` covers business vocabulary, rules, and context boundaries.
-  It complements `principle-model-the-domain`, which shapes code structures.
-  Existing glossary and ADR conventions win over fixed filenames. Proposed
-  scenarios remain questions, and only approved decisions become accepted
-  records. A terminology task does not authorize code or data migration.
-- `diagnosing-bugs` preserves Matt's central method: build a symptom-specific
-  failure signal, minimize it, test explanations, and verify the original case.
-  It allows the code reading needed to construct a probe. It removes rigid
-  hypothesis and stress-loop quotas, uses bounded resources, and distinguishes
-  intermittent evidence from proof. Production probes, trace capture, and
-  destructive experiments require actual environment authority.
-- `writing-for-agents` keeps precise discovery, progressive disclosure, clear
-  completion criteria, and a single source for maintained instructions. It
-  avoids blanket claims about the effect of negative wording and preserves
-  concrete privacy and authorization prohibitions. Automatic discovery is the
-  default for new skills unless explicitly changed by the user; existing
-  policies remain intact and runtime flags are client-specific.
+## Packaging
 
-The removed supporting resources are unnecessary for the self-contained
-adaptations. The source paths and hashes remain in the manifest for review.
+Package metadata remains 2.8.0 for this unmerged PR. The collection grows from
+109 to 148 skills. Five Jstack discovery descriptions remain shortened in the
+existing generator overrides, with their workflow bodies unchanged.
 
-## Distribution changes
-
-Package metadata moves from 2.7.0 to 2.8.0, and the canonical inventory grows
-from 109 to 112 skills. This does not publish a release or install user skills.
-
-Five Jstack descriptions are shortened to preserve the unchanged 8,000-byte
-discovery limit: `create-verification-skill`, `make-pr-easy-to-review`,
-`no-comments`, `principle-encode-lessons-in-structure`, and
-`principle-exhaust-the-design-space`. Their workflow bodies are unchanged.
-The corresponding overrides live in the vendor generator so a refresh
-reproduces them. The 112 descriptions use 7,988 bytes.
-
-Lauren's source revisions, imported workflows, and runtime helpers remain at
-the checked versions. The description reductions are local packaging changes,
-not a new upstream release.
+The 8,000-byte Codex discovery check now measures automatically discoverable
+skills, excluding those whose Codex policy sets `allow_implicit_invocation: false`.
+Every description, including explicit-only entries, still has a 220-byte cap.
+Automatic descriptions use 7,943 bytes; all descriptions use 9,608 bytes. No
+existing skill's invocation policy changes to make the budget pass.
 
 ## Verification and limits
 
-All 185 portable Python tests pass, including source inventory, license,
-catalog, metadata, local references, and standalone installation of each new
-adaptation. The new directories have no references to absent sibling skills
-or source setup files.
+All 229 portable Python tests pass. Verification covers all 39 packaged skills,
+license retention, source and output
+hashes, portable YAML, local links, namespaced references, invocation policies,
+standalone file installation, catalog provenance, shell syntax, ShellCheck at
+warning severity, and synthetic
+Claude-hook inputs. The vendor generator must reproduce the tree from the
+clean pinned checkout. A fresh project install and repeat install check shared
+and Claude skill copies plus the four existing companion agents.
 
-Final validation and hosted-check results are recorded in the PR. Static
-package checks do not qualify model behavior or production debugging. Catalog
-entries remain `UNTRUSTED` and `NOT_EVALUATED`.
+Static package checks do not qualify all model behavior, third-party services,
+live credentials, or human-driven setup. Catalog entries remain `UNTRUSTED` and
+`NOT_EVALUATED`. Final test counts and hosted checks are recorded in the PR.
+The generic skill-creator validator accepts the 15 automatic skills. Its
+allowlist rejects `disable-model-invocation` and `argument-hint` on the other
+24; these are preserved client extensions, checked by package tests and YAML
+parsing rather than removed to satisfy that validator.
 
-All 47 Matt source/license hashes match the pinned checkout. Each new skill
-passes the installed skill-creator validator, and all 112 frontmatter blocks
-parse as YAML. A fresh project installation contains 112 shared skills,
-112 Claude skills, and four companion agents; a second install skips current
-copies. Catalog, release metadata, compilation, and whitespace checks pass.
-
-The complete local suite returned 192 passed and 18 recorder-test failures.
-Those tests require the missing FFmpeg `ass` filter and process inspection
-blocked by the sandbox. Recorder code and tests are unchanged. No imported
-runtime helper changed, so the previous refresh's Bun suite was not rerun.
+The previous complete local suite had 192 passes and 18 recorder failures from
+the missing FFmpeg `ass` filter and sandbox restrictions on process inspection.
+Recorder code and tests remain unchanged. This expansion tests the newly bundled
+helpers without running live setup or installing hooks on this computer.
 
 ## Manual refresh
 
-1. Fetch the three source repositories into separate review checkouts and
-   resolve full commit SHAs. Compare Lauren's original source and the port
-   before changing the distribution input.
-2. Inventory Matt's entrypoints and compare the recorded source hashes,
-   including supporting resources before considering any helper import.
-3. Update the curated workflows deliberately, preserving license notices,
-   existing policy, local conventions, and action authority.
-4. Update the Matt manifest, source metadata, aggregate dates and scope, and
-   this selection review. Account for added, removed, and renamed skills.
-5. Regenerate the catalog and run package, reference, installer, release, and
-   source checks through the isolated branch and PR workflow.
+1. Fetch the source repositories into separate clean review checkouts and resolve
+   full commit SHAs. Compare Lauren's original source and the Jstack port before
+   changing distribution inputs.
+2. Review Matt's complete skill inventory and supporting resources. Account for
+   source additions, removals, invocation changes, and experimental status.
+3. Update the pinned revision and reviewed transformations in
+   [vendor_mattpocock.py](../scripts/vendor_mattpocock.py). Preserve the namespace,
+   MIT notices, user authority, and existing project conventions.
+4. Run `python3 scripts/vendor_mattpocock.py /path/to/pinned/checkout`. It refuses
+   the wrong revision, a dirty source checkout, an unexpected inventory, or a
+   mismatch against recorded source hashes before replacing generated folders. Review and update the source-hash
+   receipt when intentionally advancing to a new upstream revision.
+5. Update aggregate receipts, package metadata, and this review. Regenerate the
+   catalog and run package, helper, installer, and release checks before pushing.

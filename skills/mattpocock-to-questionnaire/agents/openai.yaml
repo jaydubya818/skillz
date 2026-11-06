@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: To Questionnaire"
+  short_description: "Draft questions for a stakeholder who holds missing context."
+  default_prompt: "Use $mattpocock-to-questionnaire for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Migrate to Shoehorn"
+  short_description: "Migrate test fixtures to Shoehorn."
+  default_prompt: "Use $mattpocock-migrate-to-shoehorn for this task."

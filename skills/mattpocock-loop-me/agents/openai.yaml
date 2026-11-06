@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Loop Me"
+  short_description: "Interview the user to specify repeatable agent workflows."
+  default_prompt: "Use $mattpocock-loop-me for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,4 +1,0 @@
-interface:
-  display_name: "Diagnose a hard bug"
-  short_description: "Build a reliable bug diagnosis loop"
-  default_prompt: "Use $diagnosing-bugs to reproduce the reported symptom, test causes, and verify a scoped correction."

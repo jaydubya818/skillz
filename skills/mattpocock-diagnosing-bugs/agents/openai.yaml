@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Diagnosing Bugs"
+  short_description: "Diagnose bugs with reproducible probes."
+  default_prompt: "Use $mattpocock-diagnosing-bugs for this task."

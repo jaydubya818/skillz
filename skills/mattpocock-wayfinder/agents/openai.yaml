@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Wayfinder"
+  short_description: "Map a large effort as linked decision tickets."
+  default_prompt: "Use $mattpocock-wayfinder for this task."
+policy:
+  allow_implicit_invocation: false
