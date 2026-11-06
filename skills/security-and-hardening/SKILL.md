@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Addy Osmani and Skillz contributors
   source: addyosmani/agent-skills
-  source-commit: aeac41d4d005999432bb7312f7ff06383a91d59d
+  source-commit: 301b02b12bff98e4688e6984af6556802322bbde
   adaptation: curated-rewrite
   owner: software-factory
   risk: high
@@ -37,6 +37,9 @@ Write concrete abuse cases for the relevant boundary before choosing controls.
   Cookie flags, CORS, and SameSite settings are separate controls, not proof
   that all cross-site requests are safe. Preserve legitimate auth redirects.
 - Keep secrets out of source, public errors, telemetry, and model context.
+  For staged-diff triage, report matching filenames rather than raw lines that
+  could expose secret values. A keyword scan is a review aid, not proof that
+  all secrets were detected.
   Review response field allowlists and tenant partitioning. If credentials
   are exposed, report the exposure without repeating them; coordinate rotation
   within granted authority. Do not silently rewrite shared Git history.
@@ -79,6 +82,9 @@ reported issues and test the fix at the real boundary, including cross-tenant,
 replay, malformed-input, and concurrency cases where relevant. Prefer precise
 findings with location, impact, preconditions, evidence, and a scoped fix over
 generic checklists. Separate observed vulnerabilities from unverified concerns.
+Check findings against the actual callers, guards, and tests. Compare with the
+base revision to distinguish existing defects from regressions introduced by
+the change. Drop findings ruled out by that evidence; zero findings is valid.
 
 Record checks run, unavailable evidence, and residual risk. Claim only the
 scope reviewed; passing an audit tool is not a security or compliance certificate.

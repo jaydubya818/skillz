@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: Addy Osmani and Skillz contributors
   source: addyosmani/agent-skills
-  source-commit: aeac41d4d005999432bb7312f7ff06383a91d59d
+  source-commit: 301b02b12bff98e4688e6984af6556802322bbde
   adaptation: curated-rewrite
   owner: software-factory
   risk: medium
@@ -59,6 +59,8 @@ Use [the interaction checklist](references/interaction-checks.md) for a changed
 flow, selecting the cases that apply.
 
 Use real or representative content to expose wrapping, density, and overflow.
+After viewport or font changes, wait for fonts and resize-driven layout to
+settle before measuring or capturing the screen.
 Keep spacing, typography, hierarchy, and feedback consistent with the product.
 Aesthetic preferences do not override an approved design.
 
@@ -66,7 +68,9 @@ Aesthetic preferences do not override an approved design.
 
 Exercise the primary journey, failure recovery, keyboard path, and relevant
 responsive widths in the actual rendered application. Use available browser
-tools; a particular connector is not mandatory. Inspect console and network
+tools; a particular connector is not mandatory. Verify that displayed controls
+reach the intended callbacks or actions, including empty-state actions.
+Inspect console and network
 failures. Automated component tests complement this inspection.
 
 Report the states and device conditions verified, with screenshots or runtime

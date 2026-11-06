@@ -5,7 +5,7 @@ license: MIT
 metadata:
   author: David Ondrej and Skillz contributors
   source: davidondrej/skills
-  source-commit: 8e90e9d634983e76e66154e6b36a11d735fd19da
+  source-commit: 8aa01cf45110ae378bdf5c319cd41ac8fdbdf448
   adaptation: curated-rewrite
   owner: software-factory
   risk: low

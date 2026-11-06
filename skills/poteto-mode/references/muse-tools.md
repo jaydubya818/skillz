@@ -54,7 +54,7 @@ Pass a role's model where the dispatch takes one: a Workflow child's `model`, or
 
 ## Session routing hook
 
-The native pstack Muse plugin bundles a `SessionStart` hook that injects the poteto-mode mandate in Muse wording, plus the saved role lines from the Muse sheet when the sheet has any. Muse runs plugin hooks only after the user approves them (`muse plugins approve pstack`), so a fresh install routes nothing until then. The hook reads `session hook` from the Muse sheet, at the path in [setup-jstack's runtime table](../../setup-jstack/SKILL.md#other-runtimes); `session hook: off` disables injection.
+The native pstack Muse plugin bundles a `SessionStart` hook that injects the poteto-mode mandate in Muse wording, plus the saved role lines from the Muse sheet when the sheet has any. The manifest declares it twice, as `session-start` for the shell script and `session-start-windows` for the PowerShell script, and each stands down on the OS the other owns. On a machine without `sh` or without `powershell.exe`, that hook records a failed spawn at session start and the other delivers the context. Muse runs plugin hooks only after the user approves them (`muse plugins approve pstack`), so a fresh install routes nothing until then. Both hooks read `session hook` from the Muse sheet, at the path in [setup-jstack's runtime table](../../setup-jstack/SKILL.md#other-runtimes); `session hook: off` disables injection.
 
 A skills-only installation does not include the hook. Request `poteto-mode` explicitly or add a standing instruction to `AGENTS.md` in that case.
 
@@ -98,7 +98,7 @@ Affected skill entry points point here. Most skills need only the tables above. 
 
 ## Vendored scripts
 
-`skills/poteto-mode/scripts/` ships the `watch-pr` PR watcher, the `orch` store CLI, and `worktree-audit.mjs`. These scripts use bun and Node.js and run the same on Muse; invoke them through `bash`. They need `bun` and `gh`, or `origin` when the forge is Origin. Run `worktree-audit.mjs` with `node`, as its shebang does. The audit finds each worktree's last chat only in the transcript directories that exist (Claude Code, Codex, Pi); it does not scan Muse sessions, so pass a Muse sessions directory explicitly when a worktree's last chat was a Muse one. It imports the transcript walker from the `reflect` skill, so keep the `reflect` skill installed beside `poteto-mode`.
+`skills/poteto-mode/scripts/` ships the `watch-pr` PR watcher and `worktree-audit.mjs`. These scripts use bun and Node.js and run the same on Muse; invoke them through `bash`. They need `bun` and `gh`, or `origin` when the forge is Origin. Run `worktree-audit.mjs` with `node`, as its shebang does. The audit finds each worktree's last chat only in the transcript directories that exist (Claude Code, Codex, Pi); it does not scan Muse sessions, so pass a Muse sessions directory explicitly when a worktree's last chat was a Muse one. It imports the transcript walker from the `reflect` skill, so keep the `reflect` skill installed beside `poteto-mode`.
 
 ## Instructions file
 

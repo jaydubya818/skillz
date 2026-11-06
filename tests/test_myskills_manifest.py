@@ -52,6 +52,36 @@ def test_invalid_legacy_metadata_is_an_inventory_failure(tmp_path):
     assert not report['skills']
     assert report['failures'] == [{'path': 'skills/broken', 'error': 'metadata must be a mapping'}]
 
+
+@pytest.mark.parametrize('description', [
+    '@route', '`route`', '%route', ']route', ',route', '# comment',
+    '- route', '? route', ': route', '> route', 'label: nested',
+])
+def test_invalid_plain_yaml_is_rejected_by_catalog_inventory(tmp_path, description):
+    skill = tmp_path / 'skills' / 'demo'
+    skill.mkdir(parents=True)
+    (skill / 'SKILL.md').write_text(
+        f'---\nname: demo\ndescription: {description}\n---\n'
+    )
+    report = build_catalog(tmp_path)
+    assert not report['skills']
+    assert report['failures'] == [{
+        'path': 'skills/demo', 'error': 'unsupported frontmatter scalar'
+    }]
+
+
+@pytest.mark.parametrize('scalar,expected', [
+    ('"@route"', '@route'),
+    ("'label: nested'", 'label: nested'),
+    ('-1 is a value', '-1 is a value'),
+    ('>-\n  `route`', '`route`'),
+])
+def test_supported_yaml_scalars_preserve_the_description(scalar, expected):
+    from myskills.catalog import frontmatter
+    assert frontmatter(
+        f'---\nname: demo\ndescription: {scalar}\n---\n'
+    )['description'] == expected
+
 def test_core_provenance_preserves_known_upstreams():
     skills = {m['skill_id']: m for m in build_catalog(ROOT)['skills']}
     assert skills['before-and-after']['provenance']['source'].endswith('vercel-labs/before-and-after')

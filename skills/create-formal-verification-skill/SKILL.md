@@ -5,8 +5,8 @@ license: MIT
 metadata:
   author: jstack-maintainers
   source: michael-denyer/pstack-claude
-  source-version: "0.9.102"
-  source-commit: 356c6e0f978df729eb16f227d795f34d221c5aad
+  source-version: "0.9.130"
+  source-commit: d88063f3355a5ecff0e6dbb890a11bab4b08bc2e
   owner: software-factory
   risk: medium
   capabilities: jstack,engineering-workflow
@@ -19,6 +19,8 @@ On Codex, Cursor, or another non-Claude runtime, read the [runtime mapping](../p
 On GitHub Copilot, read the [platform mapping](../poteto-mode/references/copilot-tools.md), including its per-skill notes, before following this skill.
 
 On Muse, read the [platform mapping](../poteto-mode/references/muse-tools.md), including its per-skill notes, before following this skill.
+
+On Antigravity, read the [platform mapping](../poteto-mode/references/agy-tools.md), including its per-skill notes, before following this skill.
 
 A test checks the cases that someone thought to write. Formal verification checks every case in a stated scope: every order of steps in a model, every input up to a bound, or every input. This skill finds the part of the repo where that matters most, verifies one property of it, and leaves a project-local skill that lets the next agent check a change against that property. Write that skill for an agent who reads it cold, mid-change, and has never seen your work. The user must be able to trust the result and act on it without learning the verification language.
 
@@ -45,6 +47,8 @@ Pick the tool that answers the question at the lowest cost: a model checker, a p
 ## Generate the formal verification skill
 
 Write a project-local skill with frontmatter that names the area and says when to use it. Name the skill for the area, never `verify` or a `verify-` prefix, which belong to the driver skill `/create-verification-skill` writes. Use `.claude/skills/<area>/SKILL.md` for Claude-only projects or `.agents/skills/<area>/SKILL.md` for shared Codex and Cursor discovery. Without frontmatter, the skill never registers. From the skill alone, the next agent must be able to tell whether a change touches the verified code, run the check, tell a real bug from a modeling error, and update the verification when a change is intended. Put the coverage record and the sync commit in the skill, and tell the next agent to move the sync commit forward only after it confirms that the verification describes the code at the new commit. Use this repo's real commands, paths, and nouns, and leave no placeholders.
+
+For a TLA+ model, preserve the checker verdict and counterexample with the verification evidence. The optional upstream [statechart workflow](https://github.com/michael-denyer/pstack-claude/tree/main/plugins/pstack/skills/statechart) is not bundled or required by this distribution. Use it only if separately installed and appropriate for the task.
 
 ## Prove it before you hand off
 

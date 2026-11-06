@@ -34,7 +34,7 @@ def load_script(name):
 
 def test_review_accounts_for_the_pinned_source_inventory():
     assert MANIFEST["upstream"] == "https://github.com/addyosmani/agent-skills"
-    assert MANIFEST["commit"] == "aeac41d4d005999432bb7312f7ff06383a91d59d"
+    assert MANIFEST["commit"] == "301b02b12bff98e4688e6984af6556802322bbde"
     assert MANIFEST["integration_mode"] == "curated-rewrite"
     assert set(MANIFEST["imported"]) == ADAPTED
     excluded = MANIFEST["excluded"]

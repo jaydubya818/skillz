@@ -21,6 +21,11 @@ API changes. Documentation-only edits need content checks and verification of
 runnable examples, not a recording. Reuse suitable evidence already captured
 in the task. Publish only to destinations included in the requested work.
 
+For crash and rollback claims, exercise the actual boundary in an isolated
+fixture. A thrown exception does not prove process-termination recovery, and a
+mocked transaction call does not prove database rollback. Keep mutation and
+external side effects within the test environment's authority.
+
 The recording is the capture of you testing the app via computer use: start the
 recorder, then drive the app yourself — click, type, navigate — through each
 test target. Every action in the video is the test being performed live; the

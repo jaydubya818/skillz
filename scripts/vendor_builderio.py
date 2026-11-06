@@ -21,6 +21,7 @@ EXPECTED_SKILLS = {
     "an",
     "efficient-fable",
     "efficient-frontier",
+    "efficient-orchestrator",
     "factory",
     "factory-babysit-pr",
     "factory-collect",
@@ -46,8 +47,9 @@ EXPECTED_SKILLS = {
 DESCRIPTIONS = {
     "agent-watchdog": "Audit, monitor, compare, or repair another agent's session or PR when asked.",
     "an": "Operate granted Agent-Native apps through Dispatch MCP; use for /an.",
-    "efficient-fable": "Delegate bounded independent work while Claude Fable retains judgment.",
-    "efficient-frontier": "Delegate costly independent work while a frontier model retains judgment.",
+    "efficient-fable": "Use /efficient-fable for the efficient-orchestrator workflow.",
+    "efficient-frontier": "Use /efficient-frontier for efficient-orchestrator.",
+    "efficient-orchestrator": "Use /efficient-orchestrator for cost-aware delegation.",
     "factory": "Configure governed delivery sources, schedules, isolation, and action gates.",
     "factory-babysit-pr": "Monitor one authorized PR with separate fix, publish, reply, and merge gates.",
     "factory-collect": "Triage configured product signals under separate fix, reply, and close policies.",
@@ -73,8 +75,9 @@ DESCRIPTIONS = {
 SHORT_DESCRIPTIONS = {
     "agent-watchdog": "Audit agent work and repair verified gaps",
     "an": "Operate Agent-Native apps through Dispatch",
-    "efficient-fable": "Delegate bounded work while Fable decides",
-    "efficient-frontier": "Use frontier tokens for judgment and review",
+    "efficient-fable": "Explicit alias for efficient orchestrator",
+    "efficient-frontier": "Explicit alias for efficient orchestrator",
+    "efficient-orchestrator": "Delegate bounded work with explicit control",
     "factory": "Configure governed delivery automation",
     "factory-babysit-pr": "Follow one authorized PR through its gates",
     "factory-collect": "Collect and triage configured product signals",
@@ -102,6 +105,7 @@ RISK = {
     "an": "medium",
     "efficient-fable": "low",
     "efficient-frontier": "low",
+    "efficient-orchestrator": "low",
     "factory": "medium",
     "factory-babysit-pr": "high",
     "factory-collect": "medium",
@@ -129,6 +133,7 @@ CAPABILITY = {
     "an": "agent-native-apps",
     "efficient-fable": "model-orchestration",
     "efficient-frontier": "model-orchestration",
+    "efficient-orchestrator": "model-orchestration",
     "factory": "factory-configuration",
     "factory-babysit-pr": "factory-pr-delivery",
     "factory-collect": "factory-signal-intake",
@@ -152,6 +157,8 @@ CAPABILITY = {
 }
 
 COMPATIBILITY = {
+    "efficient-fable": "Requires efficient-orchestrator alongside this alias.",
+    "efficient-frontier": "Requires efficient-orchestrator alongside this alias.",
     "an": "Requires the Agent-Native Dispatch MCP connector and a host that supports MCP Apps or returned links.",
     "factory": "Works in Agent Skills runtimes with the configured integrations and scheduler capabilities used by the selected workflow.",
     "rewind": "Requires macOS, Clips Desktop with Rewind enabled, and the local Screen Memory MCP connection.",
@@ -164,6 +171,7 @@ COMPATIBILITY = {
 
 FACTORY_SKILLS = {name for name in EXPECTED_SKILLS if name == "factory" or name.startswith("factory-")}
 EXPORTED_SKILLS = {"an", "rewind", "turn-into-app", "visual-edit", "visual-plan", "visual-recap", "webmcp"}
+EXPLICIT_ONLY_SKILLS = {"efficient-orchestrator", "efficient-frontier", "efficient-fable"}
 
 
 def parse_args() -> argparse.Namespace:
@@ -226,6 +234,7 @@ def normalize_skill(path: Path, *, commit: str) -> None:
         f"compatibility: {json.dumps(compatibility)}",
         "metadata:",
         *metadata,
+        *(["disable-model-invocation: true"] if name in EXPLICIT_ONLY_SKILLS else []),
         "---",
     ]
     skill_file.write_text("\n".join(frontmatter) + "\n\n" + body.lstrip())
@@ -240,6 +249,7 @@ def normalize_skill(path: Path, *, commit: str) -> None:
         f"  display_name: {json.dumps(display_name(name))}\n"
         f"  short_description: {json.dumps(short)}\n"
         f"  default_prompt: {json.dumps(f'Use ${name} for this task and return a verified result.')}\n"
+        + ("policy:\n  allow_implicit_invocation: false\n" if name in EXPLICIT_ONLY_SKILLS else "")
     )
 
 

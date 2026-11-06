@@ -1,8 +1,8 @@
 # Jstack integration review
 
-The initial integration below is historical. The current import is 0.9.102
-with 64 skills. See the [October 25 refresh](UPSTREAM_REFRESH_2026-10-25.md)
-for the new selection, original Cursor follow-up, and validation.
+The initial integration below is historical. The current import is 0.9.130
+with 64 skills. See the [November 5 refresh](UPSTREAM_REFRESH_2026-11-05.md)
+for updated workflows, retained hardening, and validation.
 
 ## Decision
 

@@ -1,8 +1,8 @@
 {
   "schema": "vendored-agent-skills/v1",
   "upstream": "https://github.com/davidondrej/skills",
-  "commit": "8e90e9d634983e76e66154e6b36a11d735fd19da",
-  "reviewed_on": "2026-10-31",
+  "commit": "8aa01cf45110ae378bdf5c319cd41ac8fdbdf448",
+  "reviewed_on": "2026-11-05",
   "license": "MIT",
   "copyright": "Copyright (c) 2026 David Ondrej",
   "integration_mode": "curated-rewrite",

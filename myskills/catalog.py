@@ -48,7 +48,11 @@ def frontmatter(text):
             value = json.loads(value)
         elif value.startswith("'") and value.endswith("'"):
             value = value[1:-1].replace("''", "'")
-        elif value.startswith(('[', '{', '&', '*', '!')):
+        elif (
+            value.startswith(('[', ']', '{', '}', ',', '#', '&', '*', '!', '|', '>', "'", '%', '@', '`'))
+            or re.match(r'[-?:](?:\s|$)', value)
+            or re.search(r':(?:\s|$)', value)
+        ):
             raise ValidationError('unsupported frontmatter scalar')
         target[key] = value
     if not re.fullmatch(ID, fields.get('name', '')) or not fields.get('description'):

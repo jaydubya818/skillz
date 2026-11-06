@@ -1,8 +1,8 @@
 {
   "schema": "vendored-agent-skills/v1",
   "upstream": "https://github.com/michael-denyer/pstack-claude",
-  "commit": "356c6e0f978df729eb16f227d795f34d221c5aad",
-  "version": "0.9.102",
+  "commit": "d88063f3355a5ecff0e6dbb890a11bab4b08bc2e",
+  "version": "0.9.130",
   "imported": [
     "architect",
     "arena",
@@ -70,6 +70,8 @@
     "why"
   ],
   "excluded": {
-    "unslop": "the collection keeps its existing enhanced definition"
+    "unslop": "the collection keeps its existing enhanced definition",
+    "statechart": "deferred: optional TLA+ visualization toolchain needs separate qualification",
+    "ketchup-video": "deferred: video recap depends on host media and presentation tooling"
   }
 }
