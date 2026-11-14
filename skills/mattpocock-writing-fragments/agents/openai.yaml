@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Writing Fragments"
+  short_description: "Capture exploratory writing fragments from an interview."
+  default_prompt: "Use $mattpocock-writing-fragments for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Code Review"
+  short_description: "Review code against standards and spec."
+  default_prompt: "Use $mattpocock-code-review for this task."

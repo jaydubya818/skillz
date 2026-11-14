@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Claude Handoff"
+  short_description: "Hand work to a fresh Claude background agent."
+  default_prompt: "Use $mattpocock-claude-handoff for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Writing Shape"
+  short_description: "Find a structure for an article's existing fragments."
+  default_prompt: "Use $mattpocock-writing-shape for this task."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Writing for Agents"
+  short_description: "Write skills and agent instructions."
+  default_prompt: "Use $mattpocock-writing-for-agents for this task."

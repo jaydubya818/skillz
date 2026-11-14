@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Domain Modeling"
+  short_description: "Resolve domain terms and record ADRs."
+  default_prompt: "Use $mattpocock-domain-modeling for this task."

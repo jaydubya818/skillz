@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Git Guardrails for Claude Code"
+  short_description: "Set up Claude Git command hooks."
+  default_prompt: "Use $mattpocock-git-guardrails-claude-code for this task."

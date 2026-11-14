@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Improve Codebase Architecture"
+  short_description: "Find and compare opportunities to deepen modules."
+  default_prompt: "Use $mattpocock-improve-codebase-architecture for this task."
+policy:
+  allow_implicit_invocation: false

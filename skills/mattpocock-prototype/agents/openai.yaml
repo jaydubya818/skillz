@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Prototype"
+  short_description: "Prototype UI and logic decisions."
+  default_prompt: "Use $mattpocock-prototype for this task."

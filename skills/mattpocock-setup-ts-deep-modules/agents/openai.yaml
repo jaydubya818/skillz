@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Setup TS Deep Modules"
+  short_description: "Configure TypeScript module boundaries with dependency-cruiser."
+  default_prompt: "Use $mattpocock-setup-ts-deep-modules for this task."
+policy:
+  allow_implicit_invocation: false

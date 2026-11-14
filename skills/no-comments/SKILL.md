@@ -1,6 +1,6 @@
 ---
 name: no-comments
-description: "Use when code comments need structural review, root-cause fixes, and constraint encoding."
+description: "Use for code-comment review and constraint encoding."
 license: MIT
 metadata:
   author: jstack-maintainers

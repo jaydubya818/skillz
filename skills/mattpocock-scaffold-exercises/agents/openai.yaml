@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Scaffold Exercises"
+  short_description: "Scaffold course exercises."
+  default_prompt: "Use $mattpocock-scaffold-exercises for this task."

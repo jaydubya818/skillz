@@ -30,7 +30,12 @@ decision records, product assumption checks, read-only database access planning,
 and verified instructions for teammates. The
 [selection review](docs/DAVIDONDREJ_REVIEW.md) accounts for all 62 upstream skills.
 
-This repository packages 109 skills behind one canonical `skills/` tree:
+All 39 workflows from [`mattpocock/skills`](https://github.com/mattpocock/skills)
+use distinct `mattpocock-` names. They cover engineering, planning, learning,
+writing, and setup. The [source review](docs/LAUREN_MATT_REVIEW_2026-11-06.md)
+lists every local name and confirms Lauren's upstream revisions are current.
+
+This repository packages 148 skills behind one canonical `skills/` tree:
 
 - 8 core delivery, architecture, evidence, review, and writing skills
 - 40 Jstack workflows for planning, implementation, review, and operations
@@ -38,6 +43,7 @@ This repository packages 109 skills behind one canonical `skills/` tree:
 - 25 Builder.io and Agent-Native workflows
 - 7 adapted Addy Osmani production engineering workflows
 - 5 adapted David Ondrej continuity, decision, and access workflows
+- 39 namespaced Matt Pocock workflows with their supporting resources
 
 Every skill uses portable
 [Agent Skills](https://agentskills.io/specification) frontmatter. Claude Code,
@@ -53,7 +59,27 @@ the seven checked source repositories, current revisions, all 11 new Jstack
 skills, retained local fixes, and deferred original-source additions. Source
 hashes and license receipts are in [vendor/upstream-review.json](vendor/upstream-review.json).
 
-## New in 2.7.0
+## New in 2.8.0
+
+| Skill | Purpose |
+| --- | --- |
+| [`mattpocock-ask-matt`](skills/mattpocock-ask-matt/SKILL.md) | Choose a workflow from Matt's complete collection. |
+| [`mattpocock-domain-modeling`](skills/mattpocock-domain-modeling/SKILL.md) | Resolve domain terms and record glossary entries or ADRs. |
+| [`mattpocock-diagnosing-bugs`](skills/mattpocock-diagnosing-bugs/SKILL.md) | Diagnose bugs through a reproducible failure signal. |
+| [`mattpocock-writing-for-agents`](skills/mattpocock-writing-for-agents/SKILL.md) | Write skills and instruction documents for agents. |
+| [`mattpocock-tdd`](skills/mattpocock-tdd/SKILL.md), [`mattpocock-handoff`](skills/mattpocock-handoff/SKILL.md), [`mattpocock-teach`](skills/mattpocock-teach/SKILL.md) | Use Matt's versions alongside the existing unprefixed workflows. |
+
+The [complete inventory](docs/LAUREN_MATT_REVIEW_2026-11-06.md#complete-inventory)
+lists all 39 names. Supporting templates and scripts retain MIT notices and
+pinned provenance. Installation copies files without running setup. Matt's
+24 explicit-only skills retain that policy; eight upstream experiments are
+marked in progress. Engineering flows that need a tracker use
+`mattpocock-setup-matt-pocock-skills` when the user requests that configuration.
+Claude hook and background-agent workflows require Claude Code. Existing
+skills keep their names. Lauren's original pstack and the Jstack port remain
+at the revisions in 2.7.0.
+
+## Added in 2.7.0
 
 The [November 5 source review](docs/UPSTREAM_REFRESH_2026-11-05.md) checks all
 eight recorded upstream repositories and records their exact revisions.
@@ -142,7 +168,7 @@ For non-trivial software-factory work:
 5. Treat publication, merge, deployment, destructive cleanup, external
    communication, and spending as separate authority boundaries.
 
-Do not preload all 109 skills. Descriptions are the routing layer; the selected
+Do not preload all 148 skills. Descriptions are the routing layer; the selected
 `SKILL.md` files are the execution layer.
 
 ## Choose an installation
@@ -807,6 +833,14 @@ python3 skills/evidence-driven-testing/scripts/evidence.py doctor --json
 
 ## Validation
 
+The November 6 Matt integration passes all 229 portable Python tests, covering
+the complete 39-skill inventory,
+namespaced references, source and output hashes, invocation policies, shell
+syntax, hook behavior, standalone installs, catalog, and release metadata.
+A fresh project install contains 148 shared skills, 148 Claude skills, and four
+companion agents. The [review](docs/LAUREN_MATT_REVIEW_2026-11-06.md#verification-and-limits)
+records the unchanged recorder environment failures and the upstream comparison.
+
 The November 5 refresh passed 181 portable Python tests and 223 imported Bun
 tests. Both generators reproduce the reviewed tree. A fresh project install
 contains 109 shared skills, 109 Claude skills, and four companion agents.
@@ -831,7 +865,7 @@ Install the single test dependency and run the portable suite:
 python3 -m pip install pytest
 python3 -m pytest tests -q --ignore=tests/test_evidence.py
 python3 -m compileall -q scripts skills
-python3 scripts/check_release.py v2.7.0
+python3 scripts/check_release.py v2.8.0
 git diff --check
 ```
 
@@ -858,7 +892,7 @@ python3 -m pytest tests -q
 
 The tests verify:
 
-- exactly 109 canonical skill directories
+- exactly 148 canonical skill directories
 - portable frontmatter and matching directory names
 - concise activation descriptions within the package-wide discovery budget
 - Codex metadata for every skill
@@ -868,6 +902,7 @@ The tests verify:
 - local Markdown links
 - pinned Jstack, Builder.io, Addy Osmani, and David Ondrej provenance and license retention
 - standalone installation and source inventory checks for the David Ondrej adaptations
+- standalone installation, license retention, and source inventory checks for the Matt Pocock adaptations
 - isolated installation of every Addy adaptation with all local references
 - Claude, Codex, Cursor, and custom-runtime installer destinations
 - conflict refusal, backups, dry runs, copy mode, symlink mode, deduplication, and idempotency

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Matt Pocock: Grilling"
+  short_description: "Interview a design through questions."
+  default_prompt: "Use $mattpocock-grilling for this task."

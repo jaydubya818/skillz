@@ -1,0 +1,6 @@
+interface:
+  display_name: "Matt Pocock: Implement"
+  short_description: "Build a specified piece of work with TDD and review."
+  default_prompt: "Use $mattpocock-implement for this task."
+policy:
+  allow_implicit_invocation: false

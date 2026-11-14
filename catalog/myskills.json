@@ -619,6 +619,538 @@
       "external_hosts": [],
       "skill_reference_candidates": []
     },
+    "mattpocock-ask-matt": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "external_api.write",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "www.aihero.dev"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-chief-of-staff": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": [
+        "mattpocock-implement-spec",
+        "mattpocock-retro",
+        "mattpocock-to-spec",
+        "mattpocock-to-tickets"
+      ]
+    },
+    "mattpocock-claude-handoff": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-code-review": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-codebase-design": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-diagnosing-bugs": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "owner_computer.use",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [
+        "scripts/hitl-loop.template.sh"
+      ],
+      "external_hosts": [
+        "localhost"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-domain-modeling": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-git-guardrails-claude-code": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [
+        "scripts/block-dangerous-git.sh"
+      ],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-grill-me": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-grill-with-docs": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-grilling": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-handoff": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-implement": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-implement-spec": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-improve-codebase-architecture": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "cdn.jsdelivr.net",
+        "cdn.tailwindcss.com"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-loop-me": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-migrate-to-shoehorn": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-pr": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "external_api.write",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "github.com"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-prototype": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "external_api.write",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-research": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-retro": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-scaffold-exercises": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-setup-matt-pocock-skills": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "gitlab.com"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-setup-pre-commit": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-setup-ts-deep-modules": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "github.com"
+      ],
+      "skill_reference_candidates": [
+        "lib"
+      ]
+    },
+    "mattpocock-software-factory": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "external_api.write",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "about.gitea.com",
+        "about.gitlab.com",
+        "airtable.com",
+        "asana.com",
+        "aws.amazon.com",
+        "blog.tangled.org",
+        "clickup.com",
+        "code.claude.com",
+        "code.storage",
+        "cursor.com",
+        "developer.atlassian.com",
+        "developers.openai.com",
+        "developers.plane.so",
+        "docs.fly.io",
+        "docs.github.com",
+        "docs.gitlab.com",
+        "docs.litellm.ai",
+        "e2b.dev",
+        "forgejo.org",
+        "github.com",
+        "grafana.com",
+        "kubernetes.io",
+        "langfuse.com",
+        "learn.microsoft.com",
+        "linear.app",
+        "modal.com",
+        "openai.github.io",
+        "opentelemetry.io",
+        "phoenix.arize.com",
+        "platform.claude.com",
+        "portkey.ai",
+        "signoz.io",
+        "support.atlassian.com",
+        "vercel.com",
+        "www.braintrust.dev",
+        "www.cloudflare.com",
+        "www.datadoghq.com",
+        "www.daytona.io",
+        "www.gerritcodereview.com",
+        "www.hetzner.com",
+        "www.honeycomb.io",
+        "www.jetbrains.com",
+        "www.langchain.com",
+        "www.notion.com",
+        "www.openproject.org",
+        "www.shortcut.com"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-tdd": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-teach": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [
+        "example.com",
+        "reddit.com"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-to-questionnaire": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "external_api.write",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-to-spec": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-to-tickets": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-triage": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-wait-what": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-wayfinder": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-wizard": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "network.request",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [
+        "template.sh"
+      ],
+      "external_hosts": [
+        "dashboard.stripe.com"
+      ],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-writing-beats": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "candidate.modify",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-writing-for-agents": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read",
+        "secrets.use",
+        "tests.execute"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-writing-fragments": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "external_api.write",
+        "repository.read"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
+    "mattpocock-writing-shape": {
+      "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
+      "effect_candidates": [
+        "branch.push",
+        "candidate.modify",
+        "repository.read",
+        "secrets.use"
+      ],
+      "executable_helpers": [],
+      "external_hosts": [],
+      "skill_reference_candidates": []
+    },
     "mission-control-delivery": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
       "effect_candidates": [
@@ -850,9 +1382,7 @@
     },
     "principle-encode-lessons-in-structure": {
       "assessment": "LEXICAL_ONLY_REQUIRES_REVIEW",
-      "effect_candidates": [
-        "tests.execute"
-      ],
+      "effect_candidates": [],
       "executable_helpers": [],
       "external_hosts": [],
       "skill_reference_candidates": []
@@ -3317,8 +3847,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Use when a repository needs a repeatable driver that proves real UI, CLI, or service behavior.",
-      "digest": "sha256:d4c8cfe9f830223110777a8f7f397d20ddb08a9278976e5954bbbf302af11580",
+      "description": "Use for a repeatable UI, CLI, or service verification driver.",
+      "digest": "sha256:a0f16e6f9b7729f0337b129cc541a3838f9ecab82974a10aed112fd387bdd7ca",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -3408,7 +3938,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.5a9fed82eb1f3ea7",
+      "version": "0.0.0+legacy.ea96f0696f2f8478",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6529,8 +7059,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Use when a correct pull request needs clearer history, description, or reviewer guidance.",
-      "digest": "sha256:9267e5613928479d5829ae13392ad7d9dafc3fc11b7dbc78328bbaf80e51bf1f",
+      "description": "Use for clearer history and review guidance on a correct PR.",
+      "digest": "sha256:a233fd6735fd807cbab822c7573d530d2b6f5c5ebc1a386fc9403823e6bd0a59",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6620,7 +7150,3946 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.bed99b85646a5824",
+      "version": "0.0.0+legacy.62c2f4ea325164bd",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Choose a Matt Pocock skill or workflow.",
+      "digest": "sha256:e23f4bb04095dcdeb0e5b6120ba4f8e54e7a0d5fe8baea3b315a0b7d6e8af333",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock ask matt",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-ask-matt/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-ask-matt",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.4c58296bf4e21c17",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Coordinate a long-running goal and a dated project wiki.",
+      "digest": "sha256:4a27c76565f8b640ef7f7f99652f1be0cf1cb380d35ba9958cb2a8732aa9dfbc",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock chief of staff",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-chief-of-staff/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-chief-of-staff",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.fecf71c2b0617b09",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Hand work to a fresh Claude background agent.",
+      "digest": "sha256:481abdc9cf3279ef25d2941a8b4a5bc53a839f8e5863826580102877c45cbc26",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock claude handoff",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-claude-handoff/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-claude-handoff",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.db025dbb9bad42d1",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Review code against standards and spec.",
+      "digest": "sha256:0e730e9358be45582682dd31abe3f9bc4942515e8413d75ce331ef92589f0c3f",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock code review",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-code-review/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-code-review",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.7a8cac433146377b",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Design deep, testable modules.",
+      "digest": "sha256:62550ff5c623e051ff92d3b5f0e75f2e9e5dac094efe750bdbcd39aa4e1c62a5",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock codebase design",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-codebase-design/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-codebase-design",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.ad54a747391a358c",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Diagnose bugs with reproducible probes.",
+      "digest": "sha256:9715322b5c994b51b685cdd17f8f2b4006f31497195b8d9e6a0831eb3c1ba76e",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock diagnosing bugs",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-diagnosing-bugs/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-diagnosing-bugs",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.cd55a9f888368079",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Resolve domain terms and record ADRs.",
+      "digest": "sha256:54ebf899bc3f44387203244e528c83cc3dbeb0497e8040f4b396e712aca91347",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock domain modeling",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-domain-modeling/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-domain-modeling",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.e88cb4d0dd966c42",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Set up Claude Git command hooks.",
+      "digest": "sha256:939ebb15a07e472b299500846122c3ec425ddd5fd7efdc2aab3115cc76c6b1ab",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock git guardrails claude code",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-git-guardrails-claude-code/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-git-guardrails-claude-code",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.5159482b77b6bde5",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Interview a design without writing repository docs.",
+      "digest": "sha256:58f9d10db39908e273043ee733b920014891cb2c71e81cbc8eb7e68ed2c6bac8",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock grill me",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-grill-me/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-grill-me",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.b5c9cf97c96f0dd0",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Interview a design and retain domain decisions in docs.",
+      "digest": "sha256:eb0c05f5f256fe89d8fb14bf54012cd68611b6efb897b96341222aa168ac99d7",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock grill with docs",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-grill-with-docs/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-grill-with-docs",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.e5be82f1d5767d7c",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Interview a design through questions.",
+      "digest": "sha256:2caf507e3eeb72a155220f476cdba58bb3c9bd10ec3b8da4a05d4fda41425f20",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock grilling",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-grilling/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-grilling",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.6788648e1e5fa386",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Write a portable handoff for another session or directory.",
+      "digest": "sha256:c412754a834e7f80ee9875e703f5daa4e7f9f95147b39d86909f531a0f098774",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock handoff",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-handoff/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-handoff",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.9ec893d2ccf54330",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Build a specified piece of work with TDD and review.",
+      "digest": "sha256:018dce4062331322b6a78ffef96fc25caf5751ce0cebc4fd228430343226a5fd",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock implement",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-implement/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-implement",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.4271bf6bf477736b",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Implement a spec's ticket graph on one integration branch.",
+      "digest": "sha256:f04b6a12d1ce5c2f4e05a9d59bab08c6884ad6c018ae502aeb3e75bcddce7bf4",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock implement spec",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-implement-spec/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-implement-spec",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.7477f6f1e1a3f72f",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Find and compare opportunities to deepen modules.",
+      "digest": "sha256:cd84c4d3fb6f7a1d8d69ff5d4b2611e91a6722510f9703b67f41127d59689fa0",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock improve codebase architecture",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-improve-codebase-architecture/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-improve-codebase-architecture",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.1cd4cf31855bbd65",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Interview the user to specify repeatable agent workflows.",
+      "digest": "sha256:443c55d0db4cc88b0c2e82493de676d801e723de79e6d1c135dadb9805a2837e",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock loop me",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-loop-me/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-loop-me",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.a66cec57d7f2dfab",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Migrate test fixtures to Shoehorn.",
+      "digest": "sha256:fa7ade798c914b18c5a7528f40b28d07044d0d2ce957ddc8214719ac819bc6f7",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock migrate to shoehorn",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-migrate-to-shoehorn/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-migrate-to-shoehorn",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.0a5dd1a21e93ab4c",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Write PR bodies with evidence.",
+      "digest": "sha256:7b5cf3356d71b5a6c817ec57aba92c2c9632885cc1cc89ef47781c216a2669f8",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock pr",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-pr/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-pr",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.e5f07517d225d933",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Prototype UI and logic decisions.",
+      "digest": "sha256:98e3479c64f5e2804935d24dd41684bbf3a71865c2cd090a130027153a16a03f",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock prototype",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-prototype/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-prototype",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.0773ec0c3852f4cb",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Research cited primary sources.",
+      "digest": "sha256:7437857df7175cd3e374846da33c11b5dcd859925ce1846296518093bb98d47f",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock research",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-research/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-research",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.c1240c70642f7698",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Review a coding session for environment improvements.",
+      "digest": "sha256:0f8ab166c47960cf90ce6d47e28e80644575bffcf58970a96f3078c40c2899b2",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock retro",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-retro/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-retro",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.ec6678b3eb5f182c",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Scaffold course exercises.",
+      "digest": "sha256:de8c08ca1b24925778fa4a1ee023c81d49eace15314e8a0c4a7b4af4ffebdf47",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock scaffold exercises",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-scaffold-exercises/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-scaffold-exercises",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.bbbc913868963ca3",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Configure Matt's tracker, triage labels, and domain docs.",
+      "digest": "sha256:75e0b0c5478dc2fd92f5b726a31bff1ae801ba1d44046f97920b34d8d6934a84",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock setup matt pocock skills",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-setup-matt-pocock-skills/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-setup-matt-pocock-skills",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.01a5598b89d77437",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Set up Husky and lint-staged.",
+      "digest": "sha256:7878fb1c8b1a08acc156eca011307bb49135751c2dc9d10509bea1e32a3bb9c4",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock setup pre commit",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-setup-pre-commit/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-setup-pre-commit",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.1669d84cd9564796",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Configure TypeScript module boundaries with dependency-cruiser.",
+      "digest": "sha256:ba230b79dc76c1f21b5fb0d01eb05aa3fc717401968af35db7e08347eb05591a",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock setup ts deep modules",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-setup-ts-deep-modules/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-setup-ts-deep-modules",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.e217163a04e94407",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Design software delivery tasks, triggers, and service roles.",
+      "digest": "sha256:0ba406aa12b816e9eff857b6ec8d2ca3a3983972d7b4d5b649246576a9667286",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock software factory",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-software-factory/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-software-factory",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.9d5fd151444a2834",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Build with red-green-refactor.",
+      "digest": "sha256:cd9b1acfe3eca4bfb3d2cfa2a9c7e7f919e9ed9e8b54836f395c891dcaa6b5bf",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock tdd",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-tdd/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-tdd",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.1f269d84ac0d900c",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Build interactive lessons in a persistent learning workspace.",
+      "digest": "sha256:ea15e931510f22806b3d3133eb583734007e995f059e6bd5fc9e7ec8c1e9629c",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock teach",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-teach/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-teach",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.f896a9466a559c19",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Draft questions for a stakeholder who holds missing context.",
+      "digest": "sha256:4cd1745a7d1ce8337a25ac8e3e7a0e3c1fc4b0888c4578b3098ae04138d1e984",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock to questionnaire",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-to-questionnaire/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-to-questionnaire",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.64a3331926953a36",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Turn a design conversation into a buildable spec.",
+      "digest": "sha256:4d721b921b29eac6f0b2dc465706a6331ac0857469944428208da98ba610f13e",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock to spec",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-to-spec/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-to-spec",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.63ed1c34862a11ae",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Split a spec into verifiable tickets with blocking edges.",
+      "digest": "sha256:17c8005f539370c0cc37f0bbb5a13745a4da49ba28503bb8cf8af66577fef4c6",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock to tickets",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-to-tickets/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-to-tickets",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.62b82da43da6809c",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Evaluate incoming issues and prepare agent-ready briefs.",
+      "digest": "sha256:e3b394d82f22c4b634b0e838ea130341b19a15b355859ffe8e714cb98cd13ba1",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock triage",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-triage/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-triage",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.f6fe5b7451a5e41e",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Restate the previous explanation in plain language.",
+      "digest": "sha256:6d8e505cf2a8eb96cf7cf274ac36742bd61f3c9bd26455f4638f9fb223900afd",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock wait what",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-wait-what/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-wait-what",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.de9eb0b1ed09b6d5",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Map a large effort as linked decision tickets.",
+      "digest": "sha256:225e2e39b40d6da7db771948181e94f1ac1ece32ccc74172dd8c31d643a414ab",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock wayfinder",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-wayfinder/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-wayfinder",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.358e19e80a906201",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Script human-only setup steps.",
+      "digest": "sha256:1b9bfdf1f14d1eec742d2d556e8113029a582f93ce84c121931d067b227fdac7",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock wizard",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-wizard/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-wizard",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.45486585971fcf67",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Develop article beats from an agreed writing shape.",
+      "digest": "sha256:df7d0f88fbab3b856b6a010b169b9e753b1f523036147d7fb71cb97f6486d9ac",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock writing beats",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-writing-beats/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-writing-beats",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.5a7f27ac9c3a5472",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Write skills and agent instructions.",
+      "digest": "sha256:098c44e73e8571e8ca8b9fe2360df371c8104b671b4df1991f7b6b6a62ad2227",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock writing for agents",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-writing-for-agents/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-writing-for-agents",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.5226c9656aeb9fd6",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Capture exploratory writing fragments from an interview.",
+      "digest": "sha256:2d30156218d973b7c2a0a4ef784e747650bdce1d2af630c619f28a90df9f4d20",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock writing fragments",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-writing-fragments/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-writing-fragments",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.db19a06fd3ff895a",
+      "visibility": {
+        "scope": "public",
+        "subject": ""
+      }
+    },
+    {
+      "aliases": [],
+      "categories": [],
+      "compatibility_requirements": [
+        "Required host capabilities have not been evaluated."
+      ],
+      "dependencies": [],
+      "description": "Find a structure for an article's existing fragments.",
+      "digest": "sha256:2420c0abc25f5b22c5545f336292647ef7c019dbb21b72987b92a13a7de49d44",
+      "harness_compatibility": [
+        "agent-skills",
+        "claude-code",
+        "codex",
+        "cursor"
+      ],
+      "inputs": [],
+      "lifecycle": "draft",
+      "metadata_status": "UNREVIEWED",
+      "model_policy_requirements": [],
+      "name": "Mattpocock writing shape",
+      "network_requirements": {
+        "hosts": [],
+        "mode": "deny"
+      },
+      "outputs": [],
+      "permitted_effects": [],
+      "prohibited_effects": [
+        "workspace.read",
+        "repository.read",
+        "files.read",
+        "evidence.read",
+        "web.read",
+        "connector.read",
+        "candidate.create",
+        "candidate.modify",
+        "tests.execute",
+        "build.execute",
+        "analysis.persist",
+        "network.request",
+        "message.send",
+        "email.send",
+        "external_api.write",
+        "branch.push",
+        "pull_request.create",
+        "pull_request.modify",
+        "review.submit",
+        "merge.execute",
+        "deployment.create",
+        "deployment.promote",
+        "infrastructure.modify",
+        "secrets.use",
+        "owner_computer.use",
+        "credential.rotate",
+        "billing.modify",
+        "identity.modify"
+      ],
+      "provenance": {
+        "kind": "vendored",
+        "license": "MIT",
+        "license_references": [
+          "skills/mattpocock-writing-shape/LICENSE"
+        ],
+        "reference": "vendor/mattpocock.json",
+        "revision": "4ae2317ddb22b046e26455e4f9c9b3aaaf62212d",
+        "source": "https://github.com/mattpocock/skills"
+      },
+      "publisher": {
+        "display_name": "Skillz collection; see upstream attribution",
+        "publisher_id": "skillz-collection"
+      },
+      "qualification": {
+        "evidence": [],
+        "status": "NOT_EVALUATED"
+      },
+      "required_capabilities": [],
+      "resource_ceilings": {
+        "operations": 0,
+        "seconds": 0
+      },
+      "runtime_requirements": [],
+      "schema": "myskills.manifest.v1",
+      "scope_constraints": {
+        "file_paths": [],
+        "repository_paths": []
+      },
+      "secret_requirements": [],
+      "skill_id": "mattpocock-writing-shape",
+      "tags": [],
+      "trust": "UNTRUSTED",
+      "verification_requirements": [
+        "manifest-review",
+        "dependency-review",
+        "runtime-qualification",
+        "independent-review"
+      ],
+      "version": "0.0.0+legacy.5bd28f34491955fe",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -6852,8 +11321,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Use when code comments need structural review, root-cause fixes, and constraint encoding.",
-      "digest": "sha256:fe97246151123a9b101b1fde8502c75ccf5260ccd7f712dfa7ee08b6e4497976",
+      "description": "Use for code-comment review and constraint encoding.",
+      "digest": "sha256:295c2bfd350a0a579301e93172f55e725e11168e70eb3faa918929498163ab8d",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -6943,7 +11412,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.e7fedba0536476cb",
+      "version": "0.0.0+legacy.454aab148cc89146",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -7922,8 +12391,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Apply when a repeated instruction should become enforceable in tests, lint, metadata, or tools.",
-      "digest": "sha256:b01b1f0de855be4f94382cad3a6ae4bfc25026e7297719e0dab548d6a193a1e9",
+      "description": "Apply when recurring rules need enforceable checks.",
+      "digest": "sha256:347ab05989aeca5bc616b40b2cf308b74ed642822a472984c5c092838c73de2f",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8013,7 +12482,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.d337bfc635e30b56",
+      "version": "0.0.0+legacy.a8f40c279102a7d0",
       "visibility": {
         "scope": "public",
         "subject": ""
@@ -8029,8 +12498,8 @@
         "Required host capabilities have not been evaluated."
       ],
       "dependencies": [],
-      "description": "Apply when a novel design needs concrete candidates compared before selection.",
-      "digest": "sha256:1f36823e172c0153cd6197241a3a0df5169a98a3a7baf4c9e682feebb9b3ef35",
+      "description": "Apply when novel designs need alternatives compared.",
+      "digest": "sha256:7ce9f48443ebcfd254e66ebc62fb528ae6b39fcab49285480907e50fe9abc53a",
       "harness_compatibility": [
         "agent-skills",
         "claude-code",
@@ -8120,7 +12589,7 @@
         "runtime-qualification",
         "independent-review"
       ],
-      "version": "0.0.0+legacy.f152851f0aa010e3",
+      "version": "0.0.0+legacy.d49ba7f3cf9ebdb2",
       "visibility": {
         "scope": "public",
         "subject": ""
